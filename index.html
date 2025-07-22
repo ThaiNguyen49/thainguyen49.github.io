@@ -6,97 +6,76 @@ License URL: https://creativecommons.org/licenses/by/4.0/
 -->
 
 <!DOCTYPE html>
-<html lang="en">
-<style>
-  .resume-section h1 {
-      font-size: 52px;
-      font-weight: 900;
-      color: #ffffff;
-      text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.8);
-  }
-
-  .resume-section .subheading {
-      font-size: 20px;
-      font-weight: 600;
-      color: #f2f2f2;
-      text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.6);
-  }
-
-  .resume-section {
-      background: rgba(0, 0, 0, 0.35); /* giúp chữ sáng hơn nếu ảnh nền sáng */
-      padding: 40px 20px;
-  }
-</style>
+<html lang="vi">
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="">
-    <meta name="author" content="">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Lâm Trần Thái Nguyên – Developer</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #f0f0f0;
+    }
 
-    <link rel="shortcut icon" href="img/favico12.svg">
-    <title>Profile Bootstrap Theme</title>
+    .hero {
+      background-image: url('https://i.imgur.com/V6Z8kBg.jpg'); /* ảnh nền tùy chỉnh */
+      background-size: cover;
+      background-position: center;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      position: relative;
+    }
 
-    <!-- Global stylesheets -->
-    <link href="css/bootstrap/bootstrap.min.css" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=Saira+Extra+Condensed:100,200,300,400,500,600,700,800,900" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i,800,800i" rel="stylesheet">
-    <link href="font-awesome/css/font-awesome.min.css" rel="stylesheet">
-    <link href="css/devicons/css/devicons.min.css" rel="stylesheet">
-    <link href="css/simple-line-icons/css/simple-line-icons.css" rel="stylesheet">
-    <link href="css/style.css" rel="stylesheet">
+    .hero::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-color: rgba(0, 0, 0, 0.5); /* lớp phủ tối */
+      z-index: 1;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      color: white;
+      text-align: center;
+      padding: 20px;
+      max-width: 700px;
+      background-color: rgba(0, 0, 0, 0.4); /* lớp nền chữ */
+      border-radius: 12px;
+    }
+
+    .hero-content h1 {
+      font-size: 2.5em;
+      margin-bottom: 10px;
+      color: #00ccff;
+    }
+
+    .hero-content p {
+      font-size: 1.2em;
+      line-height: 1.6;
+    }
+  </style>
 </head>
+<body>
 
-<body id="page-top">
-    
-    <nav class="navbar navbar-expand-lg navbar-dark bg-primary fixed-top" id="sideNav">
-      <a class="navbar-brand js-scroll-trigger" href="#page-top">
-        <span class="d-block d-lg-none  mx-0 px-0"><img src="img/logo-white.png" alt="" class="img-fluid"></span>
-        <span class="d-none d-lg-block">
-          <img class="img-fluid img-profile rounded-circle mx-auto mb-2" src="img/profile1.jpg" alt="">
-        </span>
-      </a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav">
-                <li class="nav-item">
-                    <a class="nav-link js-scroll-trigger" href="#about">Giới Thiệu</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link js-scroll-trigger" href="#experience">Dự Án Nổi Bật</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link js-scroll-trigger" href="#portfolio">Tự Tay Thiết Kế</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link js-scroll-trigger" href="#skills">Kỹ Năng</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link js-scroll-trigger" href="#awards">Giải</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link js-scroll-trigger" href="#contact">Liên Hệ</a>
-                </li>
-            </ul>
-        </div>
-    </nav>
+  <section class="hero">
+    <div class="hero-content">
+      <h1>LÂM TRẦN THÁI NGUYÊN</h1>
+      <p>Trưởng phòng Công nghệ thông tin – FPT Telecom</p>
+      <p>Hơn 10 năm kinh nghiệm triển khai, vận hành và tối ưu hạ tầng CNTT cho doanh nghiệp.</p>
+      <p>Hiện đang công tác tại FPT – chi nhánh Quận 7, TP. Hồ Chí Minh, phụ trách chiến lược công nghệ và an toàn hệ thống thông tin.</p>
+    </div>
+  </section>
 
-    <div class="container-fluid p-0">
-
-    <!--====================================================
-                        ABOUT
-    ======================================================-->
-      <section class="resume-section p-3 p-lg-5 d-flex d-column" id="about">
-          <div class="my-auto" >
-              <img src="img/favico12.svg" class="img-fluid mb-3" alt="">
-              <h1 class="mb-0">Lâm Trần
-                <span class="text-primary">Thái Nguyên</span>
-              </h1>
-              <div class="subheading mb-5">Xin chào, tôi là Lâm Trần Thái Nguyên – Trưởng phòng Công nghệ Thông tin với hơn 10 năm kinh nghiệm trong việc triển khai, vận hành và tối ưu hạ tầng CNTT cho doanh nghiệp.
-                  <a href="#">THEMSBIT</a>
-              </div>
-              Hiện tôi đang công tác tại Công ty FPT – chi nhánh Quận 7, TP. Hồ Chí Minh, với vai trò điều phối chiến lược công nghệ, đảm bảo hệ thống vận hành liên tục và an toàn thông tin.                  <li class="list-inline-item">
+</body>
+</html>               <li class="list-inline-item">
                      <ul class="list-inline social-buttons text-center">
   <!-- Facebook -->
   <li class="list-inline-item">
