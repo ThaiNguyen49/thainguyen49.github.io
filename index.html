@@ -45,6 +45,73 @@ License URL: https://creativecommons.org/licenses/by/4.0/
     <link href="css/simple-line-icons/css/simple-line-icons.css" rel="stylesheet">
     <link href="css/style.css" rel="stylesheet">
 </head>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hoa Rơi</title>
+  <style>
+    /* CSS */
+    body {
+      background-color: #f0f8ff;
+      overflow: hidden;
+      height: 100vh;
+      margin: 0;
+      position: relative;
+    }
+
+    #flower-container {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+    }
+
+    .flower {
+      position: absolute;
+      width: 30px;
+      height: 30px;
+      background-image: url('flower.png'); /* Hình ảnh hoa */
+      background-size: cover;
+      animation: fall 10s infinite linear;
+    }
+
+    @keyframes fall {
+      0% {
+        transform: translateY(-100px) rotate(0deg);
+      }
+      100% {
+        transform: translateY(100vh) rotate(360deg);
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Các phần tử hiện tại của bạn -->
+  <div id="flower-container"></div>
+
+  <a href="#">Link</a>
+  <img src="your-image.jpg" alt="Example Image">
+
+  <script>
+    // JavaScript để tạo hoa rơi
+    function createFlower() {
+      const flower = document.createElement('div');
+      flower.classList.add('flower');
+      flower.style.left = `${Math.random() * window.innerWidth}px`; // Vị trí hoa ngẫu nhiên
+      document.getElementById('flower-container').appendChild(flower);
+
+      setTimeout(() => {
+        flower.remove(); // Xóa hoa sau khi rơi xong
+      }, 10000); // Thời gian hoa rơi
+    }
+
+    setInterval(createFlower, 100); // Tạo hoa mỗi 100ms
+  </script>
+</body>
+</html>
 
 <body id="page-top">
     
