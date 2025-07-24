@@ -8,25 +8,91 @@ License URL: https://creativecommons.org/licenses/by/4.0/
 <!DOCTYPE html>
 <html lang="en">
 <style>
-  .resume-section h1 {
-      font-size: 52px;
-      font-weight: 900;
-      color: #ffffff;
-      text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.8);
-  }
+    .resume-section h1 {
+        font-size: 52px;
+        font-weight: 900;
+        color: #ffffff;
+        text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.8);
+    }
 
-  .resume-section .subheading {
-      font-size: 20px;
-      font-weight: 600;
-      color: #f2f2f2;
-      text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.6);
-  }
+    .resume-section .subheading {
+        font-size: 20px;
+        font-weight: 600;
+        color: #f2f2f2;
+        text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.6);
+    }
 
-  .resume-section {
-      background: rgba(0, 0, 0, 0.35); /* giúp chữ sáng hơn nếu ảnh nền sáng */
-      padding: 40px 20px;
-  }
+    .resume-section {
+        background: rgba(0, 0, 0, 0.35);
+        /* giúp chữ sáng hơn nếu ảnh nền sáng */
+        padding: 40px 20px;
+    }
+
+    /* Timeline CSS */
+    .timeline {
+        position: relative;
+        margin: 0 auto;
+        padding: 0;
+        max-width: 800px;
+    }
+
+    .timeline:before {
+        content: '';
+        position: absolute;
+        left: 32px;
+        top: 0;
+        bottom: 0;
+        width: 3px;
+        background: #dee2e6;
+    }
+
+    .timeline-item {
+        display: flex;
+        align-items: flex-start;
+        margin-bottom: 40px;
+        position: relative;
+    }
+
+    .timeline-icon {
+        flex-shrink: 0;
+        width: 64px;
+        height: 64px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 2rem;
+        margin-right: 24px;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+        z-index: 1;
+    }
+
+    .timeline-content {
+        background: #fff;
+        border-radius: 10px;
+        padding: 22px 28px 18px 28px;
+        box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06);
+        width: 100%;
+    }
+
+    @media (max-width: 600px) {
+        .timeline:before {
+            left: 20px;
+        }
+
+        .timeline-icon {
+            width: 40px;
+            height: 40px;
+            font-size: 1.2rem;
+            margin-right: 12px;
+        }
+
+        .timeline-content {
+            padding: 14px 12px 10px 12px;
+        }
+    }
 </style>
+
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -34,12 +100,14 @@ License URL: https://creativecommons.org/licenses/by/4.0/
     <meta name="author" content="">
 
     <link rel="shortcut icon" href="img/favico12.svg">
-    <title>Lập Trình Viên Nguyên IT</title>
+    <title>Profile Bootstrap Theme</title>
 
     <!-- Global stylesheets -->
     <link href="css/bootstrap/bootstrap.min.css" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=Saira+Extra+Condensed:100,200,300,400,500,600,700,800,900" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i,800,800i" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Saira+Extra+Condensed:100,200,300,400,500,600,700,800,900"
+        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i,800,800i"
+        rel="stylesheet">
     <link href="font-awesome/css/font-awesome.min.css" rel="stylesheet">
     <link href="css/devicons/css/devicons.min.css" rel="stylesheet">
     <link href="css/simple-line-icons/css/simple-line-icons.css" rel="stylesheet">
@@ -47,15 +115,16 @@ License URL: https://creativecommons.org/licenses/by/4.0/
 </head>
 
 <body id="page-top">
-    
+
     <nav class="navbar navbar-expand-lg navbar-dark bg-primary fixed-top" id="sideNav">
-      <a class="navbar-brand js-scroll-trigger" href="#page-top">
-        <span class="d-block d-lg-none  mx-0 px-0"><img src="img/logo-white.png" alt="" class="img-fluid"></span>
-        <span class="d-none d-lg-block">
-          <img class="img-fluid img-profile rounded-circle mx-auto mb-2" src="img/profile1.jpg" alt="">
-        </span>
-      </a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <a class="navbar-brand js-scroll-trigger" href="#page-top">
+            <span class="d-block d-lg-none  mx-0 px-0"><img src="img/logo-white.png" alt="" class="img-fluid"></span>
+            <span class="d-none d-lg-block">
+                <img class="img-fluid img-profile rounded-circle mx-auto mb-2" src="img/profile1.jpg" alt="">
+            </span>
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
@@ -67,13 +136,16 @@ License URL: https://creativecommons.org/licenses/by/4.0/
                     <a class="nav-link js-scroll-trigger" href="#experience">Dự Án Nổi Bật</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link js-scroll-trigger" href="#portfolio">Kỹ Năng Chuyên Môn</a>
+                    <a class="nav-link js-scroll-trigger" href="#portfolio">Tự Tay Thiết Kế</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link js-scroll-trigger" href="#skills">Giải</a>
+                    <a class="nav-link js-scroll-trigger" href="#skills">Kỹ Năng</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link js-scroll-trigger" href="#awards">Phản Hồi Khách Hàng</a>
+                    <a class="nav-link js-scroll-trigger" href="#awards">Giải</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link js-scroll-trigger" href="#testimonial">Khách Hàng Phản Hồi</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link js-scroll-trigger" href="#contact">Liên Hệ</a>
@@ -84,90 +156,130 @@ License URL: https://creativecommons.org/licenses/by/4.0/
 
     <div class="container-fluid p-0">
 
-    <!--====================================================
+        <!--====================================================
                         ABOUT
     ======================================================-->
-      <section class="resume-section p-3 p-lg-5 d-flex d-column" id="about">
-          <div class="my-auto" >
-              <img src="img/favico12.svg" class="img-fluid mb-3" alt="">
-              <h1 class="mb-0">Lâm Trần
-                <span class="text-primary">Thái Nguyên</span>
-              </h1>
-              <div class="subheading mb-5">Xin chào, tôi là Lâm Trần Thái Nguyên – Trưởng phòng Công nghệ Thông tin với hơn 10 năm kinh nghiệm trong việc triển khai, vận hành và tối ưu hạ tầng CNTT cho doanh nghiệp.
-                  <a href="#">THEMSBIT</a>
-              </div>
-              Hiện tôi đang công tác tại Công ty FPT – chi nhánh Quận 7, TP. Hồ Chí Minh, với vai trò điều phối chiến lược công nghệ, đảm bảo hệ thống vận hành liên tục và an toàn thông tin.                  <li class="list-inline-item">
-   <a href="https://www.facebook.com/lamtran.thainguyen.49" target="_blank">
-    <span class="fa-stack fa-lg">
-        <i class="fa fa-circle fa-stack-2x"></i>
-        <i class="fa fa-facebook fa-stack-1x fa-inverse"></i>
-    </span>
-</a>
+        <section class="resume-section p-3 p-lg-5 d-flex align-items-center" id="about" style="min-height: 100vh;">
+            <div class="container">
+                <div class="row align-items-center">
+                    <!-- Avatar -->
+                    <div class="col-md-4 text-center mb-4 mb-md-0">
+                        <img src="img/profile1.jpg" class="img-fluid rounded-circle shadow" alt="Lâm Trần Thái Nguyên"
+                            style="width: 200px; border: 6px solid #fff;">
+                    </div>
+                    <!-- Info -->
+                    <div class="col-md-8">
+                        <h1 class="mb-2 font-weight-bold" style="font-size: 2.8rem; letter-spacing:1px;">
+                            Lâm Trần <span class="text-primary">Thái Nguyên</span>
+                        </h1>
+                        <h4 class="mb-3 text-secondary font-italic" style="font-weight: 600;">
+                            Trưởng phòng Công nghệ Thông tin - FPT Telecom Quận 7, TP.HCM
+                        </h4>
+                        <p class="lead mb-4" style="font-size: 1.15rem;">
+                            Xin chào, tôi là <strong>Lâm Trần Thái Nguyên</strong> với hơn 10 năm kinh nghiệm triển
+                            khai, vận hành và tối ưu hạ tầng CNTT cho doanh nghiệp. Hiện tôi đảm nhiệm vai trò điều phối
+                            chiến lược công nghệ, đảm bảo hệ thống vận hành liên tục và an toàn thông tin tại FPT
+                            Telecom Quận 7.
+                        </p>
+                        <ul class="list-inline mb-3">
+                            <li class="list-inline-item">
+                                <a href="#" title="Facebook">
+                                    <span class="fa-stack fa-lg">
+                                        <i class="fa fa-circle fa-stack-2x text-primary"></i>
+                                        <i class="fa fa-facebook fa-stack-1x fa-inverse"></i>
+                                    </span>
+                                </a>
+                            </li>
+                            <li class="list-inline-item">
+                                <a href="#" title="Twitter">
+                                    <span class="fa-stack fa-lg">
+                                        <i class="fa fa-circle fa-stack-2x text-info"></i>
+                                        <i class="fa fa-twitter fa-stack-1x fa-inverse"></i>
+                                    </span>
+                                </a>
+                            </li>
+                            <li class="list-inline-item">
+                                <a href="#" title="LinkedIn">
+                                    <span class="fa-stack fa-lg">
+                                        <i class="fa fa-circle fa-stack-2x" style="color:#0077b5"></i>
+                                        <i class="fa fa-linkedin fa-stack-1x fa-inverse"></i>
+                                    </span>
+                                </a>
+                            </li>
+                            <li class="list-inline-item">
+                                <a href="#" title="Github">
+                                    <span class="fa-stack fa-lg">
+                                        <i class="fa fa-circle fa-stack-2x text-dark"></i>
+                                        <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                                    </span>
+                                </a>
+                            </li>
+                        </ul>
+                        <div>
+                            <a href="#contact" class="btn btn-primary btn-lg px-4">Liên hệ ngay</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
 
-<a href="https://www.facebook.com/61577954339306" target="_blank">
-    <span class="fa-stack fa-lg">
-        <i class="fa fa-circle fa-stack-2x"></i>
-        <i class="fa fa-facebook fa-stack-1x fa-inverse"></i>
-    </span>
-</a>
-
-<li class="list-inline-item">
-    <a href="https://zalo.me/0364463206" target="_blank">
-        <span class="fa-stack fa-lg">
-            <i class="fa fa-circle fa-stack-2x"></i>
-            <!-- Logo Zalo -->
-            <img src="path/to/zalo-logo.png" alt="Zalo" style="width: 24px; height: 24px;"/>
-        </span>
-    </a>
-<li class="list-inline-item">
-    <a href="mailto:info@thainguyen49.com" target="_blank">
-        <span class="fa-stack fa-lg">
-            <i class="fa fa-circle fa-stack-2x"></i>
-            <!-- Gmail icon -->
-            <i class="fa fa-envelope fa-stack-1x fa-inverse"></i> <!-- Gmail icon -->
-        </span>
-    </a>
-</li>
-
-      </section>
-
-
-    <!--====================================================
+        <!--====================================================
                         Dự Án Nổi Bật
     ======================================================-->
-        <section id="about-experience" class="section">
+        <section id="experience" class="py-5"
+            style="background: linear-gradient(120deg, #f8fafc 0%, #e9ecef 100%); scroll-margin-top:80px;">
             <div class="container">
-                <h2 class="section-title">GIỚI THIỆU</h2>
-                <div class="grid">
-
+                <h2 class="text-center text-uppercase font-weight-bold mb-5">Kinh Nghiệm Làm Việc</h2>
+                <div class="timeline">
                     <!-- IT Manager -->
-                    <div class="card blue">
-                        <h3>💼 IT Manager – FPT Telecom (TP.HCM, Quận 7)</h3>
-                        <p>Quản lý và điều hành toàn bộ hệ thống hạ tầng CNTT chi nhánh khu vực TP.HCM. Triển khai chuyển đổi số, nâng cấp ERP và mạng nội bộ. Giám sát an ninh mạng, vận hành 24/7, đánh giá định kỳ.</p>
-                        <span class="date">March 2019 - Present</span>
+                    <div class="timeline-item">
+                        <div class="timeline-icon bg-primary text-white">
+                            <i class="fa fa-briefcase"></i>
+                        </div>
+                        <div class="timeline-content shadow-sm">
+                            <h4 class="mb-1 font-weight-bold">IT Manager – FPT Telecom (TP.HCM, Quận 7)</h4>
+                            <span class="badge badge-primary mb-2">03/2019 - Hiện tại</span>
+                            <p class="mb-1">Quản lý và điều hành toàn bộ hệ thống hạ tầng CNTT chi nhánh khu vực TP.HCM.
+                                Triển khai chuyển đổi số, nâng cấp ERP và mạng nội bộ. Giám sát an ninh mạng, vận hành
+                                24/7, đánh giá định kỳ.</p>
+                        </div>
                     </div>
-
                     <!-- System Admin -->
-                    <div class="card orange">
-                        <h3>💻 System Administrator – FPT IS</h3>
-                        <p>Quản trị hệ thống server, database, hạ tầng mạng LAN/WAN, triển khai SAP, CRM nội bộ. Tối ưu chi phí vận hành server hybrid cloud.</p>
-                        <span class="date">December 2018 - March 2019</span>
+                    <div class="timeline-item">
+                        <div class="timeline-icon bg-warning text-white">
+                            <i class="fa fa-server"></i>
+                        </div>
+                        <div class="timeline-content shadow-sm">
+                            <h4 class="mb-1 font-weight-bold">System Administrator – FPT IS</h4>
+                            <span class="badge badge-warning mb-2 text-white">12/2018 - 03/2019</span>
+                            <p class="mb-1">Quản trị hệ thống server, database, hạ tầng mạng LAN/WAN, triển khai SAP,
+                                CRM nội bộ. Tối ưu chi phí vận hành server hybrid cloud.</p>
+                        </div>
                     </div>
-
                     <!-- IT Support -->
-                    <div class="card green">
-                        <h3>🖥️ IT Support Engineer – Dự án Smart City – FPT Software</h3>
-                        <p>Hỗ trợ onsite Smart City TP.HCM và Bình Dương. Thiết lập IOT, camera, giám sát trung tâm dữ liệu. Báo cáo SLA cho khách hàng Nhà nước.</p>
-                        <span class="date">July 2017 - December 2018</span>
+                    <div class="timeline-item">
+                        <div class="timeline-icon bg-success text-white">
+                            <i class="fa fa-desktop"></i>
+                        </div>
+                        <div class="timeline-content shadow-sm">
+                            <h4 class="mb-1 font-weight-bold">IT Support Engineer – Dự án Smart City – FPT Software</h4>
+                            <span class="badge badge-success mb-2">07/2017 - 12/2018</span>
+                            <p class="mb-1">Hỗ trợ onsite Smart City TP.HCM và Bình Dương. Thiết lập IOT, camera, giám
+                                sát trung tâm dữ liệu. Báo cáo SLA cho khách hàng Nhà nước.</p>
+                        </div>
                     </div>
-
                     <!-- Internship -->
-                    <div class="card purple">
-                        <h3>📘 IT Internship – FPT Polytechnic (khi còn là sinh viên)</h3>
-                        <p>Tham gia phòng lab thực hành AD – DHCP – DNS – Cisco. Hỗ trợ sinh viên mới, triển khai domain và hệ thống mạng nội bộ.</p>
-                        <span class="date">September 2018 - June 2019</span>
+                    <div class="timeline-item">
+                        <div class="timeline-icon bg-info text-white">
+                            <i class="fa fa-graduation-cap"></i>
+                        </div>
+                        <div class="timeline-content shadow-sm">
+                            <h4 class="mb-1 font-weight-bold">IT Internship – FPT Polytechnic</h4>
+                            <span class="badge badge-info mb-2 text-white">09/2018 - 06/2019</span>
+                            <p class="mb-1">Tham gia phòng lab thực hành AD – DHCP – DNS – Cisco. Hỗ trợ sinh viên mới,
+                                triển khai domain và hệ thống mạng nội bộ.</p>
+                        </div>
                     </div>
-
                 </div>
             </div>
         </section>
@@ -176,156 +288,149 @@ License URL: https://creativecommons.org/licenses/by/4.0/
         <!--====================================================
                             PORTFOLIO
         ======================================================-->
-      <section class="resume-section p-3 p-lg-5 d-flex flex-column" id="portfolio"> 
-          <div class="row my-auto">
-              <div class="col-12">
-                <h2 class="  text-center">Portfolio
-                    Những dự án & hệ thống CNTT tiêu biểu tôi đã triển khai và tham gia quản lý tại FPT & các đối tác chiến lược.</h2>
-                <div class="mb-5 heading-border"></div>
-              </div>
-              <div class="col-md-12">
-                <div class="port-head-cont">
-                  <button class="btn btn-general btn-green filter-b" data-filter="all">Tất cả</button>
-                  <button class="btn btn-general btn-green filter-b" data-filter="consulting">Hạ tầng hệ thống</button>
-                  <button class="btn btn-general btn-green filter-b" data-filter="finance">Chuyển đổi số</button>
-                  <button class="btn btn-general btn-green filter-b" data-filter="marketing">An ninh mạng</button>
+        <section class="resume-section p-3 p-lg-5 d-flex flex-column" id="portfolio"
+            style="background: url('img/bg-portfolio.jpg') center center/cover no-repeat; position: relative;">
+            <div style="position:absolute;top:0;left:0;width:100%;height:100%;background:rgba(0,32,64,0.45);z-index:0;">
+            </div>
+            <div class="container" style="position:relative;z-index:1;">
+                <h2 class="text-center text-uppercase font-weight-bold mb-4 text-white">Dự Án CNTT Tiêu Biểu</h2>
+                <p class="text-center mb-5 text-light" style="font-size:1.1rem;">
+                    Những hệ thống và dự án nổi bật tôi đã triển khai, quản lý tại FPT và các đối tác chiến lược, góp
+                    phần nâng cao hiệu quả vận hành và chuyển đổi số doanh nghiệp.
+                </p>
+                <div class="row">
+                    <!-- Dự án 1 -->
+                    <div class="col-md-4 mb-4">
+                        <div class="card shadow h-100 border-0">
+                            <img src="img/portfolio/F1.jpg" class="card-img-top" alt="Hệ thống ERP FPT">
+                            <div class="card-body">
+                                <h5 class="card-title font-weight-bold">Triển khai hệ thống ERP toàn diện</h5>
+                                <span class="badge badge-success mb-2">FPT Telecom</span>
+                                <p class="card-text mb-2">Tích hợp quản lý tài chính, nhân sự, kho vận trên nền tảng SAP
+                                    ERP, giúp tối ưu hóa quy trình và minh bạch dữ liệu.</p>
+                                <ul class="list-unstyled mb-2">
+                                    <li><strong>Vai trò:</strong> Quản lý dự án, Kiến trúc hệ thống</li>
+                                    <li><strong>Công nghệ:</strong> SAP, VMware, Oracle DB</li>
+                                </ul>
+                                <div class="text-muted small">Hiệu quả: Giảm 30% thời gian xử lý nghiệp vụ, tăng bảo mật
+                                    dữ liệu.</div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Dự án 2 -->
+                    <div class="col-md-4 mb-4">
+                        <div class="card shadow h-100 border-0">
+                            <img src="img/portfolio/F2.jpg" class="card-img-top" alt="Chuyển đổi số Smart City">
+                            <div class="card-body">
+                                <h5 class="card-title font-weight-bold">Chuyển đổi số Smart City</h5>
+                                <span class="badge badge-primary mb-2">FPT Software & Đối tác</span>
+                                <p class="card-text mb-2">Triển khai hệ thống IoT, giám sát camera, trung tâm dữ liệu
+                                    cho dự án đô thị thông minh tại TP.HCM & Bình Dương.</p>
+                                <ul class="list-unstyled mb-2">
+                                    <li><strong>Vai trò:</strong> IT Support Lead</li>
+                                    <li><strong>Công nghệ:</strong> IoT, Cloud, Data Center</li>
+                                </ul>
+                                <div class="text-muted small">Hiệu quả: Nâng cao an ninh, quản lý đô thị thông minh, báo
+                                    cáo SLA chuẩn quốc tế.</div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Dự án 3 -->
+                    <div class="col-md-4 mb-4">
+                        <div class="card shadow h-100 border-0">
+                            <img src="img/portfolio/F3.jpg" class="card-img-top" alt="An ninh mạng doanh nghiệp">
+                            <div class="card-body">
+                                <h5 class="card-title font-weight-bold">Giám sát & bảo mật hệ thống mạng</h5>
+                                <span class="badge badge-danger mb-2">FPT IS</span>
+                                <p class="card-text mb-2">Thiết kế, triển khai hệ thống giám sát an ninh mạng, phòng
+                                    chống tấn công DDoS, bảo vệ dữ liệu doanh nghiệp.</p>
+                                <ul class="list-unstyled mb-2">
+                                    <li><strong>Vai trò:</strong> System Admin</li>
+                                    <li><strong>Công nghệ:</strong> Firewall, SIEM, IDS/IPS</li>
+                                </ul>
+                                <div class="text-muted small">Hiệu quả: Đảm bảo uptime 99.99%, không xảy ra sự cố nghiêm
+                                    trọng.</div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-              </div>
-          </div>
-          <div class="row my-auto">
-              <div class="col-sm-4 portfolio-item filter finance">
-                  <a class="portfolio-link" href="#portfolioModal4" data-toggle="modal">
-                      <div class="caption-port">
-                          <div class="caption-port-content">
-                              <i class="fa fa-search-plus fa-3x"></i>
-                          </div>
-                      </div>
-                      <img class="img-fluid" src="img/portfolio/F1.jpg" alt="">
-                  </a>
-              </div>
-              <div class="col-sm-4 portfolio-item filter marketing">
-                  <a class="portfolio-link" href="#portfolioModal5" data-toggle="modal">
-                      <div class="caption-port">
-                          <div class="caption-port-content">
-                              <i class="fa fa-search-plus fa-3x"></i>
-                          </div>
-                      </div>
-                      <img class="img-fluid" src="img/portfolio/F2.jpg" alt="">
-                  </a>
-              </div>
-              <div class="col-sm-4 portfolio-item filter consulting">
-                  <a class="portfolio-link" href="#portfolioModal6" data-toggle="modal">
-                      <div class="caption-port">
-                          <div class="caption-port-content">
-                              <i class="fa fa-search-plus fa-3x"></i>
-                          </div>
-                      </div>
-                      <img class="img-fluid" src="img/portfolio/F3.jpg" alt="">
-                  </a>
-              </div>              
-              <div class="col-sm-4 portfolio-item filter consulting">
-                  <a class="portfolio-link" href="#portfolioModal7" data-toggle="modal">
-                      <div class="caption-port">
-                          <div class="caption-port-content">
-                              <i class="fa fa-search-plus fa-3x"></i>
-                          </div>
-                      </div>
-                      <img class="img-fluid" src="img/portfolio/F4.jpg" alt="">
-                  </a>
-              </div>
-              <div class="col-sm-4 portfolio-item filter consulting">
-                  <a class="portfolio-link" href="#portfolioModal8" data-toggle="modal">
-                      <div class="caption-port">
-                          <div class="caption-port-content">
-                              <i class="fa fa-search-plus fa-3x"></i>
-                          </div>
-                      </div>
-                      <img class="img-fluid" src="img/portfolio/F5.jpg" alt="">
-                  </a>
-              </div>
-              <div class="col-sm-4 portfolio-item filter finance">
-                  <a class="portfolio-link" href="#portfolioModal9" data-toggle="modal">
-                      <div class="caption-port">
-                          <div class="caption-port-content">
-                              <i class="fa fa-search-plus fa-3x"></i>
-                          </div>
-                      </div>
-                      <img class="img-fluid" src="img/portfolio/F6.jpg" alt="">
-                  </a>
-              </div>              
-              <div class="col-sm-4 portfolio-item filter marketing">
-                  <a class="portfolio-link" href="#portfolioModal1" data-toggle="modal">
-                      <div class="caption-port">
-                          <div class="caption-port-content">
-                              <i class="fa fa-search-plus fa-3x"></i>
-                          </div>
-                      </div>
-                      <img class="img-fluid" src="img/portfolio/F7.jpg" alt="">
-                  </a>
-              </div>
-              <div class="col-sm-4 portfolio-item filter marketing">
-                  <a class="portfolio-link" href="#portfolioModal2" data-toggle="modal">
-                      <div class="caption-port">
-                          <div class="caption-port-content">
-                              <i class="fa fa-search-plus fa-3x"></i>
-                          </div>
-                      </div>
-                      <img class="img-fluid" src="img/portfolio/F1.jpg" alt="">
-                  </a>
-              </div>
-              <div class="col-sm-4 portfolio-item filter finance">
-                  <a class="portfolio-link" href="#portfolioModal3" data-toggle="modal">
-                      <div class="caption-port">
-                          <div class="caption-port-content">
-                              <i class="fa fa-search-plus fa-3x"></i>
-                          </div>
-                      </div>
-                      <img class="img-fluid" src="img/portfolio/F2.jpg" alt="">
-                  </a>
-              </div> 
-          </div>
-      </section>
+                <!-- Thêm các dự án khác nếu cần -->
+            </div>
+        </section>
 
-    <!--====================================================
+        <!--====================================================
                         SKILLS
     ======================================================-->
-        <section id="technical-skills" class="py-5">
-            <div class="container text-center">
-                <h2 class="mb-4 text-uppercase font-weight-bold">KỸ NĂNG CHUYÊN MÔN <br><small>/ Technical Expertise</small></h2>
+        <section id="skills" class="py-5"
+            style="background: linear-gradient(120deg, #e0eafc 0%, #cfdef3 100%); scroll-margin-top:80px;">
+            <div class="container">
+                <h2 class="mb-4 text-uppercase font-weight-bold text-center">KỸ NĂNG CHUYÊN MÔN <br><small
+                        class="text-secondary">/ Technical Expertise</small></h2>
                 <div class="row justify-content-center">
-
+                    <!-- Linux Server -->
                     <div class="col-md-3 mb-4">
-                        <div class="skill-card">
-                            <div class="icon">&#128187;</div>
-                            <h3>85%</h3>
-                            <p>Linux Server</p>
+                        <div class="card border-0 shadow h-100 text-center">
+                            <div class="card-body">
+                                <div class="mb-3" style="font-size:2.5rem;color:#007bff;">
+                                    <i class="devicons devicons-linux"></i>
+                                </div>
+                                <h5 class="font-weight-bold">Linux Server</h5>
+                                <div class="progress mb-2" style="height:8px;">
+                                    <div class="progress-bar bg-primary" role="progressbar" style="width: 85%"></div>
+                                </div>
+                                <span class="badge badge-primary mb-2">85%</span>
+                                <p class="small text-muted mb-0">Quản trị hệ thống, bảo mật, tối ưu hiệu suất.</p>
+                            </div>
                         </div>
                     </div>
-
+                    <!-- VMware vSphere/ESXi -->
                     <div class="col-md-3 mb-4">
-                        <div class="skill-card">
-                            <div class="icon">&#128421;</div>
-                            <h3>92%</h3>
-                            <p>VMware vSphere/ESXi</p>
+                        <div class="card border-0 shadow h-100 text-center">
+                            <div class="card-body">
+                                <div class="mb-3" style="font-size:2.5rem;color:#6f42c1;">
+                                    <i class="devicons devicons-visualstudio"></i>
+                                </div>
+                                <h5 class="font-weight-bold">VMware vSphere/ESXi</h5>
+                                <div class="progress mb-2" style="height:8px;">
+                                    <div class="progress-bar bg-success" role="progressbar" style="width: 92%"></div>
+                                </div>
+                                <span class="badge badge-success mb-2">92%</span>
+                                <p class="small text-muted mb-0">Ảo hóa, quản lý tài nguyên, HA/DRS.</p>
+                            </div>
                         </div>
                     </div>
-
+                    <!-- Forex - Casino -->
                     <div class="col-md-3 mb-4">
-                        <div class="skill-card">
-                            <div class="icon">&#128200;</div>
-                            <h3>65%</h3>
-                            <p>Forex - Casino</p>
+                        <div class="card border-0 shadow h-100 text-center">
+                            <div class="card-body">
+                                <div class="mb-3" style="font-size:2.5rem;color:#fd7e14;">
+                                    <i class="fa fa-line-chart"></i>
+                                </div>
+                                <h5 class="font-weight-bold">Forex - Casino</h5>
+                                <div class="progress mb-2" style="height:8px;">
+                                    <div class="progress-bar bg-warning" role="progressbar" style="width: 65%"></div>
+                                </div>
+                                <span class="badge badge-warning mb-2 text-white">65%</span>
+                                <p class="small text-muted mb-0">Tối ưu hệ thống giao dịch, bảo mật dữ liệu.</p>
+                            </div>
                         </div>
                     </div>
-
+                    <!-- Docker & DevOps -->
                     <div class="col-md-3 mb-4">
-                        <div class="skill-card">
-                            <div class="icon">&#128736;</div>
-                            <h3>95%</h3>
-                            <p>Docker & DevOps</p>
+                        <div class="card border-0 shadow h-100 text-center">
+                            <div class="card-body">
+                                <div class="mb-3" style="font-size:2.5rem;color:#20c997;">
+                                    <i class="devicons devicons-docker"></i>
+                                </div>
+                                <h5 class="font-weight-bold">Docker & DevOps</h5>
+                                <div class="progress mb-2" style="height:8px;">
+                                    <div class="progress-bar bg-info" role="progressbar" style="width: 95%"></div>
+                                </div>
+                                <span class="badge badge-info mb-2 text-white">95%</span>
+                                <p class="small text-muted mb-0">CI/CD, tự động hóa, triển khai microservices.</p>
+                            </div>
                         </div>
                     </div>
-
                 </div>
             </div>
         </section>
@@ -334,131 +439,251 @@ License URL: https://creativecommons.org/licenses/by/4.0/
         <!--====================================================
                                GIẢI
         ======================================================-->
-        <section class="resume-section" id="awards">
+        <section class="resume-section" id="awards"
+            style="background: linear-gradient(120deg, #f8fafc 0%, #e9ecef 100%);">
             <div class="container">
-                <h2 class="mb-5 text-center">AWARDS</h2>
-
-                <ul class="timeline text-center" style="list-style: none; padding-left: 0;">
-
-                    <li>
-                        <div class="timeline-panel mx-auto">
-                            <h6 class="text-primary">Apr 2017 - Mar 2018</h6>
-                            <strong>GOOGLE ANALYTICS CERTIFIED DEVELOPER</strong>
-                            <p>Chứng nhận kỹ năng phân tích dữ liệu web từ Google.</p>
+                <h2 class="mb-5 text-center text-uppercase font-weight-bold">Giải Thưởng & Chứng Nhận</h2>
+                <ul class="timeline" style="list-style: none; padding-left: 0;">
+                    <!-- Award 1 -->
+                    <li class="timeline-item d-flex align-items-start mb-5">
+                        <div class="timeline-icon bg-info text-white mr-4">
+                            <i class="fa fa-trophy"></i>
+                        </div>
+                        <div class="timeline-content shadow-sm">
+                            <h6 class="text-primary mb-1">Apr 2017 - Mar 2018</h6>
+                            <h5 class="font-weight-bold mb-1">GOOGLE ANALYTICS CERTIFIED DEVELOPER</h5>
+                            <p class="mb-0 text-muted">Chứng nhận kỹ năng phân tích dữ liệu web từ Google.</p>
                         </div>
                     </li>
-
-                    <li>
-                        <div class="timeline-panel mx-auto">
-                            <h6 class="text-primary">Apr 2018 - Mar 2019</h6>
-                            <strong>MOBILE WEB SPECIALIST - GOOGLE CERTIFICATION</strong>
-                            <p>Chứng nhận chuyên gia phát triển web di động.</p>
+                    <!-- Award 2 -->
+                    <li class="timeline-item d-flex align-items-start mb-5">
+                        <div class="timeline-icon bg-success text-white mr-4">
+                            <i class="fa fa-certificate"></i>
+                        </div>
+                        <div class="timeline-content shadow-sm">
+                            <h6 class="text-primary mb-1">Apr 2018 - Mar 2019</h6>
+                            <h5 class="font-weight-bold mb-1">MOBILE WEB SPECIALIST - GOOGLE CERTIFICATION</h5>
+                            <p class="mb-0 text-muted">Chứng nhận chuyên gia phát triển web di động.</p>
                         </div>
                     </li>
-
-                    <li>
-                        <div class="timeline-panel mx-auto">
-                            <h6 class="text-primary">Jun 2019 - Present</h6>
-                            <strong>TRƯỞNG PHÒNG CÔNG NGHỆ THÔNG TIN</strong>
-                            <p>FPT Quận 7, TP.HCM – Được vinh danh với thành tích quản lý hệ thống hiệu quả và an toàn.</p>
+                    <!-- Award 3 -->
+                    <li class="timeline-item d-flex align-items-start mb-5">
+                        <div class="timeline-icon bg-warning text-white mr-4">
+                            <i class="fa fa-star"></i>
+                        </div>
+                        <div class="timeline-content shadow-sm">
+                            <h6 class="text-primary mb-1">Jun 2019 - Present</h6>
+                            <h5 class="font-weight-bold mb-1">TRƯỞNG PHÒNG CÔNG NGHỆ THÔNG TIN</h5>
+                            <p class="mb-0 text-muted">FPT Quận 7, TP.HCM – Được vinh danh với thành tích quản lý hệ
+                                thống hiệu quả và an toàn.</p>
                         </div>
                     </li>
-
-                    <li>
-                        <div class="timeline-panel mx-auto">
-                            <h6 class="text-primary">Dec 2021</h6>
-                            <strong>FPT BEST IT MANAGER</strong>
-                            <p>Giải thưởng nội bộ cấp tập đoàn – Góp phần nâng cao hiệu suất hệ thống, đạt chuẩn “IT Excellence”.</p>
+                    <!-- Award 4 -->
+                    <li class="timeline-item d-flex align-items-start mb-5">
+                        <div class="timeline-icon bg-danger text-white mr-4">
+                            <i class="fa fa-trophy"></i>
+                        </div>
+                        <div class="timeline-content shadow-sm">
+                            <h6 class="text-primary mb-1">Dec 2021</h6>
+                            <h5 class="font-weight-bold mb-1">FPT BEST IT MANAGER</h5>
+                            <p class="mb-0 text-muted">Giải thưởng nội bộ cấp tập đoàn – Góp phần nâng cao hiệu suất hệ
+                                thống, đạt chuẩn “IT Excellence”.</p>
                         </div>
                     </li>
-
+                    <!-- Award 5 (chi tiết hơn) -->
+                    <li class="timeline-item d-flex align-items-start">
+                        <div class="timeline-icon bg-primary text-white mr-4">
+                            <i class="fa fa-shield"></i>
+                        </div>
+                        <div class="timeline-content shadow-sm">
+                            <h6 class="text-primary mb-1">Dec 2021</h6>
+                            <h5 class="font-weight-bold mb-1">FPT BEST IT MANAGER</h5>
+                            <p class="mb-0 text-muted">
+                                Giải thưởng nội bộ cấp tập đoàn.<br>
+                                Góp phần nâng cao hiệu suất hệ thống mạng & bảo mật toàn công ty, được đánh giá xuất sắc
+                                trong chương trình “FPT Telecom”.
+                            </p>
+                        </div>
+                    </li>
                 </ul>
             </div>
         </section>
 
-        <!-- Award 3 -->
-        <li>
-            <div class="timeline-image">
-                <h4>Dec 2021</h4>
-            </div>
-            <div class="timeline-panel">
-                <div class="timeline-heading">
-                    <h4>FPT BEST IT MANAGER</h4>
-                    <h4 class="subheading">Giải thưởng nội bộ cấp tập đoàn</h4>
+        <!-- Thêm CSS nếu muốn nổi bật hơn -->
+        <style>
+            #awards .timeline {
+                position: relative;
+                max-width: 800px;
+                margin: 0 auto;
+                padding-left: 0;
+            }
+
+            #awards .timeline:before {
+                content: '';
+                position: absolute;
+                left: 32px;
+                top: 0;
+                bottom: 0;
+                width: 3px;
+                background: #dee2e6;
+            }
+
+            #awards .timeline-item {
+                position: relative;
+            }
+
+            #awards .timeline-icon {
+                flex-shrink: 0;
+                width: 48px;
+                height: 48px;
+                border-radius: 50%;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                font-size: 1.5rem;
+                margin-right: 24px;
+                box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+                z-index: 1;
+            }
+
+            #awards .timeline-content {
+                background: #fff;
+                border-radius: 10px;
+                padding: 18px 24px 14px 24px;
+                box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06);
+                width: 100%;
+            }
+
+            @media (max-width: 600px) {
+                #awards .timeline:before {
+                    left: 20px;
+                }
+
+                #awards .timeline-icon {
+                    width: 32px;
+                    height: 32px;
+                    font-size: 1rem;
+                    margin-right: 12px;
+                }
+
+                #awards .timeline-content {
+                    padding: 12px 10px 8px 10px;
+                }
+            }
+        </style>
+        <canvas id="falling-flowers-canvas"></canvas>
+        <section id="testimonial" class="bg-light py-5" style="scroll-margin-top:80px;">
+            <div class="container">
+                <h2 class="mb-5 text-center font-weight-bold text-uppercase" style="letter-spacing:2px;">Khách Hàng Nói
+                    Gì?</h2>
+                <div class="row justify-content-center">
+                    <div class="col-md-4 mb-4">
+                        <div class="testimonial-box p-4 shadow rounded bg-white h-100">
+                            <div class="mb-3">
+                                <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Phạm Văn Hiếu"
+                                    class="rounded-circle" width="60" height="60">
+                            </div>
+                            <p class="mb-3 text-secondary">"Dịch vụ rất chuyên nghiệp và nhanh chóng. Tôi hoàn toàn hài
+                                lòng!"</p>
+                            <h5 class="font-weight-bold mb-0">Phạm Văn Hiếu</h5>
+                            <small class="text-muted">CEO, Công ty ABC</small>
+                        </div>
+                    </div>
+                    <div class="col-md-4 mb-4">
+                        <div class="testimonial-box p-4 shadow rounded bg-white h-100">
+                            <div class="mb-3">
+                                <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="Trần Thị Thanh"
+                                    class="rounded-circle" width="60" height="60">
+                            </div>
+                            <p class="mb-3 text-secondary">"Đội ngũ kỹ thuật tận tâm và hỗ trợ 24/7. Rất đáng tin cậy."
+                            </p>
+                            <h5 class="font-weight-bold mb-0">Trần Thị Thanh</h5>
+                            <small class="text-muted">Trưởng phòng IT, XYZ Corp</small>
+                        </div>
+                    </div>
+                    <div class="col-md-4 mb-4">
+                        <div class="testimonial-box p-4 shadow rounded bg-white h-100">
+                            <div class="mb-3">
+                                <img src="https://randomuser.me/api/portraits/men/65.jpg" alt="Lê Văn Thành"
+                                    class="rounded-circle" width="60" height="60">
+                            </div>
+                            <p class="mb-3 text-secondary">"Tôi rất ấn tượng với sự chuyên nghiệp trong triển khai hệ
+                                thống."</p>
+                            <h5 class="font-weight-bold mb-0">Lê Văn Thành</h5>
+                            <small class="text-muted">Founder, StartUp 123</small>
+                        </div>
+                    </div>
                 </div>
-                <div class="timeline-body">
-                    <p class="text-muted">
-                        Góp phần nâng cao hiệu suất hệ thống mạng & bảo mật toàn công ty, được đánh giá xuất sắc trong chương trình “FPT Telecom”.
-                    </p>
-                </div>
             </div>
-        </li>
-<section id="testimonial" class="bg-light p-5">
-  <div class="container text-center">
-    <h2 class="mb-4 font-weight-bold">Đánh Giá Khách Hàng</h2>
-    <div class="row">
-      <div class="col-md-4">
-        <div class="testimonial-box p-4 shadow-sm bg-white rounded">
-          <p>"Dịch vụ rất chuyên nghiệp và nhanh chóng. Tôi hoàn toàn hài lòng!"</p>
-          <h5 class="mt-3 font-weight-bold">Nguyễn Thiên Thục</h5>
-          <small>CEO, Công ty ABC</small>
-        </div>
-      </div>
-      <div class="col-md-4">
-        <div class="testimonial-box p-4 shadow-sm bg-white rounded">
-          <p>"Đội ngũ kỹ thuật tận tâm và hỗ trợ 24/7. Rất đáng tin cậy."</p>
-          <h5 class="mt-3 font-weight-bold">Trần Thị Thanh</h5>
-          <small>Trưởng phòng IT, XYZ Corp</small>
-        </div>
-      </div>
-      <div class="col-md-4">
-        <div class="testimonial-box p-4 shadow-sm bg-white rounded">
-          <p>"Tôi rất ấn tượng với sự chuyên nghiệp trong triển khai hệ thống."</p>
-          <h5 class="mt-3 font-weight-bold">Lê Văn Thành</h5>
-          <small>Founder, StartUp 123</small>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
+        </section>
+
 
         <!--====================================================
                               CONTACT
         ======================================================-->
-        <section id="contact" class="contact-section py-5">
+        <section id="contact" class="contact-section py-5"
+            style="background: linear-gradient(120deg, #f8fafc 0%, #e9ecef 100%);">
             <div class="container">
                 <h2 class="text-center text-uppercase font-weight-bold mb-5">Liên hệ với tôi</h2>
-                <div class="row">
+                <div class="row align-items-center">
                     <!-- Form -->
-                    <div class="col-md-6">
-                        <form>
-                            <div class="form-group mb-3">
-                                <input type="text" class="form-control" placeholder="Họ và tên">
+                    <div class="col-md-6 mb-4 mb-md-0">
+                        <div class="card shadow border-0">
+                            <div class="card-body">
+                                <form>
+                                    <div class="form-group mb-3">
+                                        <label for="name"><i class="fa fa-user mr-2 text-primary"></i>Họ và tên</label>
+                                        <input type="text" class="form-control" id="name" placeholder="Nhập họ và tên">
+                                    </div>
+                                    <div class="form-group mb-3">
+                                        <label for="email"><i class="fa fa-envelope mr-2 text-primary"></i>Email</label>
+                                        <input type="email" class="form-control" id="email" placeholder="Nhập email">
+                                    </div>
+                                    <div class="form-group mb-3">
+                                        <label for="subject"><i class="fa fa-tag mr-2 text-primary"></i>Tiêu đề</label>
+                                        <input type="text" class="form-control" id="subject" placeholder="Nhập tiêu đề">
+                                    </div>
+                                    <div class="form-group mb-4">
+                                        <label for="message"><i class="fa fa-comment mr-2 text-primary"></i>Nội
+                                            dung</label>
+                                        <textarea class="form-control" id="message" rows="5"
+                                            placeholder="Nhập nội dung tin nhắn"></textarea>
+                                    </div>
+                                    <button type="submit" class="btn btn-primary btn-block font-weight-bold py-2">
+                                        <i class="fa fa-paper-plane mr-2"></i>Gửi liên hệ
+                                    </button>
+                                </form>
                             </div>
-                            <div class="form-group mb-3">
-                                <input type="email" class="form-control" placeholder="Email">
-                            </div>
-                            <div class="form-group mb-3">
-                                <input type="text" class="form-control" placeholder="Tiêu đề">
-                            </div>
-                            <div class="form-group mb-4">
-                                <textarea class="form-control" rows="5" placeholder="Nội dung tin nhắn"></textarea>
-                            </div>
-                            <button type="submit" class="btn btn-primary px-5">Gửi</button>
-                        </form>
+                        </div>
                     </div>
-
                     <!-- Info -->
                     <div class="col-md-6">
-                        <div class="contact-info">
-                            <p><strong>Địa chỉ:</strong> FPT Quận 7, TP.HCM</p>
-                            <p><strong>Điện thoại:</strong> 0364 463 206</p>
-                            <p><strong>Email:</strong> info@thainguyen49.com</p>
-                            <p><strong>Website:</strong> nguyenthai49.com</p>
-                            <div class="social-icons mt-3">
-                                <a href="#"><i class="fab fa-book-f"></i></a>
-                                <a href="#"><i class="fab fa-linkedin-in"></i></a>
-                                <a href="#"><i class="fab fa-twitter"></i></a>
+                        <div class="card shadow border-0 h-100">
+                            <div class="card-body d-flex flex-column justify-content-center">
+                                <h4 class="font-weight-bold mb-3"><i
+                                        class="fa fa-address-card text-primary mr-2"></i>Thông tin liên hệ</h4>
+                                <p class="mb-2"><i class="fa fa-map-marker text-danger mr-2"></i><strong>Địa
+                                        chỉ:</strong> FPT Quận 7, TP.HCM</p>
+                                <p class="mb-2"><i class="fa fa-phone text-success mr-2"></i><strong>Điện
+                                        thoại:</strong> 0364 463 206</p>
+                                <p class="mb-2"><i class="fa fa-envelope text-warning mr-2"></i><strong>Email:</strong>
+                                    info@nguyenthai49.com</p>
+                                <p class="mb-2"><i class="fa fa-globe text-info mr-2"></i><strong>Website:</strong>
+                                    nguyenthai49.com</p>
+                                <div class="mt-3">
+                                    <a href="#" class="btn btn-outline-primary btn-sm rounded-circle mr-2"
+                                        title="Facebook"><i class="fa fa-facebook"></i></a>
+                                    <a href="#" class="btn btn-outline-info btn-sm rounded-circle mr-2"
+                                        title="LinkedIn"><i class="fa fa-linkedin"></i></a>
+                                    <a href="#" class="btn btn-outline-secondary btn-sm rounded-circle"
+                                        title="Twitter"><i class="fa fa-twitter"></i></a>
+                                </div>
+                                <div class="mt-4">
+                                    <iframe
+                                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3919.9582278145913!2d106.72788031428789!3d10.740526592347447!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31753ae1d1736799%3A0x1f8a5a6f540dce36!2sFPT%20Telecom%20-%20Chi%20nh%C3%A1nh%20Qu%E1%BA%ADn%207!5e0!3m2!1svi!2s!4v1721540000000"
+                                        width="100%" height="180" style="border:0; border-radius:8px;"
+                                        allowfullscreen="" loading="lazy"></iframe>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -472,16 +697,86 @@ License URL: https://creativecommons.org/licenses/by/4.0/
                 <h2 style="text-align: center; font-size: 28px; margin-bottom: 20px;">
                     Địa chỉ FPT Telecom Quận 7 – TP.HCM
                 </h2>
-                <div style="width: 100%; height: 450px; border-radius: 10px; overflow: hidden; box-shadow: 0 4px 12px rgba(0,0,0,0.1);">
+                <div
+                    style="width: 100%; height: 450px; border-radius: 10px; overflow: hidden; box-shadow: 0 4px 12px rgba(0,0,0,0.1);">
                     <iframe
-                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3919.9582278145913!2d106.72788031428789!3d10.740526592347447!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31753ae1d1736799%3A0x1f8a5a6f540dce36!2sFPT%20Telecom%20-%20Chi%20nh%C3%A1nh%20Qu%E1%BA%ADn%207!5e0!3m2!1svi!2s!4v1721540000000"
-                            width="100%"
-                            height="100%"
-                            style="border:0;"
-                            allowfullscreen=""
-                            loading="lazy"
-                            referrerpolicy="no-referrer-when-downgrade">
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3919.9582278145913!2d106.72788031428789!3d10.740526592347447!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31753ae1d1736799%3A0x1f8a5a6f540dce36!2sFPT%20Telecom%20-%20Chi%20nh%C3%A1nh%20Qu%E1%BA%ADn%207!5e0!3m2!1svi!2s!4v1721540000000"
+                        width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"
+                        referrerpolicy="no-referrer-when-downgrade">
                     </iframe>
                 </div>
             </div>
         </section>
+
+        <!-- Cuối file, chỉnh lại script hoa rơi cho nhẹ nhàng và không che menu -->
+        <script>
+            // Hoa rơi chuyên nghiệp, nhẹ nhàng
+            const canvas = document.getElementById('falling-flowers-canvas');
+            const ctx = canvas.getContext('2d');
+            let flowers = [];
+            const flowerColors = ['#ffb6c1', '#fff0f5', '#ffe4e1', '#ff69b4', '#ff1493', '#ffc0cb'];
+            function resizeCanvas() {
+                canvas.width = window.innerWidth;
+                canvas.height = window.innerHeight;
+            }
+            window.addEventListener('resize', resizeCanvas);
+            resizeCanvas();
+
+            function randomFlower() {
+                return {
+                    x: Math.random() * canvas.width,
+                    y: Math.random() * -canvas.height,
+                    r: 7 + Math.random() * 7,
+                    speed: 0.7 + Math.random() * 1.2,
+                    drift: (Math.random() - 0.5) * 1.1,
+                    color: flowerColors[Math.floor(Math.random() * flowerColors.length)],
+                    angle: Math.random() * Math.PI * 2,
+                    rotateSpeed: (Math.random() - 0.5) * 0.01,
+                    opacity: 0.45 + Math.random() * 0.25
+                };
+            }
+
+            function drawFlower(f) {
+                ctx.save();
+                ctx.translate(f.x, f.y);
+                ctx.rotate(f.angle);
+                ctx.beginPath();
+                for (let i = 0; i < 5; i++) {
+                    ctx.lineTo(0, -f.r);
+                    ctx.rotate((Math.PI * 2) / 5);
+                }
+                ctx.closePath();
+                ctx.globalAlpha = f.opacity;
+                ctx.fillStyle = f.color;
+                ctx.shadowColor = '#fff';
+                ctx.shadowBlur = 4;
+                ctx.fill();
+                ctx.globalAlpha = 1;
+                ctx.restore();
+            }
+
+            function animate() {
+                ctx.clearRect(0, 0, canvas.width, canvas.height);
+                if (flowers.length < 25) {
+                    flowers.push(randomFlower());
+                }
+                for (let f of flowers) {
+                    f.y += f.speed;
+                    f.x += f.drift;
+                    f.angle += f.rotateSpeed;
+                    drawFlower(f);
+                }
+                flowers = flowers.filter(f => f.y < canvas.height + 30);
+                requestAnimationFrame(animate);
+            }
+            animate();
+
+            // Canvas luôn nằm dưới menu/header
+            canvas.style.position = 'fixed';
+            canvas.style.top = 0;
+            canvas.style.left = 0;
+            canvas.style.width = '100vw';
+            canvas.style.height = '100vh';
+            canvas.style.pointerEvents = 'none';
+            canvas.style.zIndex = 1;
+        </script>
