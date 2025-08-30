@@ -3,17 +3,22 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Ký ức & Câu chuyện – Mục lục nhảy tới chủ đề</title>
+  <title> Bao Bọc Lin Fu Đẹp Trai</title>
   <style>
-    :root {
-      --bg: #fff;
-      --text: #111;
-      --muted: #6b7280;
-      --brand: #e11d48; /* đỏ đậm cho tiêu đề */
-      --card: #f8fafc;
-    }
-    html { scroll-behavior: smooth; }
-    body { margin:0; font-family: system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji"; background:var(--bg); color:var(--text); }
+  :root {
+    --bg: #fff;
+    --text: #111;
+    --muted: #6b7280;
+    --brand: #e11d48;
+    --card: #f8fafc;
+  }
+  html { scroll-behavior: smooth; }
+  body {
+    margin:0;
+    font-family: system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji";
+    background: linear-gradient(135deg, #f8fafc 0%, #e0e7ff 100%);
+    color:var(--text);
+  }
 
     /* Layout */
     .container { max-width: 1200px; margin: 0 auto; padding: 24px; display:grid; gap:24px; grid-template-columns: 280px 1fr; }
@@ -22,21 +27,45 @@
     /* TOC */
     .toc {
   position: fixed;
+  top: 24px;
   right: 24px;
-  bottom: 24px;
-  top: auto;
   left: auto;
-  z-index: 999;
-  max-width: 180px;
-  padding: 8px;
-  font-size: 14px;
-  box-shadow: 0 4px 16px rgba(0,0,0,0.08);
+  bottom: auto;
+  z-index: 9999; /* Đảm bảo nổi trên mọi nội dung */
+  max-width: 220px;
+  padding: 16px;
+  font-size: 15px;
+  background: #f8fafc;
+  border-radius: 16px;
+  box-shadow: 0 4px 24px rgba(0,0,0,0.12);
+  border: 1px solid #e5e7eb;
 }
-    .toc h2 { margin: 0 0 4px 0; font-size: 15px; }
-    .toc p { margin: 0 0 4px 0; color: var(--muted); font-size: 12px; }
-    .toc a { display:block; padding:6px 8px; margin: 2px 0; text-decoration: none; color: #1f2937; border-radius: 10px; border: 1px dashed transparent; font-size: 13px; }
-    .toc a:hover { background: #f1f5f9; }
-    .toc a.active { border-color:#94a3b8; background: #eef2ff; }
+    .toc h2 {
+  font-size: 17px;
+  font-weight: bold;
+  margin-bottom: 8px;
+  color: #e11d48;
+}
+    .toc p {
+  font-size: 13px;
+  margin-bottom: 8px;
+  color: #6b7280;
+}
+    .toc a {
+  display: block;
+  padding: 8px 12px;
+  margin: 4px 0;
+  text-decoration: none;
+  color: #1f2937;
+  border-radius: 8px;
+  border: 1px dashed transparent;
+  font-size: 15px;
+  transition: background 0.2s, border-color 0.2s;
+}
+    .toc a:hover, .toc a.active {
+  background: #eef2ff;
+  border-color: #94a3b8;
+}
 
     /* Article */
     .article { background: var(--bg); }
@@ -46,7 +75,7 @@
     section { padding: 16px 0 32px 0; border-bottom: 1px solid #e5e7eb; }
     section:last-child{ border-bottom: none; }
     section h2 { font-size: 32px; color: var(--brand); margin: 0 0 12px 0; }
-    section p { font-size: 18px; line-height: 1.8; margin: 10px 0; }
+    section p { font-size: 18px; line-height: 1.8; margin: 10px 0; text-indent: 32px; /* Thụt vào đầu dòng đều hơn */ }
 
     .backtop { display:inline-block; margin-top: 8px; font-size: 14px; color:#2563eb; text-decoration:none; }
     .backtop:hover{ text-decoration: underline; }
@@ -58,26 +87,32 @@
   </style>
 </head>
 <body>
+  <!-- Đặt mục lục ở ngoài container -->
+  <aside class="toc">
+    <h2>Mục lục</h2>
+    <p>Bấm để nhảy tới mục</p>
+    <nav id="tocList" aria-label="Mục lục"></nav>
+  </aside>
   <div class="container">
-    <!-- ======== MỤC LỤC (tự sinh từ các thẻ H2 bên phải) ======== -->
-    <aside class="toc">
-      <h2>Mục lục</h2>
-      <p>Bấm để nhảy tới mục</p>
-      <nav id="tocList" aria-label="Mục lục"></nav>
-    </aside>
-
     <!-- ======== NỘI DUNG BÀI VIẾT ======== -->
     <main class="article">
       <nav style="margin-bottom:16px;">
-  <a href="index.html">Bao Bọc</a> |
-  <a href="CHI%20TIẾT%20BAO%20BỌC.html">Chi tiết </a> |
-  <a href="Câu%20chuyện%20tổ%20trưởng.html">Câu chuyện tổ </a>
+  <a href="#hoi-uc">Hồi ức</a> |
+  <a href="#moi-tinh-dau">Mối tình đầu</a> |
+  <a href="#di-lam-lan-dau">Đi làm lần đầu</a> |
+  <a href="#khoi-nghiep-lan-dau-that-bai">Khởi nghiệp lần đầu thất bại</a> |
+  <a href="#bo-que-nha-tra-no">Bỏ quê nhà đi làm trả nợ</a> |
+  <a href="#gap-vo-gay-dung-su-nghiep">Gặp vợ và gây dựng lại sự nghiệp</a> |
+  <a href="#su-co-vo-mat">Sự cố vợ mất</a> |
+  <a href="#gap-nguoi-an-nhan-la-chu">Gặp người ân nhân là chú</a>
 </nav>
-      <div style="margin-bottom:16px;">
-        <a href="../CHI%20TIẾT%20BAO%20BỌC.html">Xem chi tiết Bao Bọc</a>
+      
       </div>
       <h1 class="lead">BAO BỌC LIN FU</h1>
-      <div class="kicker">@NguoiTaiKhongDoanhThu</div>
+<div style="text-align:center; margin-bottom:16px;">
+  <img src="img/profile-banner.jpg" alt="Logo Bao Bọc Lin Fu Đẹp Trai" style="max-width:160px; border-radius:16px;">
+</div>
+<div class="kicker">@NguoiTaiKhongDoanhThu</div>
 
       <!-- Bạn chỉ cần thêm các <section> với <h2>; TOC sẽ tự tạo link. Đặt id nếu muốn URL đặc thù. -->
 
@@ -85,6 +120,9 @@
   <h2>Hồi ức</h2>
   <p>Anh sinh ra trong một gia đình nông dân ở Bảo Lộc, xung quanh là những đồi chè, cà phê và làng nghề truyền thống</p>
   <p>Cha mẹ lam lũ, dành dụm từng đồng để nuôi con ăn học</p>
+
+<p> Cơm khi đó thường độn khoai sắn gạo không đủ ăn, mẹ phải trộn thêm khoai lang, khoai mì hay bắp xay. Có bữa cơm chan canh, nhưng nhiều khi chỉ toàn lát khoai, củ sắn ăn xong vẫn còn đói cồn cào</p>
+<p>Thức ăn ít ỏi món mặn thường chỉ là cá khô kho mặn để ăn dần, hoặc vài quả trứng vịt chia cả nhà. Thỉnh thoảng mới có miếng thịt ba chỉ, thường để dành ngày giỗ hay Tết</p>
   <p>Năm đó, gia đình vốn chỉ có 2 héc đất cà phê một héc đầu tiên, mẹ và họ hàng đành phải bán đi để giúp chú em trai của ba có tiền đi du học bên Mỹ</p>
   <p>Chú học giỏi nhất nhà, lại giành được học bổng, cả đại gia đình đều đặt hy vọng vào chú sẽ đổi đời</p>
   <p>Ngày bán đất, mẹ gạt nước mắt ký giấy, rồi nhìn chú xách chiếc vali cũ lên đường mà dặn đi dặn lại con đi học, phải ráng thành tài cái nghèo rồi sẽ qua, miễn là trong nhà có người vươn lên</p>
@@ -158,7 +196,7 @@
 
 <p>Nhưng nhờ vậy mà anh quen dần với cường độ làm việc, học cách nhanh nhẹn, khéo léo hơn trong giao tiếp</p>
  
-<p>Tiền công ban đầu không nhiều, nhưng nhớ mãi ngày đầu tiên được nhận lương vài đồng trong tay</p>
+<p>Tiền công ban đầu chỉ có 25 nghìn đồng một ngày một tháng chỉ được 650 nghìn 1 tháng làm được 26 ngày còn những ngày nghỉ anh ở nhà đi phụ việc cùng mẹ, nhưng nhớ mãi ngày đầu tiên được nhận lương vài đồng trong tay</p>
  
 <p>Anh vui mừng khôn tả</p>
 
@@ -197,7 +235,7 @@
 <p>Trong lúc anh vắng mặt mấy ngày đi công việc xa, bạn ấy đã đem bán dần đồ đạc, lấy tiền chơi bài. Khi anh trở về thì quán gần như chẳng còn gì, nợ nần đã chất đống</p>
  
 <p>Anh vừa lo gom góp tiền để trả nợ, vừa phải đối diện với sự thật cay đắng giấc mơ lập nghiệp đầu tiên tan vỡ</p>
- 
+ <p>Khi đó tính tổng số nợ tất cả chi phí là hơn 100 triệu khi đó 100 triệu thật là nhiều </p>
 <p>Cuối cùng, anh đành buông tay, trả lại mặt bằng cho chủ đất</p>
  
 <p>Ngày dọn quán, nhìn bếp nướng còn sót lại, trong lòng anh nặng trĩu</p>
@@ -208,7 +246,7 @@
  
 <p>Nhưng trong lòng anh vẫn day dứt, thấy mình chưa làm tròn kỳ vọng</p>
  
-<p>Em gái mới 18 tuổi khi ấy đã nắm tay anh anh hai, đừng buồn</p>
+<p>Em gái mới 19 tuổi khi ấy đã nắm tay anh anh hai, đừng buồn</p>
  
 <p>Có thất bại thì mới trưởng thành sau này em sẽ phụ anh bán hàng em tin anh làm được</p>
 
@@ -234,9 +272,10 @@
  
 <p>Có hôm anh bốc vác thuê cho những chiếc xe tải cần người, khiêng từng bao hàng nặng trĩu, vai bầm dập, tay rướm máu, mồ hôi ướt đẫm áo công việc nặng nhọc nhưng tiền công chỉ đủ ăn cơm bụi qua ngày đêm về, anh nằm co ro trên chiếc chiếu cũ trong phòng trọ tạm bợ, vừa mệt vừa lo, nhưng vẫn tự nhủ còn thở là còn gỡ</p>
  
-<p>May mắn thay, một ngày nọ, có người chủ hàng thấy anh thật thà, chịu khó, đã giới thiệu anh vào làm ở một xưởng gỗ tại quận 12 công việc chính là khuân vác gỗ, cưa, bào, phun sơn… quần quật từ sáng sớm đến tối muộn. Gỗ nặng, bụi mùn bay mù mịt, đôi bàn tay anh lúc nào cũng trầy xước có hôm làm tới kiệt sức, anh gục ngủ ngay trên đống gỗ</p>
- 
-<p>Khó khăn là vậy, nhưng ngày nhận đồng lương đầu tiên, chỉ vỏn vẹn trăm nghìn ngót nghét một triệu đồng bạc, anh xúc động đến rưng rưng lần đầu tiên ở đất Sài Gòn, anh tự tay làm ra đồng tiền mồ hôi nước mắt, cầm chắc trong tay mà vui đến khó tả</p>
+<p>May mắn thay, một ngày nọ, có người chủ hàng thấy anh thật thà, chịu khó, đã giới thiệu anh vào làm ở một xưởng gỗ tại quận 12 công việc chính là khuân vác gỗ, cưa, bào, phun sơn… Khi vào xưởng anh gặp một người chủ tốt bụng vừa là chủ vừa như một người thầy </p>
+ <p>Trong khi nhiều người chỉ làm công ăn lương thì ông lại tạo điều kiện cho anh vừa học vừa làm </p>
+ <p>Ban ngày quần quật khuân gỗ bào phun sơn buổi tối ông kiên nhẫn chỉ cho anh cách chọn gỗ đo đồ đạc làm mộng chính từ đó anh dần bén duyên và gắn bó với nghề mộc</p>
+<p>Khó khăn là vậy, nhưng ngày nhận đồng lương đầu tiên, chỉ vỏn vẹn trăm nghìn ngót nghét 1 triệu 200 nghìn, anh xúc động đến rưng rưng lần đầu tiên ở đất Sài Gòn, anh tự tay làm ra đồng tiền mồ hôi nước mắt, cầm chắc trong tay mà vui đến khó tả</p>
  
 <p>Sang ngày hôm sau nhân lương anh cầm tiền trong tay ra bưu điện gửi về quê mấy hôm sau mẹ gọi điện giọng nghèn nghẹn</p>
  
