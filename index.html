@@ -68,6 +68,9 @@
 
     <!-- ======== NỘI DUNG BÀI VIẾT ======== -->
     <main class="article">
+      <div style="margin-bottom:16px;">
+        <a href="../CHI%20TIẾT%20BAO%20BỌC.html">Xem chi tiết Bao Bọc</a>
+      </div>
       <h1 class="lead">BAO BỌC LIN FU</h1>
       <div class="kicker">@NguoiTaiKhongDoanhThu</div>
 
@@ -75,7 +78,9 @@
 
       <section id="hoi-uc">
         <h2>Hồi ức</h2>
-        <p>Anh sinh ra trong một gia đình nông dân ở Bảo Lộc, xung quanh là những đồi chè, cà phê và làng nghề truyền thống</p>
+        <button class="toggle-detail" onclick="toggleDetail(this)">Xem chi tiết</button>
+        <div class="detail-content" style="display:none;">
+          <p>Anh sinh ra trong một gia đình nông dân ở Bảo Lộc, xung quanh là những đồi chè, cà phê và làng nghề truyền thống</p>
  
 <p>Cha mẹ lam lũ, dành dụm từng đồng để nuôi con ăn học</p>
  
@@ -479,6 +484,17 @@
       top.id = 'top';
       document.body.prepend(top);
     })();
+
+    function toggleDetail(btn) {
+  const detail = btn.nextElementSibling;
+  if (detail.style.display === "none") {
+    detail.style.display = "block";
+    btn.textContent = "Ẩn chi tiết";
+  } else {
+    detail.style.display = "none";
+    btn.textContent = "Xem chi tiết";
+  }
+}
   </script>
 </body>
 </html>
