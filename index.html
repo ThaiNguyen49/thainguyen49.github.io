@@ -1,760 +1,484 @@
-<!--
-author: Boostraptheme
-author URL: https://boostraptheme.com
-License: Creative Commons Attribution 4.0 Unported
-License URL: https://creativecommons.org/licenses/by/4.0/
--->
-
-<!DOCTYPE html>
-<html lang="en">
-<style>
-    .resume-section h1 {
-        font-size: 52px;
-        font-weight: 900;
-        color: #ffffff;u
-        text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.8);
-    }
-
-    .resume-section .subheading {
-        font-size: 20px;
-        font-weight: 600;
-        color: #f2f2f2;
-        text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.6);
-    }
-
-    .resume-section {
-        background: rgba(0, 0, 0, 0.35);
-        /* giúp chữ sáng hơn nếu ảnh nền sáng */
-        padding: 40px 20px;
-    }
-
-    /* Timeline CSS */
-    .timeline {
-        position: relative;
-        margin: 0 auto;
-        padding: 0;
-        max-width: 800px;
-    }
-
-    .timeline:before {
-        content: '';
-        position: absolute;
-        left: 32px;
-        top: 0;
-        bottom: 0;
-        width: 3px;
-        background: #dee2e6;
-    }
-
-    .timeline-item {
-        display: flex;
-        align-items: flex-start;
-        margin-bottom: 40px;
-        position: relative;
-    }
-
-    .timeline-icon {
-        flex-shrink: 0;
-        width: 64px;
-        height: 64px;
-        border-radius: 50%;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        font-size: 2rem;
-        margin-right: 24px;
-        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
-        z-index: 1;
-    }
-
-    .timeline-content {
-        background: #fff;
-        border-radius: 10px;
-        padding: 22px 28px 18px 28px;
-        box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06);
-        width: 100%;
-    }
-
-    @media (max-width: 600px) {
-        .timeline:before {
-            left: 20px;
-        }
-
-        .timeline-icon {
-            width: 40px;
-            height: 40px;
-            font-size: 1.2rem;
-            margin-right: 12px;
-        }
-
-        .timeline-content {
-            padding: 14px 12px 10px 12px;
-        }
-    }
-</style>
-   <head>
+<!doctype html>
+<html lang="vi">
+<head>
   <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-  <meta name="description" content="Chuyên gia IT – Hệ thống, bảo mật máy chủ, hỗ trợ kỹ thuật doanh nghiệp." />
-  <meta name="author" content="Lâm Trần Thái Nguyên" />
-  <link rel="shortcut icon" href="img/favico12.svg" />
-  <title>Lập Trình Viên Nguyên IT | Hơn 10 Năm Kinh Nghiệm Lĩnh Vực Công Nghệ Thông Tin</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Ký ức & Câu chuyện – Mục lục nhảy tới chủ đề</title>
+  <style>
+    :root {
+      --bg: #fff;
+      --text: #111;
+      --muted: #6b7280;
+      --brand: #e11d48; /* đỏ đậm cho tiêu đề */
+      --card: #f8fafc;
+    }
+    html { scroll-behavior: smooth; }
+    body { margin:0; font-family: system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji"; background:var(--bg); color:var(--text); }
 
-  <!-- Meta cho MXH -->
-  <meta property="og:type" content="website" />
-  <meta property="og:url" content="https://thainguyen49.com/?v=2" />
-  <meta property="og:title" content="Lâm Trần Thái Nguyên – IT Expert | FPT HCM" />
-  <meta property="og:description" content="Chuyên gia IT – Hệ thống, bảo mật máy chủ, hỗ trợ kỹ thuật doanh nghiệp." />
-  <meta property="og:image" content="https://thainguyen49.com/img/og-preview.jpg" />
+    /* Layout */
+    .container { max-width: 1200px; margin: 0 auto; padding: 24px; display:grid; gap:24px; grid-template-columns: 280px 1fr; }
+    @media (max-width: 960px){ .container{ grid-template-columns: 1fr; } }
 
+    /* TOC */
+    .toc {
+  position: fixed;
+  right: 24px;
+  bottom: 24px;
+  top: auto;
+  left: auto;
+  z-index: 999;
+  max-width: 180px;
+  padding: 8px;
+  font-size: 14px;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.08);
+}
+    .toc h2 { margin: 0 0 4px 0; font-size: 15px; }
+    .toc p { margin: 0 0 4px 0; color: var(--muted); font-size: 12px; }
+    .toc a { display:block; padding:6px 8px; margin: 2px 0; text-decoration: none; color: #1f2937; border-radius: 10px; border: 1px dashed transparent; font-size: 13px; }
+    .toc a:hover { background: #f1f5f9; }
+    .toc a.active { border-color:#94a3b8; background: #eef2ff; }
 
-  <!-- Twitter -->
-  <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Lâm Trần Thái Nguyên – IT Expert | FPT HCM" />
-  <meta name="twitter:description" content="Chuyên gia IT – Hệ thống, bảo mật máy chủ, hỗ trợ kỹ thuật doanh nghiệp." />
-  <meta name="twitter:image" content="https://thainguyen49.com/img/og-preview.jpg" />
+    /* Article */
+    .article { background: var(--bg); }
+    .lead { font-size: 42px; line-height: 1.15; color: var(--brand); font-weight:800; margin: 0 0 16px 0; }
+    .kicker { color: var(--muted); font-size:14px; margin-bottom: 24px; }
 
-  <!-- CSS -->
-  <link href="css/bootstrap/bootstrap.min.css" rel="stylesheet" />
-  <link href="https://fonts.googleapis.com/css?family=Saira+Extra+Condensed:100,200,300,400,500,600,700,800,900" rel="stylesheet" />
-  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i,800,800i" rel="stylesheet" />
-  <link href="font-awesome/css/font-awesome.min.css" rel="stylesheet" />
-  <link href="css/devicons/css/devicons.min.css" rel="stylesheet" />
-  <link href="css/simple-line-icons/css/simple-line-icons.css" rel="stylesheet" />
-  <link href="css/style.css" rel="stylesheet" />
+    section { padding: 16px 0 32px 0; border-bottom: 1px solid #e5e7eb; }
+    section:last-child{ border-bottom: none; }
+    section h2 { font-size: 32px; color: var(--brand); margin: 0 0 12px 0; }
+    section p { font-size: 18px; line-height: 1.8; margin: 10px 0; }
+
+    .backtop { display:inline-block; margin-top: 8px; font-size: 14px; color:#2563eb; text-decoration:none; }
+    .backtop:hover{ text-decoration: underline; }
+
+    /* Simple tabs for multiple chapters (optional) */
+    .chapters { display:flex; gap:10px; flex-wrap: wrap; margin: 8px 0 24px; }
+    .chapters a { padding: 8px 12px; border-radius: 999px; border:1px solid #e5e7eb; text-decoration:none; color:#111; }
+    .chapters a:hover { background:#f8fafc; }
+  </style>
 </head>
+<body>
+  <div class="container">
+    <!-- ======== MỤC LỤC (tự sinh từ các thẻ H2 bên phải) ======== -->
+    <aside class="toc">
+      <h2>Mục lục</h2>
+      <p>Bấm để nhảy tới mục</p>
+      <nav id="tocList" aria-label="Mục lục"></nav>
+    </aside>
 
-  <!-- Twitter card (nếu chia sẻ lên Twitter) -->
-  <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Lâm Trần Thái Nguyên – IT Expert | FPT HCM" />
-  <meta name="twitter:description" content="Chuyên gia IT – Hệ thống, bảo mật máy chủ, hỗ trợ kỹ thuật doanh nghiệp." />
-  <meta name="twitter:image" content="https://i.imgur.com/UMfHOuq.jpeg" />
-</head>
-    <nav class="navbar navbar-expand-lg navbar-dark bg-primary fixed-top" id="sideNav">
-        <a class="navbar-brand js-scroll-trigger" href="#page-top">
-            <span class="d-block d-lg-none  mx-0 px-0"><img src="img/logo-white.png" alt="" class="img-fluid"></span>
-            <span class="d-none d-lg-block">
-                <img class="img-fluid img-profile rounded-circle mx-auto mb-2" src="img/profile1.jpg" alt="">
-            </span>
-        </a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
-            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav">
-                <li class="nav-item">
-                    <a class="nav-link js-scroll-trigger" href="#about">Giới Thiệu</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link js-scroll-trigger" href="#experience">Dự Án Nổi Bật</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link js-scroll-trigger" href="#portfolio">Tự Tay Thiết Kế</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link js-scroll-trigger" href="#skills">Kỹ Năng</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link js-scroll-trigger" href="#awards">Giải</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link js-scroll-trigger" href="#testimonial">Khách Hàng Phản Hồi</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link js-scroll-trigger" href="#contact">Liên Hệ</a>
-                </li>
-            </ul>
-        </div>
-    </nav>
+    <!-- ======== NỘI DUNG BÀI VIẾT ======== -->
+    <main class="article">
+      <h1 class="lead">BAO BỌC LIN FU</h1>
+      <div class="kicker">@NguoiTaiKhongDoanhThu</div>
 
-    <div class="container-fluid p-0">
+      <!-- Bạn chỉ cần thêm các <section> với <h2>; TOC sẽ tự tạo link. Đặt id nếu muốn URL đặc thù. -->
 
-        <!--====================================================
-                        ABOUT
-    ======================================================-->
-        <section class="resume-section p-3 p-lg-5 d-flex align-items-center" id="about" style="min-height: 100vh;">
-            <div class="container">
-                <div class="row align-items-center">
-                    <!-- Avatar -->
-                    <div class="col-md-4 text-center mb-4 mb-md-0">
-                        <img src="img/profile1.jpg" class="img-fluid rounded-circle shadow" alt="Lâm Trần Thái Nguyên"
-                            style="width: 200px; border: 6px solid #fff;">
-                    </div>
-                    <!-- Info -->
-                    <div class="col-md-8">
-                        <h1 class="mb-2 font-weight-bold" style="font-size: 2.8rem; letter-spacing:1px;">
-                            Lâm Trần <span class="text-primary">Thái Nguyên</span>
-                        </h1>
-                        <h4 class="mb-3 text-secondary font-italic" style="font-weight: 600;">
-                            Trưởng phòng Công nghệ Thông tin - FPT Telecom Quận 7, TP.HCM
-                        </h4>
-                        <p class="lead mb-4" style="font-size: 1.15rem;">
-                            Xin chào, tôi là <strong>Lâm Trần Thái Nguyên</strong> với hơn 10 năm kinh nghiệm triển
-                            khai, vận hành và tối ưu hạ tầng CNTT cho doanh nghiệp. Hiện tôi đảm nhiệm vai trò điều phối
-                            chiến lược công nghệ, đảm bảo hệ thống vận hành liên tục và an toàn thông tin tại FPT
-                            Telecom Quận 7.
-                        
-                </div>
-            </div>
-        </section>
+      <section id="hoi-uc">
+        <h2>Hồi ức</h2>
+        <p>Anh sinh ra trong một gia đình nông dân ở Bảo Lộc, xung quanh là những đồi chè, cà phê và làng nghề truyền thống</p>
+ 
+<p>Cha mẹ lam lũ, dành dụm từng đồng để nuôi con ăn học</p>
+ 
+<p>Năm đó, gia đình vốn chỉ có 2 héc đất cà phê một héc đầu tiên, mẹ và họ hàng đành phải bán đi để giúp chú em trai của ba có tiền đi du học bên Mỹ</p>
+ 
+<p>Chú học giỏi nhất nhà, lại giành được học bổng, cả đại gia đình đều đặt hy vọng vào chú sẽ đổi đời</p>
+ 
+<p>Ngày bán đất, mẹ gạt nước mắt ký giấy, rồi nhìn chú xách chiếc vali cũ lên đường mà dặn đi dặn lại con đi học, phải ráng thành tài cái nghèo rồi sẽ qua, miễn là trong nhà có người vươn lên</p>
+ 
+<p>Đó là quyết định đau nhưng cũng đầy tin tưởng cả gia đình chấp nhận bớt đi một phần tài sản để gieo hy vọng vào tương lai</p>
+ 
+<p>Những năm đầu 1990, đời sống còn thiếu thốn, cơm thường độn khoai sắn, áo quần đi học thường được may lại từ vải cũ</p>
+ 
+<p>Năm đó, gia đình có thêm một thành viên nhỏ em gái anh, Trần Thị Thanh Thảo, ra đời</p>
+ 
+<p>Anh 6 tuổi, em gái mới tròn 1 tuổi, thì một biến cố lớn ập đến ba mất vì tai nạn lao động trong lúc đi làm thuê ngoài rẫy khi đó mẹ xoay sở bên ngoại bên nội không có tiền chạy chữa bán cả mảnh đất còn lại cả gia sản nhưng số phận nghiện ngã ba không qua khỏi mẹ phải tận mắt chứng kiến sự mất mát của ba anh</p>
+ 
+<p>Sự ra đi quá đột ngột khiến cả nhà như sụp đổ tài sản không còn, cha mất, mẹ trở thành trụ cột duy nhất</p>
+ 
+<p>Mẹ vừa làm cha, vừa làm mẹ, đi làm thuê khắp nơi, từ hái cà phê, làm cỏ đến gùi phân thuê cho người ta có hôm mẹ về muộn, mồ hôi đẫm áo, tay chai sần, nhưng vẫn cố gắng cười với hai con nhỏ</p>
+ 
+<p>Từ đó, tuổi thơ anh và Thảo lớn lên trong cảnh vắng bóng cha, chỉ còn tình thương của mẹ</p>
+ 
+<p>Mẹ vừa làm cha, vừa làm mẹ, sớm hôm lam lũ ngoài vườn cà phê, đồi chè để nuôi hai anh em</p>
+ 
+<p>Anh hiểu mình là anh trai, là chỗ dựa của mẹ và em, nên dù chỉ mới 6 tuổi, trong lòng đã sớm nhen nhóm ý thức trách nhiệm</p>
 
-        <!--====================================================
-                        Dự Án Nổi Bật
-    ======================================================-->
-        <section id="experience" class="py-5"
-            style="background: linear-gradient(120deg, #f8fafc 0%, #e9ecef 100%); scroll-margin-top:80px;">
-            <div class="container">
-                <h2 class="text-center text-uppercase font-weight-bold mb-5">Kinh Nghiệm Làm Việc</h2>
-                <div class="timeline">
-                    <!-- IT Manager -->
-                    <div class="timeline-item">
-                        <div class="timeline-icon bg-primary text-white">
-                            <i class="fa fa-briefcase"></i>
-                        </div>
-                        <div class="timeline-content shadow-sm">
-                            <h4 class="mb-1 font-weight-bold">IT Manager – FPT Telecom (TP.HCM, Quận 7)</h4>
-                            <span class="badge badge-primary mb-2">03/2019 - Hiện tại</span>
-                            <p class="mb-1">Quản lý và điều hành toàn bộ hệ thống hạ tầng CNTT chi nhánh khu vực TP.HCM.
-                                Triển khai chuyển đổi số, nâng cấp ERP và mạng nội bộ. Giám sát an ninh mạng, vận hành
-                                24/7, đánh giá định kỳ.</p>
-                        </div>
-                    </div>
-                    <!-- System Admin -->
-                    <div class="timeline-item">
-                        <div class="timeline-icon bg-warning text-white">
-                            <i class="fa fa-server"></i>
-                        </div>
-                        <div class="timeline-content shadow-sm">
-                            <h4 class="mb-1 font-weight-bold">System Administrator – FPT IS</h4>
-                            <span class="badge badge-warning mb-2 text-white">12/2018 - 03/2019</span>
-                            <p class="mb-1">Quản trị hệ thống server, database, hạ tầng mạng LAN/WAN, triển khai SAP,
-                                CRM nội bộ. Tối ưu chi phí vận hành server hybrid cloud.</p>
-                        </div>
-                    </div>
-                    <!-- IT Support -->
-                    <div class="timeline-item">
-                        <div class="timeline-icon bg-success text-white">
-                            <i class="fa fa-desktop"></i>
-                        </div>
-                        <div class="timeline-content shadow-sm">
-                            <h4 class="mb-1 font-weight-bold">IT Support Engineer – Dự án Smart City – FPT Software</h4>
-                            <span class="badge badge-success mb-2">07/2017 - 12/2018</span>
-                            <p class="mb-1">Hỗ trợ onsite Smart City TP.HCM và Bình Dương. Thiết lập IOT, camera, giám
-                                sát trung tâm dữ liệu. Báo cáo SLA cho khách hàng Nhà nước.</p>
-                        </div>
-                    </div>
-                    <!-- Internship -->
-                    <div class="timeline-item">
-                        <div class="timeline-icon bg-info text-white">
-                            <i class="fa fa-graduation-cap"></i>
-                        </div>
-                        <div class="timeline-content shadow-sm">
-                            <h4 class="mb-1 font-weight-bold">IT Internship – FPT Polytechnic</h4>
-                            <span class="badge badge-info mb-2 text-white">09/2018 - 06/2019</span>
-                            <p class="mb-1">Tham gia phòng lab thực hành AD – DHCP – DNS – Cisco. Hỗ trợ sinh viên mới,
-                                triển khai domain và hệ thống mạng nội bộ.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
+<p>Anh nhớ hồi đó năm 1991, vừa tròn 6 tuổi, anh bắt đầu đi học lớp 1</p>
 
+<p>Ngày khai giảng lớp 1 năm 1991, anh bước vào sân trường với cặp sách chỉ là chiếc túi vải mẹ khâu, bên trong vài quyển vở giấy vàng ố và cây bút máy bơm mực</p>
 
-        <!--====================================================
-                            PORTFOLIO
-        ======================================================-->
-        <section class="resume-section p-3 p-lg-5 d-flex flex-column" id="portfolio"
-            style="background: url('img/bg-portfolio.jpg') center center/cover no-repeat; position: relative;">
-            <div style="position:absolute;top:0;left:0;width:100%;height:100%;background:rgba(0,32,64,0.45);z-index:0;">
-            </div>
-            <div class="container" style="position:relative;z-index:1;">
-                <h2 class="text-center text-uppercase font-weight-bold mb-4 text-white">Dự Án CNTT Tiêu Biểu</h2>
-                <p class="text-center mb-5 text-light" style="font-size:1.1rem;">
-                    Những hệ thống và dự án nổi bật tôi đã triển khai, quản lý tại FPT và các đối tác chiến lược, góp
-                    phần nâng cao hiệu quả vận hành và chuyển đổi số doanh nghiệp.
-                </p>
-                <div class="row">
-                    <!-- Dự án 1 -->
-                    <div class="col-md-4 mb-4">
-                        <div class="card shadow h-100 border-0">
-                            <img src="img/portfolio/F1.jpg" class="card-img-top" alt="Hệ thống ERP FPT">
-                            <div class="card-body">
-                                <h5 class="card-title font-weight-bold">Triển khai hệ thống ERP toàn diện</h5>
-                                <span class="badge badge-success mb-2">FPT Telecom</span>
-                                <p class="card-text mb-2">Tích hợp quản lý tài chính, nhân sự, kho vận trên nền tảng SAP
-                                    ERP, giúp tối ưu hóa quy trình và minh bạch dữ liệu.</p>
-                                <ul class="list-unstyled mb-2">
-                                    <li><strong>Vai trò:</strong> Quản lý dự án, Kiến trúc hệ thống</li>
-                                    <li><strong>Công nghệ:</strong> SAP, VMware, Oracle DB</li>
-                                </ul>
-                                <div class="text-muted small">Hiệu quả: Giảm 30% thời gian xử lý nghiệp vụ, tăng bảo mật
-                                    dữ liệu.</div>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- Dự án 2 -->
-                    <div class="col-md-4 mb-4">
-                        <div class="card shadow h-100 border-0">
-                            <img src="img/portfolio/F2.jpg" class="card-img-top" alt="Chuyển đổi số Smart City">
-                            <div class="card-body">
-                                <h5 class="card-title font-weight-bold">Chuyển đổi số Smart City</h5>
-                                <span class="badge badge-primary mb-2">FPT Software & Đối tác</span>
-                                <p class="card-text mb-2">Triển khai hệ thống IoT, giám sát camera, trung tâm dữ liệu
-                                    cho dự án đô thị thông minh tại TP.HCM & Bình Dương.</p>
-                                <ul class="list-unstyled mb-2">
-                                    <li><strong>Vai trò:</strong> IT Support Lead</li>
-                                    <li><strong>Công nghệ:</strong> IoT, Cloud, Data Center</li>
-                                </ul>
-                                <div class="text-muted small">Hiệu quả: Nâng cao an ninh, quản lý đô thị thông minh, báo
-                                    cáo SLA chuẩn quốc tế.</div>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- Dự án 3 -->
-                    <div class="col-md-4 mb-4">
-                        <div class="card shadow h-100 border-0">
-                            <img src="img/portfolio/F3.jpg" class="card-img-top" alt="An ninh mạng doanh nghiệp">
-                            <div class="card-body">
-                                <h5 class="card-title font-weight-bold">Giám sát & bảo mật hệ thống mạng</h5>
-                                <span class="badge badge-danger mb-2">FPT IS</span>
-                                <p class="card-text mb-2">Thiết kế, triển khai hệ thống giám sát an ninh mạng, phòng
-                                    chống tấn công DDoS, bảo vệ dữ liệu doanh nghiệp.</p>
-                                <ul class="list-unstyled mb-2">
-                                    <li><strong>Vai trò:</strong> System Admin</li>
-                                    <li><strong>Công nghệ:</strong> Firewall, SIEM, IDS/IPS</li>
-                                </ul>
-                                <div class="text-muted small">Hiệu quả: Đảm bảo uptime 99.99%, không xảy ra sự cố nghiêm
-                                    trọng.</div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!-- Thêm các dự án khác nếu cần -->
-            </div>
-        </section>
+<p>Đường đi học phải băng qua những con dốc nhỏ, sáng sớm thường phủ sương</p>
 
-        <!--====================================================
-                        SKILLS
-    ======================================================-->
-        <section id="skills" class="py-5"
-            style="background: linear-gradient(120deg, #e0eafc 0%, #cfdef3 100%); scroll-margin-top:80px;">
-            <div class="container">
-                <h2 class="mb-4 text-uppercase font-weight-bold text-center">KỸ NĂNG CHUYÊN MÔN <br><small
-                        class="text-secondary">/ Technical Expertise</small></h2>
-                <div class="row justify-content-center">
-                    <!-- Linux Server -->
-                    <div class="col-md-3 mb-4">
-                        <div class="card border-0 shadow h-100 text-center">
-                            <div class="card-body">
-                                <div class="mb-3" style="font-size:2.5rem;color:#007bff;">
-                                    <i class="devicons devicons-linux"></i>
-                                </div>
-                                <h5 class="font-weight-bold">Linux Server</h5>
-                                <div class="progress mb-2" style="height:8px;">
-                                    <div class="progress-bar bg-primary" role="progressbar" style="width: 85%"></div>
-                                </div>
-                                <span class="badge badge-primary mb-2">85%</span>
-                                <p class="small text-muted mb-0">Quản trị hệ thống, bảo mật, tối ưu hiệu suất.</p>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- VMware vSphere/ESXi -->
-                    <div class="col-md-3 mb-4">
-                        <div class="card border-0 shadow h-100 text-center">
-                            <div class="card-body">
-                                <div class="mb-3" style="font-size:2.5rem;color:#6f42c1;">
-                                    <i class="devicons devicons-visualstudio"></i>
-                                </div>
-                                <h5 class="font-weight-bold">VMware vSphere/ESXi</h5>
-                                <div class="progress mb-2" style="height:8px;">
-                                    <div class="progress-bar bg-success" role="progressbar" style="width: 92%"></div>
-                                </div>
-                                <span class="badge badge-success mb-2">92%</span>
-                                <p class="small text-muted mb-0">Ảo hóa, quản lý tài nguyên, HA/DRS.</p>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- Forex - Casino -->
-                    <div class="col-md-3 mb-4">
-                        <div class="card border-0 shadow h-100 text-center">
-                            <div class="card-body">
-                                <div class="mb-3" style="font-size:2.5rem;color:#fd7e14;">
-                                    <i class="fa fa-line-chart"></i>
-                                </div>
-                                <h5 class="font-weight-bold">Forex - Casino</h5>
-                                <div class="progress mb-2" style="height:8px;">
-                                    <div class="progress-bar bg-warning" role="progressbar" style="width: 65%"></div>
-                                </div>
-                                <span class="badge badge-warning mb-2 text-white">65%</span>
-                                <p class="small text-muted mb-0">Tối ưu hệ thống giao dịch, bảo mật dữ liệu.</p>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- Docker & DevOps -->
-                    <div class="col-md-3 mb-4">
-                        <div class="card border-0 shadow h-100 text-center">
-                            <div class="card-body">
-                                <div class="mb-3" style="font-size:2.5rem;color:#20c997;">
-                                    <i class="devicons devicons-docker"></i>
-                                </div>
-                                <h5 class="font-weight-bold">Docker & DevOps</h5>
-                                <div class="progress mb-2" style="height:8px;">
-                                    <div class="progress-bar bg-info" role="progressbar" style="width: 95%"></div>
-                                </div>
-                                <span class="badge badge-info mb-2 text-white">95%</span>
-                                <p class="small text-muted mb-0">CI/CD, tự động hóa, triển khai microservices.</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
+<p>Mùa mưa chân đất lấm lem đỏ au quần xắn cao nhiều khi té ngã ướt hết sách vở hihi</p>
+ 
+<p>Hồi đó anh thích nhất là những buổi trưa tan học được rủ bạn bè ra đồi che chơi trốn tìm hay lấy quả cà phê chín ném nhau</p>
+ 
+<p>Trò chơi ngày xưa rất giản dị bắn bi thả diều bằng giấy báo chơi ô ăn quan trên nền đất</p>
+ 
+<p>Môi lần được mẹ cho vài đồng mua kem đá ở cổng trường là niềm vui ngây ngất</p>
+
+<p>Anh còn nhớ vào lúc lớp 3 trường phát động phong trào kế hoach nhỏ học sinh gom giấy vụn và lon bia cux để gây quỹ , anh khi ấy hí hửng chay quanh khắp trường xóm xin giấy mang đến trường được cô giáo khen hihi</p>
+
+<p>Anh khi anh 11 tuổi là năm 1996 anh thi dỗ vào trường cấp 2 nằm trong thành phố Bảo Lộc trường lại khang trang hơn trường tiểu học có cổng sắt có sân bóng chuyền , bóng đá với lại thầy cô cũng gắt hơn nhiều</p>
+ 
+<p>Khi ấy anh nhớ vào đầu vào lớp 6 cái cảm giác vừa háo hức vừa hồi hộp sách giáo khoa mới bạn bè mới nhưng còn vụng về trẻ con hi</p>
+ 
+<p>Trong lớp anh nhanh chóng có nhóm bạn thân 3-4 người thường cùng nhau đi ăn quà vặt sau giờ tan trường banh trang nướng mia ghim ly trà đát 500 đồng</p>
+ 
+<p>Chiều về cả nhóm rủ nhau đá banh ở sân đất đỏ hoặc bơi ở con suối nhỏ gần đồi chè hihi quần áo rách chân tay trầy xước nhưng đó là tuổi thơ sôi nổi và đáng nhớ haha</p>
+ 
+<p>Anh học thì khá môn Toán nhưng anh lại thích môn Văn hihi mà anh thích nghe thầy kể chuyện Lý Thường Kiệt Và Trần Hưng Đạo</p>
+ 
+<p>Anh nhớ vào khi năm 1999 anh thi đỗ vào trường cấp 3</p>
+ 
+<p>Ngày đầu đi học sân trường có dãy lớp mái ngói cũ có hàng phượng đỏ rợp bóng </p>
+ 
+<p>Khi đấy anh cảm thấy mình đã lớn hẳn không còn là một cậu trẻ con như ngày trước nữa rồi</p>
+ 
+</p>
+        <a class="backtop" href="#top">⬆ Lên đầu trang</a>
+      </section>
+
+      <section id="moi-tinh-dau">
+        <h2>Mối tình đầu</h2>
+        <p>Anh còn nhớ trong lớp có một cô bạn học giỏi Văn, dịu dàng, hay mặc áo dài trắng mỗi thứ hai
+ 
+<p>Những buổi học nhóm, bạn ngồi bên cạnh, lén nhìn nét chữ nắn nót, và mỗi lần cô ấy cười là tim anh lại đập loạn nhịp cả</p>
+ 
+<p>Một lần lớp đi dã ngoại, anh đã lén viết mẩu giấy nhỏ chúc cậu thi học kỳ tốt nhé đó là tình thư đầu tiên ngây ngô, vụng dại nhưng cả đời này anh sẽ không bao giờ quên</p>
+ 
+<p>Dù chưa một lần đủ dũng khí thổ lộ thành lời, nhưng đó chính là mối tình đầu trong sáng, gắn với tiếng ve, sắc phượng đỏ và sân trường cấp ba mờ sương buổi sớm</p>
+ 
+<p>Rồi khi tốt nghiệp, mỗi người lại chọn một con đường riêng cô ấy tiếp tục theo đuổi giảng đường, còn anh thì rẽ sang đời đi làm sớm</p>
+ 
+<p>Những bận rộn, lo toan và khoảng cách dần kéo hai người xa nhau</p>
+ 
+<p>Đến ngày chia tay cuối cùng ở sân trường, tiếng trống vang lên như lời tạm biệt cho một thời mơ mộng</p>
+ 
+<p>Không phải vì hết thương, cũng chẳng vì điều gì khúc mắc, mà chỉ đơn giản là chúng ta không còn đi chung một lối</p>
+ 
+<p>Mối tình đầu khép lại lặng lẽ, để lại trong anh một khoảng trời kỷ niệm vừa ngọt ngào, vừa day dứt như tiếng ve và sắc phượng mãi đỏ rực trong ký ức tuổi học trò</p>
+ 
+</p>
+        <a class="backtop" href="#top">⬆ Lên đầu trang</a>
+      </section>
+
+      <section id="di-lam-lan-dau">
+        <h2>Đi làm lần đầu</h2>
+        <p>Cuối năm kỳ thi tốt nghiệp 2002 anh cùng bạn bè cắm đầu học ngày đêm có hôm học khuya dưới ánh đèn dầu vì điện chập chờn khi cầm tấm bằng tốt nghiệp cấp 3 niềm vui xen lẫn lo âu một chặng đường khép lại tương lai vẫn mờ mịt</p>
+ 
+<p>Tốt nghiệp xong nhiều bạn bè cùng lớp khăn gói đi Đà Lạt Sài Gòn học đại học riêng anh chỉ có một mình mẹ không đủ tiền chu cấp nhà còn nợ mấy vụ mùa cà phê thất bát nên anh không được đi cùng các bạn</p>
+ 
+<p>Đêm trước ngày bạn bè nhập học anh ngồi một mình bên hiên nhà nghe tiếng côn trùng rả rích mắt cay xè ước mơ đại học khép lại thay vào đó là trách nhiệm phụ giúp gia đình</p>
+ 
+<p>Xong rồi anh xin vào phụ việc ở một quán ăn nhỏ trong vùng</p>
+
+<p>Công việc cũng chẳng nhẹ nhàng: dọn bàn, rửa chén, bưng bê, quét dọn… ca làm kéo dài từ sáng sớm đến tận khuya</p>
+
+<p>Người ta ăn xong mới được dọn, có khi nửa đêm mới xong việc</p>
+ 
+<p>Có hôm quán đông khách, anh chạy tới chạy lui, mồ hôi nhễ nhại, tay chân mỏi rã rời</p>
+
+<p>Nhưng nhờ vậy mà anh quen dần với cường độ làm việc, học cách nhanh nhẹn, khéo léo hơn trong giao tiếp</p>
+ 
+<p>Tiền công ban đầu không nhiều, nhưng nhớ mãi ngày đầu tiên được nhận lương vài đồng trong tay</p>
+ 
+<p>Anh vui mừng khôn tả</p>
+
+<p>Cầm những đồng tiền do chính mồ hôi công sức mình làm ra, anh chỉ muốn mang ngay về đưa cho mẹ</p>
+ 
+<p>Cái tuổi 18–20, người khác tung tăng áo trắng giảng đường, thì anh đã thành lao động thực thụ</p>
+
+<p>Cuộc sống vất vả dạy anh biết quý trọng từng đồng tiền kiếm được, hiểu rằng chỉ có lao động, chỉ có làm thì mới có ăn</p>
+ 
+<p>Tuy học không cao, nhưng anh vẫn giữ ước mơ</p>
+
+<p>Mỗi khi đi ngang qua trường, nhìn sinh viên áo trắng, anh lại tự nhủ mình không được đi học, nhưng mình sẽ học nghề, học đời, đến nơi đến chốn</p>
+
+<p>Một ngày nào đó, mình cũng sẽ có chỗ đứng</p>
 
 
-        <!--====================================================
-                               GIẢI
-        ======================================================-->
-        <section class="resume-section" id="awards"
-            style="background: linear-gradient(120deg, #f8fafc 0%, #e9ecef 100%);">
-            <div class="container">
-                <h2 class="mb-5 text-center text-uppercase font-weight-bold">Giải Thưởng & Chứng Nhận</h2>
-                <ul class="timeline" style="list-style: none; padding-left: 0;">
-                    <!-- Award 1 -->
-                    <li class="timeline-item d-flex align-items-start mb-5">
-                        <div class="timeline-icon bg-info text-white mr-4">
-                            <i class="fa fa-trophy"></i>
-                        </div>
-                        <div class="timeline-content shadow-sm">
-                            <h6 class="text-primary mb-1">Apr 2017 - Mar 2018</h6>
-                            <h5 class="font-weight-bold mb-1">GOOGLE ANALYTICS CERTIFIED DEVELOPER</h5>
-                            <p class="mb-0 text-muted">Chứng nhận kỹ năng phân tích dữ liệu web từ Google.</p>
-                        </div>
-                    </li>
-                    <!-- Award 2 -->
-                    <li class="timeline-item d-flex align-items-start mb-5">
-                        <div class="timeline-icon bg-success text-white mr-4">
-                            <i class="fa fa-certificate"></i>
-                        </div>
-                        <div class="timeline-content shadow-sm">
-                            <h6 class="text-primary mb-1">Apr 2018 - Mar 2019</h6>
-                            <h5 class="font-weight-bold mb-1">MOBILE WEB SPECIALIST - GOOGLE CERTIFICATION</h5>
-                            <p class="mb-0 text-muted">Chứng nhận chuyên gia phát triển web di động.</p>
-                        </div>
-                    </li>
-                    <!-- Award 3 -->
-                    <li class="timeline-item d-flex align-items-start mb-5">
-                        <div class="timeline-icon bg-warning text-white mr-4">
-                            <i class="fa fa-star"></i>
-                        </div>
-                        <div class="timeline-content shadow-sm">
-                            <h6 class="text-primary mb-1">Jun 2019 - Present</h6>
-                            <h5 class="font-weight-bold mb-1">TRƯỞNG PHÒNG CÔNG NGHỆ THÔNG TIN</h5>
-                            <p class="mb-0 text-muted">FPT Quận 7, TP.HCM – Được vinh danh với thành tích quản lý hệ
-                                thống hiệu quả và an toàn.</p>
-                        </div>
-                    </li>
-                    <!-- Award 4 -->
-                    <li class="timeline-item d-flex align-items-start mb-5">
-                        <div class="timeline-icon bg-danger text-white mr-4">
-                            <i class="fa fa-trophy"></i>
-                        </div>
-                        <div class="timeline-content shadow-sm">
-                            <h6 class="text-primary mb-1">Dec 2021</h6>
-                            <h5 class="font-weight-bold mb-1">FPT BEST IT MANAGER</h5>
-                            <p class="mb-0 text-muted">Giải thưởng nội bộ cấp tập đoàn – Góp phần nâng cao hiệu suất hệ
-                                thống, đạt chuẩn “IT Excellence”.</p>
-                        </div>
-                    </li>
-                    <!-- Award 5 (chi tiết hơn) -->
-                    <li class="timeline-item d-flex align-items-start">
-                        <div class="timeline-icon bg-primary text-white mr-4">
-                            <i class="fa fa-shield"></i>
-                        </div>
-                        <div class="timeline-content shadow-sm">
-                            <h6 class="text-primary mb-1">Dec 2021</h6>
-                            <h5 class="font-weight-bold mb-1">FPT BEST IT MANAGER</h5>
-                            <p class="mb-0 text-muted">
-                                Giải thưởng nội bộ cấp tập đoàn.<br>
-                                Góp phần nâng cao hiệu suất hệ thống mạng & bảo mật toàn công ty, được đánh giá xuất sắc
-                                trong chương trình “FPT Telecom”.
-                            </p>
-                        </div>
-                    </li>
-                </ul>
-            </div>
-        </section>
+        <a class="backtop" href="#top">⬆ Lên đầu trang</a>
+      </section>
 
-        <!-- Thêm CSS nếu muốn nổi bật hơn -->
-        <style>
-            #awards .timeline {
-                position: relative;
-                max-width: 800px;
-                margin: 0 auto;
-                padding-left: 0;
-            }
+      <section id="khoi-nghiep-lan-dau-that-bai">
+        <h2>Khởi nghiệp lần đầu thất bại</h2>
+        <p> khoảng năm 2006, sau vài năm đi làm, anh cũng tích lũy được chút kinh nghiệm và ít vốn liếng</p>
+ 
+<p>Cộng thêm vay mượn từ người quen, anh cùng một người bạn quyết định hùn vốn mở một tiệm phở nhỏ rồi dần mở rộng ngay trong thị trấn</p>
+ 
+<p>Ban đầu, khách chủ yếu là bà con trong vùng</p>
+ 
+<p>Quán tuy đơn sơ nhưng món ăn ngon, giá cả phải chăng, khách đến cũng đông</p>
+ 
+<p>Anh tin rằng chỉ cần chăm chỉ, quán sẽ ngày càng phát triển</p>
+ 
+<p>Nhưng rồi sóng gió ập đến</p>
+ 
+<p>Người bạn chung vốn của anh ham cờ bạc</p>
 
-            #awards .timeline:before {
-                content: '';
-                position: absolute;
-                left: 32px;
-                top: 0;
-                bottom: 0;
-                width: 3px;
-                background: #dee2e6;
-            }
+<p>Trong lúc anh vắng mặt mấy ngày đi công việc xa, bạn ấy đã đem bán dần đồ đạc, lấy tiền chơi bài. Khi anh trở về thì quán gần như chẳng còn gì, nợ nần đã chất đống</p>
+ 
+<p>Anh vừa lo gom góp tiền để trả nợ, vừa phải đối diện với sự thật cay đắng giấc mơ lập nghiệp đầu tiên tan vỡ</p>
+ 
+<p>Cuối cùng, anh đành buông tay, trả lại mặt bằng cho chủ đất</p>
+ 
+<p>Ngày dọn quán, nhìn bếp nướng còn sót lại, trong lòng anh nặng trĩu</p>
+ 
+<p>Mới chỉ bắt đầu, ước mơ đã vỡ vụn</p>
+ 
+<p>Ba mẹ an ủi thất bại không sao, miễn còn sức khỏe thì còn làm lại được</p>
+ 
+<p>Nhưng trong lòng anh vẫn day dứt, thấy mình chưa làm tròn kỳ vọng</p>
+ 
+<p>Em gái mới 16 tuổi khi ấy đã nắm tay anh anh hai, đừng buồn</p>
+ 
+<p>Có thất bại thì mới trưởng thành sau này em sẽ phụ anh bán hàng em tin anh làm được</p>
 
-            #awards .timeline-item {
-                position: relative;
-            }
+<p>Từ cú ngã ấy, anh nghiệm ra chỉ có đam mê và chăm chỉ thôi chưa đủ</p>
+ 
+<p>Muốn làm ăn phải biết quản lý vốn, biết chọn bạn đồng hành, và phải tính toán kỹ từng đồng tiền</p>
+ 
 
-            #awards .timeline-icon {
-                flex-shrink: 0;
-                width: 48px;
-                height: 48px;
-                border-radius: 50%;
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                font-size: 1.5rem;
-                margin-right: 24px;
-                box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
-                z-index: 1;
-            }
+        <a class="backtop" href="#top">⬆ Lên đầu trang</a>
+      </section>
 
-            #awards .timeline-content {
-                background: #fff;
-                border-radius: 10px;
-                padding: 18px 24px 14px 24px;
-                box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06);
-                width: 100%;
-            }
+      <section id="bo-que-nha-tra-no">
+        <h2>Bỏ quê nhà đi làm trả nợ</h2>
+        <p>thất bại ở Bảo Lộc, nợ nần đè nặng, vốn liếng mất sạch, năm 2010 anh quyết định rời quê</p>
+ 
+<p>Hành trang chỉ vỏn vẹn vài bộ quần áo, chiếc ba lô cũ và ý chí phải đi làm trả nợ, rồi mới nghĩ đến tương lai</p>
+ 
+<p>Anh lên chuyến xe khách đêm, một mình lầm lũi vào Sài Gòn</p>
+ 
+<p>Khi xe dừng ở bến Miền Đông, anh bước xuống giữa dòng người xa lạ, trong túi chỉ còn ít tiền lẻ</p>
+ 
+<p>Những ngày đầu, anh không nơi nương tựa, lang thang quanh bến xe, tìm ai thuê gì làm nấy</p>
+ 
+<p>Có hôm anh bốc vác thuê cho những chiếc xe tải cần người, khiêng từng bao hàng nặng trĩu, vai bầm dập, tay rướm máu, mồ hôi ướt đẫm áo công việc nặng nhọc nhưng tiền công chỉ đủ ăn cơm bụi qua ngày đêm về, anh nằm co ro trên chiếc chiếu cũ trong phòng trọ tạm bợ, vừa mệt vừa lo, nhưng vẫn tự nhủ còn thở là còn gỡ</p>
+ 
+<p>May mắn thay, một ngày nọ, có người chủ hàng thấy anh thật thà, chịu khó, đã giới thiệu anh vào làm ở một xưởng gỗ tại quận 12 công việc chính là khuân vác gỗ, cưa, bào, phun sơn… quần quật từ sáng sớm đến tối muộn. Gỗ nặng, bụi mùn bay mù mịt, đôi bàn tay anh lúc nào cũng trầy xước có hôm làm tới kiệt sức, anh gục ngủ ngay trên đống gỗ</p>
+ 
+<p>Khó khăn là vậy, nhưng ngày nhận đồng lương đầu tiên, chỉ vỏn vẹn trăm nghìn ngót nghét một triệu đồng bạc, anh xúc động đến rưng rưng lần đầu tiên ở đất Sài Gòn, anh tự tay làm ra đồng tiền mồ hôi nước mắt, cầm chắc trong tay mà vui đến khó tả</p>
+ 
+<p>Sang ngày hôm sau nhân lương anh cầm tiền trong tay ra bưu điện gửi về quê mấy hôm sau mẹ gọi điện giọng nghèn nghẹn</p>
+ 
+<p>Con à cực thì cực nhưng phải giữ sức khỏe mẹ cầm được tiền con gửi mà rơi nước mắt nợ thì rồi sẽ trả được nhưng sức khỏe mất thì không lấy lại được đâu con đừng nhin ăn nhịn mặc quá cũng phải lo cho bản thân</p>
+ 
+<p>Em gái Thảo lúc đó cũng cầm máy giọng trong trẻo mà kiên quyết anh hai em biết anh rất vất vả nhưng đừng gồng quá anh là chỗ dựa của cả nhà em tin anh làm được sau này anh mở quán mở xưởng gì thì cho em phụ bán hàng em sẽ luôn bên anh</p>
+ 
+<p>Nghe mẹ dặn nghe em động viên mắt anh cay xè tiền lương tuy ít ỏi nhưng nó là mồ hôi công sức là bước khởi đầu để anh gánh lại trách nhiệm</p>
+ 
+<p>Ở trọ trong căn phòng nóng nực chật chội, đêm nào anh cũng mở sổ ghi chép lại những gì học được trong ngày cách lựa gỗ, cách sắp xếp công việc, cách quản lý xưởng</p>
+ 
+<p>Anh tin rằng, dù không được học trường lớp, nhưng học từ thực tế thì cũng sẽ thành nghề</p>
+ 
+<p>Suốt 5 năm, anh sống kham khổ, gần như không tiêu xài cho bản thân. Tết đến, anh vẫn về quê, dẫu chẳng có quà cáp gì, nhưng mang theo chút tiền dành dụm, trao tận tay cha mẹ để trả dần những món nợ còn chất chồng ở Bảo Lộc</p>
+ 
+<p>Đó là quãng đời khắc nghiệt, nhưng cũng chính là khoảng thời gian hun đúc cho anh bản lĩnh</p>
+ 
+<p>t kẻ thất bại trắng tay, anh học được sự kiên nhẫn, quý trọng giá trị đồng tiền, và nuôi lại niềm tin rằng có làm thì mới có ăn, còn đứng dậy thì sẽ còn cơ hội</p>
+ 
 
-            @media (max-width: 600px) {
-                #awards .timeline:before {
-                    left: 20px;
-                }
+        <a class="backtop" href="#top">⬆ Lên đầu trang</a>
+      </section>
 
-                #awards .timeline-icon {
-                    width: 32px;
-                    height: 32px;
-                    font-size: 1rem;
-                    margin-right: 12px;
-                }
-
-                #awards .timeline-content {
-                    padding: 12px 10px 8px 10px;
-                }
-            }
-        </style>
-        <canvas id="falling-flowers-canvas"></canvas>
-        <section id="testimonial" class="bg-light py-5" style="scroll-margin-top:80px;">
-            <div class="container">
-                <h2 class="mb-5 text-center font-weight-bold text-uppercase" style="letter-spacing:2px;">Khách Hàng Nói
-                    Gì?</h2>
-                <div class="row justify-content-center">
-                    <div class="col-md-4 mb-4">
-                        <div class="testimonial-box p-4 shadow rounded bg-white h-100">
-                            <div class="mb-3">
-                                <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Phạm Văn Hiếu"
-                                    class="rounded-circle" width="60" height="60">
-                            </div>
-                            <p class="mb-3 text-secondary">"Dịch vụ rất chuyên nghiệp và nhanh chóng. Tôi hoàn toàn hài
-                                lòng!"</p>
-                            <h5 class="font-weight-bold mb-0">Phạm Văn Hiếu</h5>
-                            <small class="text-muted">CEO, Công ty ABC</small>
-                        </div>
-                    </div>
-                    <div class="col-md-4 mb-4">
-                        <div class="testimonial-box p-4 shadow rounded bg-white h-100">
-                            <div class="mb-3">
-                                <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="Trần Thị Thanh"
-                                    class="rounded-circle" width="60" height="60">
-                            </div>
-                            <p class="mb-3 text-secondary">"Đội ngũ kỹ thuật tận tâm và hỗ trợ 24/7. Rất đáng tin cậy."
-                            </p>
-                            <h5 class="font-weight-bold mb-0">Trần Thị Thanh</h5>
-                            <small class="text-muted">Trưởng phòng IT, XYZ Corp</small>
-                        </div>
-                    </div>
-                    <div class="col-md-4 mb-4">
-                        <div class="testimonial-box p-4 shadow rounded bg-white h-100">
-                            <div class="mb-3">
-                                <img src="https://randomuser.me/api/portraits/men/65.jpg" alt="Lê Văn Thành"
-                                    class="rounded-circle" width="60" height="60">
-                            </div>
-                            <p class="mb-3 text-secondary">"Tôi rất ấn tượng với sự chuyên nghiệp trong triển khai hệ
-                                thống."</p>
-                            <h5 class="font-weight-bold mb-0">Lê Văn Thành</h5>
-                            <small class="text-muted">Founder, StartUp 123</small>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
+      <section id="gap-vo-gay-dung-su-nghiep">
+        <h2>Gặp vợ và gây dựng lại sự nghiệp</h2>
+        <p>Rồi vào chính khoảng thời gian này, anh quen một người bạn tên Mai một cô gái gốc Lâm Đồng, đồng hương với anh, làm kế toán cho cửa hàng vật liệu xây dựng. Mai hiền lành, hiểu chuyện, thương anh ở sự thật thà và nghị lực sau những thất bại</p>
+ 
+<p>Những ngày đầu quen nhau, cả hai thường ngồi nói chuyện bên hiên quán nhỏ Mai lắng nghe anh kể về những lần vấp ngã, về món nợ còn chưa trả hết, rồi nhẹ nhàng đáp</p>
+ 
+<p>Anh đừng lo, có em bên cạnh, chúng ta sẽ cùng nhau gánh vác một ngày nào đó, anh sẽ dựng lại được sự nghiệp của mình</p>
+ 
+<p>Chính sự đồng cảm và tin tưởng ấy đã khiến hai người xích lại gần nhau</p>
+ 
+<p>Tình yêu của anh và Mai không ồn ào, không hoa mỹ, mà là những lời hứa hẹn chân thành</p>
+ 
+<p>Sau này mình sẽ về quê, cùng nhau mở lại xưởng anh lo sản xuất, em lo sổ sách, khách hàng hai vợ chồng cùng nhau dựng lại từ đầu, có khó cũng không sợ</p>
+ 
+<p>Năm 2015, anh và Mai nên vợ chồng sau đám cưới giản dị nhưng ấm áp, hai người quyết định về Bảo Lộc bắt đầu lại</p>
+ 
 
 
-        <!--====================================================
-                              CONTACT
-        ======================================================-->
-        <section id="contact" class="contact-section py-5"
-            style="background: linear-gradient(120deg, #f8fafc 0%, #e9ecef 100%);">
-            <div class="container">
-                <h2 class="text-center text-uppercase font-weight-bold mb-5">Liên hệ với tôi</h2>
-                <div class="row align-items-center">
-                    <!-- Form -->
-                    <div class="col-md-6 mb-4 mb-md-0">
-                        <div class="card shadow border-0">
-                            <div class="card-body">
-                                <form>
-                                    <div class="form-group mb-3">
-                                        <label for="name"><i class="fa fa-user mr-2 text-primary"></i>Họ và tên</label>
-                                        <input type="text" class="form-control" id="name" placeholder="Nhập họ và tên">
-                                    </div>
-                                    <div class="form-group mb-3">
-                                        <label for="email"><i class="fa fa-envelope mr-2 text-primary"></i>Email</label>
-                                        <input type="email" class="form-control" id="email" placeholder="Nhập email">
-                                    </div>
-                                    <div class="form-group mb-3">
-                                        <label for="subject"><i class="fa fa-tag mr-2 text-primary"></i>Tiêu đề</label>
-                                        <input type="text" class="form-control" id="subject" placeholder="Nhập tiêu đề">
-                                    </div>
-                                    <div class="form-group mb-4">
-                                        <label for="message"><i class="fa fa-comment mr-2 text-primary"></i>Nội
-                                            dung</label>
-                                        <textarea class="form-control" id="message" rows="5"
-                                            placeholder="Nhập nội dung tin nhắn"></textarea>
-                                    </div>
-                                    <button type="submit" class="btn btn-primary btn-block font-weight-bold py-2">
-                                        <i class="fa fa-paper-plane mr-2"></i>Gửi liên hệ
-                                    </button>
-                                </form>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- Info -->
-                    <div class="col-md-6">
-                        <div class="card shadow border-0 h-100">
-                            <div class="card-body d-flex flex-column justify-content-center">
-                                <h4 class="font-weight-bold mb-3"><i
-                                        class="fa fa-address-card text-primary mr-2"></i>Thông tin liên hệ</h4>
-                                <p class="mb-2"><i class="fa fa-map-marker text-danger mr-2"></i><strong>Địa
-                                        chỉ:</strong> FPT Quận 7, TP.HCM</p>
-                                <p class="mb-2"><i class="fa fa-phone text-success mr-2"></i><strong>Điện
-                                        thoại:</strong> 0364 463 206</p>
-                                <p class="mb-2"><i class="fa fa-envelope text-warning mr-2"></i><strong>Email:</strong>
-                                    info@thainguyen49.com</p>
-                                <p class="mb-2"><i class="fa fa-globe text-info mr-2"></i><strong>Website:</strong>
-                                    thainguyen49.com</p>
+<p>Vốn liếng không nhiều, nhưng lần này anh có kinh nghiệm quản lý từ Sài Gòn và có người vợ đồng hành lo toan sổ sách, khách hàng</p>
+ 
+<p>Thảo em gái anh cũng rất thân thiết với chị dâu khi rảnh, Thảo phụ chị ghi chép sổ sách nên vợ anh cũng đỡ vất vả nhường nào</p>
+ 
+ 
+<p>ng mộc nhỏ dựng ngay sau nhà, chuyên làm bàn ghế, tủ bếp, giường ngủ cho bà con quanh vùng nhờ sản phẩm chắc chắn, giá cả hợp lý, uy tín dần được gây dựng, khách ngày một đông</p>
+ 
+<p>Từ vài thợ ban đầu, chỉ trong vài năm 2016–2019, xưởng phát triển thành cả chục thợ</p>
+ 
+<p>Cuộc sống gia đình cũng rạng rỡ giữa năm 2016 Mai có bầu, rồi năm sau hạ sinh một bé trai kháu khỉnh căn nhà ấm áp, buổi tối sau một ngày làm việc, hai vợ chồng ngồi uống trà nhìn con chơi đùa đó là khoảng thời gian hạnh phúc nhất trong đời anh</p>
+ 
+<p>Khi đó cuộc sống khấm khá hơn vợ chồng anh có ngồi lại với nhau bàn tính chuyện tương lai</p>
+ 
+<p>Vợ anh bảo mình phải lo xa tích góp rồi mua đất đất không sinh thêm giữ được đất là giữ được tương lai con cái</p>
+ 
+<p>Rồi đồng vợ đồng chồng năm 2016 hai vợ chồng mua được mảnh đất đầu tiên ở ngoại ô Bảo Lộc rồi năm 2017 năm 2018 và đầu năm 2019 mỗi năm lại dành dụm mua thêm một mảnh</p>
 
+<p>Nhưng rồi tai họa ập đến sau này, Thảo chính là người thường xuyên ở cạnh cha mẹ, lo cho cháu trai, động viên anh</p>
 
-                                <div class="mt-3">
-                                    <a href="#" class="btn btn-outline-primary btn-sm rounded-circle mr-2"
-                                        title="Facebook"><i class="fa fa-facebook"></i></a>
-                                    <a href="#" class="btn btn-outline-info btn-sm rounded-circle mr-2"
-                                        title="LinkedIn"><i class="fa fa-linkedin"></i></a>
-                                    <a href="#" class="btn btn-outline-secondary btn-sm rounded-circle"
-                                        title="Twitter"><i class="fa fa-twitter"></i></a>
-                                </div>
-                                <div class="mt-4">
-                                    <iframe
-                                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3919.9582278145913!2d106.72788031428789!3d10.740526592347447!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31753ae1d1736799%3A0x1f8a5a6f540dce36!2sFPT%20Telecom%20-%20Chi%20nh%C3%A1nh%20Qu%E1%BA%ADn%207!5e0!3m2!1svi!2s!4v1721540000000"
-                                        width="100%" height="180" style="border:0; border-radius:8px;"
-                                        allowfullscreen="" loading="lazy"></iframe>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
+<p>Anh hai em biết chị đi rồi anh đau khổ lắm nhưng anh còn có con có em và cả nhà nữa nên anh không được bỏ cuộc </</p>
 
+        <a class="backtop" href="#top">⬆ Lên đầu trang</a>
+      </section>
 
-        <section id="fpt-map" style="padding: 40px 0;">
-            <div class="container">
-                <h2 style="text-align: center; font-size: 28px; margin-bottom: 20px;">
-                    Địa chỉ FPT Telecom Quận 7 – TP.HCM
-                </h2>
-                <div
-                    style="width: 100%; height: 450px; border-radius: 10px; overflow: hidden; box-shadow: 0 4px 12px rgba(0,0,0,0.1);">
-                    <iframe
-                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3919.9582278145913!2d106.72788031428789!3d10.740526592347447!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31753ae1d1736799%3A0x1f8a5a6f540dce36!2sFPT%20Telecom%20-%20Chi%20nh%C3%A1nh%20Qu%E1%BA%ADn%207!5e0!3m2!1svi!2s!4v1721540000000"
-                        width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"
-                        referrerpolicy="no-referrer-when-downgrade">
-                    </iframe>
-                </div>
-            </div>
-        </section>
+      <section id="su-co-vo-mat">
+        <h2>Sự cố vợ mất</h2>
+        <p>Khoảnh khắc mất mát, ảnh hưởng đến gia đình và công việc, cách bạn đứng dậy. Có thể thêm lời tri ân hoặc vài tấm ảnh kỷ niệm.</p>
+        <a class="backtop" href="#top">⬆ Lên đầu trang</a>
+      </section>
 
-        <!-- Cuối file, chỉnh lại script hoa rơi cho nhẹ nhàng và không che menu -->
-        <script>
-            // Hoa rơi chuyên nghiệp, nhẹ nhàng
-            const canvas = document.getElementById('falling-flowers-canvas');
-            const ctx = canvas.getContext('2d');
-            let flowers = [];
-            const flowerColors = ['#ffb6c1', '#fff0f5', '#ffe4e1', '#ff69b4', '#ff1493', '#ffc0cb'];
-            function resizeCanvas() {
-                canvas.width = window.innerWidth;
-                canvas.height = window.innerHeight;
-            }
-            window.addEventListener('resize', resizeCanvas);
-            resizeCanvas();
+      <section id="gap-nguoi-an-nhan-la-chu">
+        <h2>Gặp người ân nhân là chú</h2>
+        <p><p>Rồi anh bắt đầu với công việc sau khi ổn định công việc được một thời gian</p>
+ 
+<p>Giữa năm 2020 dịch Covid-19 bùng phát mạnh chỉ thị giãn cách khiến mọi hoạt động công ty tê liệt, hàng hóa không thể xuất đi, tồn kho chất đống, chi phí thuê kho bãi và bồi thường hợp đồng ngày càng lớn</p>
+ 
+<p>Tiền lãi ngân hàng dồn lên đầu, anh phải bán chiếc xe kỷ niệm hai vợ chồng mua năm 2016 và thế chấp cả nhà của bố mẹ để có tiền trả lương công nhân</p>
+ 
+<p>Đến giữa năm 2021, anh gần như trắng tay, công ty không còn khả năng duy trì</p>
+ 
+ <p>Anh buộc phải tìm đến chú để vay 1,5 tỷ đồng chú là em trai của ba khi ấy cả đại gia đình bỏ gia sản để cho chú đi du học Mỹ lúc ấy chú khuyên</p>
+ 
+<p>Kinh tế khó khăn thế này, sao cháu không thử đầu tư giống chú? Ngồi ôm công ty kiểu này chỉ thêm gánh nặng thôi</p>
+ 
+<p>Vốn là người làm ăn truyền thống, anh thẳng thắn từ chối cháu chỉ tin vào mồ hôi công sức và tiền thật việc thật</p>
+ 
+ <p>Chuyện đầu tư trên internet, nhất là tiền ảo, cháu không tin và chưa bao giờ dám thử</p>
+ 
+<p>Nhưng rồi dịch bệnh kéo dài mãi, sau Tết 2022, số tiền vay lần đầu đã cạn, công ty không thể trụ được nữa</p>
+ 
+<p>Anh lại tìm đến chú, lần này vay 100.000 USD. Chú nghiêm giọng</p>
+ 
+<p>Chú giúp thêm lần này nữa, nhưng cháu phải thay đổi suy nghĩ. Không thể cứ cố chấp mãi được nhìn chú đầu tư Bitcoin đi, chú mới có thể xoay sở mà hỗ trợ cháu đấy</p>
+ 
+<p>Ban đầu, anh vẫn kiên quyết từ chối vì cho rằng đó chỉ là trò ảo</p>
+ 
+<p>Nhưng càng nghĩ càng thấy nếu tiếp tục cố chấp, mọi thứ cũng sẽ sụp đổ, nợ thêm chồng chất</p>
+ 
+<p>Anh quyết định dành 50.000 USD để trả lương nhân viên và chi phí mặt bằng, còn số tiền còn lại nghe theo lời chú, bắt đầu học cách đầu tư Bitcoin</p>
+ 
+<p>Lần đầu thao tác, anh thấy mọi thứ khá đơn giản. Nhờ chú tận tình hướng dẫn, anh bắt đầu kiếm được chút lợi nhuận ngắn hạn</p>
+ 
+<p>Điều này thắp lại trong anh một tia hy vọng</p>
+ 
+<p>Đến tháng 5/2023, khi đại dịch Covid chính thức kết thúc, nhờ khoản lợi nhuận từ đầu tư Bitcoin, anh đã trả hết nợ nần, rồi tái lập công ty</p>
+ 
+<p>Từ đó, công việc dần ổn định trở lại, đánh dấu bước ngoặt lớn trong cuộc đời anh</p>
+ 
+<p>Nhờ những kinh nghiệm rút ra từ khủng hoảng, cùng sự hỗ trợ và kiến thức đầu tư mà chú đã truyền lại, công ty từng bước ổn định, khách hàng quay trở lại, đơn hàng tăng dần</p>
+ 
+<p>Đến năm 2024, anh bắt đầu có dư một khoản tích lũy</p>
+ 
+<p>Lần này, anh không tiêu xài phung phí, mà tiếp tục theo lời vợ khi xưa đất không sinh thêm, giữ đất là giữ tương lai</p>
+ 
+<p>Chỉ trong một năm, anh đã mua lại được vài mảnh đất mới, không lớn như trước, nhưng đủ để anh cảm thấy an tâm</p>
+ 
+<p>Với anh, đó không chỉ là tài sản, mà còn là cách để giữ trọn lời hứa với vợ tiếp tục xây dựng một nền tảng vững chắc cho con trai sau này</p>
+ 
+ 
+<p>Anh thường đứng lặng giữa mảnh đất mới mua, nhìn lên bầu trời mà khẽ nói Mai à anh đã giữ lời dù em không còn anh vẫn gánh vác vẫn sẽ dựng lại ước mơ của chúng ta</p>
+ 
 
-            function randomFlower() {
-                return {
-                    x: Math.random() * canvas.width,
-                    y: Math.random() * -canvas.height,
-                    r: 7 + Math.random() * 7,
-                    speed: 0.7 + Math.random() * 1.2,
-                    drift: (Math.random() - 0.5) * 1.1,
-                    color: flowerColors[Math.floor(Math.random() * flowerColors.length)],
-                    angle: Math.random() * Math.PI * 2,
-                    rotateSpeed: (Math.random() - 0.5) * 0.01,
-                    opacity: 0.45 + Math.random() * 0.25
-                };
-            }
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            10px1
+            1
+            1
+            1
+            1
+            1
+            1
+            1
+             điều gì cụ thể (vốn, mối quan hệ, lời khuyên…). Ghi rõ bài học và lời cảm ơn.</p>
+        <a class="backtop" href="#top">⬆ Lên đầu trang</a>
+      </section>
+      
 
-            function drawFlower(f) {
-                ctx.save();
-                ctx.translate(f.x, f.y);
-                ctx.rotate(f.angle);
-                ctx.beginPath();
-                for (let i = 0; i < 5; i++) {
-                    ctx.lineTo(0, -f.r);
-                    ctx.rotate((Math.PI * 2) / 5);
-                }
-                ctx.closePath();
-                ctx.globalAlpha = f.opacity;
-                ctx.fillStyle = f.color;
-                ctx.shadowColor = '#fff';
-                ctx.shadowBlur = 4;
-                ctx.fill();
-                ctx.globalAlpha = 1;
-                ctx.restore();
-            }
+      <!-- Thêm nhiều section khác tùy ý -->
+    </main>
+  </div>
 
-            function animate() {
-                ctx.clearRect(0, 0, canvas.width, canvas.height);
-                if (flowers.length < 25) {
-                    flowers.push(randomFlower());
-                }
-                for (let f of flowers) {
-                    f.y += f.speed;
-                    f.x += f.drift;
-                    f.angle += f.rotateSpeed;
-                    drawFlower(f);
-                }
-                flowers = flowers.filter(f => f.y < canvas.height + 30);
-                requestAnimationFrame(animate);
-            }
-            animate();
+  <script>
+    // --------- TỰ TẠO MỤC LỤC TỪ TẤT CẢ H2 TRONG <main> ---------
+    (function(){
+      const main = document.querySelector('main');
+      const headings = main.querySelectorAll('h2');
+      const toc = document.getElementById('tocList');
+      headings.forEach((h2, idx) => {
+        const sec = h2.closest('section');
+        // Nếu chưa có id thì sinh id tự động theo nội dung
+        if (!sec.id){
+          const slug = h2.textContent.toLowerCase().normalize('NFD').replace(/\p{Diacritic}/gu,'').replace(/[^a-z0-9\s-]/g,'').trim().replace(/\s+/g,'-');
+          sec.id = slug || `muc-${idx+1}`;
+        }
+        const a = document.createElement('a');
+        a.href = `#${sec.id}`;
+        a.textContent = h2.textContent;
+        toc.appendChild(a);
+      });
 
-            // Canvas luôn nằm dưới menu/header
-            canvas.style.position = 'fixed';
-            canvas.style.top = 0;
-            canvas.style.left = 0;
-            canvas.style.width = '100vw';
-            canvas.style.height = '100vh';
-            canvas.style.pointerEvents = 'none';
-            canvas.style.zIndex = 1;
-        </script>
+      // Highlight mục đang xem
+      const links = toc.querySelectorAll('a');
+      const observer = new IntersectionObserver((entries)=>{
+        entries.forEach(entry=>{
+          const id = entry.target.id;
+          const link = toc.querySelector(`a[href="#${id}"]`);
+          if (entry.isIntersecting){
+            links.forEach(l=>l.classList.remove('active'));
+            link && link.classList.add('active');
+            // cập nhật hash nhẹ nhàng
+            history.replaceState(null, '', `#${id}`);
+          }
+        });
+      }, {rootMargin: '0px 0px -70% 0px', threshold: 0.1});
+
+      document.querySelectorAll('main section').forEach(sec=>observer.observe(sec));
+
+      // Đánh dấu vị trí đầu trang để nút "Lên đầu" hoạt động tốt
+      const top = document.createElement('div');
+      top.id = 'top';
+      document.body.prepend(top);
+    })();
+  </script>
+</body>
+</html>
