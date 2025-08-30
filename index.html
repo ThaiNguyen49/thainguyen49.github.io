@@ -94,17 +94,16 @@
     <nav id="tocList" aria-label="Mục lục"></nav>
   </aside>
   <div class="container">
-    <!-- ======== NỘI DUNG BÀI VIẾT ======== -->
+     <!-- ======== NỘI DUNG BÀI VIẾT ======== -->
     <main class="article">
       <nav style="margin-bottom:16px;">
-  <a href="#hoi-uc">Hồi ức</a> |
-  <a href="#moi-tinh-dau">Mối tình đầu</a> |
-  <a href="#di-lam-lan-dau">Đi làm lần đầu</a> |
-  <a href="#khoi-nghiep-lan-dau-that-bai">Khởi nghiệp lần đầu thất bại</a> |
-  <a href="#bo-que-nha-tra-no">Bỏ quê nhà đi làm trả nợ</a> |
-  <a href="#gap-vo-gay-dung-su-nghiep">Gặp vợ và gây dựng lại sự nghiệp</a> |
-  <a href="#su-co-vo-mat">Sự cố vợ mất</a> |
-  <a href="#gap-nguoi-an-nhan-la-chu">Gặp người ân nhân là chú</a>
+  <a href="index.html">Bao Bọc</a> |
+  <a href="CHI%20TIẾT%20BAO%20BỌC.html">Chi tiết </a> |
+  <a href="Câu%20chuyện%20tổ%20trưởng.html">Câu chuyện tổ </a>
+
+   
+      
+  
 </nav>
       
       </div>
@@ -114,7 +113,6 @@
 </div>
 <div class="kicker">@NguoiTaiKhongDoanhThu</div>
 
-      <!-- Bạn chỉ cần thêm các <section> với <h2>; TOC sẽ tự tạo link. Đặt id nếu muốn URL đặc thù. -->
 
       <section id="hoi-uc">
   <h2>Hồi ức</h2>
@@ -552,6 +550,33 @@ Giá như hôm đó mình cứng rắn hơn, bắt cô ấy tắt máy… thì �
     </main>
   </div>
 
+  <!-- Menu 3 chấm nổi góc phải -->
+<div id="menuDropdown" style="position:fixed;top:24px;right:24px;z-index:10000;">
+  <button id="menuBtn" style="background:#fff;border-radius:50%;width:44px;height:44px;border:1px solid #e5e7eb;box-shadow:0 2px 8px rgba(0,0,0,0.08);font-size:28px;cursor:pointer;">⋮</button>
+  <div id="menuList" style="display:none;position:absolute;top:54px;right:0;background:#fff;border-radius:12px;box-shadow:0 4px 24px rgba(0,0,0,0.12);border:1px solid #e5e7eb;min-width:180px;">
+    <a href="#hoi-uc" style="display:block;padding:12px 20px;text-decoration:none;color:#111;">Hồi ức</a>
+    <a href="#moi-tinh-dau" style="display:block;padding:12px 20px;text-decoration:none;color:#111;">Mối tình đầu</a>
+    <a href="#di-lam-lan-dau" style="display:block;padding:12px 20px;text-decoration:none;color:#111;">Đi làm lần đầu</a>
+    <a href="#khoi-nghiep-lan-dau-that-bai" style="display:block;padding:12px 20px;text-decoration:none;color:#111;">Khởi nghiệp lần đầu thất bại</a>
+    <a href="#bo-que-nha-tra-no" style="display:block;padding:12px 20px;text-decoration:none;color:#111;">Bỏ quê nhà đi làm trả nợ</a>
+    <a href="#gap-vo-gay-dung-su-nghiep" style="display:block;padding:12px 20px;text-decoration:none;color:#111;">Gặp vợ và gây dựng lại sự nghiệp</a>
+    <a href="#su-co-vo-mat" style="display:block;padding:12px 20px;text-decoration:none;color:#111;">Sự cố vợ mất</a>
+    <a href="#gap-nguoi-an-nhan-la-chu" style="display:block;padding:12px 20px;text-decoration:none;color:#111;">Gặp người ân nhân là chú</a>
+  </div>
+</div>
+<script>
+  const btn = document.getElementById('menuBtn');
+  const list = document.getElementById('menuList');
+  btn.onclick = function() {
+    list.style.display = list.style.display === 'none' ? 'block' : 'none';
+  };
+  // Ẩn menu khi click ra ngoài
+  document.addEventListener('click', function(e){
+    if (!btn.contains(e.target) && !list.contains(e.target)) {
+      list.style.display = 'none';
+    }
+  });
+</script>
   <script>
     // --------- TỰ TẠO MỤC LỤC TỪ TẤT CẢ H2 TRONG <main> ---------
     (function(){
