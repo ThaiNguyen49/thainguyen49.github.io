@@ -1,0 +1,487 @@
+<!doctype html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Ký ức & Câu chuyện – Mục lục nhảy tới chủ đề</title>
+  <style>
+    :root {
+      --bg: #fff;
+      --text: #111;
+      --muted: #6b7280;
+      --brand: #e11d48; /* đỏ đậm cho tiêu đề */
+      --card: #f8fafc;
+    }
+    html { scroll-behavior: smooth; }
+    body { margin:0; font-family: system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji"; background:var(--bg); color:var(--text); }
+
+    /* Layout */
+    .container { max-width: 1200px; margin: 0 auto; padding: 24px; display:grid; gap:24px; grid-template-columns: 280px 1fr; }
+    @media (max-width: 960px){ .container{ grid-template-columns: 1fr; } }
+
+    /* TOC */
+    .toc {
+  position: fixed;
+  right: 24px;
+  bottom: 24px;
+  top: auto;
+  left: auto;
+  z-index: 999;
+  max-width: 180px;
+  padding: 8px;
+  font-size: 14px;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.08);
+}
+    .toc h2 { margin: 0 0 4px 0; font-size: 15px; }
+    .toc p { margin: 0 0 4px 0; color: var(--muted); font-size: 12px; }
+    .toc a { display:block; padding:6px 8px; margin: 2px 0; text-decoration: none; color: #1f2937; border-radius: 10px; border: 1px dashed transparent; font-size: 13px; }
+    .toc a:hover { background: #f1f5f9; }
+    .toc a.active { border-color:#94a3b8; background: #eef2ff; }
+
+    /* Article */
+    .article { background: var(--bg); }
+    .lead { font-size: 42px; line-height: 1.15; color: var(--brand); font-weight:800; margin: 0 0 16px 0; }
+    .kicker { color: var(--muted); font-size:14px; margin-bottom: 24px; }
+
+    section { padding: 16px 0 32px 0; border-bottom: 1px solid #e5e7eb; }
+    section:last-child{ border-bottom: none; }
+    section h2 { font-size: 32px; color: var(--brand); margin: 0 0 12px 0; }
+    section p { font-size: 18px; line-height: 1.8; margin: 10px 0; }
+
+    .backtop { display:inline-block; margin-top: 8px; font-size: 14px; color:#2563eb; text-decoration:none; }
+    .backtop:hover{ text-decoration: underline; }
+
+    /* Simple tabs for multiple chapters (optional) */
+    .chapters { display:flex; gap:10px; flex-wrap: wrap; margin: 8px 0 24px; }
+    .chapters a { padding: 8px 12px; border-radius: 999px; border:1px solid #e5e7eb; text-decoration:none; color:#111; }
+    .chapters a:hover { background:#f8fafc; }
+  </style>
+</head>
+<body>
+  <nav style="margin:16px 0;">
+  <a href="https://thainguyen49.com">Trang tổng quan</a>
+</nav>
+  <div class="container">
+    <!-- ======== MỤC LỤC (tự sinh từ các thẻ H2 bên phải) ======== -->
+    <aside class="toc">
+      <h2>Mục lục</h2>
+      <p>Bấm để nhảy tới mục</p>
+      <nav id="tocList" aria-label="Mục lục"></nav>
+    </aside>
+
+    <!-- ======== NỘI DUNG BÀI VIẾT ======== -->
+    <main class="article">
+      <h1 class="lead">BAO BỌC LIN FU</h1>
+      <div class="kicker">@NguoiTaiKhongDoanhThu</div>
+
+      <!-- Bạn chỉ cần thêm các <section> với <h2>; TOC sẽ tự tạo link. Đặt id nếu muốn URL đặc thù. -->
+
+      <section id="hoi-uc">
+        <h2>Hồi ức</h2>
+        <p>Anh sinh ra trong một gia đình nông dân ở Bảo Lộc, xung quanh là những đồi chè, cà phê và làng nghề truyền thống</p>
+ 
+<p>Cha mẹ lam lũ, dành dụm từng đồng để nuôi con ăn học</p>
+ 
+<p>Năm đó, gia đình vốn chỉ có 2 héc đất cà phê một héc đầu tiên, mẹ và họ hàng đành phải bán đi để giúp chú em trai của ba có tiền đi du học bên Mỹ</p>
+ 
+<p>Chú học giỏi nhất nhà, lại giành được học bổng, cả đại gia đình đều đặt hy vọng vào chú sẽ đổi đời</p>
+ 
+<p>Ngày bán đất, mẹ gạt nước mắt ký giấy, rồi nhìn chú xách chiếc vali cũ lên đường mà dặn đi dặn lại con đi học, phải ráng thành tài cái nghèo rồi sẽ qua, miễn là trong nhà có người vươn lên</p>
+ 
+<p>Đó là quyết định đau nhưng cũng đầy tin tưởng cả gia đình chấp nhận bớt đi một phần tài sản để gieo hy vọng vào tương lai</p>
+ 
+<p>Những năm đầu 1990, đời sống còn thiếu thốn, cơm thường độn khoai sắn, áo quần đi học thường được may lại từ vải cũ</p>
+ 
+<p>Năm đó, gia đình có thêm một thành viên nhỏ em gái anh, Trần Thị Thanh Thảo, ra đời</p>
+ 
+<p>Anh 6 tuổi, em gái mới tròn 1 tuổi, thì một biến cố lớn ập đến ba mất vì tai nạn lao động trong lúc đi làm thuê ngoài rẫy khi đó mẹ xoay sở bên ngoại bên nội không có tiền chạy chữa bán cả mảnh đất còn lại cả gia sản nhưng số phận nghiện ngã ba không qua khỏi mẹ phải tận mắt chứng kiến sự mất mát của ba anh</p>
+ 
+<p>Sự ra đi quá đột ngột khiến cả nhà như sụp đổ tài sản không còn, cha mất, mẹ trở thành trụ cột duy nhất</p>
+ 
+<p>Mẹ vừa làm cha, vừa làm mẹ, đi làm thuê khắp nơi, từ hái cà phê, làm cỏ đến gùi phân thuê cho người ta có hôm mẹ về muộn, mồ hôi đẫm áo, tay chai sần, nhưng vẫn cố gắng cười với hai con nhỏ</p>
+ 
+<p>Từ đó, tuổi thơ anh và Thảo lớn lên trong cảnh vắng bóng cha, chỉ còn tình thương của mẹ</p>
+ 
+<p>Mẹ vừa làm cha, vừa làm mẹ, sớm hôm lam lũ ngoài vườn cà phê, đồi chè để nuôi hai anh em</p>
+ 
+<p>Anh hiểu mình là anh trai, là chỗ dựa của mẹ và em, nên dù chỉ mới 6 tuổi, trong lòng đã sớm nhen nhóm ý thức trách nhiệm</p>
+
+<p>Anh nhớ hồi đó năm 1991, vừa tròn 6 tuổi, anh bắt đầu đi học lớp 1</p>
+
+<p>Ngày khai giảng lớp 1 năm 1991, anh bước vào sân trường với cặp sách chỉ là chiếc túi vải mẹ khâu, bên trong vài quyển vở giấy vàng ố và cây bút máy bơm mực</p>
+
+<p>Đường đi học phải băng qua những con dốc nhỏ, sáng sớm thường phủ sương</p>
+
+<p>Mùa mưa chân đất lấm lem đỏ au quần xắn cao nhiều khi té ngã ướt hết sách vở hihi</p>
+ 
+<p>Hồi đó anh thích nhất là những buổi trưa tan học được rủ bạn bè ra đồi che chơi trốn tìm hay lấy quả cà phê chín ném nhau</p>
+ 
+<p>Trò chơi ngày xưa rất giản dị bắn bi thả diều bằng giấy báo chơi ô ăn quan trên nền đất</p>
+ 
+<p>Môi lần được mẹ cho vài đồng mua kem đá ở cổng trường là niềm vui ngây ngất</p>
+
+<p>Anh còn nhớ vào lúc lớp 3 trường phát động phong trào kế hoach nhỏ học sinh gom giấy vụn và lon bia cux để gây quỹ , anh khi ấy hí hửng chay quanh khắp trường xóm xin giấy mang đến trường được cô giáo khen hihi</p>
+
+<p>Anh khi anh 11 tuổi là năm 1996 anh thi dỗ vào trường cấp 2 nằm trong thành phố Bảo Lộc trường lại khang trang hơn trường tiểu học có cổng sắt có sân bóng chuyền , bóng đá với lại thầy cô cũng gắt hơn nhiều</p>
+ 
+<p>Khi ấy anh nhớ vào đầu vào lớp 6 cái cảm giác vừa háo hức vừa hồi hộp sách giáo khoa mới bạn bè mới nhưng còn vụng về trẻ con hi</p>
+ 
+<p>Trong lớp anh nhanh chóng có nhóm bạn thân 3-4 người thường cùng nhau đi ăn quà vặt sau giờ tan trường banh trang nướng mia ghim ly trà đát 500 đồng</p>
+ 
+<p>Chiều về cả nhóm rủ nhau đá banh ở sân đất đỏ hoặc bơi ở con suối nhỏ gần đồi chè hihi quần áo rách chân tay trầy xước nhưng đó là tuổi thơ sôi nổi và đáng nhớ haha</p>
+ 
+<p>Anh học thì khá môn Toán nhưng anh lại thích môn Văn hihi mà anh thích nghe thầy kể chuyện Lý Thường Kiệt Và Trần Hưng Đạo</p>
+ 
+<p>Anh nhớ vào khi năm 1999 anh thi đỗ vào trường cấp 3</p>
+ 
+<p>Ngày đầu đi học sân trường có dãy lớp mái ngói cũ có hàng phượng đỏ rợp bóng </p>
+ 
+<p>Khi đấy anh cảm thấy mình đã lớn hẳn không còn là một cậu trẻ con như ngày trước nữa rồi</p>
+ 
+</p>
+        <a class="backtop" href="#top">⬆ Lên đầu trang</a>
+      </section>
+
+      <section id="moi-tinh-dau">
+        <h2>Mối tình đầu</h2>
+        <p>Anh còn nhớ trong lớp có một cô bạn học giỏi Văn, dịu dàng, hay mặc áo dài trắng mỗi thứ hai
+ 
+<p>Những buổi học nhóm, bạn ngồi bên cạnh, lén nhìn nét chữ nắn nót, và mỗi lần cô ấy cười là tim anh lại đập loạn nhịp cả</p>
+ 
+<p>Một lần lớp đi dã ngoại, anh đã lén viết mẩu giấy nhỏ chúc cậu thi học kỳ tốt nhé đó là tình thư đầu tiên ngây ngô, vụng dại nhưng cả đời này anh sẽ không bao giờ quên</p>
+ 
+<p>Dù chưa một lần đủ dũng khí thổ lộ thành lời, nhưng đó chính là mối tình đầu trong sáng, gắn với tiếng ve, sắc phượng đỏ và sân trường cấp ba mờ sương buổi sớm</p>
+ 
+<p>Rồi khi tốt nghiệp, mỗi người lại chọn một con đường riêng cô ấy tiếp tục theo đuổi giảng đường, còn anh thì rẽ sang đời đi làm sớm</p>
+ 
+<p>Những bận rộn, lo toan và khoảng cách dần kéo hai người xa nhau</p>
+ 
+<p>Đến ngày chia tay cuối cùng ở sân trường, tiếng trống vang lên như lời tạm biệt cho một thời mơ mộng</p>
+ 
+<p>Không phải vì hết thương, cũng chẳng vì điều gì khúc mắc, mà chỉ đơn giản là chúng ta không còn đi chung một lối</p>
+ 
+<p>Mối tình đầu khép lại lặng lẽ, để lại trong anh một khoảng trời kỷ niệm vừa ngọt ngào, vừa day dứt như tiếng ve và sắc phượng mãi đỏ rực trong ký ức tuổi học trò</p>
+ 
+</p>
+        <a class="backtop" href="#top">⬆ Lên đầu trang</a>
+      </section>
+
+      <section id="di-lam-lan-dau">
+        <h2>Đi làm lần đầu</h2>
+        <p>Cuối năm kỳ thi tốt nghiệp 2002 anh cùng bạn bè cắm đầu học ngày đêm có hôm học khuya dưới ánh đèn dầu vì điện chập chờn khi cầm tấm bằng tốt nghiệp cấp 3 niềm vui xen lẫn lo âu một chặng đường khép lại tương lai vẫn mờ mịt</p>
+ 
+<p>Tốt nghiệp xong nhiều bạn bè cùng lớp khăn gói đi Đà Lạt Sài Gòn học đại học riêng anh chỉ có một mình mẹ không đủ tiền chu cấp nhà còn nợ mấy vụ mùa cà phê thất bát nên anh không được đi cùng các bạn</p>
+ 
+<p>Đêm trước ngày bạn bè nhập học anh ngồi một mình bên hiên nhà nghe tiếng côn trùng rả rích mắt cay xè ước mơ đại học khép lại thay vào đó là trách nhiệm phụ giúp gia đình</p>
+ 
+<p>Xong rồi anh xin vào phụ việc ở một quán ăn nhỏ trong vùng</p>
+
+<p>Công việc cũng chẳng nhẹ nhàng: dọn bàn, rửa chén, bưng bê, quét dọn… ca làm kéo dài từ sáng sớm đến tận khuya</p>
+
+<p>Người ta ăn xong mới được dọn, có khi nửa đêm mới xong việc</p>
+ 
+<p>Có hôm quán đông khách, anh chạy tới chạy lui, mồ hôi nhễ nhại, tay chân mỏi rã rời</p>
+
+<p>Nhưng nhờ vậy mà anh quen dần với cường độ làm việc, học cách nhanh nhẹn, khéo léo hơn trong giao tiếp</p>
+ 
+<p>Tiền công ban đầu không nhiều, nhưng nhớ mãi ngày đầu tiên được nhận lương vài đồng trong tay</p>
+ 
+<p>Anh vui mừng khôn tả</p>
+
+<p>Cầm những đồng tiền do chính mồ hôi công sức mình làm ra, anh chỉ muốn mang ngay về đưa cho mẹ</p>
+ 
+<p>Cái tuổi 18–20, người khác tung tăng áo trắng giảng đường, thì anh đã thành lao động thực thụ</p>
+
+<p>Cuộc sống vất vả dạy anh biết quý trọng từng đồng tiền kiếm được, hiểu rằng chỉ có lao động, chỉ có làm thì mới có ăn</p>
+ 
+<p>Tuy học không cao, nhưng anh vẫn giữ ước mơ</p>
+
+<p>Mỗi khi đi ngang qua trường, nhìn sinh viên áo trắng, anh lại tự nhủ mình không được đi học, nhưng mình sẽ học nghề, học đời, đến nơi đến chốn</p>
+
+<p>Một ngày nào đó, mình cũng sẽ có chỗ đứng</p>
+
+
+        <a class="backtop" href="#top">⬆ Lên đầu trang</a>
+      </section>
+
+      <section id="khoi-nghiep-lan-dau-that-bai">
+        <h2>Khởi nghiệp lần đầu thất bại</h2>
+        <p> khoảng năm 2006, sau vài năm đi làm, anh cũng tích lũy được chút kinh nghiệm và ít vốn liếng</p>
+ 
+<p>Cộng thêm vay mượn từ người quen, anh cùng một người bạn quyết định hùn vốn mở một tiệm phở nhỏ rồi dần mở rộng ngay trong thị trấn</p>
+ 
+<p>Ban đầu, khách chủ yếu là bà con trong vùng</p>
+ 
+<p>Quán tuy đơn sơ nhưng món ăn ngon, giá cả phải chăng, khách đến cũng đông</p>
+ 
+<p>Anh tin rằng chỉ cần chăm chỉ, quán sẽ ngày càng phát triển</p>
+ 
+<p>Nhưng rồi sóng gió ập đến</p>
+ 
+<p>Người bạn chung vốn của anh ham cờ bạc</p>
+
+<p>Trong lúc anh vắng mặt mấy ngày đi công việc xa, bạn ấy đã đem bán dần đồ đạc, lấy tiền chơi bài. Khi anh trở về thì quán gần như chẳng còn gì, nợ nần đã chất đống</p>
+ 
+<p>Anh vừa lo gom góp tiền để trả nợ, vừa phải đối diện với sự thật cay đắng giấc mơ lập nghiệp đầu tiên tan vỡ</p>
+ 
+<p>Cuối cùng, anh đành buông tay, trả lại mặt bằng cho chủ đất</p>
+ 
+<p>Ngày dọn quán, nhìn bếp nướng còn sót lại, trong lòng anh nặng trĩu</p>
+ 
+<p>Mới chỉ bắt đầu, ước mơ đã vỡ vụn</p>
+ 
+<p>Ba mẹ an ủi thất bại không sao, miễn còn sức khỏe thì còn làm lại được</p>
+ 
+<p>Nhưng trong lòng anh vẫn day dứt, thấy mình chưa làm tròn kỳ vọng</p>
+ 
+<p>Em gái mới 16 tuổi khi ấy đã nắm tay anh anh hai, đừng buồn</p>
+ 
+<p>Có thất bại thì mới trưởng thành sau này em sẽ phụ anh bán hàng em tin anh làm được</p>
+
+<p>Từ cú ngã ấy, anh nghiệm ra chỉ có đam mê và chăm chỉ thôi chưa đủ</p>
+ 
+<p>Muốn làm ăn phải biết quản lý vốn, biết chọn bạn đồng hành, và phải tính toán kỹ từng đồng tiền</p>
+ 
+
+        <a class="backtop" href="#top">⬆ Lên đầu trang</a>
+      </section>
+
+      <section id="bo-que-nha-tra-no">
+        <h2>Bỏ quê nhà đi làm trả nợ</h2>
+        <p>thất bại ở Bảo Lộc, nợ nần đè nặng, vốn liếng mất sạch, năm 2010 anh quyết định rời quê</p>
+ 
+<p>Hành trang chỉ vỏn vẹn vài bộ quần áo, chiếc ba lô cũ và ý chí phải đi làm trả nợ, rồi mới nghĩ đến tương lai</p>
+ 
+<p>Anh lên chuyến xe khách đêm, một mình lầm lũi vào Sài Gòn</p>
+ 
+<p>Khi xe dừng ở bến Miền Đông, anh bước xuống giữa dòng người xa lạ, trong túi chỉ còn ít tiền lẻ</p>
+ 
+<p>Những ngày đầu, anh không nơi nương tựa, lang thang quanh bến xe, tìm ai thuê gì làm nấy</p>
+ 
+<p>Có hôm anh bốc vác thuê cho những chiếc xe tải cần người, khiêng từng bao hàng nặng trĩu, vai bầm dập, tay rướm máu, mồ hôi ướt đẫm áo công việc nặng nhọc nhưng tiền công chỉ đủ ăn cơm bụi qua ngày đêm về, anh nằm co ro trên chiếc chiếu cũ trong phòng trọ tạm bợ, vừa mệt vừa lo, nhưng vẫn tự nhủ còn thở là còn gỡ</p>
+ 
+<p>May mắn thay, một ngày nọ, có người chủ hàng thấy anh thật thà, chịu khó, đã giới thiệu anh vào làm ở một xưởng gỗ tại quận 12 công việc chính là khuân vác gỗ, cưa, bào, phun sơn… quần quật từ sáng sớm đến tối muộn. Gỗ nặng, bụi mùn bay mù mịt, đôi bàn tay anh lúc nào cũng trầy xước có hôm làm tới kiệt sức, anh gục ngủ ngay trên đống gỗ</p>
+ 
+<p>Khó khăn là vậy, nhưng ngày nhận đồng lương đầu tiên, chỉ vỏn vẹn trăm nghìn ngót nghét một triệu đồng bạc, anh xúc động đến rưng rưng lần đầu tiên ở đất Sài Gòn, anh tự tay làm ra đồng tiền mồ hôi nước mắt, cầm chắc trong tay mà vui đến khó tả</p>
+ 
+<p>Sang ngày hôm sau nhân lương anh cầm tiền trong tay ra bưu điện gửi về quê mấy hôm sau mẹ gọi điện giọng nghèn nghẹn</p>
+ 
+<p>Con à cực thì cực nhưng phải giữ sức khỏe mẹ cầm được tiền con gửi mà rơi nước mắt nợ thì rồi sẽ trả được nhưng sức khỏe mất thì không lấy lại được đâu con đừng nhin ăn nhịn mặc quá cũng phải lo cho bản thân</p>
+ 
+<p>Em gái Thảo lúc đó cũng cầm máy giọng trong trẻo mà kiên quyết anh hai em biết anh rất vất vả nhưng đừng gồng quá anh là chỗ dựa của cả nhà em tin anh làm được sau này anh mở quán mở xưởng gì thì cho em phụ bán hàng em sẽ luôn bên anh</p>
+ 
+<p>Nghe mẹ dặn nghe em động viên mắt anh cay xè tiền lương tuy ít ỏi nhưng nó là mồ hôi công sức là bước khởi đầu để anh gánh lại trách nhiệm</p>
+ 
+<p>Ở trọ trong căn phòng nóng nực chật chội, đêm nào anh cũng mở sổ ghi chép lại những gì học được trong ngày cách lựa gỗ, cách sắp xếp công việc, cách quản lý xưởng</p>
+ 
+<p>Anh tin rằng, dù không được học trường lớp, nhưng học từ thực tế thì cũng sẽ thành nghề</p>
+ 
+<p>Suốt 5 năm, anh sống kham khổ, gần như không tiêu xài cho bản thân. Tết đến, anh vẫn về quê, dẫu chẳng có quà cáp gì, nhưng mang theo chút tiền dành dụm, trao tận tay cha mẹ để trả dần những món nợ còn chất chồng ở Bảo Lộc</p>
+ 
+<p>Đó là quãng đời khắc nghiệt, nhưng cũng chính là khoảng thời gian hun đúc cho anh bản lĩnh</p>
+ 
+<p>t kẻ thất bại trắng tay, anh học được sự kiên nhẫn, quý trọng giá trị đồng tiền, và nuôi lại niềm tin rằng có làm thì mới có ăn, còn đứng dậy thì sẽ còn cơ hội</p>
+ 
+
+        <a class="backtop" href="#top">⬆ Lên đầu trang</a>
+      </section>
+
+      <section id="gap-vo-gay-dung-su-nghiep">
+        <h2>Gặp vợ và gây dựng lại sự nghiệp</h2>
+        <p>Rồi vào chính khoảng thời gian này, anh quen một người bạn tên Mai một cô gái gốc Lâm Đồng, đồng hương với anh, làm kế toán cho cửa hàng vật liệu xây dựng. Mai hiền lành, hiểu chuyện, thương anh ở sự thật thà và nghị lực sau những thất bại</p>
+ 
+<p>Những ngày đầu quen nhau, cả hai thường ngồi nói chuyện bên hiên quán nhỏ Mai lắng nghe anh kể về những lần vấp ngã, về món nợ còn chưa trả hết, rồi nhẹ nhàng đáp</p>
+ 
+<p>Anh đừng lo, có em bên cạnh, chúng ta sẽ cùng nhau gánh vác một ngày nào đó, anh sẽ dựng lại được sự nghiệp của mình</p>
+ 
+<p>Chính sự đồng cảm và tin tưởng ấy đã khiến hai người xích lại gần nhau</p>
+ 
+<p>Tình yêu của anh và Mai không ồn ào, không hoa mỹ, mà là những lời hứa hẹn chân thành</p>
+ 
+<p>Sau này mình sẽ về quê, cùng nhau mở lại xưởng anh lo sản xuất, em lo sổ sách, khách hàng hai vợ chồng cùng nhau dựng lại từ đầu, có khó cũng không sợ</p>
+ 
+<p>Năm 2015, anh và Mai nên vợ chồng sau đám cưới giản dị nhưng ấm áp, hai người quyết định về Bảo Lộc bắt đầu lại</p>
+ 
+
+
+<p>Vốn liếng không nhiều, nhưng lần này anh có kinh nghiệm quản lý từ Sài Gòn và có người vợ đồng hành lo toan sổ sách, khách hàng</p>
+ 
+<p>Thảo em gái anh cũng rất thân thiết với chị dâu khi rảnh, Thảo phụ chị ghi chép sổ sách nên vợ anh cũng đỡ vất vả nhường nào</p>
+ 
+ 
+<p>ng mộc nhỏ dựng ngay sau nhà, chuyên làm bàn ghế, tủ bếp, giường ngủ cho bà con quanh vùng nhờ sản phẩm chắc chắn, giá cả hợp lý, uy tín dần được gây dựng, khách ngày một đông</p>
+ 
+<p>Từ vài thợ ban đầu, chỉ trong vài năm 2016–2019, xưởng phát triển thành cả chục thợ</p>
+ 
+<p>Cuộc sống gia đình cũng rạng rỡ giữa năm 2016 Mai có bầu, rồi năm sau hạ sinh một bé trai kháu khỉnh căn nhà ấm áp, buổi tối sau một ngày làm việc, hai vợ chồng ngồi uống trà nhìn con chơi đùa đó là khoảng thời gian hạnh phúc nhất trong đời anh</p>
+ 
+<p>Khi đó cuộc sống khấm khá hơn vợ chồng anh có ngồi lại với nhau bàn tính chuyện tương lai</p>
+ 
+<p>Vợ anh bảo mình phải lo xa tích góp rồi mua đất đất không sinh thêm giữ được đất là giữ được tương lai con cái</p>
+ 
+<p>Rồi đồng vợ đồng chồng năm 2016 hai vợ chồng mua được mảnh đất đầu tiên ở ngoại ô Bảo Lộc rồi năm 2017 năm 2018 và đầu năm 2019 mỗi năm lại dành dụm mua thêm một mảnh</p>
+
+<p>Nhưng rồi tai họa ập đến sau này, Thảo chính là người thường xuyên ở cạnh cha mẹ, lo cho cháu trai, động viên anh</p>
+
+<p>Anh hai em biết chị đi rồi anh đau khổ lắm nhưng anh còn có con có em và cả nhà nữa nên anh không được bỏ cuộc </</p>
+
+        <a class="backtop" href="#top">⬆ Lên đầu trang</a>
+      </section>
+
+      <section id="su-co-vo-mat">
+        <h2>Sự cố vợ mất</h2>
+        <p>Khoảnh khắc mất mát, ảnh hưởng đến gia đình và công việc, cách bạn đứng dậy. Có thể thêm lời tri ân hoặc vài tấm ảnh kỷ niệm.</p>
+        <a class="backtop" href="#top">⬆ Lên đầu trang</a>
+      </section>
+
+      <section id="gap-nguoi-an-nhan-la-chu">
+        <h2>Gặp người ân nhân là chú</h2>
+        <p><p>Rồi anh bắt đầu với công việc sau khi ổn định công việc được một thời gian</p>
+ 
+<p>Giữa năm 2020 dịch Covid-19 bùng phát mạnh chỉ thị giãn cách khiến mọi hoạt động công ty tê liệt, hàng hóa không thể xuất đi, tồn kho chất đống, chi phí thuê kho bãi và bồi thường hợp đồng ngày càng lớn</p>
+ 
+<p>Tiền lãi ngân hàng dồn lên đầu, anh phải bán chiếc xe kỷ niệm hai vợ chồng mua năm 2016 và thế chấp cả nhà của bố mẹ để có tiền trả lương công nhân</p>
+ 
+<p>Đến giữa năm 2021, anh gần như trắng tay, công ty không còn khả năng duy trì</p>
+ 
+ <p>Anh buộc phải tìm đến chú để vay 1,5 tỷ đồng chú là em trai của ba khi ấy cả đại gia đình bỏ gia sản để cho chú đi du học Mỹ lúc ấy chú khuyên</p>
+ 
+<p>Kinh tế khó khăn thế này, sao cháu không thử đầu tư giống chú? Ngồi ôm công ty kiểu này chỉ thêm gánh nặng thôi</p>
+ 
+<p>Vốn là người làm ăn truyền thống, anh thẳng thắn từ chối cháu chỉ tin vào mồ hôi công sức và tiền thật việc thật</p>
+ 
+ <p>Chuyện đầu tư trên internet, nhất là tiền ảo, cháu không tin và chưa bao giờ dám thử</p>
+ 
+<p>Nhưng rồi dịch bệnh kéo dài mãi, sau Tết 2022, số tiền vay lần đầu đã cạn, công ty không thể trụ được nữa</p>
+ 
+<p>Anh lại tìm đến chú, lần này vay 100.000 USD. Chú nghiêm giọng</p>
+ 
+<p>Chú giúp thêm lần này nữa, nhưng cháu phải thay đổi suy nghĩ. Không thể cứ cố chấp mãi được nhìn chú đầu tư Bitcoin đi, chú mới có thể xoay sở mà hỗ trợ cháu đấy</p>
+ 
+<p>Ban đầu, anh vẫn kiên quyết từ chối vì cho rằng đó chỉ là trò ảo</p>
+ 
+<p>Nhưng càng nghĩ càng thấy nếu tiếp tục cố chấp, mọi thứ cũng sẽ sụp đổ, nợ thêm chồng chất</p>
+ 
+<p>Anh quyết định dành 50.000 USD để trả lương nhân viên và chi phí mặt bằng, còn số tiền còn lại nghe theo lời chú, bắt đầu học cách đầu tư Bitcoin</p>
+ 
+<p>Lần đầu thao tác, anh thấy mọi thứ khá đơn giản. Nhờ chú tận tình hướng dẫn, anh bắt đầu kiếm được chút lợi nhuận ngắn hạn</p>
+ 
+<p>Điều này thắp lại trong anh một tia hy vọng</p>
+ 
+<p>Đến tháng 5/2023, khi đại dịch Covid chính thức kết thúc, nhờ khoản lợi nhuận từ đầu tư Bitcoin, anh đã trả hết nợ nần, rồi tái lập công ty</p>
+ 
+<p>Từ đó, công việc dần ổn định trở lại, đánh dấu bước ngoặt lớn trong cuộc đời anh</p>
+ 
+<p>Nhờ những kinh nghiệm rút ra từ khủng hoảng, cùng sự hỗ trợ và kiến thức đầu tư mà chú đã truyền lại, công ty từng bước ổn định, khách hàng quay trở lại, đơn hàng tăng dần</p>
+ 
+<p>Đến năm 2024, anh bắt đầu có dư một khoản tích lũy</p>
+ 
+<p>Lần này, anh không tiêu xài phung phí, mà tiếp tục theo lời vợ khi xưa đất không sinh thêm, giữ đất là giữ tương lai</p>
+ 
+<p>Chỉ trong một năm, anh đã mua lại được vài mảnh đất mới, không lớn như trước, nhưng đủ để anh cảm thấy an tâm</p>
+ 
+<p>Với anh, đó không chỉ là tài sản, mà còn là cách để giữ trọn lời hứa với vợ tiếp tục xây dựng một nền tảng vững chắc cho con trai sau này</p>
+ 
+ 
+<p>Anh thường đứng lặng giữa mảnh đất mới mua, nhìn lên bầu trời mà khẽ nói Mai à anh đã giữ lời dù em không còn anh vẫn gánh vác vẫn sẽ dựng lại ước mơ của chúng ta</p>
+ 
+
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            10px1
+            1
+            1
+            1
+            1
+            1
+            1
+            1
+             điều gì cụ thể (vốn, mối quan hệ, lời khuyên…). Ghi rõ bài học và lời cảm ơn.</p>
+        <a class="backtop" href="#top">⬆ Lên đầu trang</a>
+      </section>
+      
+
+      <!-- Thêm nhiều section khác tùy ý -->
+    </main>
+  </div>
+
+  <script>
+    // --------- TỰ TẠO MỤC LỤC TỪ TẤT CẢ H2 TRONG <main> ---------
+    (function(){
+      const main = document.querySelector('main');
+      const headings = main.querySelectorAll('h2');
+      const toc = document.getElementById('tocList');
+      headings.forEach((h2, idx) => {
+        const sec = h2.closest('section');
+        // Nếu chưa có id thì sinh id tự động theo nội dung
+        if (!sec.id){
+          const slug = h2.textContent.toLowerCase().normalize('NFD').replace(/\p{Diacritic}/gu,'').replace(/[^a-z0-9\s-]/g,'').trim().replace(/\s+/g,'-');
+          sec.id = slug || `muc-${idx+1}`;
+        }
+        const a = document.createElement('a');
+        a.href = `#${sec.id}`;
+        a.textContent = h2.textContent;
+        toc.appendChild(a);
+      });
+
+      // Highlight mục đang xem
+      const links = toc.querySelectorAll('a');
+      const observer = new IntersectionObserver((entries)=>{
+        entries.forEach(entry=>{
+          const id = entry.target.id;
+          const link = toc.querySelector(`a[href="#${id}"]`);
+          if (entry.isIntersecting){
+            links.forEach(l=>l.classList.remove('active'));
+            link && link.classList.add('active');
+            // cập nhật hash nhẹ nhàng
+            history.replaceState(null, '', `#${id}`);
+          }
+        });
+      }, {rootMargin: '0px 0px -70% 0px', threshold: 0.1});
+
+      document.querySelectorAll('main section').forEach(sec=>observer.observe(sec));
+
+      // Đánh dấu vị trí đầu trang để nút "Lên đầu" hoạt động tốt
+      const top = document.createElement('div');
+      top.id = 'top';
+      document.body.prepend(top);
+    })();
+  </script>
+</body>
+</html>
