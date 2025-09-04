@@ -84,6 +84,45 @@
     .chapters { display:flex; gap:10px; flex-wrap: wrap; margin: 8px 0 24px; }
     .chapters a { padding: 8px 12px; border-radius: 999px; border:1px solid #e5e7eb; text-decoration:none; color:#111; }
     .chapters a:hover { background:#f8fafc; }
+      /* hiệu ứng tuyết */
+  .snow {
+    position: fixed;
+    top: -10px;
+    color: white;
+    user-select: none;
+    font-size: 12px;
+    animation-name: fall;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+  }
+  @keyframes fall {
+    to { transform: translateY(110vh); }
+  }
+
+  /* container giữ rồng */
+  #orbit {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    width: 500px;   /* đường bay rộng */
+    height: 300px;  /* đường bay cao */
+    margin-left: -250px;
+    margin-top: -150px;
+    border-radius: 50%;
+    animation: spin 20s linear infinite; /* rồng bay vòng vòng */
+  }
+  #dragon {
+    position: absolute;
+    top: -40px; /* đặt rồng ở trên quỹ đạo */
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 60px; /* to rõ */
+    filter: drop-shadow(0 0 10px lime);
+  }
+  @keyframes spin {
+    from { transform: rotate(0deg); }
+    to   { transform: rotate(360deg); }
+  }
   </style>
 </head>
 <body>
