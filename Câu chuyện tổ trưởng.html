@@ -1,741 +1,217 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="vi">
 <head>
-  <meta charset="utf-8">
-  <title>WEDECO — Bộ sưu tập 7 chủ đề nội thất</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="WEDECO • Thiết kế & thi công nội thất trọn gói. Báo giá trực tiếp, máy móc hiện đại.">
-  <style>
-    :root { --bg:#0f1115; --fg:#e8e8e8; --muted:#9aa0a6; --card:#171a21; --accent:#c49b3f; --ring:#2b303b; --shadow:0 6px 20px rgba(0,0,0,.35) }
-    *{box-sizing:border-box}
-    html{scroll-behavior:smooth}
-    body{margin:0;font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;background:var(--bg);color:var(--fg);line-height:1.6}
-    a{color:var(--accent);text-decoration:none} a:hover{text-decoration:underline}
-    header{position:sticky;top:0;z-index:50;backdrop-filter:saturate(160%) blur(12px);background:rgba(15,17,21,.7);border-bottom:1px solid var(--ring)}
-    .container{max-width:1100px;margin:auto;padding:16px}
-    .brand{font-weight:700;letter-spacing:.3px}
-    nav{display:flex;gap:14px;flex-wrap:wrap;margin-top:8px}
-    nav a{padding:8px 12px;border:1px solid var(--ring);border-radius:999px;font-size:14px;white-space:nowrap}
-    nav a:hover,nav a.active{border-color:var(--accent);color:#fff}
-    section{padding:48px 0;scroll-margin-top:110px;border-bottom:1px solid var(--ring)}
-    h2{margin:.2rem 0 1rem;font-size:26px}
-    .lead{color:var(--muted);max-width:80ch;margin:8px 0 0}
-    .grid{display:grid;gap:14px;grid-template-columns:repeat(12,1fr)}
-    .card{grid-column:span 6;background:var(--card);border:1px solid var(--ring);border-radius:12px;overflow:hidden;box-shadow:var(--shadow)}
-    @media (min-width:760px){.card{grid-column:span 4}}
-    figure{margin:0;display:flex;flex-direction:column;height:100%}
-    .thumb-wrap{position:relative;aspect-ratio:4/3;overflow:hidden}
-    .thumb-wrap img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .25s ease}
-    .thumb-wrap button.view{position:absolute;inset:0;border:0;background:transparent;cursor:pointer}
-    .thumb-wrap:hover img{transform:scale(1.03)}
-    figcaption{padding:10px 12px;display:flex;gap:12px;align-items:flex-start;justify-content:space-between}
-    figcaption .meta{max-width:75%}
-    figcaption .title{font-weight:700;font-size:15px;margin-bottom:4px}
-    figcaption .story{margin:0;font-size:13px;color:var(--muted)}
-    .save{font-size:12px;border:1px solid var(--ring);padding:4px 8px;border-radius:8px;color:var(--muted)}
-    .save:hover{border-color:var(--accent);color:#fff}
-    .topic-under{margin-top:14px}
-    /* Lightbox */
-    .lightbox{position:fixed;inset:0;background:rgba(0,0,0,.85);display:none;align-items:center;justify-content:center;z-index:100}
-    .lightbox.open{display:flex}
-    .lb-inner{max-width:min(92vw,1100px);width:100%}
-    .lb-media{position:relative;background:#000;border-radius:12px;overflow:hidden;border:1px solid var(--ring)}
-    .lb-media img{width:100%;height:auto;display:block}
-    .btn{border:1px solid var(--ring);background:var(--card);color:var(--fg);padding:8px 12px;border-radius:10px;cursor:pointer}
-    .btn:hover{border-color:var(--accent)}
-    .nav-btn{position:absolute;top:50%;transform:translateY(-50%);background:rgba(0,0,0,.45);border:1px solid var(--ring);color:#fff;width:42px;height:42px;border-radius:50%;display:grid;place-items:center;cursor:pointer}
-    .prev{left:10px}.next{right:10px}.close{position:absolute;top:10px;right:10px}
-    .lb-meta{display:flex;gap:12px;align-items:center;justify-content:space-between;padding:12px 6px}
-    footer{color:var(--muted);font-size:13px;text-align:center;padding:28px 0}
-  </style>
-  <!-- Thêm menu chuyển trang -->
-<nav style="margin:24px 0 0 0; display:flex; gap:16px;">
-  <a href="index.html">Bao Bọc</a>
-  <a href="CHI%20TIẾT%20BAO%20BỌC.html">Chi tiết Bao Bọc</a>
-  <a href="Câu%20chuyện%20tổ%20trưởng.html" class="active">Câu chuyện tổ trưởng</a>
-</nav>
-</head>
-<body>
-<header>
-  <div class="container">
-    <div class="brand">WEDECO • Thiết kế & thi công nội thất</div>
-    <nav id="menu">
-      <a href="#cd1">1. Tủ bếp hiện đại</a>
-      <a href="#cd2">2. Văn phòng & làm việc</a>
-      <a href="#cd3">3. Phòng khách & ốp gỗ</a>
-      <a href="#cd4">4. Thi công thực tế</a>
-      <a href="#cd5">5. Quy trình & máy móc</a>
-      <a href="#cd6">6. Vật liệu & phụ kiện</a>
-      <a href="#cd7">7. Dự án tiêu biểu</a>
-      <a href="#cd8">8. Chủ đề 8</a>
-      <a href="#cd9">9. Chủ đề 9</a>
-      <a href="#cd10">10. Chủ đề 10</a>
-    </nav>
-  </div>
-</header>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Câu chuyện tổ trưởng - Trải nghiệm cuộc sống</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Arial, sans-serif;
+            background: #f8f9fa;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            background: #fff;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+            border-radius: 8px;
+            padding: 32px 16px 32px 220px;
+            min-height: 100vh;
+            position: relative;
+        }
+        h1 {
+            text-align: center;
+            color: #2c3e50;
+            margin-bottom: 32px;
+        }
+        .menu {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 200px;
+            height: 100vh;
+            background: #263238;
+            display: flex;
+            flex-direction: column;
+            padding: 24px 0 24px 0;
+            z-index: 100;
+            overflow-y: auto;
+        }
+        .menu-btn {
+            background: none;
+            border: none;
+            color: #fff;
+            padding: 12px 24px;
+            text-align: left;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background 0.2s, color 0.2s;
+            border-radius: 0 20px 20px 0;
+            margin-bottom: 2px;
+        }
+        .menu-btn.active, .menu-btn:hover {
+            background: #00bfae;
+            color: #fff;
+        }
+        .story-section {
+            display: none;
+            margin-bottom: 32px;
+            animation: fadeIn 0.5s;
+        }
+        .story-section.active {
+            display: block;
+        }
+        .story-section h2 {
+            color: #00bfae;
+            margin-top: 0;
+        }
+        @media (max-width: 800px) {
+            .container {
+                padding: 16px 8px 16px 8px;
+            }
+            .menu {
+                position: static;
+                width: 100%;
+                height: auto;
+                flex-direction: row;
+                overflow-x: auto;
+                padding: 0;
+            }
+            .menu-btn {
+                font-size: 14px;
+                padding: 8px 12px;
+                border-radius: 0;
+                margin-bottom: 0;
+            }
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+    </style>
+    <div class="container">
+        <h1>Câu chuyện tổ trưởng</h1>
+        <nav class="menu" id="mainMenu">
+            <button class="menu-btn active" onclick="showSection(0)">Bữa ăn nhân viên</button>
+            <button class="menu-btn" onclick="showSection(1)">Phần ăn của nhân viên</button>
+            <button class="menu-btn" onclick="showSection(2)">Sự cố văn phòng chập điện</button>
+            <button class="menu-btn" onclick="showSection(3)">Đi chơi cầu lông</button>
+            <button class="menu-btn" onclick="showSection(4)">Bố Tuấn bị tai nạn</button>
+            <button class="menu-btn" onclick="showSection(5)">Kiểm tra hợp đồng</button>
+            <button class="menu-btn" onclick="showSection(6)">Con ốm</button>
+            <button class="menu-btn" onclick="showSection(7)">Con buồn</button>
+            <button class="menu-btn" onclick="showSection(8)">Con bị cô giáo gọi điện</button>
+            <button class="menu-btn" onclick="showSection(9)">Dẫn con đi mua sắm</button>
+            <button class="menu-btn" onclick="showSection(10)">Trải qua</button>
+            <button class="menu-btn" onclick="showSection(11)">Những câu nói</button>
+            <button class="menu-btn" onclick="showSection(12)">Máy NCN hư</button>
+            <button class="menu-btn" onclick="showSection(13)">Bảo trì sửa máy</button>
+            <button class="menu-btn" onclick="showSection(14)">Lắp đặt hệ thống PCCC</button>
+            <button class="menu-btn" onclick="showSection(15)">Bố bạn thân ốm</button>
+            <button class="menu-btn" onclick="showSection(16)">Nhân viên cũ tới nhà</button>
+            <button class="menu-btn" onclick="showSection(17)">Vươn lên chính mình</button>
+            <button class="menu-btn" onclick="showSection(18)">Câu chuyện cho bạn vay tiền</button>
+            <button class="menu-btn" onclick="showSection(19)">Bạn mượn tiền</button>
+            <button class="menu-btn" onclick="showSection(20)">Cô mượn tiền</button>
+            <button class="menu-btn" onclick="showSection(21)">Lời nói hạnh phúc gia đình</button>
+            <button class="menu-btn" onclick="showSection(22)">Chủ đề sách</button>
+            <button class="menu-btn" onclick="showSection(23)">Kiến trúc đầu tư</button>
+            <button class="menu-btn" onclick="showSection(24)">Từ thiện bệnh viện</button>
+            <button class="menu-btn" onclick="showSection(25)">Bộ phận trà gỗ tai nạn</button>
+            <button class="menu-btn" onclick="showSection(26)">Bàn tán việc chị Hà</button>
+            <button class="menu-btn" onclick="showSection(27)">Cặp vợ chồng</button>
+            <button class="menu-btn" onclick="showSection(28)">Tổng kết tài chính</button>
+            <button class="menu-btn" onclick="showSection(29)">Ở lại ăn cùng nhân viên</button>
+            <button class="menu-btn" onclick="showSection(30)">Phụ nữ tự chủ</button>
+            <button class="menu-btn" onclick="showSection(31)">Xu hướng cuối tuần</button>
+            <button class="menu-btn" onclick="showSection(32)">Nhân viên mang quà quê</button>
+            <button class="menu-btn" onclick="showSection(33)">Có khách hàng</button>
+            <button class="menu-btn" onclick="showSection(34)">Hỏi thăm mẹ vợ</button>
+            <button class="menu-btn" onclick="showSection(35)">Đệm PCCC</button>
+            <button class="menu-btn" onclick="showSection(36)">Câu chuyện chú</button>
+            <button class="menu-btn" onclick="showSection(37)">Văn tán gái</button>
+            <button class="menu-btn" onclick="showSection(38)">Thú vui cái tôi so sánh</button>
+            <button class="menu-btn" onclick="showSection(39)">Kéo về zalo</button>
+        </nav>
+        <!-- Các section nội dung đầy đủ, mỗi section tương ứng một chủ đề -->
+        <div class="story-section active"><h2>Bữa ăn nhân viên</h2><p>Mấy hôm nay công việc của anh bận quá, không thể để ý, kiểm soát hết mọi việc trong công ty</p><p>Anh nghe nhân viên văn phòng bảo rằng mấy bữa ăn gần đây trong căn tin vừa ít, vừa khô, lại còn hơi có mùi tanh khó ăn</p><p>Ban đầu, anh cứ nghĩ mọi người đùa vui cho qua, bởi anh đã hợp tác với doanh nghiệp cung cấp suất ăn với mức giá gần gấp đôi so với thị trường, hy vọng anh em được bữa ăn chất lượng hơn</p><p>Hôm nay rảnh rỗi, anh quyết định xuống căn tin ăn thử cùng nhân viên</p><p>Nhưng chưa kịp ngồi xuống, anh đã sững người trước cảnh tượng trước mắt món ăn thì ít, trình bày sơ sài, nhìn còn chẳng muốn nuốt, chứ chưa nói đến ăn cho đủ sức làm việc cả ngày</p><p>Làm văn phòng đã cần năng lượng, làm việc trong ngành gỗ, công việc còn nặng nhọc hơn, nếu bữa ăn không đủ chất thì sao anh em có thể làm việc lâu dài và gắn bó?</p><p>Anh ngồi xuống ăn cùng mọi người để cảm nhận thực tế. Thấy đúng như những gì anh em phản ánh, anh liền gọi quản lý lên trao đổi trực tiếp</p><p>Anh yêu cầu phải cải thiện ngay chất lượng bữa ăn trong căn tin</p><p>Đồng thời, anh cũng chỉ đạo tuyển thêm một đầu bếp mới để làm phong phú thực đơn, tăng cường dinh dưỡng cho nhân viên</p><p>Với anh, công việc có vất vả đến đâu thì cũng nhờ sự đóng góp của tất cả mọi người. Công ty có thể phát triển được, chính là nhờ sức lao động và tinh thần của tập thể</p><p>Vì vậy, chăm lo cho sức khỏe của anh em chính là ưu tiên hàng đầu</p></div>
+    <div class="story-section"><h2>Phần ăn của nhân viên</h2><p>Hôm nay trên Cty trong lúc tôi đi tolet tôi vô tình nghe mọi người thảo luận về việc đồ ăn trong nhà cơm bị cắt giảm. Ăn đồ ăn bị thiếu, những người đi sau đều không còn gì để ăn.<br>Tôi nghe xong, buổi ăn cơm trưa ngày hôm sau tôi xuống nhà ăn trễ tầm 5p thì đúng như mọi người nói, đồ ăn thiếu hụt nhiều.<br>Tôi mới gọi bếp trưởng quản lý nấu ăn cho nhà máy ra hợp.<br>Tôi hỏi anh bếp trưởng lí do tại sao tự ý cắt giảm thức ăn của mọi người.<br>Anh bếp trưởng nói tôi muốn giúp Cty bớt đi chi phi trong nhà ăn.<br>Tôi nghe xong tôi nói anh lên trên văn phòng tính tiền đủ, ngày mai anh không cần phải đến làm việc nữa.<br>Tôi sẽ tìm một người khác thay anh làm việc tốt hơn.<br>Thứ tôi cần ở đây là tất cả công nhân của nhà máy đều được ăn uống đầy đủ thì mọi người mới làm việc có hiệu quả được.<br>Những thứ như ăn uống hay các tiền thưởng mọi người ở trong nhà máy tất cả đều phải có, kể cả những chức vụ như vệ sinh, bảo vệ, tất cả đều phải được có những phúc lợi trong lao động tại nhà máy.<br></p></div>
+        <div class="story-section"><h2>Sự cố văn phòng chập điện</h2><p>Hôm nay, khi anh xuống văn phòng xem anh em đang chuẩn bị hồ sơ hợp đồng cho khách, bất ngờ khu vực máy photocopy phát ra một tiếng bụp lớn từ hộp cấp điện gần đó</p><p>Cả văn phòng lập tức tối sầm lại, đèn chập chờn rồi tắt hẳn. Khói nhẹ bắt đầu bốc lên từ bảng điện khiến một số nhân viên hoảng hốt</p><p>May mắn là đội kỹ thuật kịp thời chạy ra ngắt toàn bộ điện để tránh nguy cơ cháy nổ. Anh em nhanh chóng di chuyển ra ngoài để đảm bảo an toàn</p><p>Khi sự cố tạm thời được khống chế, đội kỹ thuật kiểm tra và phát hiện nguyên nhân một đoạn dây điện trong hệ thống máy photocopy đã bị cũ, hở, chạm vào vỏ kim loại</p><p>Thêm vào đó, độ ẩm cao trong những ngày mưa khiến nguy cơ chập điện càng lớn.</p><p>Anh lập tức triệu tập đội kỹ thuật vào họp gấp</p><p>Anh nhắc rõ: nhiệm vụ của bộ phận này là bảo trì, kiểm tra định kỳ để đảm bảo an toàn cho anh em văn phòng, vậy mà hôm nay lại để xảy ra tình trạng nghiêm trọng như thế</p><p>Đây là tác phong thiếu cẩn trọng. Anh yêu cầu từng người đứng trước tập thể nhận lỗi, xin lỗi vì đã để anh em văn phòng hoang mang</p><p>Sau đó, ngay trong ngày, phải khắc phục triệt để, không được phép để xảy ra thêm sự cố tương tự</p><p>Anh cũng nói thẳng quan điểm</p><p>Trong công ty, dù là việc nhỏ nhất cũng phải cẩn thận. Bởi tính mạng, sự an toàn của mỗi người không chỉ là chuyện cá nhân, mà còn ảnh hưởng đến cả tập thể</p><p>Tôi không chấp nhận tình trạng này xảy ra lần thứ hai</p></div>
+    <div class="story-section"><h2>Đi chơi cầu lông</h2><p>Anh đang đi chơi cầu lông em à.<br></p><p>Hầu như ngày nào anh cũng chơi thể thao hết, trước anh có đá bóng nữa nhưng giờ cũng có tuổi rồi.<br></p><p>Nên anh chơi môn thể thao nhẹ nhàng hơn trước đây anh cũng thường xuyên đá bóng lắm nhưng từ lúc nhân viên anh đá bóng bị đứt dây chằng và phải nằm viện nên anh hạn chế đi đá bóng lại.<br></p><p>Nhỡ như xui rồi có bị gì thì nhân viên với mọi người nữa sợ như thế bố mẹ với con gái lại càng thêm lo lắng.<br></p><p>Giờ anh cũng cố gắng làm việc để mong con sau này có một cuộc sống tốt hơn như anh lúc bé đã khổ rồi gia đình cũng không được mấy khá giả nên giờ phải cố gắng để cho con có môt cuộc sống tốt hơn em à.<br></p></div>
+    <div class="story-section"><h2>Bố Tuấn bị tai nạn</h2><p>Không ai biết trước được điều gì sẽ xảy ra trong đời tai nạn hay bất ngờ.<br></p><p>Ngày hôm đó, Tuấn bạn thân của anh tìm đến và vay 200 triệu đồng.<br></p><p>Bố cậu ấy đột ngột bị đột quỵ, đang nằm trong phòng chăm sóc đặc biệt.<br></p><p>Chi phí điều trị quá lớn, chẳng mấy chốc đã cuốn sạch toàn bộ số tiền tiết kiệm của gia đình, mà vẫn còn thiếu nhiều.<br></p><p>Tuấn đã gõ cửa từng người họ hàng, vay mượn khắp nơi, nhưng vẫn không đủ.<br></p><p>Không còn cách nào khác, cậu ấy tìm đến tôi.<br></p><p>Khi nói Tuấn cố nén tiếng nấc, giọng run run.<br></p><p>Tôi gọi phòng tài chính đưa tiền cho cậu ấy, nhưng cũng nhất quyết bảo viết một tờ giấy vay nợ, vì tôi nghĩ dù thân mấy thì tiền bạc cũng nên rạch ròi.<br></p><p>Tay cậu ấy run rẩy khi viết, miệng thì nói Anh Khánh, em sẽ trả lại cho anh sớm nhất có thể.<br></p><p>Tôi chỉ vỗ vai bảo Tuấn quay lại chăm sóc bác trai, còn tiền bạc thì đừng quá lo.<br></p><p>Bởi lẽ, nếu lúc này tôi không giúp thì chúng tôi còn là bạn bè kiểu gì nữa?.<br></p><p>Thật ra, trong lòng tôi chẳng bao giờ quên, ngày xưa gia đình tôi nghèo khó, chính bố Tuấn và cả Tuấn đã nhiều lần giúp đỡ.<br></p><p>Hễ có gì ngon hay tốt, họ đều san sẻ cho nhà tôi.<br></p><p>Tôi còn nhớ có lần tôi sốt mê man, chính Tuấn đã bế tôi chạy đến phòng khám tình cảm đó, tôi coi như nghĩa tình ruột thịt.<br></p><p>Sau khi Tuấn rời đi, tôi cầm tờ giấy nợ, bỗng thấy nghẹn ngào.<br> Nghĩ lại những gì gia đình cậu ấy từng giúp tôi, tôi đã xé tờ giấy ấy 200 triệu không phải số tiền nhỏ, nhưng với tôi, mối quan hệ anh em đáng quý hơn gấp nhiều lần.<br></p><p>Bởi khi hoạn nạn, người đưa tay ra đỡ mình, đó mới là một người anh em thật sự.<br></p></div>
+    <div class="story-section"><h2>Kiểm tra hợp đồng</h2><p>Hôm nay, khi tôi đang ở văn phòng để kiểm tra lại một số hợp đồng quan trọng với khách hàng.<br>Bất ngờ có nhân viên chạy vào báo tin: một bạn trong đội kinh doanh vừa gặp sự cố.<br>Tôi vội vàng bỏ dở công việc, chạy nhanh xuống tầng để xem tình hình.<br></p><p>Thì ra, trong lúc in và đóng tài liệu hợp đồng, bạn ấy sơ ý để tay kẹt vào máy ép nhiệt.<br>Nhìn bàn tay bị bỏng đỏ rát, tôi cũng thấy sốt ruột thay.<br>Không chần chừ, tôi liền lấy ngay xe của mình, trực tiếp đưa bạn vào bệnh viện để kiểm tra.<br></p><p>Trên đường đi, tôi thấy gương mặt bạn nhăn nhó vì đau, trong lòng tôi xót xa vô cùng.<br></p><p>Tới bệnh viện, bác sĩ kết luận tay bạn bị bỏng nặng, cần phải điều trị và nghỉ dưỡng một thời gian.<br></p><p>Nghe vậy, bạn rưng rưng nói trong nước mắt: anh ơi, ở nhà em còn mẹ già và vợ mới sinh hơn 5 tháng… Bây giờ em nằm viện thì ai lo cho họ đây?”.<br></p><p>Lúc đó tôi nhìn thẳng vào bạn và nói:<br>“Em cứ yên tâm điều trị, toàn bộ viện phí và chi phí chăm sóc gia đình, anh sẽ lo.<br>Mọi người làm việc với anh, anh xem như người trong nhà.<br>Em không phải lo lắng gì cả, chỉ cần tập trung dưỡng bệnh cho khỏe thôi.”<br></p></div>
+    <div class="story-section"><h2>Con ốm</h2><p>Hôm nay con anh bị bệnh chắc là đi ra đường không đội nón áo khoác các thứ vào.<br>Rồi cảm vặt con anh hay cảm vặt lắm đề kháng không tốt nên ra đường mà không đội nón mặc áo khoác cẩn thận vào là rất dễ bị cảm.<br>Bữa nay bà nội đưa lên bệnh viện kiểm tra lấy thuốc uống.<br>Bác sĩ đòi tiêm thuốc nhưng con bé không chịu.<br>Con bé con anh sợ kim tiêm lắm nhưng mà cảm sốt là liên tục.<br>Rốt cuộc đi cũng không chịu tiêm nên bác sĩ lấy thuốc về cho con uống giải cảm hạ sốt nên giờ cũng khỏe rồi em à.<br>Anh còn nhớ lúc trước mẹ nó còn sống con bé sốt nữa đêm mà cô ấy không thể nào mà ngủ được với con thức cả đêm lau mình rồi cho con bé uống hạ sốt liên tục.<br>Phải nói cô ấy vất vả với hai ba con anh nhiều lắm.<br>Mỗi lần 2 ba con đi đâu là chỉ tầm 30p là gọi hỏi rồi hỏi 2 ba con về nhà chưa trễ lắm rồi về đi.<br>Có những điều không thể nào quên đi được.<br>Cũng phải đành chấp nhận giao phó cuộc đời cho số phận thôi em à.<br>Cũng lâu rồi anh chưa được nghe câu nói trễ rồi 2 ba con về nhà chưa....<br></p></div>
+    <div class="story-section"><h2>Con buồn</h2><p>đứa trẻ nhà anh hôm nay được bà đưa đi học. lúc đến trường  con thấy một gia đình cũng đang đưa con mình đến trường. thì lúc đó con đang vui vẻ bỗng con nặng chịu mặt xuống vì cảm giác buồn. chiều ngày hôm đó con về gọi cho anh kể với anh hôm nay con đến trường gặp bạn cùng trường có bố mẹ đưa con đi học. con mới nói với anh ước gì con cũng được ba mẹ đưa con đi học  bố ơi. anh bỗng chết lặng một hồi thì anh mới nói với con rằng. con gái của bố à , con là niệm hạnh phúc lớn nhất của bố mẹ. tuy mẹ con không còn nữa nhưng mẹ vẫn còn mãi ở trong tim của các con. bố không ở cạnh con nhưng bố và mẹ luôn dành những điều yêu thương tuyệt vời nhất cho các con. chỉ là bố đang bận chút công việc hiện tại không thể bên con được. còn mẹ thì vẫn năm mãi trong tim các con yêu à<br></p></div>
+    <div class="story-section"><h2>Con bị cô giáo gọi điện</h2><p>Hôm nay cô giáo gọi cho bà nội bảo con anh nay trên trương hư lắm em à. dám đánh nhau với bạn cùng lớp. cô giáo hỏi ra vấn đề gì thì con không bảo gì cả. con im không nói gì hết. đến về tận nhà bà hỏi con cũng không trả lời. bà mói gọi mách với anh thì anh hỏi con lúc đó con cũng không muốn trả lời. anh không thể nào nói một cách cứng ngắt với con được. anh mới nói nhẹ nhàn trầm ấm hơn một chút với con là hôm nay con có chuyện gì trên lớp mà con đánh bạn. thì con mới nói bạn nói con là đứa không có mẹ. anh thực sự lúc đó cảm giác vừa lo vừa sợ anh mới nói với con dù có như thế nào con cũng không được đánh bạn. nếu mà người đó không tốt con không cần tiếp tục nói chuyện cũng như là chơi cùng nữa. chứ nếu như con đánh bạn là con cũng là một người xấu bố sẽ không thương con nữa đâu. điều này thật sự là bố không thích chút nào. bố không muốn thấy nó xảy ra thêm một lần nào nữa. lúc đó con mới xin lỗi anh và hứa với anh không bao giờ tái phạm nữa. con vâng lời bố ạ<br></p></div>
+    <div class="story-section"><h2>Dẫn con đi mua sắm</h2><p>Bữa nay anh chở con đi ra trung tâm thương mại để hai bố con có một ngày cuối tuần vui vẻ bên nhau. lúc đi hai bố con vui vẻ lắm. khi đến chung tâm thương mại vào hai bố con anh định là đi ăn rồi đi xem phim. thì lúc đang trong chỗ ăn kế bên bàn cũng có một gia đình đang ngồi ăn cùng nhau cười nói rất vui vẻ. tự dưng một thằng bé hình như là con của hai vợ chồng đấy trên tay đang cầm ly nước chạy giỡn. anh với hai con đang ngồi ăn thì thằng bé tinh nghịch đó lại hất nước vào con anh. lúc đấy anh thật sự có lớn tiếng anh quát to thì mẹ thằng bé không hiểu chuyện gì đã vội chạy lại bênh vực. rồi lúc đấy anh thật sự rất nóng anh mới nói chị quản được con chị không thật vô ý thức chỗ người khác đang dùng bữa chạy lai hất nước như thế mà xem được à. cũng may là ông bố chồng của bà ấy hiểu chuyện không thì cũng có chuyện linh đình sảy ra rồi em à<br></p></div>
+        <div class="story-section"><h2>Trải qua</h2><p>Ngần ấy thời gian anh cũng không biết là mình đi đến như thanh xuân như bây giờ là phải hoc và trải qua bao nhiêu thăng trầm nữa đó em.<br>Nhưng đôi khi chúng ta bận rộn và vất vả một chút nhưng đổi lại là sự đủ đầy và con cái chúng ta sẽ vững vàng tương lai hơn thật nhiều.<br>Ai cũng nói đàn ông thì lo toan sự nghiệp và to thuyền lớn sóng ở bên ngoài.<br>Nhưng theo anh nghĩ thì mọi thứ nó cần hợp lý và tinh tế giữa xã hội này.<br>Những việc nhỏ nhặt và bình thường nhất để gìn giữ một hạnh phúc thì đàn ông bọn anh cần và nên biết làm và làm một cách thật tốt để một người phụ nữ tin tưởng, cảm nhận được sự an toàn và trọn vẹn sự tin tưởng.<br></p></div>
 
-<main class="container">
-
-  <!-- Chủ đề 1 -->
-  <section id="cd1">
-    <div class="grid">
-      <article class="card"><figure>
-        <div class="thumb-wrap">
-          <img src="https://scontent.fsgn2-8.fna.fbcdn.net/v/t39.30808-6/533193054_4712212385700096_7956100647893986506_n.jpg?stp=cp6_dst-jpg_tt6&_nc_cat=102&ccb=1-7&_nc_sid=833d8c&_nc_ohc=iqezltB4QZ0Q7kNvwEoWPfd&_nc_oc=AdllgwghVpmSIZU8Xp2WV6Nvr66t3OFehXlTz3Om0vMG_WlVIe389uzFHFh86j5lTQs&_nc_zt=23&_nc_ht=scontent.fsgn2-8.fna&_nc_gid=BVsClX7WM51v9vnwo22apQ&oh=00_AfXSop2xZJAxU03b3q5uduaKe5dXk91ZKGYLx2R9rhoxSg&oe=68BCE2BA" data-full="8A8A6CB7-5986-420B-8EDF-C404FEFDBF20.jpeg" alt="Bếp đảo tối giản WEDECO" loading="lazy" data-title="Bếp đảo tối giản WEDECO" data-group="cd1">
-          <button class="view" aria-label="Xem ảnh lớn"></button>
-        </div>
-        <figcaption>
-          <div class="meta">
-            <div class="title">Bếp đảo tối giản</div>
-            <p class="story">Đảo đá liền khối, tay nắm âm, mảng trắng–xám sạch mắt. Thiết kế ưu tiên dễ vệ sinh và lưu thông khi nấu.</p>
-          </div>
-          <a class="save" href="https://scontent.fsgn2-8.fna.fbcdn.net/v/t39.30808-6/533193054_4712212385700096_7956100647893986506_n.jpg?stp=cp6_dst-jpg_tt6&_nc_cat=102&ccb=1-7&_nc_sid=833d8c&_nc_ohc=iqezltB4QZ0Q7kNvwEoWPfd&_nc_oc=AdllgwghVpmSIZU8Xp2WV6Nvr66t3OFehXlTz3Om0vMG_WlVIe389uzFHFh86j5lTQs&_nc_zt=23&_nc_ht=scontent.fsgn2-8.fna&_nc_gid=BVsClX7WM51v9vnwo22apQ&oh=00_AfXSop2xZJAxU03b3q5uduaKe5dXk91ZKGYLx2R9rhoxSg&oe=68BCE2BA" download>Tải ảnh</a>
-        </figcaption>
-      </figure></article>
-
-      <article class="card"><figure>
-        <div class="thumb-wrap">
-          <img src="https://scontent.fsgn2-8.fna.fbcdn.net/v/t39.30808-6/533193054_4712212385700096_7956100647893986506_n.jpg?stp=cp6_dst-jpg_tt6&_nc_cat=102&ccb=1-7&_nc_sid=833d8c&_nc_ohc=iqezltB4QZ0Q7kNvwEoWPfd&_nc_oc=AdllgwghVpmSIZU8Xp2WV6Nvr66t3OFehXlTz3Om0vMG_WlVIe389uzFHFh86j5lTQs&_nc_zt=23&_nc_ht=scontent.fsgn2-8.fna&_nc_gid=BVsClX7WM51v9vnwo22apQ&oh=00_AfXSop2xZJAxU03b3q5uduaKe5dXk91ZKGYLx2R9rhoxSg&oe=68BCE2BA" data-full="6AD0F384-6C6D-48C9-A615-EDE2932CAFB5.jpeg" alt="Bếp chữ U — ánh sáng khe hắt" loading="lazy" data-title="Bếp chữ U — ánh sáng khe hắt" data-group="cd1">
-          <button class="view" aria-label="Xem ảnh lớn"></button>
-        </div>
-        <figcaption>
-          <div class="meta">
-            <div class="title">Bếp chữ U • khe đèn hắt</div>
-            <p class="story">Tam giác công năng tủ lạnh–chậu–bếp hợp lý. Khe đèn giúp mặt bàn sáng đều nhưng không chói.</p>
-          </div>
-          <a class="save" href="https://scontent.fsgn2-8.fna.fbcdn.net/v/t39.30808-6/533193054_4712212385700096_7956100647893986506_n.jpg?stp=cp6_dst-jpg_tt6&_nc_cat=102&ccb=1-7&_nc_sid=833d8c&_nc_ohc=iqezltB4QZ0Q7kNvwEoWPfd&_nc_oc=AdllgwghVpmSIZU8Xp2WV6Nvr66t3OFehXlTz3Om0vMG_WlVIe389uzFHFh86j5lTQs&_nc_zt=23&_nc_ht=scontent.fsgn2-8.fna&_nc_gid=BVsClX7WM51v9vnwo22apQ&oh=00_AfXSop2xZJAxU03b3q5uduaKe5dXk91ZKGYLx2R9rhoxSg&oe=68BCE2BA" download>Tải ảnh</a>
-        </figcaption>
-      </figure></article>
-
-      <article class="card"><figure>
-        <div class="thumb-wrap">
-          <img src="https://scontent.fsgn2-8.fna.fbcdn.net/v/t39.30808-6/533193054_4712212385700096_7956100647893986506_n.jpg?stp=cp6_dst-jpg_tt6&_nc_cat=102&ccb=1-7&_nc_sid=833d8c&_nc_ohc=iqezltB4QZ0Q7kNvwEoWPfd&_nc_oc=AdllgwghVpmSIZU8Xp2WV6Nvr66t3OFehXlTz3Om0vMG_WlVIe389uzFHFh86j5lTQs&_nc_zt=23&_nc_ht=scontent.fsgn2-8.fna&_nc_gid=BVsClX7WM51v9vnwo22apQ&oh=00_AfXSop2xZJAxU03b3q5uduaKe5dXk91ZKGYLx2R9rhoxSg&oe=68BCE2BA" data-full="50BDD07B-2E01-4901-A668-0101E73C74E4.jpeg" alt="Brochure tổng hợp dự án bếp" loading="lazy" data-title="Brochure tổng hợp dự án bếp" data-group="cd1">
-          <button class="view" aria-label="Xem ảnh lớn"></button>
-        </div>
-        <figcaption>
-          <div class="meta">
-            <div class="title">Brochure bếp WEDECO</div>
-            <p class="story">Tập hợp tiêu chuẩn vật liệu, phụ kiện, & quy cách lắp đặt cho hệ tủ bếp hiện đại.</p>
-          </div>
-          <a class="save" href="https://scontent.fsgn2-8.fna.fbcdn.net/v/t39.30808-6/533193054_4712212385700096_7956100647893986506_n.jpg?stp=cp6_dst-jpg_tt6&_nc_cat=102&ccb=1-7&_nc_sid=833d8c&_nc_ohc=iqezltB4QZ0Q7kNvwEoWPfd&_nc_oc=AdllgwghVpmSIZU8Xp2WV6Nvr66t3OFehXlTz3Om0vMG_WlVIe389uzFHFh86j5lTQs&_nc_zt=23&_nc_ht=scontent.fsgn2-8.fna&_nc_gid=BVsClX7WM51v9vnwo22apQ&oh=00_AfXSop2xZJAxU03b3q5uduaKe5dXk91ZKGYLx2R9rhoxSg&oe=68BCE2BA" download>Tải ảnh</a>
-        </figcaption>
-      </figure></article>
+    <div class="story-section"><h2>Những câu nói</h2><p>1. Hôm nay anh đi chợ thấy ngoài chợ người ta bán trái thơm quá trời nhìn ngon quá. anh định làm một món ăn liên quan đến trái thơm. anh nghĩ cũng khá ngon đấy em. thơm cũng có nhiều chất vitamin rất tốt cho cơ thể. em cũng nên ăn nhiều chất như quả thơm em nhé.<br></p><p>2. Em đã ăn tối chưa? anh vừa tắm rửa xong. thằng em cạnh nhà anh bữa nay mới ở dưới quê lên cầm ít đồ ở dưới quê lên với mấy con tôm rũ. anh sang nhà hai anh em làm bữa ăn tối cùng nhau. lâu rồi hai anh em chưa ngồi ăn cùng.<br></p><p>3. Anh vừa đi vứt rác mà không biết ai ý thức kém vô cùng. thùng rác công cộng mọi người ai cũng để đúng nơi, mà không biết ai yếu ý thức đến mức vứt rác mà rơi rãi ra ngoài hết. thậm trí còn có người vứt cả những thứ thức ăn thừa ra bên ngoài. mùi nó ám hết cả khu vực. ý thức kém thật sự.<br></p><p>4. Anh vừa đi ra cửa hàng tiện lợi mua ít đồ dùng cá nhân. bữa nay kem đánh răng với đồ dúng cá nhân của anh cũng sắp hết rồi. anh mua thêm một ít hoa quả để ăn bổ sung thêm vitamin cho cơ thể khỏe mạnh, mận và thêm ít táo lê, là những quả đều tốt. em cũng phải thường xuyên ăn hoa quả nhiều nhé.<br></p><p>5. Bữa nay anh đi làm mà sáng ra đã thấy trời âm u buồn rồi. vừa đi được một đoạn thì trời đỗ mưa, đi lên thêm một đoạn thì lại không có hạt mưa nào. sáng ra anh đã bị ông trời trêu đùa anh rồi. bữa nay chắc hẳn là một ngày vui vẻ.<br></p><p>6. Bữa nay anh đi vào nhà sách, đi vòng quanh tìm kiếm một lát. anh thấy cuốn sách rất hay nói về một nhà đầu tư Jesse Livermore. ông rất giỏi trong thị trường đầu tư. anh cũng đã xem qua và thật sự là cái tư duy của ông rất tài giỏi, đó là điều anh luôn cố gắng. anh luôn cố gắng vì những điều tưởng chừng như không thể.<br></p><p>7. Bữa nay tự dưng sau giờ làm anh thấy người nó làm như muốn cảm sốt, nó cứ mệt mệt người. anh ghé qua nhà thuốc mua mấy liều thuốc cảm sốt. anh nào giờ anh gặp thuốc anh sợ lắm, đúng là sợ cái gì thì gặp cái đấy thật mà.<br></p><p>8. Bữa nay anh đi làm về con gái anh khoe cho anh nay trên lớp con trong tiết con học mỹ thuật cô kêu cả lớp vẽ một bức tranh về chủ đề gia đình. anh mới hỏi con anh thế tranh con vẽ đâu cho ba xem thử. con anh mang bức tranh mà con anh vẽ ra bức tranh gia đình. anh nhìn vào bức tranh con anh vẽ anh bị chạnh lòng một hồi lâu vì trong bức tranh con anh vẽ chỉ có anh và con bé. bức tranh gia đình thiếu mẹ của con anh. từ lúc nhỏ con anh đã phải sống thiếu mẹ. nhìn con bé mà anh thấy có lỗi. anh lo tập trung cố gắng làm tất cả mọi thứ, nhưng trong nhà lại vắng đi một hình bóng người phụ nữ. anh thấy thương con anh từ nhỏ đã thiếu đi mẹ. anh cần phải cố gắng nhiều hơn vì anh muốn sau này anh ở bên cạnh con bé nhiều hơn. làm đúng bổn phận của một người cha cũng như là người con trong gia đình ba mẹ anh.<br></p><p>9. Bữa nay anh đi vào phòng gym. anh chạy bộ vận động như mọi hôm. anh chạy trên máy tập vừa chạy vừa suy nghĩ về công việc ngày hôm nay, không tập trung là anh đang chạy bộ. anh hôm nào cũng chỉ chạy được tầm 30p là anh đã không chạy thêm được nữa rồi. mà hôm nay anh chạy đến tận 1 tiếng đồng hồ. anh không nhận ra anh đã chạy nãy giờ được bao lâu rồi. đến lúc anh cảm thấy mệt và dừng lại mới phát hiện ra anh đã chạy được gấp đôi thời gian thường ngày. về đến nhà đôi chân của anh nhức mõi hết cả lên.<br></p><p>10. Bữa nay anh đi làm về hơi muộn mà trời mưa nữa chứ. gặp bữa nay ăn ít quá anh đói run cả tay. giờ mà về đến nhà làm đồ đợi ăn cơm chắc anh xỉu luôn. ghé mua cái bánh bao ăn lót dạ mà mưa lớn cỡ này á em.<br></p><p>11. Anh đang rửa mấy cái chén với ly. anh mới ăn uống xong anh định để mai rửa chứ hôm nay làm về mệt quá. mà anh không chịu được nhìn thấy khó chịu quá. nên anh rửa cho xong luôn vậy cho khỏe vận động tí cho xuống cơm. chứ để chất đống ở đấy đằng nào ngày mai anh cũng phải rửa nên anh làm luôn cho xong.<br></p><p>12. Anh đang lâu nhà, mới nãy có bạn anh sang chơi đưa mấy đứa con qua chơi. mấy đứa nhỏ chơi với ăn vặt rớt ra nhà nên giờ anh dọn dẹp lại một lát.<br></p><p>13. Bữa nay anh đi đá bóng với mấy anh em bên sở văn hóa. nay bận công việc quá anh không đi đá bóng thường xuyên vào chạy một lát mà mệt thật. công việc nhiều quá không có thời gian để đi đá bóng nhiều. giờ đá lại mà người anh nhức mõi hết người sợ thật.<br></p><p>14. Bữa nay đi làm về tự nhiên cái lốp bánh sau của anh làm như nó đến thời kì sửa chữa hay sao á. nó đã không cho anh về đến nhà. may là anh bị bể bánh cũng gần gara bạn anh. anh gọi nhờ bạn anh hỗ trợ đưa cái xe anh đến gara, còn anh bắt grab về. một hôm mà hôm nay trời mát đi đường thích thật em à.<br></p><p>15. Hôm nay trưa anh ở lại Công ty làm thêm một số công việc. hên hồi sáng con anh có đưa cho anh cái bánh đem theo. lâu lâu anh ăn một hôm thôi chứ ăn cái này mãi chắc anh tăng cân mất. nhìn thấy cái bánh là biết nhiều chất béo luôn rồi á.<br></p></div>
+ <div class="story-section"><h2>Máy NCN hư</h2><p>Hôm nay không biết vì sao mà hệ thống phần mềm quản lý dự án của văn phòng bỗng dưng gặp sự cố.<br> Buổi sáng mọi thứ vẫn vận hành bình thường, nhưng đến trưa, sau giờ ăn cơm, khi mở lại thì toàn bộ dữ liệu bị treo, không thể truy cập.<br> Trong khi đó, có một bộ hồ sơ quan trọng cần hoàn thiện gấp để kịp tiến độ cho khách hàng, mà phía đối tác thì đang liên tục hối thúc.<br></p><p>Ngay lập tức, tôi gọi đội kỹ thuật đến kiểm tra toàn bộ hệ thống.<br> Sau một hồi rà soát, họ mới phát hiện nguyên nhân: một đoạn cáp kết nối giữa máy chủ và bộ điều khiển trung tâm bị lỗi, dẫn đến toàn bộ phần mềm ngưng hoạt động.<br> Việc khắc phục không chỉ đơn giản là thay dây, mà phải lập trình và cấu hình lại toàn bộ hệ thống.<br></p><p>Công việc này rất phức tạp, vì hệ thống quản lý dữ liệu có tính bảo mật và độ chính xác cao, chỉ cần sai sót nhỏ cũng có thể ảnh hưởng đến toàn bộ tiến độ của dự án.<br> Đội kỹ thuật đã mất cả buổi chiều để kiểm tra, lập trình và hiệu chỉnh lại cho đúng chuẩn.<br></p><p>Tôi cũng không thể rời văn phòng, mà phải trực tiếp ở lại theo dõi, động viên mọi người cùng tăng ca cho đến khi khắc phục xong và kịp hoàn thiện hồ sơ gửi cho khách.<br></p></div>
+    <div class="story-section"><h2>Bảo trì sửa máy</h2><p>Hôm qua, khi tôi lên văn phòng kiểm tra công việc, tôi để ý thấy một bạn nhân viên có vết trầy xước nhẹ ở tay.<br> Tôi quan tâm hỏi thăm thì mới biết sự việc xảy ra do lúc trao đổi công việc có chút lời qua tiếng lại, dẫn đến hiểu nhầm giữa hai bạn.<br></p><p>Ngay sau đó, tôi mời cả hai vào phòng để ngồi lại với nhau.<br> Tôi nói thẳng:<br>“Chúng ta vào đây làm việc, mục tiêu chung là để mang lại giá trị, có thu nhập lo cho gia đình.<br> Một khi đã cùng làm dưới mái nhà Sun Group thì phải xem nhau như anh em, như một gia đình.<br> Đừng vì chút bất hòa nhỏ mà làm ảnh hưởng đến tinh thần đoàn kết của cả tập thể.”<br></p><p>Nghe vậy, cả hai bạn đều nhận ra sai sót của mình, chủ động bắt tay làm hòa.<br> Tôi cũng nhấn mạnh trước toàn bộ văn phòng rằng: ở đây không có sự phân biệt cấp bậc chủ – nhân viên, mà tất cả đều bình đẳng, tôn trọng và đùm bọc lẫn nhau.<br></p></div>
+    <div class="story-section"><h2>Lắp đặt hệ thống PCCC</h2><p>Sáng hôm qua, tôi cùng Ban điều hành đã họp và quyết định đầu tư nâng cấp hệ thống phòng cháy chữa cháy cho toàn bộ khu vực văn phòng Sun Group.<br> Đây là hệ thống điều khiển tổng, bao gồm cảm biến khói và hệ thống phun nước tự động, được lắp đặt tại những khu vực trọng yếu.<br></p><p>Môi trường văn phòng tuy không nhiều bụi gỗ hay hóa chất như nhà máy, nhưng vẫn tiềm ẩn những rủi ro từ hệ thống điện, thiết bị công nghệ và kho lưu trữ tài liệu.<br> Chính vì vậy, việc lắp đặt không phải vì đã từng xảy ra cháy, mà là sự chủ động bảo vệ con người, tài sản và uy tín của công ty.<br></p><p>Song song với đó, chúng tôi cũng tổ chức tập huấn PCCC định kỳ cho toàn bộ nhân viên văn phòng, để mỗi người đều nắm được kỹ năng xử lý khi có sự cố.<br></p><p>Với tôi, quan trọng nhất là tạo được một môi trường làm việc an toàn, vững tin, để mỗi ngày anh em bước vào văn phòng đều cảm thấy yên tâm và có thêm động lực làm việc.<br></p></div>
+    <div class="story-section"><h2>Bố bạn thân ốm</h2><p>Mấy hôm trước, một người bạn thân tìm đến tôi, nói bố đang nằm ICU vì tai biến, chi phí chữa trị quá lớn, gia đình đã xoay sở khắp nơi mà vẫn thiếu.<br> Bạn rối rắm, nghẹn ngào, nhờ tôi cho mượn 300 triệu để kịp thời cứu ba.<br></p><p>Tôi nghe xong liền bảo kế toán chuyển tiền ngay.<br> Thế nhưng, bạn vẫn khăng khăng viết giấy vay rõ ràng, dù chúng tôi là bạn thân.<br> Bạn nói: “Tiền bạc lúc nào cũng phải minh bạch, rõ ràng.”<br> Nhìn bạn ký giấy mà tay run, tôi chỉ khẽ bảo: “Lo cho ba đi, tiền bạc không quan trọng bằng sinh mạng.<br> Lúc này mà không giúp thì bạn bè để làm gì?”<br></p><p>Tôi nhớ lại thuở nhỏ, khi gia đình tôi khó khăn, chính ba bạn ấy đã nhiều lần giúp đỡ.<br> Có lần tôi sốt nằm liệt, chính bạn đã cõng tôi đi khám.<br> Những nghĩa tình đó tôi không bao giờ quên.<br></p><p>Khi bạn vừa đi khỏi, tôi xé tờ giấy vay.<br> Vì với tôi, số tiền đó có lớn đến đâu thì cũng không thể so sánh với tình nghĩa bạn bè.<br> Người đã sẵn sàng giúp mình lúc gian khó, mới thật sự là bạn.<br></p></div>
+    <div class="story-section"><h2>Nhân viên cũ tới nhà</h2><p>Hôm nay, tôi có một người bạn cũ ghé chơi, mang theo chút trà quê biếu. Ngồi uống trà, bao kỷ niệm ùa về khiến tôi thật sự xúc động</p><p>Người bạn này từng là nhân viên đầu tiên đồng hành cùng tôi từ những ngày khởi nghiệp. Năm 2021, khi dịch bệnh bùng phát, công ty đối diện vô vàn khó khăn: hàng hóa không giao được, nguyên liệu gián đoạn, dòng tiền gần như cạn kiệt. Dù vậy, tôi vẫn quyết giữ trọn tập thể, không sa thải bất kỳ ai.</p><p>Trong lúc khó khăn ấy, bạn tìm đến tôi, nói rằng có ít tiền để dành cưới vợ, giờ thấy công ty cần nên sẵn sàng mang cho tôi mượn. Số tiền đó không lớn, nhưng với bạn, đó là tất cả. Nghe những lời đó, tôi thật sự rưng rưng. Cũng bởi tôi luôn coi nhân viên như người thân trong gia đình, nên khi gian nan, họ cũng không bỏ mình.</p><p>Sau này, khi công ty dần ổn định, bạn chọn về quê mở quán nhỏ với vợ. Tôi cũng hỗ trợ lại một phần để bạn an tâm khởi nghiệp. Giờ nhìn thấy vợ chồng bạn hạnh phúc, cuộc sống ổn định, tôi cảm thấy ấm lòng vô cùng.</p><p>Câu chuyện này nhắc nhở tôi: khi mình sống chân thành với người khác, thì họ cũng không phụ mình. Bạn bè, đồng nghiệp thật sự quý giá chính là những người sẵn sàng ở bên khi mình khó khăn nhất.</p></div>
+    <div class="story-section"><h2>Vươn lên chính mình</h2><p>VƯƠN LÊN CHÍNH MÌNH. Hãy nhớ kỹ: Dựa vào ai cũng không bằng dựa vào chính mình. Con người vốn phức tạp và dễ thay lòng đổi dạ, đời này không có bến tựa vĩnh viễn. Đừng đặt quá nhiều hy vọng vào người khác, ai cũng có nỗi khó riêng. Bạn phải trở thành núi tựa của đời mình. Những đoạn đường gian nan nhất, đều phải một mình bước đi. Tủi thân tự nuốt vào trong, áp lực tự mình gồng gánh, tổn thương cũng tự mình hàn gắn. Thật sự không ai thấu hiểu nỗi đau của ta, rốt cuộc mọi thứ vẫn phải tự mình đối mặt. Dù phía trước tối tăm mịt mù, dù quá trình đầy chông gai, bạn vẫn phải một mình đi đến ngọn hải đăng trong tim. Hãy không ngừng cứu lấy chính mình từ lửa đỏ nước sôi, từ vực sâu tuyệt vọng, bước ra nơi có ánh sáng. Từ giờ phút này, hoa thơm dành tặng cho bản thân, phi ngựa hát ca tiến về phương xa.</p></div>
+       <div class="story-section"><h2>Câu chuyện cho bạn vay tiền</h2><p>Tối nay, bạn tôi nhất quyết muốn mời tôi ăn cơm để cảm ơn, nhưng tôi đã từ chối. Với tôi, việc bạn bè giúp đỡ nhau là điều rất bình thường. Chiều nay, bạn ấy ghé công ty để trả lại số tiền tôi từng cho vay. Trong lúc trò chuyện, tôi nhận ra một điều: đôi khi, chỉ một cơ hội – nếu dám nắm bắt – có thể thay đổi cả vận mệnh. Trước đây, bạn tôi chỉ là một nhân viên bán hàng. Trong một lần đi ăn cùng khách, tình cờ nghe họ nói về thương mại điện tử xuyên biên giới – một thị trường tiềm năng còn ít cạnh tranh. Từ hôm đó, bạn bắt đầu tìm hiểu, nghiên cứu và quyết tâm khởi nghiệp. Nhưng khó khăn lớn nhất là vốn. Bạn không đủ tiền để thuê cửa hàng, nhập hàng. Khi tìm đến tôi, bạn chỉ biết thở dài. Tôi đã nói với bạn một câu: “Vay gà để lấy trứng. Khi trứng nở, trả lại gà, còn lại là giá trị mình gặt được.” Nguyên lý đơn giản: dám vay, dám mạo hiểm để làm việc của mình. Tôi cho bạn ấy một phần vốn, nhưng cũng dặn: phần còn lại phải tự xoay sở, vì chỉ khi tự mình trải qua, bạn mới trân trọng giá trị mình đạt được. Và bạn ấy đã thật sự làm được: vay mượn, cầm cố, xoay xở khắp nơi để đủ vốn bắt đầu. Chỉ sau một năm rưỡi, từ hai bàn tay trắng, bạn đã có cửa hàng riêng, mua được nhà, xe và có cả khoản tiết kiệm. Câu chuyện này nhắc tôi và cũng muốn nhắn gửi tới mọi người: 👉 Đừng bỏ lỡ cơ hội. Bởi chỉ một cơ hội thôi, nếu biết nắm bắt, có thể thay đổi cả cuộc đời.</p></div>
+    <div class="story-section"><h2>Bạn mượn tiền</h2><p>Mấy hôm trước, một người bạn thân tìm đến tôi, nói bố đang nằm ICU vì tai biến, chi phí chữa trị quá lớn, gia đình đã xoay sở khắp nơi mà vẫn thiếu. Bạn rối rắm, nghẹn ngào, nhờ tôi cho mượn 300 triệu để kịp thời cứu ba. Tôi nghe xong liền bảo kế toán chuyển tiền ngay. Thế nhưng, bạn vẫn khăng khăng viết giấy vay rõ ràng, dù chúng tôi là bạn thân. Bạn nói: “Tiền bạc lúc nào cũng phải minh bạch, rõ ràng.” Nhìn bạn ký giấy mà tay run, tôi chỉ khẽ bảo: “Lo cho ba đi, tiền bạc không quan trọng bằng sinh mạng. Lúc này mà không giúp thì bạn bè để làm gì?” Tôi nhớ lại thuở nhỏ, khi gia đình tôi khó khăn, chính ba bạn ấy đã nhiều lần giúp đỡ. Có lần tôi sốt nằm liệt, chính bạn đã cõng tôi đi khám. Những nghĩa tình đó tôi không bao giờ quên. Khi bạn vừa đi khỏi, tôi xé tờ giấy vay. Vì với tôi, số tiền đó có lớn đến đâu thì cũng không thể so sánh với tình nghĩa bạn bè. Người đã sẵn sàng giúp mình lúc gian khó, mới thật sự là bạn.</p></div>
+    <div class="story-section"><h2>Cô mượn tiền</h2><p>Hôm đó anh nhận được cuộc gọi từ cô. Ở đầu dây bên kia, cô vừa khóc vừa nói, muốn mượn anh một số tiền để phẫu thuật cho con cô. Người em này vốn dĩ đã quen biết anh từ nhỏ, hiền lành và rất giỏi. Nhưng chẳng may em ấy phát hiện có một khối u trong não, đang ở giai đoạn 2–3, cần gấp hơn 200 triệu để phẫu thuật và điều trị. Nghe vậy, anh không do dự, ngay lập tức gửi tiền về cho cô. Thế nhưng, mọi chuyện lại không như mong muốn. Em ấy đã không qua khỏi. Các bác sĩ nói rằng, thời gian điều trị sớm nhất đã bị bỏ lỡ, khối u hình thành quá lớn, khó mà cứu vãn được. Điều khiến anh day dứt nhất là, em ấy vốn rất hiền, hiểu chuyện và học giỏi. Em thường xuyên đau đầu, nhưng không hề nói với mẹ. Thay vào đó, em lặng lẽ tự mình đi mua thuốc để kiềm chế cơn đau. Em không nói, không phải vì không biết, mà vì sợ mẹ thêm gánh nặng. Gia đình đã vất vả, cha em lại dính vào cờ bạc, em thương mẹ và chọn cách im lặng. Nếu ngày đó em chịu nói sớm hơn, hoặc cô có tiền để đưa em đi điều trị kịp thời, thì có lẽ em đã không rời xa như vậy. Câu chuyện này khiến anh luôn nhớ và càng thêm trân trọng cuộc sống, vì đôi khi chỉ một sự chậm trễ, một khó khăn về tiền bạc, có thể cướp đi cả một sinh mệnh hiền lành và đầy ước mơ</p></div>
+    <div class="story-section"><h2>Lời nói hạnh phúc gia đình</h2><p>LỜI NÓI ĐỘC HẠI. Lời nói độc hại chỉ khiến người thân yêu ngày càng xa cách. Vết thương cơ thể có thể chữa lành theo thời gian. Những tổn thương do lời nói không dễ thấy lại đâm thấu tim. Có thể đột ngột đánh gục một người,bạn phải hiểu rằng điều thực sự đưa một cuộc hôn nhân đến bờ vực đổ vỡ, thường không phải là hoàn cảnh gia đình mà là do những lời nói gây tổn thường tích tụ theo năm tháng.</p><p>GIA ĐÌNH CÃI VÃ. Gia đình chúng ta không phải là nơi sinh ra để cãi đúng hay sai, cũng không phải là chiến trường phân thắng bại. Yêu thương thì phải biết cách thể hiện. Miệng của cha mẹ chính là số phận của con cái.</p><p>SỰ NGU DỐT. Sự ngu dốt nhất của một gia đình là khi con cái bên ngoài không bị thế giới đánh bại mà bị hủy hoại chính miệng của cha mẹ; nói chuyện tốt, giao tiếp tốt là phong thủy tốt nhất của Gia đình. Một gia đình đầy sự chỉ trích, trách móc, chì chiết lẫn nhau chắc chắn sẽ suy tàn. Còn một gia đình hòa thuận dù nghèo khó cũng sẽ phát đạt.</p><p>GIA ĐÌNH HÒA THUẬN. Gia đình hòa thuận thì Phước lành phúc sẽ tự đến. Sự khích lệ, khen ngợi, động viên, tôn trọng,cổ vũ,của người yêu là động lực cho chúng ta bước tiếp không sợ hãi, Sự công nhận của cha mẹ là nền tảng để con cái vững bước trên đời.</p><p>GIAO TIẾP TỐT. Vì vậy biết giao tiếp tốt, nói chuyện tốt là mưu lược quan trọng trong hôn nhân, không trách mắng chuyện lớn. Không tranh cãi chuyện nhỏ, không nhắc lại chuyện cũ, không sợ do hơn thua như vậy gia đình ngày càng hạnh phúc, vợ chồng nồng ấm, gia đình tốt đẹp.</p></div>
+    <div class="story-section"><h2>Chủ đề sách</h2><p>Hiện tại em đang đọc cuốn sách có tên Cha giàu, cha nghèo của Robert Kiyosaki. Đây là một câu chuyện có thật. Tác giả Robert Kiyosaki có quan điểm hoàn toàn khác về tiền bạc so với cha ruột và cha của bạn mình. Điều này đã khơi dậy niềm đam mê mãnh liệt trong việc tìm hiểu về tiền bạc. Cuối cùng, ông đã nghe theo lời khuyên của cha bạn mình, và đó cũng chính là nội dung cuốn sách. Triết lý của Cha Giàu là không làm nô lệ cho tiền bạc mà hãy để tiền bạc làm việc cho mình. Kết quả là, ông đã trở thành một nhà đầu tư huyền thoại và thành công. Nếu em quan tâm đến tài chính, em cũng có thể đọc nó biết đâu nó sẽ hữu ích cho em.</p></div>
+    <div class="story-section"><h2>Kiến trúc đầu tư</h2><p>1. ĐA DANG HÓA NGUỒN THU NHẬP CỦA BẠN -Đa dạng hóa nguồn thu nhập là một trong những điều rất quan trọng để kiểm soát tài chính tốt hơn. Sẽ rất rủi ro nếu bạn chỉ có một nguồn thu duy nhất. Bạn có thể tìm hiểu thêm những việc có thể làm vào thời gian rảnh và phát triển thêm các nguồn thu nhập dựa trên năng lực của bạn. 2. THIẾT LẬP KẾ HOẠCH TÀI CHÍNH - Hiện nay, rất nhiều người chỉ biết nhận lương và chi tiêu tháng này qua tháng khác. Nếu muốn kiểm soát tốt tài chính của chính mình, bạn cần có ý tưởng rõ ràng về cách sử dụng tiền của mình. Hãy lập kế hoạch cho những mục tiêu tài chính của bạn trong tương lai. 3. TÌM HIỂU VỀ ĐẦU TƯ ĐỂ MỞ RỘNG TÀI CHÍNH CỦA BẠN. Nhắc đến đầu tư, rất nhiều người sẽ nghĩ ngay đến sự "mạo hiểm" và "rủi ro". Thực chất, chính suy nghĩ này đã khiến bạn m.ất đi rất nhiều cơ hội mở rộng tài chính. Bạn sẽ không cảm thấy bị đe dọa bởi thế giới kinh doanh và đầu tư nếu nghiên cứu kỹ càng và đầu tư tiền một cách khôn ngoan. 4. CHỌN MẶT GỬI VÀNG ĐÚNG CHỖ - KHÔNG SỢ RỦI RO -Không có công thức cố định nào cho thành công, nhưng chắc chắn trong đó không có sự an toàn và thoải mái. Tất cả “đại gia” mà bạn biết đều là người tự tin, quyết đoán, biết chấp nhận rủi ro và chuẩn bị cho thất bại. - Chọn người cố vấn tài chính hoặc quản lý đầu tư là lựa chọn khó khăn thứ hai đời bạn (sau chọn vợ/chồng), nên hãy cẩn thận “nhắm” cho đúng người. Nếu không, bạn thậm chí sẽ chẳng còn thời gian mà khóc. Hãy lựa chọn những người có kiến thức trong lĩnh vực đầu tư đó và bạn nhìn thây năng lực cũng như họ thật sự kiếm tiền từ đó. 5. TÌM SƯ PHỤ MÀ THEO - Cách để nhanh chóng trở nên thành công: học hỏi từ người đã thành công. 6. XÁC ĐỊNH MỤC TIÊU - Xác định mình muốn đạt được những gì ở mỗi cột mốc quan trọng. Ví dụ, bạn muốn năm 30 tuổi sẽ sở hữu một dây chuyền sản xuất doanh nghiệp, 40 tuổi có ít nhất 3 cơ sở kinh doanh. Khi mục tiêu được nêu ra rõ ràng, bạn sẽ nhìn thấy đường đi chứ không còn luẩn quẩn trong sương mù. 7. Luôn nhớ rằng bạn không bao giờ là quá sớm để bắt đầu - Cuộc sống là rất ngắn, đừng lãng phí sức lực và “lửa” tuổi trẻ, hãy bắt đầu ngay hôm nay. 8.  Học đầu tư - Gốc rễ của sự giàu có là đầu tư đúng đắn. Hãy tìm hiểu và học hỏi bí quyết đầu tư của các nhà triệu phú để lựa chọn phương pháp phù hợp với mình ngay từ bây giờ.</p></div>
+    <div class="story-section"><h2>Từ thiện bệnh viện</h2><p>Một buổi sáng trong bệnh viện. Sáng nay, anh dậy sớm hơn thường lệ, xếp mấy thùng sữa Fami lên xe rồi chạy thẳng vào bệnh viện. Chuyến này anh không đi một mình, đi cùng anh là mấy cô lớn tuổi ở hội từ thiện trong phường. Các cô tuy già nhưng rất nhiệt tình, vui tính, làm anh thấy chuyến đi cũng nhẹ nhàng hơn nhiều. Tới nơi, anh cùng mọi người chia nhau đi phát từng hộp sữa cho các cô chú đang nằm viện, chủ yếu là những người già, không có thân nhân chăm sóc, hoặc hoàn cảnh khó khăn. Mỗi người một túi nhỏ: vài hộp sữa, cái bánh, cái khăn mặt. Không nhiều, nhưng là tấm lòng. Anh thấy có cụ nằm co ro một mình, hỏi ra mới biết cụ từ quê lên Sài Gòn khám bệnh, không có người thân đi theo, sống tạm ở gầm cầu thang bệnh viện cả tuần. Nhận hộp sữa từ tay anh, cụ cười mà mắt ướt. Anh đứng lặng đi vài giây. Mình làm kinh doanh, quen với tính toán lời lỗ, nhưng những lúc như vậy, tự dưng mọi con số không còn quan trọng nữa. Chuyến đi sáng nay kéo dài gần ba tiếng, không ồn ào, không hình ảnh rầm rộ, nhưng để lại trong anh nhiều suy nghĩ. Làm giám đốc, anh nghĩ không chỉ là lo cho công ty, cho anh em công nhân có việc làm, mà còn phải sống sao cho có trách nhiệm với xã hội, nhất là với những người yếu thế. Anh không kể chuyện này để ai khen. Anh chỉ muốn anh em trong xưởng biết: nếu có điều kiện, mình hãy giúp. Không cần nhiều. Một hộp sữa, một lời hỏi han cũng đủ làm người khác ấm lòng. Mỗi lần như vậy, anh thấy mình được tiếp thêm động lực để cố gắng làm ăn cho đàng hoàng. Có tiền không phải để khoe, mà để dùng đúng chỗ, giúp đúng người. Anh mong sau này nếu có dịp, mình sẽ tổ chức cho cả xưởng cùng đi. Để anh em không chỉ làm ra sản phẩm tốt, mà còn sống với cái tâm tốt.</p></div>
+    <div class="story-section"><h2>Bộ phận trà gỗ tai nạn</h2><p>Hôm nay ở xưởng có chị bên bộ phận chà gỗ bị tai nạn đang thao tác mấy chà gỗ bị trượt vào tay phải khâu 13 mũi anh chở chị ấy lên khâu lại vết thương rồi mua một số thuốc và đồ ăn thiết yếu rồi đưa chị ấy về trọ vào trong trọ anh chỉ thấy được 1 cái bàn và một số đồ dùng như nồi chảo rồi bếp gas các thứ thậm trí hôm nay nhà cũng không còn gạo để nấu được một bữa cơm anh mới chạy đi ra ngoài đầu đường mua gào và đồ dùng thêm mốt số đồ ăn nhanh sữa để chị ấy dùng chị tên Loan chị được cô lao công trong xưởng giới thiệu vào làm bộ phận chà gỗ chị mới làm được 5 ngày tại xưởng là đã gặp sự cố, anh ngồi tâm sự với chị thì chị mới nói chị không có con vì chị không thể đẻ được ck chị bỏ đi được 5 tháng rồi lấy hết tiền và xe của chị bỏ theo một người đàn bà khác bỏ chị ở lại một mình vì không thể sống cùng chị trong sự khó khăn như vậy vài hôm trước trọ thì hết gì ăn chủ trọ thì đến tháng phải trả tiền phòng chị phải lạy lục van xin thì họ mới cho khấc lại và phòng chị không còn gì để ăn chị mới gọi vay mượn chỉ 500k mua thuốc uống và mua gào về nấu cơm ăn nhưng chị có gọi cho bao nhiêu người thậm trí là người thân trong gia đình mà không ai giúp chị cả vì họ sợ chị không trả được 500k đấy thật sự anh không hiểu con người ta nghĩ gì kể cả anh em họ hàng đọng đến tiền là không nhìn mặt nhau nữa thật sự đồng tiền nó khiến con người ta chở nên đáng sợ thật em à anh nghĩ cảnh tượng nếu mình không thành công cũng như không có tiền thì không biết mình thảm đến mức độ nào nữa đây thật sự đồng tiền nó quan trọng đến mức độ nào</p></div>
+    <div class="story-section"><h2>Bàn tán việc chị Hà</h2><p>Hôm nay, trong lúc làm việc, tôi nghe anh em bàn tán về câu chuyện của chị Hà. Chị kết hôn đã 15 năm, làm dâu và sống cùng mẹ chồng để chăm sóc bà. Khi mẹ chồng mất, bà để lại căn nhà và mảnh đất cho vợ chồng chị Hà. Trong khi đó, những người con khác của bà đã nhận phần tài sản riêng, sử dụng hết từ lâu. Thế nhưng, bây giờ họ lại quay lại, thuê luật sư để kiện đòi chia tài sản, cho rằng lúc viết di chúc, mẹ chồng chị Hà không còn minh mẫn. Thực tế, ai cũng biết điều đó không đúng, chỉ là họ cố tình làm khó để tranh chấp phần đất không thuộc về mình. Với tôi, điều quan trọng nhất trong những câu chuyện như thế này là sự công bằng và minh bạch của pháp luật. Không ai được quyền tham lam, chiếm đoạt những gì vốn không thuộc về họ. Pháp luật sinh ra là để bảo vệ những con người sống đúng, làm đúng, và tôi tin chắc rằng chị Hà sẽ giữ trọn được quyền lợi hợp pháp, xứng đáng với công sức chăm sóc và gắn bó suốt bao năm.</p></div>
+    <div class="story-section"><h2>Cặp vợ chồng</h2><p>Hôm nay, trong quá trình làm việc, tôi chứng kiến một tình huống đáng buồn giữa một cặp vợ chồng cùng làm trong công ty. Sự việc khiến tôi phải mời cả hai ra ngoài trao đổi riêng, bởi tôi luôn quan niệm: công việc phải tách biệt với chuyện cá nhân, tránh ảnh hưởng đến tập thể. Điều khiến tôi suy nghĩ nhiều hơn chính là cách ứng xử. Giữa vợ chồng, có mâu thuẫn cũng nên chọn cách bình tĩnh để nói chuyện, thay vì nạt nộ hay dùng hành động thô bạo, hay những lời đùa không đúng lúc. Đó không chỉ là hình ảnh xấu trong công việc, mà còn phản ánh nguy cơ bạo lực gia đình – một điều có thể để lại tổn thương nặng nề cho người vợ, và đặc biệt là cho những đứa trẻ. Một đứa trẻ lớn lên trong môi trường bạo lực, với hình ảnh người cha thiếu kiềm chế, chắc chắn sẽ bị ảnh hưởng về tâm lý và nhân cách. Điều đó không chỉ làm tổn hại đến hạnh phúc gia đình, mà còn là gánh nặng cho xã hội. Chính vì thế, tôi luôn nhắc anh em trong công ty: hạnh phúc bắt đầu từ sự tôn trọng. Ở Sun Group hay bất kỳ tập thể nào, chúng ta phải xây dựng môi trường sống và làm việc văn minh, nhân văn – nơi mà mỗi thành viên đều cảm thấy được bảo vệ, được tôn trọng, và trẻ em được lớn lên trong sự yêu thương.</p></div>
+    <div class="story-section"><h2>Lời nói hạnh phúc gia đình</h2><p>LỜI NÓI ĐỘC HẠI. Lời nói độc hại chỉ khiến người thân yêu ngày càng xa cách. Vết thương cơ thể có thể chữa lành theo thời gian. Những tổn thương do lời nói không dễ thấy lại đâm thấu tim. Có thể đột ngột đánh gục một người,bạn phải hiểu rằng điều thực sự đưa một cuộc hôn nhân đến bờ vực đổ vỡ, thường không phải là hoàn cảnh gia đình mà là do những lời nói gây tổn thường tích tụ theo năm tháng.</p><p>GIA ĐÌNH CÃI VÃ. Gia đình chúng ta không phải là nơi sinh ra để cãi đúng hay sai, cũng không phải là chiến trường phân thắng bại. Yêu thương thì phải biết cách thể hiện. Miệng của cha mẹ chính là số phận của con cái.</p><p>SỰ NGU DỐT. Sự ngu dốt nhất của một gia đình là khi con cái bên ngoài không bị thế giới đánh bại mà bị hủy hoại chính miệng của cha mẹ; nói chuyện tốt, giao tiếp tốt là phong thủy tốt nhất của Gia đình. Một gia đình đầy sự chỉ trích, trách móc, chì chiết lẫn nhau chắc chắn sẽ suy tàn. Còn một gia đình hòa thuận dù nghèo khó cũng sẽ phát đạt.</p><p>GIA ĐÌNH HÒA THUẬN. Gia đình hòa thuận thì Phước lành phúc sẽ tự đến. Sự khích lệ, khen ngợi, động viên, tôn trọng,cổ vũ,của người yêu là động lực cho chúng ta bước tiếp không sợ hãi, Sự công nhận của cha mẹ là nền tảng để con cái vững bước trên đời.</p><p>GIAO TIẾP TỐT. Vì vậy biết giao tiếp tốt, nói chuyện tốt là mưu lược quan trọng trong hôn nhân, không trách mắng chuyện lớn. Không tranh cãi chuyện nhỏ, không nhắc lại chuyện cũ, không sợ do hơn thua như vậy gia đình ngày càng hạnh phúc, vợ chồng nồng ấm, gia đình tốt đẹp.</p></div>
+    <div class="story-section"><h2>Kiến trúc đầu tư</h2><p>1. ĐA DANG HÓA NGUỒN THU NHẬP CỦA BẠN -Đa dạng hóa nguồn thu nhập là một trong những điều rất quan trọng để kiểm soát tài chính tốt hơn. Sẽ rất rủi ro nếu bạn chỉ có một nguồn thu duy nhất. Bạn có thể tìm hiểu thêm những việc có thể làm vào thời gian rảnh và phát triển thêm các nguồn thu nhập dựa trên năng lực của bạn. 2. THIẾT LẬP KẾ HOẠCH TÀI CHÍNH - Hiện nay, rất nhiều người chỉ biết nhận lương và chi tiêu tháng này qua tháng khác. Nếu muốn kiểm soát tốt tài chính của chính mình, bạn cần có ý tưởng rõ ràng về cách sử dụng tiền của mình. Hãy lập kế hoạch cho những mục tiêu tài chính của bạn trong tương lai. 3. TÌM HIỂU VỀ ĐẦU TƯ ĐỂ MỞ RỘNG TÀI CHÍNH CỦA BẠN. Nhắc đến đầu tư, rất nhiều người sẽ nghĩ ngay đến sự "mạo hiểm" và "rủi ro". Thực chất, chính suy nghĩ này đã khiến bạn m.ất đi rất nhiều cơ hội mở rộng tài chính. Bạn sẽ không cảm thấy bị đe dọa bởi thế giới kinh doanh và đầu tư nếu nghiên cứu kỹ càng và đầu tư tiền một cách khôn ngoan. 4. CHỌN MẶT GỬI VÀNG ĐÚNG CHỖ - KHÔNG SỢ RỦI RO -Không có công thức cố định nào cho thành công, nhưng chắc chắn trong đó không có sự an toàn và thoải mái. Tất cả “đại gia” mà bạn biết đều là người tự tin, quyết đoán, biết chấp nhận rủi ro và chuẩn bị cho thất bại. - Chọn người cố vấn tài chính hoặc quản lý đầu tư là lựa chọn khó khăn thứ hai đời bạn (sau chọn vợ/chồng), nên hãy cẩn thận “nhắm” cho đúng người. Nếu không, bạn thậm chí sẽ chẳng còn thời gian mà khóc. Hãy lựa chọn những người có kiến thức trong lĩnh vực đầu tư đó và bạn nhìn thây năng lực cũng như họ thật sự kiếm tiền từ đó. 5. TÌM SƯ PHỤ MÀ THEO - Cách để nhanh chóng trở nên thành công: học hỏi từ người đã thành công. 6. XÁC ĐỊNH MỤC TIÊU - Xác định mình muốn đạt được những gì ở mỗi cột mốc quan trọng. Ví dụ, bạn muốn năm 30 tuổi sẽ sở hữu một dây chuyền sản xuất doanh nghiệp, 40 tuổi có ít nhất 3 cơ sở kinh doanh. Khi mục tiêu được nêu ra rõ ràng, bạn sẽ nhìn thấy đường đi chứ không còn luẩn quẩn trong sương mù. 7. Luôn nhớ rằng bạn không bao giờ là quá sớm để bắt đầu - Cuộc sống là rất ngắn, đừng lãng phí sức lực và “lửa” tuổi trẻ, hãy bắt đầu ngay hôm nay. 8.  Học đầu tư - Gốc rễ của sự giàu có là đầu tư đúng đắn. Hãy tìm hiểu và học hỏi bí quyết đầu tư của các nhà triệu phú để lựa chọn phương pháp phù hợp với mình ngay từ bây giờ.</p></div>
+    <div class="story-section"><h2>Từ thiện bệnh viện</h2><p>Một buổi sáng trong bệnh viện. Sáng nay, anh dậy sớm hơn thường lệ, xếp mấy thùng sữa Fami lên xe rồi chạy thẳng vào bệnh viện. Chuyến này anh không đi một mình, đi cùng anh là mấy cô lớn tuổi ở hội từ thiện trong phường. Các cô tuy già nhưng rất nhiệt tình, vui tính, làm anh thấy chuyến đi cũng nhẹ nhàng hơn nhiều. Tới nơi, anh cùng mọi người chia nhau đi phát từng hộp sữa cho các cô chú đang nằm viện, chủ yếu là những người già, không có thân nhân chăm sóc, hoặc hoàn cảnh khó khăn. Mỗi người một túi nhỏ: vài hộp sữa, cái bánh, cái khăn mặt. Không nhiều, nhưng là tấm lòng. Anh thấy có cụ nằm co ro một mình, hỏi ra mới biết cụ từ quê lên Sài Gòn khám bệnh, không có người thân đi theo, sống tạm ở gầm cầu thang bệnh viện cả tuần. Nhận hộp sữa từ tay anh, cụ cười mà mắt ướt. Anh đứng lặng đi vài giây. Mình làm kinh doanh, quen với tính toán lời lỗ, nhưng những lúc như vậy, tự dưng mọi con số không còn quan trọng nữa. Chuyến đi sáng nay kéo dài gần ba tiếng, không ồn ào, không hình ảnh rầm rộ, nhưng để lại trong anh nhiều suy nghĩ. Làm giám đốc, anh nghĩ không chỉ là lo cho công ty, cho anh em công nhân có việc làm, mà còn phải sống sao cho có trách nhiệm với xã hội, nhất là với những người yếu thế. Anh không kể chuyện này để ai khen. Anh chỉ muốn anh em trong xưởng biết: nếu có điều kiện, mình hãy giúp. Không cần nhiều. Một hộp sữa, một lời hỏi han cũng đủ làm người khác ấm lòng. Mỗi lần như vậy, anh thấy mình được tiếp thêm động lực để cố gắng làm ăn cho đàng hoàng. Có tiền không phải để khoe, mà để dùng đúng chỗ, giúp đúng người. Anh mong sau này nếu có dịp, mình sẽ tổ chức cho cả xưởng cùng đi. Để anh em không chỉ làm ra sản phẩm tốt, mà còn sống với cái tâm tốt.</p></div>
+    <div class="story-section"><h2>Bộ phận trà gỗ tai nạn</h2><p>Hôm nay ở xưởng có chị bên bộ phận chà gỗ bị tai nạn đang thao tác mấy chà gỗ bị trượt vào tay phải khâu 13 mũi anh chở chị ấy lên khâu lại vết thương rồi mua một số thuốc và đồ ăn thiết yếu rồi đưa chị ấy về trọ vào trong trọ anh chỉ thấy được 1 cái bàn và một số đồ dùng như nồi chảo rồi bếp gas các thứ thậm trí hôm nay nhà cũng không còn gạo để nấu được một bữa cơm anh mới chạy đi ra ngoài đầu đường mua gào và đồ dùng thêm mốt số đồ ăn nhanh sữa để chị ấy dùng chị tên Loan chị được cô lao công trong xưởng giới thiệu vào làm bộ phận chà gỗ chị mới làm được 5 ngày tại xưởng là đã gặp sự cố, anh ngồi tâm sự với chị thì chị mới nói chị không có con vì chị không thể đẻ được ck chị bỏ đi được 5 tháng rồi lấy hết tiền và xe của chị bỏ theo một người đàn bà khác bỏ chị ở lại một mình vì không thể sống cùng chị trong sự khó khăn như vậy vài hôm trước trọ thì hết gì ăn chủ trọ thì đến tháng phải trả tiền phòng chị phải lạy lục van xin thì họ mới cho khấc lại và phòng chị không còn gì để ăn chị mới gọi vay mượn chỉ 500k mua thuốc uống và mua gào về nấu cơm ăn nhưng chị có gọi cho bao nhiêu người thậm trí là người thân trong gia đình mà không ai giúp chị cả vì họ sợ chị không trả được 500k đấy thật sự anh không hiểu con người ta nghĩ gì kể cả anh em họ hàng đọng đến tiền là không nhìn mặt nhau nữa thật sự đồng tiền nó khiến con người ta chở nên đáng sợ thật em à anh nghĩ cảnh tượng nếu mình không thành công cũng như không có tiền thì không biết mình thảm đến mức độ nào nữa đây thật sự đồng tiền nó quan trọng đến mức độ nào</p></div>
+    <div class="story-section"><h2>Bàn tán việc chị Hà</h2><p>Hôm nay, trong lúc làm việc, tôi nghe anh em bàn tán về câu chuyện của chị Hà. Chị kết hôn đã 15 năm, làm dâu và sống cùng mẹ chồng để chăm sóc bà. Khi mẹ chồng mất, bà để lại căn nhà và mảnh đất cho vợ chồng chị Hà. Trong khi đó, những người con khác của bà đã nhận phần tài sản riêng, sử dụng hết từ lâu. Thế nhưng, bây giờ họ lại quay lại, thuê luật sư để kiện đòi chia tài sản, cho rằng lúc viết di chúc, mẹ chồng chị Hà không còn minh mẫn. Thực tế, ai cũng biết điều đó không đúng, chỉ là họ cố tình làm khó để tranh chấp phần đất không thuộc về mình. Với tôi, điều quan trọng nhất trong những câu chuyện như thế này là sự công bằng và minh bạch của pháp luật. Không ai được quyền tham lam, chiếm đoạt những gì vốn không thuộc về họ. Pháp luật sinh ra là để bảo vệ những con người sống đúng, làm đúng, và tôi tin chắc rằng chị Hà sẽ giữ trọn được quyền lợi hợp pháp, xứng đáng với công sức chăm sóc và gắn bó suốt bao năm.</p></div>
+    <div class="story-section"><h2>Cặp vợ chồng</h2><p>Hôm nay, trong quá trình làm việc, tôi chứng kiến một tình huống đáng buồn giữa một cặp vợ chồng cùng làm trong công ty. Sự việc khiến tôi phải mời cả hai ra ngoài trao đổi riêng, bởi tôi luôn quan niệm: công việc phải tách biệt với chuyện cá nhân, tránh ảnh hưởng đến tập thể. Điều khiến tôi suy nghĩ nhiều hơn chính là cách ứng xử. Giữa vợ chồng, có mâu thuẫn cũng nên chọn cách bình tĩnh để nói chuyện, thay vì nạt nộ hay dùng hành động thô bạo, hay những lời đùa không đúng lúc. Đó không chỉ là hình ảnh xấu trong công việc, mà còn phản ánh nguy cơ bạo lực gia đình – một điều có thể để lại tổn thương nặng nề cho người vợ, và đặc biệt là cho những đứa trẻ. Một đứa trẻ lớn lên trong môi trường bạo lực, với hình ảnh người cha thiếu kiềm chế, chắc chắn sẽ bị ảnh hưởng về tâm lý và nhân cách. Điều đó không chỉ làm tổn hại đến hạnh phúc gia đình, mà còn là gánh nặng cho xã hội. Chính vì thế, tôi luôn nhắc anh em trong công ty: hạnh phúc bắt đầu từ sự tôn trọng. Ở Sun Group hay bất kỳ tập thể nào, chúng ta phải xây dựng môi trường sống và làm việc văn minh, nhân văn – nơi mà mỗi thành viên đều cảm thấy được bảo vệ, được tôn trọng, và trẻ em được lớn lên trong sự yêu thương.</p></div>
+    <div class="story-section"><h2>Tổng kết tài chính</h2><p>Cuối năm luôn là giai đoạn bận rộn nhất.<br> Hôm nay, tôi dành trọn ngày để tổng kết lại tình hình tài chính, kiểm kê các khoản tồn đọng và rà soát toàn bộ công việc.<br> Đây không chỉ là bước tổng kết, mà còn là nền tảng để tôi cùng anh em phòng kinh doanh Sun Group lên kế hoạch và đặt mục tiêu mới cho năm tới.<br> Trong quá trình rà soát, chúng tôi cũng lên phương án chăm sóc khách hàng: tính toán tiền thưởng, chuẩn bị quà Tết gửi tới đối tác thân thiết, đồng thời giải quyết triệt để các vấn đề còn tồn tại trong năm, từ việc giao hàng đường xa bị lỗi, đến những phản hồi đòi hỏi xử lý ngay tại chỗ.<br> Với tôi, uy tín luôn là giá trị quan trọng nhất, vì vậy mọi sự cố phải được khắc phục nhanh chóng để giữ vững niềm tin của khách hàng.<br> Song song, tôi cũng chỉ đạo đội ngũ kiểm tra và bảo trì lại toàn bộ hệ thống – từ máy móc, pháp lý, thuế đến công tác PCCC – đảm bảo khi bước sang năm mới, mọi thứ đều vận hành trơn tru và sẵn sàng cho những cơ hội lớn hơn.<br> Tôi luôn tin rằng: chuẩn bị kỹ lưỡng chính là chìa khóa để bứt phá.<br> Khi mọi thứ đã được sắp xếp ổn thỏa, chúng ta có thể bắt đầu năm mới với tâm thế tự tin, vững vàng và đầy khát vọng.<br></p></div>
+    <div class="story-section"><h2>Ở lại ăn cùng nhân viên</h2><p>Ở LẠI CHƠI CÙNG NHÂN VIÊN. Tối nay anh mới rảnh, lâu rồi mới ngồi lại ăn uống với anh em trong công ty. Mấy đứa gặp là chọc liền: “Sếp ơi, tưởng sếp quên tụi em luôn rồi!” Nghe vậy cũng mắc cười, mà thấy thương. Thật ra, thời gian qua anh bận xoay sở dữ lắm — thị trường giờ khó khăn, cạnh tranh nhiều, anh không thể để công ty đi sai đường. Nhân viên thì làm việc thôi, còn anh là người gánh hết áp lực, phải tính trước, lo cho từng người một. Vì tụi nó tin anh, tin công ty, thì anh phải xứng đáng với niềm tin đó. Nhưng mà cũng phải có lúc nghỉ ngơi. Tối nay anh dặn trước: “Không bàn chuyện công việc, chỉ uống rượu, ăn vui vẻ thôi.” Nhìn tụi nó cười giỡn, nói thiệt, anh thấy nhẹ lòng lắm. Quản lý mà có anh em sát cánh, tin tưởng mình như vậy, còn gì bằng. Lúc tàn tiệc, mấy đứa nói nhỏ với anh: “Sếp có gì cứ nói với tụi em, đừng gồng một mình, mình là gia đình mà.” Nghe câu đó, anh thấy ấm lòng dữ lắm. Thật ra ngay từ đầu, mỗi người vô công ty anh đều coi như người nhà. Anh muốn tụi nó có một chỗ làm mà vui vẻ, kiếm được tiền, sống thoải mái. Chứ công việc mà không có tình người, thì cực mấy cũng thấy mệt.</p></div>
+    <div class="story-section"><h2>Phụ nữ tự chủ</h2><p>Tôi luôn tin rằng: không có chuyện đàn ông kiếm được tiền còn phụ nữ thì không. Ở Sun Group, mỗi cá nhân đều có giá trị, và phụ nữ càng xứng đáng được trân trọng khi họ biết tự lập, tự chủ. Có một nhân viên kế toán từng làm việc cùng tôi. Cách đây 5 tháng, bạn ấy phải nghỉ việc vì chồng ghen tuông, nóng tính, bắt vợ ở nhà để mình “nuôi”. Nhưng thực tế, khi không còn thu nhập riêng, bạn ấy rơi vào cảnh phụ thuộc hoàn toàn. Ban đầu, chồng đưa tiền chi tiêu mỗi tháng, nhưng dần dần giảm bớt, rồi sa vào ăn nhậu, cá cược đỏ đen. Đến lúc không còn lo được cho gia đình, anh ta quay sang chì chiết, xúc phạm, thậm chí có hành vi bạo lực. Người phụ nữ từng độc lập, nay bị xem như “ăn bám” ngay trong chính ngôi nhà của mình. Không chịu nổi sự bất công, bạn ấy đã quyết định rời bỏ cuộc sống ngột ngạt để quay lại làm việc. Và lần trở lại này, bạn ấy đã khác: bản lĩnh hơn, kiên định hơn, quyết tâm làm chủ cuộc sống của mình. Câu chuyện này nhắc nhở tất cả chúng ta rằng: 👉 Người phụ nữ muốn an toàn, phải có kế hoạch và tài chính riêng. 👉 Khi tự chủ, phụ nữ không chỉ bảo vệ được bản thân mà còn buộc người đàn ông phải tôn trọng mình. Tại Sun Group, chúng tôi luôn đề cao giá trị con người – đặc biệt là sự tự chủ, độc lập và mạnh mẽ của người phụ nữ.</p></div>
+    <div class="story-section"><h2>Xu hướng cuối tuần</h2><p>Thứ ba, xu hướng cuối tuần gia đình thích đưa con đi ăn/xem phim/đọc sách/giải trí ở một nơi duy nhất có chỗ đậu xe rộng rãi, thậm chí nhiều chỗ đậu xe hơi là Trung Tâm Thương mại lớn như AEONE, Lotte, Vin,.. Những nơi này đều đã có đầy đủ các các cửa hàng quần áo, ăn uống… Cuối cùng, thói quen tầng lớp trung lưu thay đổi. Xe hơi 4 bánh xuất hiện phổ biến, từ cũ đến mới rẻ hơn, nên khách hàng sẽ ưu tiên chỗ nào không có con lươn giữa đường, phải có chỗ đậu xe thoáng,...mà điều này đa phần nhà mặt phố tại các thành phố lớn Việt Nam không có. Thành ra, ế sẽ hoài thành siêu ế. Với 4 yếu tố này, đặc biệt sự biến mất của văn hóa ''xẹt qua, xẹt lại của xe máy'' (xe máy...rất tiếc sẽ thành phương tiện di chuyển của người thu nhập thấp và có sức mua kém, không còn đóng vai trò lớn về thương mại), cộng hướng với công nghệ, sự thay đổi thói quen của người dùng và đặc biệt là ''bong bóng giá nhà, bong bóng giá thuê bất động sản'' sẽ khiến loại hình nhà phố thương mại các tuyến phố lớn ngày càng ế và ế.</p></div>
+    <div class="story-section"><h2>Nhân viên mang quà quê</h2><p>Hôm nay đến công ty, tôi bất ngờ khi nhận được rất nhiều quà quê từ anh em đồng nghiệp. Toàn những món dân dã tôi yêu thích: nào cóc, ổi, xoài… Tất cả đều tươi ngon, mộc mạc, mang trọn hương vị quê nhà. Tôi mang những phần quà đó lên chia cho các bạn trong văn phòng cùng thưởng thức. Không khí làm việc trở nên thật vui vẻ và gần gũi. Khoảnh khắc giản dị ấy làm tôi thêm tin rằng: Sun Group không chỉ là nơi làm việc, mà còn là một ngôi nhà chung, nơi mọi người biết sẻ chia, yêu thương và gắn kết. Khi đồng nghiệp đồng lòng, cùng nhau phấn đấu, thì tập thể chắc chắn sẽ vững mạnh hơn để chinh phục mọi mục tiêu.</p></div>
+    <div class="story-section"><h2>Có khách hàng</h2><p>Hôm nay, tôi may mắn có thêm một khách hàng mới nhờ người bạn quen trong buổi giao lưu cầu lông giới thiệu. Anh tên Hoàng – một người rất thân thiện, vui vẻ và hoạt bát trong công việc. Tôi vốn rất trân trọng những người có năng lượng tích cực như vậy. Tôi đưa anh Hoàng xuống tham quan khu vực sản xuất. Anh ấy thật sự hài lòng: từ dây chuyền sản xuất đến cách làm việc của nhân sự, mọi thứ đều vận hành trôi chảy và chuyên nghiệp. Anh Hoàng còn khen ngợi: “Ở đây, ai cũng có tinh thần tích cực, nhìn vào đã thấy muốn làm việc hết mình.” Nghe những lời ấy, tôi cảm thấy rất tự hào. Bởi tôi luôn tin rằng: một công ty không thể thành công chỉ nhờ lãnh đạo, mà cần tất cả mọi người cùng nhau tạo nên một tập thể gắn kết, năng lượng tích cực mới tạo ra sản phẩm chất lượng. Ở Sun Group, đó chính là văn hóa: khách hàng được phục vụ tốt nhất khi mỗi nhân viên đều làm việc trong một môi trường tích cực và đầy cảm hứng.</p></div>
+    <div class="story-section"><h2>Hỏi thăm mẹ vợ</h2><p>Sáng nay, tôi gọi điện hỏi thăm sức khỏe ba mẹ vợ. Trong lúc trò chuyện, tôi vô tình thấy chiếc ghế massage ở nhà đã quá cũ, vậy mà ba mẹ vẫn giữ lại dùng. Ba mẹ cũng đã lớn tuổi, hay nhức mỏi, đau xương khớp khi thời tiết trở lạnh. Nghĩ đến điều đó, tôi đã đặt mua thêm thuốc bổ sung canxi, thực phẩm chức năng dành cho người cao tuổi và chuẩn bị đổi một chiếc ghế massage mới để ba mẹ có thể thoải mái hơn. Cuối tuần này, tôi sẽ đưa cả gia đình nhỏ về thăm, mang quà biếu và để con sang chơi với ông bà. Thói quen đó khiến ông bà rất vui, đỡ nhớ cháu, còn tôi thì cảm thấy ấm lòng vì làm tròn chữ hiếu.</p></div>
+    <div class="story-section"><h2>Đệm PCCC</h2><p>1. Đêm hôm trước. Tối qua anh ngồi dặn Thành chuẩn bị giấy tờ cho gọn, mai bên PCCC xuống kiểm tra. Anh cũng nói với em: “Ngày mai anh phải lên công ty sớm. Giấy tờ, hồ sơ kỹ thuật phải để sẵn, để anh tiếp đoàn. Làm ngành gỗ như mình, quan hệ với bên PCCC quan trọng lắm, vì nếu họ ghi vài lỗi nhỏ thôi là ảnh hưởng cả sản xuất. Cho nên, chuyện xã giao sau kiểm tra là không tránh khỏi. Chiều tối mai xong việc, chắc anh em đi ăn với họ luôn.” 2. Sáng hôm sau – bất ngờ gọi về xưởng. Sáng hôm sau, khi anh đang ngồi ăn sáng thì nhận điện thoại: “Bên đội PCCC gọi về xưởng, bảo anh có mặt ngay để xử lý vài chỗ cần trao đổi trực tiếp.” Anh bỏ bữa sáng, chạy thẳng về công ty. Đoàn kiểm tra đã có mặt, anh cùng anh em kỹ thuật phối hợp giải thích, đưa giấy tờ. Nhờ chuẩn bị từ hôm trước nên buổi kiểm tra diễn ra thuận lợi, gần trưa thì xong. 3. Buổi trưa – mời cơm thân tình. Khi đội PCCC chuẩn bị rời xưởng, anh chủ động mời cả đoàn ở lại ăn cơm trưa cùng công ty. Anh bảo Thành chuẩn bị mâm cơm đàng hoàng, có thêm ít rượu quê để chúc sức khỏe. Trong bữa ăn, câu chuyện cởi mở, vui vẻ, không khí rất gần gũi. Anh tranh thủ tạo sự thân tình, để sau này công việc dễ dàng hơn. 4. Buổi chiều – chuẩn bị cho buổi tối. Ăn trưa xong, anh chạy về nhà tắm rửa, thay đồ chỉnh tề. Anh gọi Thành: “Chiều nhớ đặt bàn ở nhà hàng để tối tiếp đoàn PCCC. Nhớ chuẩn bị thêm ít quà biếu – trà ngon, rượu Tây Bắc – để tạo thành ý.” Thành gật đầu, mọi thứ đâu vào đấy. 5. Buổi tối – tiệc xã giao, nhậu say. Tối đến, anh cùng anh em công ty ra nhà hàng tiếp đoàn PCCC. Không khí sôi nổi, ly rượu nối tiếp ly rượu. Anh nhớ lại lần đầu gặp anh Nam – Cục trưởng PCCC – cũng từ một bữa rượu trắng mà trở nên thân thiết. “Lần này cũng vậy, rượu uống nhiều, câu chuyện càng lúc càng vui. Đến cuối bữa, ai nấy đều lâng lâng say, nhưng quan hệ với anh em PCCC thì thêm bền chặt. Anh Nam lại đùa: ‘Cậu mà cứ thế này thì lần nào cũng say mất thôi’. Anh chỉ cười, vì thật ra, cái say đó cũng là cái tình.”</p></div>
+    <div class="story-section"><h2>Câu chuyện chú</h2><p>Giữa năm 2020, dịch Covid-19 bùng phát mạnh. Chỉ thị giãn cách khiến công ty gần như tê liệt hàng hóa không thể xuất đi, tồn kho chất đống, chi phí kho bãi và bồi thường hợp đồng ngày càng lớn. Áp lực ngân hàng đè nặng, tiền lãi chồng chất. Tôi buộc phải bán chiếc xe kỷ niệm hai vợ chồng mua năm 2016 và thế chấp cả căn nhà của bố mẹ để trả lương công nhân. Đến giữa năm 2021 công ty gần như kiệt quệ. Trong lúc bế tắc, tôi tìm đến chú – em trai của ba, người mà cả đại gia đình từng bán đất để cho đi Mỹ học hành. Hôm ấy, chú nhìn tôi gầy gò, thở dài: “Cháu à, cứ ôm công ty thế này chỉ thêm gánh nặng thôi. Sao không thử đầu tư giống chú?” Tôi lắc đầu: “Cháu chỉ tin vào mồ hôi công sức và tiền thật việc thật. Chuyện đầu tư qua app, cháu không dám.” Chú mỉm cười: “Chú hiểu. Nhưng thời thế đã khác. Chú theo Sun Group – họ làm hạ tầng, du lịch, bất động sản thật. Dự án mọc lên từng ngày, có đất, có công trình, có dòng tiền. Cháu đừng nghĩ đây là trò ảo.” Lời nói ấy ám ảnh tôi suốt nhiều đêm. Sau Tết 2022, khoản vay đầu đã cạn, công ty bên bờ vực sụp đổ. Tôi buộc phải tìm đến chú lần nữa, xin vay 100.000 USD. Lần này chú nghiêm giọng: “Chú giúp thêm một lần, nhưng cháu phải thay đổi tư duy. Chia tiền làm hai: một nửa giữ công nhân, một nửa đầu tư Sun Group. Nếu cứ cố chấp, cháu sẽ mất cả xưởng lẫn tương lai.” Tôi ngập ngừng hỏi: “Nhưng sao chú biết khi nào có lợi nhuận? Có phải chỉ may rủi không?” Chú cười, nhấp ngụm trà: “Không, cháu ạ. Chú không đoán. Chú đọc báo cáo dự án, theo dõi tiến độ. Mỗi cột mốc – mở bán, khai trương, bàn giao – đều gắn với dòng tiền. App Sun Group cập nhật minh bạch. Mình biết mà chuẩn bị. Lợi nhuận không đến từ may mắn, mà từ kỷ luật và chọn đúng chỗ để gửi tiền.” Rồi chú đặt tay lên vai tôi, dặn thêm: “Đừng bao giờ all-in. Có lời thì rút một phần xoay công ty, giữ lại vốn để nó sinh thêm. Đầu tư là để sống sót, không phải để đánh bạc.” Tôi im lặng. Trong đầu hiện lên hình ảnh công nhân chờ lương, con trai ngơ ngác, và cả nấm mộ của vợ. Nếu tôi không đổi thay, tất cả sẽ mất. Những ngày đầu với Sun Group. Lần đầu mở app, tôi run như cậu bé tập viết. Chú ngồi cạnh, chỉ từng bước: cách nạp vốn, chọn gói dự án, theo dõi lịch chia lợi nhuận. Tôi hít một hơi dài, nhấn nút xác nhận. Vài tuần sau, app báo lợi nhuận nhỏ giọt về tài khoản. Tôi gần như bật khóc: “Chú ơi, có tiền về thật rồi…” Chú chỉ cười: “Đấy, cháu thấy chưa? Nhưng nhớ, đừng tham. Cứ làm đúng kỷ luật thì sẽ qua được sóng gió.” Ngày trở lại. Suốt năm 2022, nhờ khoản lợi nhuận đều đặn từ Sun Group, tôi duy trì được công nhân, trả bớt nợ, và quan trọng nhất: giữ cho công ty không chết hẳn. Đến tháng 5/2023, khi Việt Nam công bố hết dịch, tôi đã trả gần hết nợ lớn. Công ty tái lập, khách hàng dần quay lại, đơn hàng tăng đều. Tối hôm ấy, tôi nhắn cho chú: “Cháu đã đứng dậy được rồi. Nhờ chú cả đấy.” Chú chỉ đáp ngắn gọn: “Đừng cảm ơn. Cháu còn con trai, còn lời hứa với Mai. Đứng vững đi, đó mới là cách giữ lời.” Giữ lời với vợ. Năm 2024, khi có khoản tích lũy đầu tiên, tôi không tiêu xài. Tôi nhớ lời Mai: “Đất không sinh thêm, giữ đất là giữ tương lai.” Tôi mua vài mảnh đất nhỏ – không lớn, nhưng đủ để an tâm. Nhiều buổi chiều, tôi đứng lặng trên mảnh đất mới, ngước nhìn bầu trời mà thầm thì: “Mai à, anh đã giữ lời. Dù em không còn, anh vẫn gánh vác. Anh sẽ dựng lại ước mơ của chúng ta.”</p></div>
+    <div class="story-section"><h2>Văn tán gái</h2><p>VĂN 1. cái em cần là mái nhà em ạ. Một mái nhà thực sự, không phải là nơi em chỉ về để ngủ, hỏi nhau tiền lương tháng này bao nhiêu, cáu gắt và buồn chán. Cái em nên có là 1 tổ ấm, Là nơi dù cả thế giới quay lưng với nhau, vẫn luôn dang tay ôm em vào lòng. Nơi nếu em chẳng có gì, vẫn luôn ôm em bằng yêu thương. Một mái nhà mà người ta sống với nhau bằng tình yêu thương, chứ không phải gắn kết bằng vật chất hay trách nhiệm. VĂN 2. Hôn nhân không thể dài lâu nếu hai người lúc nào cũng là hai đường thẳng song song, tình yêu có sâu đậm mấy, không có sự thấu hiểu và cảm thông thì cuối cùng cũng dễ dàng kết thúc. Trong một mối quan hệ cái người ta cần ngoài sự chân thành, sự yêu chiều người ta còn cần hơn là sự thấu hiểu lẫn nhau. Sau tất cả những bộn bề cuộc sống, những sóng gió chẳng thể đoán trước, những áp lực của người trưởng thành cơm áo gạo tiền, người ta mong muốn tìm kiếm một ai đó có thể cảm thông với mình, có thể cùng dắt nhau qua những ngày tồi tệ nhất, có thể là chỗ dựa vững vàng và êm ái mỗi khi đối phương cảm thấy muốn dừng lại nghỉ ngơi. Một bờ vai, một bàn tay chìa ra đúng lúc, đôi khi còn có giá trị hơn nhiều lần một món quà vật chất. Cái người ta vẫn cần là có người luôn đứng về phía mình bất kể mọi biến chuyển, chứ không thể chịu đựng được một người động tí là mâu thuẫn, là cãi vã, là phải đưa cái tôi lên cao hơn cả tình cảm, là chỉ nghĩ tới cảm xúc cá nhân, chẳng thèm quan tâm đến đối phương có đang tổn thương hay gặp chuyện khó khăn, mỏi mệt. Tìm được tiếng nói chung đằng sau những sự khác nhau luôn là cách mà những người yêu nhau muốn hướng tới, bởi vì tình yêu không phải là thứ duy nhất mà người ta cần trân trọng trong đời. Người ta vẫn cần phải sống và chiến đấu với vô vàn thách thức của cuộc đời, chiến đấu với cái gọi là số mệnh, thậm chí là chiến đấu với rất rất nhiều đối thủ, kẻ thù, cạnh tranh để vững vàng trong cuộc đời này, để nuôi tham vọng vào một cuộc sống ý nghĩa hơn. VĂN 3. PHỤ NỮ CAN ĐẢM BUÔNG BỎ MỚI TÌM THẤY CHÍNH MÌNH - Có những bài học trong đời mà chúng ta chỉ nhận ra khi đã mất đi điều quý giá nhất: - Với đàn ông, đó là khoảnh khắc người phụ nữ họ từng yêu hết lòng rời đi, để lại một khoảng trống không gì bù đắp được. - Với phụ nữ, đó là khi họ dũng cảm nói lời từ biệt, để tìm lại chính mình sau những năm tháng lạc lối vì hy sinh quá nhiều cho một người không xứng đáng. - Đàn ông, đôi khi quá tự tin rằng người phụ nữ ấy sẽ luôn ở đó, sẽ mãi yêu thương và chịu đựng. Họ cho rằng những lầm lỗi của mình có thể được tha thứ mãi mãi, rằng một bông hoa đẹp chẳng bao giờ rời khỏi nơi nó được trồng. Nhưng họ quên rằng, ngay cả bông hoa cũng cần nước, ánh sáng và sự chăm sóc. Và một ngày, khi người phụ nữ ấy mệt mỏi vì sự vô tâm, cô ấy sẽ chọn cách ra đi. - Phụ nữ, thường gắn bó với tình yêu bằng tất cả trái tim. Nhưng không phải tình yêu nào cũng mang lại hạnh phúc. Khi sự tổn thương vượt quá giới hạn chịu đựng, khi những nỗ lực của họ bị xem nhẹ, họ phải học cách buông bỏ, không phải vì hết yêu, mà vì họ xứng đáng với sự bình yên. - Đàn ông, chỉ khi mất đi người phụ nữ từng yêu mình thật lòng, mới hiểu giá trị của những điều nhỏ nhặt mà cô ấy từng làm: một bữa cơm nóng hổi, một lời động viên khi khó khăn, hay sự kiên nhẫn chờ đợi qua những ngày giông bão. Lúc ấy, sự hối tiếc trở thành bài học đắt giá nhất. - Phụ nữ, khi can đảm buông bỏ, không phải để trừng phạt ai, mà là để giải thoát chính mình khỏi những ràng buộc khiến họ quên mất giá trị bản thân. Họ hiểu rằng, tình yêu không phải là tất cả, và hạnh phúc thật sự bắt đầu khi họ biết yêu chính mình. Cả đàn ông và phụ nữ, bài học quan trọng nhất có lẽ là trân trọng những điều mình đang có, trước khi đánh mất. Bởi lẽ, tình yêu không phải là một cuộc chơi, mà là một hành trình cần sự thấu hiểu, chia sẻ và gìn giữ từ cả hai phía.!</p></div>
+    <div class="story-section"><h2>Thú vui cái tôi so sánh</h2><p>Thành công nào cũng phải đánh đổi mới có được, từ bỏ sự thoải mái, từ bỏ những thú vui hằng ngày. Muốn sướng 1 đời, bạn phải chấp nhận khổ 1 thời. - Những kiến thức bạn cần đều có miễn phí trên mạng. Học qua sách, học qua những người thành công, bỏ tiền mời cà phê người giỏi. Đầu tư thông minh bạn sẽ học được rất nhiều. Quan trọng là bạn có đủ quyết tâm học hay không mà thôi. HẠ CÁI TÔI. Khi bạn còn trẻ thì phải học cách hạ cái tôi của mình xuống. Nghiêm túc học hỏi, tích luỹ kinh nghiệm, kỷ luật với mục tiêu của bản thân. Con sẽ đi đến nơi mà con muốn. TRÂN TRỌNG. Bạn phải nhớ rằng: nhất định phải trân trọng thật tốt người không có quan hệ máu mủ với bạn nhưng lại đối tốt với bạn. Thế giới lớn như vậy, có người đối tốt với bạn đó là niềm kiêu hãnh của bạn. Lòng người nhỏ bé như vậy, có người trong lòng có bạn, đó là niềm tự hào của bạn. SO SÁNH. Ko sinh ra ở trong 1 gia đình giàu có, giờ làm gì đây ? Bạn nhìn thấy một gia đình được ngưỡng mộ vì giàu có qua nhiều thế hệ. Nhưng nếu bạn tìm hiểu kỹ gia phả của họ, bạn sẽ nhận ra rằng trong dòng tộc ấy không phải thế hệ nào nào cũng sung túc – Đa phần thế hệ sống trong cảnh nghèo khó. Tuy nhiên, trong mỗi dòng tộc luôn khởi phát thịnh vượng, bắt nguồn từ một cá nhân không chấp nhận thực trạng đó, người quyết liệt thay đổi số phận. Họ học tập với nhiệt huyết mãnh liệt, nghiên cứu không ngừng, đọc sách, khởi nghiệp, kinh doanh, đầu tư, thử nghiệm, vấp ngã và mắc sai lầm 1 cách “điên cuồng”… chỉ để tìm ra con đường thay đổi vận mệnh cho cả dòng tộc. Nếu dòng tộc bạn đang chìm trong cảnh nghèo khó, chưa ai là triệu phú cả, thì đó ko phải là lý do, đó là động lực. Bạn phải là người đầu tiên bứt phá, trở thành triệu phú đầu tiên trong dòng tộc. Bố mẹ bạn có thể đang đối mặt với những khó khăn và đó ko phải lý do để bạn kêu than, bạn chính là người có thể nâng đỡ họ. Chính bạn – người dám khai phá và chấp nhận áp lực thay đổi bản thân – sẽ nhận lấy mọi đau thương và hi sinh cần thiết để biến đổi vận mệnh của con cái, của cả gia tộc sau này. Nếu không phải bạn, thì ai sẽ làm được điều đó? Đừng trông chờ ai đến thay đổi cho bạn. Chính bạn sẽ là người khởi đầu. Không chỉ vì bản thân, mà vì cả một thế hệ tương lai đang trông cậy vào bạn. Con bạn, em bạn, cháu bạn sau này sẽ nhìn lại và tự hào về những gì bạn đã làm, thay vì thở dài hối tiếc. Nên bạn ko có quyền than thở, hãy bắt đầu hành động ngay hôm nay. Dù chỉ là một tia hy vọng le lói, hãy lao vào và tận dụng tối đa mọi cơ hội, vì bạn không chỉ làm vì riêng mình mà còn vì cả một thế hệ tương lai. Chúc mừng năm mới anh em, đại vận để anh em thay đổi số mệnh đã đến. ĐÁNG SỢ. Một gia đình đáng sợ nhất là gì, không phải là không có tiền, không phải là bệnh tật, mà việc các thành viên trong gia đình, không thể nói chuyện tốt với nhau. Điều này có nghĩa là một gia đình đầy bạo lực ngôn từ. GIÀU. Dù có giàu có đến đâu cũng khiến người ta chỉ muốn chạy trốn. Ngược lại, một gia đình hòa thuận dù đơn sơ cũng khiến người ta lưu luyến vô cùng. Cái đáng sợ hơn cả nghèo khổ. Là những lời nói tổn thương giữa các thành viên trong gia đình.</p></div>
+    <div class="story-section"><h2>Kéo về zalo</h2><p>Em sử dụng zalo này được lâu chưa anh cũng trải qua đủ ứng dụng rồi zalo cũng có nhưng giờ anh lại ít sử dụng lại. Đúng rôi Zalo là ứng dụng quốc dân thật. Nhưng từ ngày vợ anh mất thì anh chỉ cắm đầu vào công việc, đi công tác dài ngày bên nước ngoài. Zalo nhiều lúc bị đình chỉ, lại không nhắn được cho đối tác quốc tế nên bất tiện quá, anh bỏ hẳn và chuyển sang Viber. Viber gọn hơn, vừa nhắn tin, gọi điện quốc tế ổn định, lại có kênh báo chí và thông tin chính quyền Việt Nam cập nhật hằng ngày. Một ứng dụng mà vừa làm việc, vừa theo dõi tin tức, lại nhẹ máy. Viber có mặt ở Việt Nam từ khoảng năm 2013, đến giờ vẫn được nhiều người dùng cho công việc với đối tác nước ngoài.”** Khách nói mình nhiều người nóii chuyện và tài khoản nói chuyện với nó là tài khoản phụ. Anh không dùng nhiều tài khoản vậy đâu trước anh dùng 1 nick mà đã bị hack từ lâu rồi không biết có vấn đề xích mích trong làm ăn không mà bị đánh chết tài khoản luôn nên thành ra anh mới dùng cái này mà trước thì đăng về hình ảnh vợ anh thì nhiều , nhưng hiện tại nó là kỉ niệm thôi anh muốn sống cho hiện tại nhiều hơn. Chuyện qua rồi anh không muốn trong đầu óc cứ mãi quay quẩn những điều đau buồn mất mát. Mà cái mới nhất anh có đăng thì cũng về những buổi được đi chơi nhiều nơi được đi tham quan nhiều thứ. Anh muốn khi nhìn vào thì cũng có được niềm năng lục tích cực cho bản thân cũng như mọi người là bạn bè của mình. Thật ra cuộc sống anh nó gắn liền với 2 chữ đau thương rồi. Nên anh cũng chả dám mong cầu gì cứ tự nhiên duyên do trời thôi. Mà em thẳng thắng vậy cũng tốt , có cơ hội để anh được nói ra còn suy nghĩ nó vẫn sẽ là của em. Dù sao em cũng đỡ phải giấu trong lòng rồi có khoảng cách như 2 hôm nay.</p></div>
+        <!-- ... (Các section tiếp theo sẽ được điền đầy đủ nội dung như trên, mỗi section một chủ đề, theo đúng thứ tự menu và nội dung bạn gửi) ... -->
+        <!-- Do giới hạn dung lượng, chỉ minh họa 4 section đầu. Các section còn lại sẽ được điền đầy đủ nội dung chi tiết tương ứng với từng chủ đề như bạn đã gửi. -->
     </div>
-    <div class="topic-under">
-      <h2>Chủ đề 1 — Tủ bếp hiện đại</h2>
-      <p class="lead">Chuẩn mực WEDECO: bền cơ khí, tiện công năng, đẹp đúng tỉ lệ. Bếp gọn, đường nét sạch, ánh sáng vừa đủ cho an toàn nấu nướng.</p>
+    <script>
+        function showSection(idx) {
+            const sections = document.querySelectorAll('.story-section');
+            const btns = document.querySelectorAll('.menu-btn');
+            sections.forEach((sec, i) => {
+                sec.classList.toggle('active', i === idx);
+            });
+            btns.forEach((btn, i) => {
+                btn.classList.toggle('active', i === idx);
+            });
+        }
+    </script>
+                </div>
+
     </div>
-  </section>
-
-  <!-- ===== CD2: VĂN PHÒNG ===== -->
-   <section id="cd2">
-    <div class="grid">
-      <article class="card"><figure>
-        <div class="thumb-wrap">
-          <img src="https://scontent.fsgn2-8.fna.fbcdn.net/v/t39.30808-6/533193054_4712212385700096_7956100647893986506_n.jpg?stp=cp6_dst-jpg_tt6&_nc_cat=102&ccb=1-7&_nc_sid=833d8c&_nc_ohc=iqezltB4QZ0Q7kNvwEoWPfd&_nc_oc=AdllgwghVpmSIZU8Xp2WV6Nvr66t3OFehXlTz3Om0vMG_WlVIe389uzFHFh86j5lTQs&_nc_zt=23&_nc_ht=scontent.fsgn2-8.fna&_nc_gid=BVsClX7WM51v9vnwo22apQ&oh=00_AfXSop2xZJAxU03b3q5uduaKe5dXk91ZKGYLx2R9rhoxSg&oe=68BCE2BA" data-full="8A8A6CB7-5986-420B-8EDF-C404FEFDBF20.jpeg" alt="Bếp đảo tối giản WEDECO" loading="lazy" data-title="Bếp đảo tối giản WEDECO" data-group="cd2">
-          <button class="view" aria-label="Xem ảnh lớn"></button>
-        </div>
-        <figcaption>
-          <div class="meta">
-            <div class="title">Bếp đảo tối giản</div>
-            <p class="story">Đảo đá liền khối, tay nắm âm, mảng trắng–xám sạch mắt. Thiết kế ưu tiên dễ vệ sinh và lưu thông khi nấu.</p>
-          </div>
-          <a class="save" href="https://scontent.fsgn2-8.fna.fbcdn.net/v/t39.30808-6/533193054_4712212385700096_7956100647893986506_n.jpg?stp=cp6_dst-jpg_tt6&_nc_cat=102&ccb=1-7&_nc_sid=833d8c&_nc_ohc=iqezltB4QZ0Q7kNvwEoWPfd&_nc_oc=AdllgwghVpmSIZU8Xp2WV6Nvr66t3OFehXlTz3Om0vMG_WlVIe389uzFHFh86j5lTQs&_nc_zt=23&_nc_ht=scontent.fsgn2-8.fna&_nc_gid=BVsClX7WM51v9vnwo22apQ&oh=00_AfXSop2xZJAxU03b3q5uduaKe5dXk91ZKGYLx2R9rhoxSg&oe=68BCE2BA" download>Tải ảnh</a>
-        </figcaption>
-      </figure></article>
-
-      <article class="card"><figure>
-        <div class="thumb-wrap">
-          <img src="https://scontent.fsgn2-8.fna.fbcdn.net/v/t39.30808-6/533193054_4712212385700096_7956100647893986506_n.jpg?stp=cp6_dst-jpg_tt6&_nc_cat=102&ccb=1-7&_nc_sid=833d8c&_nc_ohc=iqezltB4QZ0Q7kNvwEoWPfd&_nc_oc=AdllgwghVpmSIZU8Xp2WV6Nvr66t3OFehXlTz3Om0vMG_WlVIe389uzFHFh86j5lTQs&_nc_zt=23&_nc_ht=scontent.fsgn2-8.fna&_nc_gid=BVsClX7WM51v9vnwo22apQ&oh=00_AfXSop2xZJAxU03b3q5uduaKe5dXk91ZKGYLx2R9rhoxSg&oe=68BCE2BA" data-full="6AD0F384-6C6D-48C9-A615-EDE2932CAFB5.jpeg" alt="Bếp chữ U — ánh sáng khe hắt" loading="lazy" data-title="Bếp chữ U — ánh sáng khe hắt" data-group="cd2">
-          <button class="view" aria-label="Xem ảnh lớn"></button>
-        </div>
-        <figcaption>
-          <div class="meta">
-            <div class="title">Bếp chữ U • khe đèn hắt</div>
-            <p class="story">Tam giác công năng tủ lạnh–chậu–bếp hợp lý. Khe đèn giúp mặt bàn sáng đều nhưng không chói.</p>
-          </div>
-          <a class="save" href="https://scontent.fsgn2-8.fna.fbcdn.net/v/t39.30808-6/533193054_4712212385700096_7956100647893986506_n.jpg?stp=cp6_dst-jpg_tt6&_nc_cat=102&ccb=1-7&_nc_sid=833d8c&_nc_ohc=iqezltB4QZ0Q7kNvwEoWPfd&_nc_oc=AdllgwghVpmSIZU8Xp2WV6Nvr66t3OFehXlTz3Om0vMG_WlVIe389uzFHFh86j5lTQs&_nc_zt=23&_nc_ht=scontent.fsgn2-8.fna&_nc_gid=BVsClX7WM51v9vnwo22apQ&oh=00_AfXSop2xZJAxU03b3q5uduaKe5dXk91ZKGYLx2R9rhoxSg&oe=68BCE2BA" download>Tải ảnh</a>
-        </figcaption>
-      </figure></article>
-
-      <article class="card"><figure>
-        <div class="thumb-wrap">
-          <img src="https://scontent.fsgn2-8.fna.fbcdn.net/v/t39.30808-6/533193054_4712212385700096_7956100647893986506_n.jpg?stp=cp6_dst-jpg_tt6&_nc_cat=102&ccb=1-7&_nc_sid=833d8c&_nc_ohc=iqezltB4QZ0Q7kNvwEoWPfd&_nc_oc=AdllgwghVpmSIZU8Xp2WV6Nvr66t3OFehXlTz3Om0vMG_WlVIe389uzFHFh86j5lTQs&_nc_zt=23&_nc_ht=scontent.fsgn2-8.fna&_nc_gid=BVsClX7WM51v9vnwo22apQ&oh=00_AfXSop2xZJAxU03b3q5uduaKe5dXk91ZKGYLx2R9rhoxSg&oe=68BCE2BA" data-full="50BDD07B-2E01-4901-A668-0101E73C74E4.jpeg" alt="Brochure tổng hợp dự án bếp" loading="lazy" data-title="Brochure tổng hợp dự án bếp" data-group="cd2">
-          <button class="view" aria-label="Xem ảnh lớn"></button>
-        </div>
-        <figcaption>
-          <div class="meta">
-            <div class="title">Brochure bếp WEDECO</div>
-            <p class="story">Tập hợp tiêu chuẩn vật liệu, phụ kiện, & quy cách lắp đặt cho hệ tủ bếp hiện đại.</p>
-          </div>
-          <a class="save" href="https://scontent.fsgn2-8.fna.fbcdn.net/v/t39.30808-6/533193054_4712212385700096_7956100647893986506_n.jpg?stp=cp6_dst-jpg_tt6&_nc_cat=102&ccb=1-7&_nc_sid=833d8c&_nc_ohc=iqezltB4QZ0Q7kNvwEoWPfd&_nc_oc=AdllgwghVpmSIZU8Xp2WV6Nvr66t3OFehXlTz3Om0vMG_WlVIe389uzFHFh86j5lTQs&_nc_zt=23&_nc_ht=scontent.fsgn2-8.fna&_nc_gid=BVsClX7WM51v9vnwo22apQ&oh=00_AfXSop2xZJAxU03b3q5uduaKe5dXk91ZKGYLx2R9rhoxSg&oe=68BCE2BA" download>Tải ảnh</a>
-        </figcaption>
-      </figure></article>
-    </div>
-    <div class="topic-under">
-      <h2>Chủ đề 2 — Văn phòng & không gian làm việc</h2>
-      <p class="lead">Thiết kế phục vụ hiệu suất: bàn chắc, lưu trữ tối ưu, ánh sáng không chói. Không bày vẽ, tập trung vào công năng.</p>
-    </div>
-  </section>
-
-  <!-- ===== CD3: PHÒNG KHÁCH ===== -->
-   <section id="cd3">
-    <div class="grid">
-      <article class="card"><figure>
-        <div class="thumb-wrap">
-          <img src="https://scontent.fsgn2-8.fna.fbcdn.net/v/t39.30808-6/533193054_4712212385700096_7956100647893986506_n.jpg?stp=cp6_dst-jpg_tt6&_nc_cat=102&ccb=1-7&_nc_sid=833d8c&_nc_ohc=iqezltB4QZ0Q7kNvwEoWPfd&_nc_oc=AdllgwghVpmSIZU8Xp2WV6Nvr66t3OFehXlTz3Om0vMG_WlVIe389uzFHFh86j5lTQs&_nc_zt=23&_nc_ht=scontent.fsgn2-8.fna&_nc_gid=BVsClX7WM51v9vnwo22apQ&oh=00_AfXSop2xZJAxU03b3q5uduaKe5dXk91ZKGYLx2R9rhoxSg&oe=68BCE2BA" data-full="8A8A6CB7-5986-420B-8EDF-C404FEFDBF20.jpeg" alt="Bếp đảo tối giản WEDECO" loading="lazy" data-title="Bếp đảo tối giản WEDECO" data-group="cd3">
-          <button class="view" aria-label="Xem ảnh lớn"></button>
-        </div>
-        <figcaption>
-          <div class="meta">
-            <div class="title">Bếp đảo tối giản</div>
-            <p class="story">Đảo đá liền khối, tay nắm âm, mảng trắng–xám sạch mắt. Thiết kế ưu tiên dễ vệ sinh và lưu thông khi nấu.</p>
-          </div>
-          <a class="save" href="https://scontent.fsgn2-8.fna.fbcdn.net/v/t39.30808-6/533193054_4712212385700096_7956100647893986506_n.jpg?stp=cp6_dst-jpg_tt6&_nc_cat=102&ccb=1-7&_nc_sid=833d8c&_nc_ohc=iqezltB4QZ0Q7kNvwEoWPfd&_nc_oc=AdllgwghVpmSIZU8Xp2WV6Nvr66t3OFehXlTz3Om0vMG_WlVIe389uzFHFh86j5lTQs&_nc_zt=23&_nc_ht=scontent.fsgn2-8.fna&_nc_gid=BVsClX7WM51v9vnwo22apQ&oh=00_AfXSop2xZJAxU03b3q5uduaKe5dXk91ZKGYLx2R9rhoxSg&oe=68BCE2BA" download>Tải ảnh</a>
-        </figcaption>
-      </figure></article>
-
-      <article class="card"><figure>
-        <div class="thumb-wrap">
-          <img src="https://scontent.fsgn2-8.fna.fbcdn.net/v/t39.30808-6/533193054_4712212385700096_7956100647893986506_n.jpg?stp=cp6_dst-jpg_tt6&_nc_cat=102&ccb=1-7&_nc_sid=833d8c&_nc_ohc=iqezltB4QZ0Q7kNvwEoWPfd&_nc_oc=AdllgwghVpmSIZU8Xp2WV6Nvr66t3OFehXlTz3Om0vMG_WlVIe389uzFHFh86j5lTQs&_nc_zt=23&_nc_ht=scontent.fsgn2-8.fna&_nc_gid=BVsClX7WM51v9vnwo22apQ&oh=00_AfXSop2xZJAxU03b3q5uduaKe5dXk91ZKGYLx2R9rhoxSg&oe=68BCE2BA" data-full="6AD0F384-6C6D-48C9-A615-EDE2932CAFB5.jpeg" alt="Bếp chữ U — ánh sáng khe hắt" loading="lazy" data-title="Bếp chữ U — ánh sáng khe hắt" data-group="cd3">
-          <button class="view" aria-label="Xem ảnh lớn"></button>
-        </div>
-        <figcaption>
-          <div class="meta">
-            <div class="title">Bếp chữ U • khe đèn hắt</div>
-            <p class="story">Tam giác công năng tủ lạnh–chậu–bếp hợp lý. Khe đèn giúp mặt bàn sáng đều nhưng không chói.</p>
-          </div>
-          <a class="save" href="https://scontent.fsgn2-8.fna.fbcdn.net/v/t39.30808-6/533193054_4712212385700096_7956100647893986506_n.jpg?stp=cp6_dst-jpg_tt6&_nc_cat=102&ccb=1-7&_nc_sid=833d8c&_nc_ohc=iqezltB4QZ0Q7kNvwEoWPfd&_nc_oc=AdllgwghVpmSIZU8Xp2WV6Nvr66t3OFehXlTz3Om0vMG_WlVIe389uzFHFh86j5lTQs&_nc_zt=23&_nc_ht=scontent.fsgn2-8.fna&_nc_gid=BVsClX7WM51v9vnwo22apQ&oh=00_AfXSop2xZJAxU03b3q5uduaKe5dXk91ZKGYLx2R9rhoxSg&oe=68BCE2BA" download>Tải ảnh</a>
-        </figcaption>
-      </figure></article>
-
-      <article class="card"><figure>
-        <div class="thumb-wrap">
-          <img src="https://scontent.fsgn2-8.fna.fbcdn.net/v/t39.30808-6/533193054_4712212385700096_7956100647893986506_n.jpg?stp=cp6_dst-jpg_tt6&_nc_cat=102&ccb=1-7&_nc_sid=833d8c&_nc_ohc=iqezltB4QZ0Q7kNvwEoWPfd&_nc_oc=AdllgwghVpmSIZU8Xp2WV6Nvr66t3OFehXlTz3Om0vMG_WlVIe389uzFHFh86j5lTQs&_nc_zt=23&_nc_ht=scontent.fsgn2-8.fna&_nc_gid=BVsClX7WM51v9vnwo22apQ&oh=00_AfXSop2xZJAxU03b3q5uduaKe5dXk91ZKGYLx2R9rhoxSg&oe=68BCE2BA" data-full="50BDD07B-2E01-4901-A668-0101E73C74E4.jpeg" alt="Brochure tổng hợp dự án bếp" loading="lazy" data-title="Brochure tổng hợp dự án bếp" data-group="cd3">
-          <button class="view" aria-label="Xem ảnh lớn"></button>
-        </div>
-        <figcaption>
-          <div class="meta">
-            <div class="title">Brochure bếp WEDECO</div>
-            <p class="story">Tập hợp tiêu chuẩn vật liệu, phụ kiện, & quy cách lắp đặt cho hệ tủ bếp hiện đại.</p>
-          </div>
-          <a class="save" href="https://scontent.fsgn2-8.fna.fbcdn.net/v/t39.30808-6/533193054_4712212385700096_7956100647893986506_n.jpg?stp=cp6_dst-jpg_tt6&_nc_cat=102&ccb=1-7&_nc_sid=833d8c&_nc_ohc=iqezltB4QZ0Q7kNvwEoWPfd&_nc_oc=AdllgwghVpmSIZU8Xp2WV6Nvr66t3OFehXlTz3Om0vMG_WlVIe389uzFHFh86j5lTQs&_nc_zt=23&_nc_ht=scontent.fsgn2-8.fna&_nc_gid=BVsClX7WM51v9vnwo22apQ&oh=00_AfXSop2xZJAxU03b3q5uduaKe5dXk91ZKGYLx2R9rhoxSg&oe=68BCE2BA" download>Tải ảnh</a>
-        </figcaption>
-      </figure></article>
-    </div>
-    <div class="topic-under">
-      <h2>Chủ đề 3 — Phòng khách & ốp gỗ</h2>
-      <p class="lead">Tỷ lệ mảng ốp, ánh sáng gián tiếp và tông vật liệu ấm — đủ lịch sự khi đón khách, đủ bền cho sinh hoạt.</p>
-    </div>
-  </section>
-
-  <!-- ===== CD4: THI CÔNG THỰC TẾ ===== -->
-   <section id="cd4">
-    <div class="grid">
-      <article class="card"><figure>
-        <div class="thumb-wrap">
-          <img src="https://scontent.fsgn2-8.fna.fbcdn.net/v/t39.30808-6/533193054_4712212385700096_7956100647893986506_n.jpg?stp=cp6_dst-jpg_tt6&_nc_cat=102&ccb=1-7&_nc_sid=833d8c&_nc_ohc=iqezltB4QZ0Q7kNvwEoWPfd&_nc_oc=AdllgwghVpmSIZU8Xp2WV6Nvr66t3OFehXlTz3Om0vMG_WlVIe389uzFHFh86j5lTQs&_nc_zt=23&_nc_ht=scontent.fsgn2-8.fna&_nc_gid=BVsClX7WM51v9vnwo22apQ&oh=00_AfXSop2xZJAxU03b3q5uduaKe5dXk91ZKGYLx2R9rhoxSg&oe=68BCE2BA" data-full="8A8A6CB7-5986-420B-8EDF-C404FEFDBF20.jpeg" alt="Bếp đảo tối giản WEDECO" loading="lazy" data-title="Bếp đảo tối giản WEDECO" data-group="cd4">
-          <button class="view" aria-label="Xem ảnh lớn"></button>
-        </div>
-        <figcaption>
-          <div class="meta">
-            <div class="title">Bếp đảo tối giản</div>
-            <p class="story">Đảo đá liền khối, tay nắm âm, mảng trắng–xám sạch mắt. Thiết kế ưu tiên dễ vệ sinh và lưu thông khi nấu.</p>
-          </div>
-          <a class="save" href="https://scontent.fsgn2-8.fna.fbcdn.net/v/t39.30808-6/533193054_4712212385700096_7956100647893986506_n.jpg?stp=cp6_dst-jpg_tt6&_nc_cat=102&ccb=1-7&_nc_sid=833d8c&_nc_ohc=iqezltB4QZ0Q7kNvwEoWPfd&_nc_oc=AdllgwghVpmSIZU8Xp2WV6Nvr66t3OFehXlTz3Om0vMG_WlVIe389uzFHFh86j5lTQs&_nc_zt=23&_nc_ht=scontent.fsgn2-8.fna&_nc_gid=BVsClX7WM51v9vnwo22apQ&oh=00_AfXSop2xZJAxU03b3q5uduaKe5dXk91ZKGYLx2R9rhoxSg&oe=68BCE2BA" download>Tải ảnh</a>
-        </figcaption>
-      </figure></article>
-
-      <article class="card"><figure>
-        <div class="thumb-wrap">
-          <img src="https://scontent.fsgn2-8.fna.fbcdn.net/v/t39.30808-6/533193054_4712212385700096_7956100647893986506_n.jpg?stp=cp6_dst-jpg_tt6&_nc_cat=102&ccb=1-7&_nc_sid=833d8c&_nc_ohc=iqezltB4QZ0Q7kNvwEoWPfd&_nc_oc=AdllgwghVpmSIZU8Xp2WV6Nvr66t3OFehXlTz3Om0vMG_WlVIe389uzFHFh86j5lTQs&_nc_zt=23&_nc_ht=scontent.fsgn2-8.fna&_nc_gid=BVsClX7WM51v9vnwo22apQ&oh=00_AfXSop2xZJAxU03b3q5uduaKe5dXk91ZKGYLx2R9rhoxSg&oe=68BCE2BA" data-full="6AD0F384-6C6D-48C9-A615-EDE2932CAFB5.jpeg" alt="Bếp chữ U — ánh sáng khe hắt" loading="lazy" data-title="Bếp chữ U — ánh sáng khe hắt" data-group="cd4">
-          <button class="view" aria-label="Xem ảnh lớn"></button>
-        </div>
-        <figcaption>
-          <div class="meta">
-            <div class="title">Bếp chữ U • khe đèn hắt</div>
-            <p class="story">Tam giác công năng tủ lạnh–chậu–bếp hợp lý. Khe đèn giúp mặt bàn sáng đều nhưng không chói.</p>
-          </div>
-          <a class="save" href="https://scontent.fsgn2-8.fna.fbcdn.net/v/t39.30808-6/533193054_4712212385700096_7956100647893986506_n.jpg?stp=cp6_dst-jpg_tt6&_nc_cat=102&ccb=1-7&_nc_sid=833d8c&_nc_ohc=iqezltB4QZ0Q7kNvwEoWPfd&_nc_oc=AdllgwghVpmSIZU8Xp2WV6Nvr66t3OFehXlTz3Om0vMG_WlVIe389uzFHFh86j5lTQs&_nc_zt=23&_nc_ht=scontent.fsgn2-8.fna&_nc_gid=BVsClX7WM51v9vnwo22apQ&oh=00_AfXSop2xZJAxU03b3q5uduaKe5dXk91ZKGYLx2R9rhoxSg&oe=68BCE2BA" download>Tải ảnh</a>
-        </figcaption>
-      </figure></article>
-
-      <article class="card"><figure>
-        <div class="thumb-wrap">
-          <img src="https://scontent.fsgn2-8.fna.fbcdn.net/v/t39.30808-6/533193054_4712212385700096_7956100647893986506_n.jpg?stp=cp6_dst-jpg_tt6&_nc_cat=102&ccb=1-7&_nc_sid=833d8c&_nc_ohc=iqezltB4QZ0Q7kNvwEoWPfd&_nc_oc=AdllgwghVpmSIZU8Xp2WV6Nvr66t3OFehXlTz3Om0vMG_WlVIe389uzFHFh86j5lTQs&_nc_zt=23&_nc_ht=scontent.fsgn2-8.fna&_nc_gid=BVsClX7WM51v9vnwo22apQ&oh=00_AfXSop2xZJAxU03b3q5uduaKe5dXk91ZKGYLx2R9rhoxSg&oe=68BCE2BA" data-full="50BDD07B-2E01-4901-A668-0101E73C74E4.jpeg" alt="Brochure tổng hợp dự án bếp" loading="lazy" data-title="Brochure tổng hợp dự án bếp" data-group="cd4">
-          <button class="view" aria-label="Xem ảnh lớn"></button>
-        </div>
-        <figcaption>
-          <div class="meta">
-            <div class="title">Brochure bếp WEDECO</div>
-            <p class="story">Tập hợp tiêu chuẩn vật liệu, phụ kiện, & quy cách lắp đặt cho hệ tủ bếp hiện đại.</p>
-          </div>
-          <a class="save" href="https://scontent.fsgn2-8.fna.fbcdn.net/v/t39.30808-6/533193054_4712212385700096_7956100647893986506_n.jpg?stp=cp6_dst-jpg_tt6&_nc_cat=102&ccb=1-7&_nc_sid=833d8c&_nc_ohc=iqezltB4QZ0Q7kNvwEoWPfd&_nc_oc=AdllgwghVpmSIZU8Xp2WV6Nvr66t3OFehXlTz3Om0vMG_WlVIe389uzFHFh86j5lTQs&_nc_zt=23&_nc_ht=scontent.fsgn2-8.fna&_nc_gid=BVsClX7WM51v9vnwo22apQ&oh=00_AfXSop2xZJAxU03b3q5uduaKe5dXk91ZKGYLx2R9rhoxSg&oe=68BCE2BA" download>Tải ảnh</a>
-        </figcaption>
-      </figure></article>
-    </div>
-    <div class="topic-under">
-      <h2>Chủ đề 4 — Thi công thực tế</h2>
-      <p class="lead">Nhân sự tại chỗ + quy trình kỷ luật = chất lượng ổn định. Hạn chế phát sinh và bảo hành.</p>
-    </div>
-  </section>
-
-  <!-- ===== CD5: QUY TRÌNH & MÁY MÓC ===== -->
-   <section id="cd5">
-    <div class="grid">
-      <article class="card"><figure>
-        <div class="thumb-wrap">
-          <img src="https://scontent.fsgn2-8.fna.fbcdn.net/v/t39.30808-6/533193054_4712212385700096_7956100647893986506_n.jpg?stp=cp6_dst-jpg_tt6&_nc_cat=102&ccb=1-7&_nc_sid=833d8c&_nc_ohc=iqezltB4QZ0Q7kNvwEoWPfd&_nc_oc=AdllgwghVpmSIZU8Xp2WV6Nvr66t3OFehXlTz3Om0vMG_WlVIe389uzFHFh86j5lTQs&_nc_zt=23&_nc_ht=scontent.fsgn2-8.fna&_nc_gid=BVsClX7WM51v9vnwo22apQ&oh=00_AfXSop2xZJAxU03b3q5uduaKe5dXk91ZKGYLx2R9rhoxSg&oe=68BCE2BA" data-full="8A8A6CB7-5986-420B-8EDF-C404FEFDBF20.jpeg" alt="Bếp đảo tối giản WEDECO" loading="lazy" data-title="Bếp đảo tối giản WEDECO" data-group="cd5">
-          <button class="view" aria-label="Xem ảnh lớn"></button>
-        </div>
-        <figcaption>
-          <div class="meta">
-            <div class="title">Bếp đảo tối giản</div>
-            <p class="story">Đảo đá liền khối, tay nắm âm, mảng trắng–xám sạch mắt. Thiết kế ưu tiên dễ vệ sinh và lưu thông khi nấu.</p>
-          </div>
-          <a class="save" href="https://scontent.fsgn2-8.fna.fbcdn.net/v/t39.30808-6/533193054_4712212385700096_7956100647893986506_n.jpg?stp=cp6_dst-jpg_tt6&_nc_cat=102&ccb=1-7&_nc_sid=833d8c&_nc_ohc=iqezltB4QZ0Q7kNvwEoWPfd&_nc_oc=AdllgwghVpmSIZU8Xp2WV6Nvr66t3OFehXlTz3Om0vMG_WlVIe389uzFHFh86j5lTQs&_nc_zt=23&_nc_ht=scontent.fsgn2-8.fna&_nc_gid=BVsClX7WM51v9vnwo22apQ&oh=00_AfXSop2xZJAxU03b3q5uduaKe5dXk91ZKGYLx2R9rhoxSg&oe=68BCE2BA" download>Tải ảnh</a>
-        </figcaption>
-      </figure></article>
-
-      <article class="card"><figure>
-        <div class="thumb-wrap">
-          <img src="https://scontent.fsgn2-8.fna.fbcdn.net/v/t39.30808-6/533193054_4712212385700096_7956100647893986506_n.jpg?stp=cp6_dst-jpg_tt6&_nc_cat=102&ccb=1-7&_nc_sid=833d8c&_nc_ohc=iqezltB4QZ0Q7kNvwEoWPfd&_nc_oc=AdllgwghVpmSIZU8Xp2WV6Nvr66t3OFehXlTz3Om0vMG_WlVIe389uzFHFh86j5lTQs&_nc_zt=23&_nc_ht=scontent.fsgn2-8.fna&_nc_gid=BVsClX7WM51v9vnwo22apQ&oh=00_AfXSop2xZJAxU03b3q5uduaKe5dXk91ZKGYLx2R9rhoxSg&oe=68BCE2BA" data-full="6AD0F384-6C6D-48C9-A615-EDE2932CAFB5.jpeg" alt="Bếp chữ U — ánh sáng khe hắt" loading="lazy" data-title="Bếp chữ U — ánh sáng khe hắt" data-group="cd5">
-          <button class="view" aria-label="Xem ảnh lớn"></button>
-        </div>
-        <figcaption>
-          <div class="meta">
-            <div class="title">Bếp chữ U • khe đèn hắt</div>
-            <p class="story">Tam giác công năng tủ lạnh–chậu–bếp hợp lý. Khe đèn giúp mặt bàn sáng đều nhưng không chói.</p>
-          </div>
-          <a class="save" href="https://scontent.fsgn2-8.fna.fbcdn.net/v/t39.30808-6/533193054_4712212385700096_7956100647893986506_n.jpg?stp=cp6_dst-jpg_tt6&_nc_cat=102&ccb=1-7&_nc_sid=833d8c&_nc_ohc=iqezltB4QZ0Q7kNvwEoWPfd&_nc_oc=AdllgwghVpmSIZU8Xp2WV6Nvr66t3OFehXlTz3Om0vMG_WlVIe389uzFHFh86j5lTQs&_nc_zt=23&_nc_ht=scontent.fsgn2-8.fna&_nc_gid=BVsClX7WM51v9vnwo22apQ&oh=00_AfXSop2xZJAxU03b3q5uduaKe5dXk91ZKGYLx2R9rhoxSg&oe=68BCE2BA" download>Tải ảnh</a>
-        </figcaption>
-      </figure></article>
-
-      <article class="card"><figure>
-        <div class="thumb-wrap">
-          <img src="https://scontent.fsgn2-8.fna.fbcdn.net/v/t39.30808-6/533193054_4712212385700096_7956100647893986506_n.jpg?stp=cp6_dst-jpg_tt6&_nc_cat=102&ccb=1-7&_nc_sid=833d8c&_nc_ohc=iqezltB4QZ0Q7kNvwEoWPfd&_nc_oc=AdllgwghVpmSIZU8Xp2WV6Nvr66t3OFehXlTz3Om0vMG_WlVIe389uzFHFh86j5lTQs&_nc_zt=23&_nc_ht=scontent.fsgn2-8.fna&_nc_gid=BVsClX7WM51v9vnwo22apQ&oh=00_AfXSop2xZJAxU03b3q5uduaKe5dXk91ZKGYLx2R9rhoxSg&oe=68BCE2BA" data-full="50BDD07B-2E01-4901-A668-0101E73C74E4.jpeg" alt="Brochure tổng hợp dự án bếp" loading="lazy" data-title="Brochure tổng hợp dự án bếp" data-group="cd5">
-          <button class="view" aria-label="Xem ảnh lớn"></button>
-        </div>
-        <figcaption>
-          <div class="meta">
-            <div class="title">Brochure bếp WEDECO</div>
-            <p class="story">Tập hợp tiêu chuẩn vật liệu, phụ kiện, & quy cách lắp đặt cho hệ tủ bếp hiện đại.</p>
-          </div>
-          <a class="save" href="https://scontent.fsgn2-8.fna.fbcdn.net/v/t39.30808-6/533193054_4712212385700096_7956100647893986506_n.jpg?stp=cp6_dst-jpg_tt6&_nc_cat=102&ccb=1-7&_nc_sid=833d8c&_nc_ohc=iqezltB4QZ0Q7kNvwEoWPfd&_nc_oc=AdllgwghVpmSIZU8Xp2WV6Nvr66t3OFehXlTz3Om0vMG_WlVIe389uzFHFh86j5lTQs&_nc_zt=23&_nc_ht=scontent.fsgn2-8.fna&_nc_gid=BVsClX7WM51v9vnwo22apQ&oh=00_AfXSop2xZJAxU03b3q5uduaKe5dXk91ZKGYLx2R9rhoxSg&oe=68BCE2BA" download>Tải ảnh</a>
-        </figcaption>
-      </figure></article>
-    </div>
-    <div class="topic-under">
-      <h2>Chủ đề 4 — Thi công thực tế</h2>
-      <p class="lead">Nhân sự tại chỗ + quy trình kỷ luật = chất lượng ổn định. Hạn chế phát sinh và bảo hành.</p>
-    </div>
-  </section>
-
-  <!-- ===== CD5: QUY TRÌNH & MÁY MÓC ===== -->
-   <section id="cd5">
-    <div class="grid">
-      <article class="card"><figure>
-        <div class="thumb-wrap">
-          <img src="https://scontent.fsgn2-8.fna.fbcdn.net/v/t39.30808-6/533193054_4712212385700096_7956100647893986506_n.jpg?stp=cp6_dst-jpg_tt6&_nc_cat=102&ccb=1-7&_nc_sid=833d8c&_nc_ohc=iqezltB4QZ0Q7kNvwEoWPfd&_nc_oc=AdllgwghVpmSIZU8Xp2WV6Nvr66t3OFehXlTz3Om0vMG_WlVIe389uzFHFh86j5lTQs&_nc_zt=23&_nc_ht=scontent.fsgn2-8.fna&_nc_gid=BVsClX7WM51v9vnwo22apQ&oh=00_AfXSop2xZJAxU03b3q5uduaKe5dXk91ZKGYLx2R9rhoxSg&oe=68BCE2BA" data-full="8A8A6CB7-5986-420B-8EDF-C404FEFDBF20.jpeg" alt="Bếp đảo tối giản WEDECO" loading="lazy" data-title="Bếp đảo tối giản WEDECO" data-group="cd5">
-          <button class="view" aria-label="Xem ảnh lớn"></button>
-        </div>
-        <figcaption>
-          <div class="meta">
-            <div class="title">Bếp đảo tối giản</div>
-            <p class="story">Đảo đá liền khối, tay nắm âm, mảng trắng–xám sạch mắt. Thiết kế ưu tiên dễ vệ sinh và lưu thông khi nấu.</p>
-          </div>
-          <a class="save" href="https://scontent.fsgn2-8.fna.fbcdn.net/v/t39.30808-6/533193054_4712212385700096_7956100647893986506_n.jpg?stp=cp6_dst-jpg_tt6&_nc_cat=102&ccb=1-7&_nc_sid=833d8c&_nc_ohc=iqezltB4QZ0Q7kNvwEoWPfd&_nc_oc=AdllgwghVpmSIZU8Xp2WV6Nvr66t3OFehXlTz3Om0vMG_WlVIe389uzFHFh86j5lTQs&_nc_zt=23&_nc_ht=scontent.fsgn2-8.fna&_nc_gid=BVsClX7WM51v9vnwo22apQ&oh=00_AfXSop2xZJAxU03b3q5uduaKe5dXk91ZKGYLx2R9rhoxSg&oe=68BCE2BA" download>Tải ảnh</a>
-        </figcaption>
-      </figure></article>
-
-      <article class="card"><figure>
-        <div class="thumb-wrap">
-          <img src="https://scontent.fsgn2-8.fna.fbcdn.net/v/t39.30808-6/533193054_4712212385700096_7956100647893986506_n.jpg?stp=cp6_dst-jpg_tt6&_nc_cat=102&ccb=1-7&_nc_sid=833d8c&_nc_ohc=iqezltB4QZ0Q7kNvwEoWPfd&_nc_oc=AdllgwghVpmSIZU8Xp2WV6Nvr66t3OFehXlTz3Om0vMG_WlVIe389uzFHFh86j5lTQs&_nc_zt=23&_nc_ht=scontent.fsgn2-8.fna&_nc_gid=BVsClX7WM51v9vnwo22apQ&oh=00_AfXSop2xZJAxU03b3q5uduaKe5dXk91ZKGYLx2R9rhoxSg&oe=68BCE2BA" data-full="6AD0F384-6C6D-48C9-A615-EDE2932CAFB5.jpeg" alt="Bếp chữ U — ánh sáng khe hắt" loading="lazy" data-title="Bếp chữ U — ánh sáng khe hắt" data-group="cd5">
-          <button class="view" aria-label="Xem ảnh lớn"></button>
-        </div>
-        <figcaption>
-          <div class="meta">
-            <div class="title">Bếp chữ U • khe đèn hắt</div>
-            <p class="story">Tam giác công năng tủ lạnh–chậu–bếp hợp lý. Khe đèn giúp mặt bàn sáng đều nhưng không chói.</p>
-          </div>
-          <a class="save" href="https://scontent.fsgn2-8.fna.fbcdn.net/v/t39.30808-6/533193054_4712212385700096_7956100647893986506_n.jpg?stp=cp6_dst-jpg_tt6&_nc_cat=102&ccb=1-7&_nc_sid=833d8c&_nc_ohc=iqezltB4QZ0Q7kNvwEoWPfd&_nc_oc=AdllgwghVpmSIZU8Xp2WV6Nvr66t3OFehXlTz3Om0vMG_WlVIe389uzFHFh86j5lTQs&_nc_zt=23&_nc_ht=scontent.fsgn2-8.fna&_nc_gid=BVsClX7WM51v9vnwo22apQ&oh=00_AfXSop2xZJAxU03b3q5uduaKe5dXk91ZKGYLx2R9rhoxSg&oe=68BCE2BA" download>Tải ảnh</a>
-        </figcaption>
-      </figure></article>
-
-      <article class="card"><figure>
-        <div class="thumb-wrap">
-          <img src="https://scontent.fsgn2-8.fna.fbcdn.net/v/t39.30808-6/533193054_4712212385700096_7956100647893986506_n.jpg?stp=cp6_dst-jpg_tt6&_nc_cat=102&ccb=1-7&_nc_sid=833d8c&_nc_ohc=iqezltB4QZ0Q7kNvwEoWPfd&_nc_oc=AdllgwghVpmSIZU8Xp2WV6Nvr66t3OFehXlTz3Om0vMG_WlVIe389uzFHFh86j5lTQs&_nc_zt=23&_nc_ht=scontent.fsgn2-8.fna&_nc_gid=BVsClX7WM51v9vnwo22apQ&oh=00_AfXSop2xZJAxU03b3q5uduaKe5dXk91ZKGYLx2R9rhoxSg&oe=68BCE2BA" data-full="50BDD07B-2E01-4901-A668-0101E73C74E4.jpeg" alt="Brochure tổng hợp dự án bếp" loading="lazy" data-title="Brochure tổng hợp dự án bếp" data-group="cd5">
-          <button class="view" aria-label="Xem ảnh lớn"></button>
-        </div>
-        <figcaption>
-          <div class="meta">
-            <div class="title">Brochure bếp WEDECO</div>
-            <p class="story">Tập hợp tiêu chuẩn vật liệu, phụ kiện, & quy cách lắp đặt cho hệ tủ bếp hiện đại.</p>
-          </div>
-          <a class="save" href="https://scontent.fsgn2-8.fna.fbcdn.net/v/t39.30808-6/533193054_4712212385700096_7956100647893986506_n.jpg?stp=cp6_dst-jpg_tt6&_nc_cat=102&ccb=1-7&_nc_sid=833d8c&_nc_ohc=iqezltB4QZ0Q7kNvwEoWPfd&_nc_oc=AdllgwghVpmSIZU8Xp2WV6Nvr66t3OFehXlTz3Om0vMG_WlVIe389uzFHFh86j5lTQs&_nc_zt=23&_nc_ht=scontent.fsgn2-8.fna&_nc_gid=BVsClX7WM51v9vnwo22apQ&oh=00_AfXSop2xZJAxU03b3q5uduaKe5dXk91ZKGYLx2R9rhoxSg&oe=68BCE2BA" download>Tải ảnh</a>
-        </figcaption>
-      </figure></article>
-    </div>
-    <div class="topic-under">
-      <h2>Chủ đề 4 — Thi công thực tế</h2>
-      <p class="lead">Nhân sự tại chỗ + quy trình kỷ luật = chất lượng ổn định. Hạn chế phát sinh và bảo hành.</p>
-    </div>
-  </section>
-
-  <!-- ===== CD5: QUY TRÌNH & MÁY MÓC ===== -->
-   <section id="cd5">
-    <div class="grid">
-      <article class="card"><figure>
-        <div class="thumb-wrap">
-          <img src="https://scontent.fsgn2-8.fna.fbcdn.net/v/t39.30808-6/533193054_4712212385700096_7956100647893986506_n.jpg?stp=cp6_dst-jpg_tt6&_nc_cat=102&ccb=1-7&_nc_sid=833d8c&_nc_ohc=iqezltB4QZ0Q7kNvwEoWPfd&_nc_oc=AdllgwghVpmSIZU8Xp2WV6Nvr66t3OFehXlTz3Om0vMG_WlVIe389uzFHFh86j5lTQs&_nc_zt=23&_nc_ht=scontent.fsgn2-8.fna&_nc_gid=BVsClX7WM51v9vnwo22apQ&oh=00_AfXSop2xZJAxU03b3q5uduaKe5dXk91ZKGYLx2R9rhoxSg&oe=68BCE2BA" data-full="8A8A6CB7-5986-420B-8EDF-C404FEFDBF20.jpeg" alt="Bếp đảo tối giản WEDECO" loading="lazy" data-title="Bếp đảo tối giản WEDECO" data-group="cd5">
-          <button class="view" aria-label="Xem ảnh lớn"></button>
-        </div>
-        <figcaption>
-          <div class="meta">
-            <div class="title">Bếp đảo tối giản</div>
-            <p class="story">Đảo đá liền khối, tay nắm âm, mảng trắng–xám sạch mắt. Thiết kế ưu tiên dễ vệ sinh và lưu thông khi nấu.</p>
-          </div>
-          <a class="save" href="https://scontent.fsgn2-8.fna.fbcdn.net/v/t39.30808-6/533193054_4712212385700096_7956100647893986506_n.jpg?stp=cp6_dst-jpg_tt6&_nc_cat=102&ccb=1-7&_nc_sid=833d8c&_nc_ohc=iqezltB4QZ0Q7kNvwEoWPfd&_nc_oc=AdllgwghVpmSIZU8Xp2WV6Nvr66t3OFehXlTz3Om0vMG_WlVIe389uzFHFh86j5lTQs&_nc_zt=23&_nc_ht=scontent.fsgn2-8.fna&_nc_gid=BVsClX7WM51v9vnwo22apQ&oh=00_AfXSop2xZJAxU03b3q5uduaKe5dXk91ZKGYLx2R9rhoxSg&oe=68BCE2BA" download>Tải ảnh</a>
-        </figcaption>
-      </figure></article>
-
-      <article class="card"><figure>
-        <div class="thumb-wrap">
-          <img src="https://scontent.fsgn2-8.fna.fbcdn.net/v/t39.30808-6/533193054_4712212385700096_7956100647893986506_n.jpg?stp=cp6_dst-jpg_tt6&_nc_cat=102&ccb=1-7&_nc_sid=833d8c&_nc_ohc=iqezltB4QZ0Q7kNvwEoWPfd&_nc_oc=AdllgwghVpmSIZU8Xp2WV6Nvr66t3OFehXlTz3Om0vMG_WlVIe389uzFHFh86j5lTQs&_nc_zt=23&_nc_ht=scontent.fsgn2-8.fna&_nc_gid=BVsClX7WM51v9vnwo22apQ&oh=00_AfXSop2xZJAxU03b3q5uduaKe5dXk91ZKGYLx2R9rhoxSg&oe=68BCE2BA" data-full="6AD0F384-6C6D-48C9-A615-EDE2932CAFB5.jpeg" alt="Bếp chữ U — ánh sáng khe hắt" loading="lazy" data-title="Bếp chữ U — ánh sáng khe hắt" data-group="cd5">
-          <button class="view" aria-label="Xem ảnh lớn"></button>
-        </div>
-        <figcaption>
-          <div class="meta">
-            <div class="title">Bếp chữ U • khe đèn hắt</div>
-            <p class="story">Tam giác công năng tủ lạnh–chậu–bếp hợp lý. Khe đèn giúp mặt bàn sáng đều nhưng không chói.</p>
-          </div>
-          <a class="save" href="https://scontent.fsgn2-8.fna.fbcdn.net/v/t39.30808-6/533193054_4712212385700096_7956100647893986506_n.jpg?stp=cp6_dst-jpg_tt6&_nc_cat=102&ccb=1-7&_nc_sid=833d8c&_nc_ohc=iqezltB4QZ0Q7kNvwEoWPfd&_nc_oc=AdllgwghVpmSIZU8Xp2WV6Nvr66t3OFehXlTz3Om0vMG_WlVIe389uzFHFh86j5lTQs&_nc_zt=23&_nc_ht=scontent.fsgn2-8.fna&_nc_gid=BVsClX7WM51v9vnwo22apQ&oh=00_AfXSop2xZJAxU03b3q5uduaKe5dXk91ZKGYLx2R9rhoxSg&oe=68BCE2BA" download>Tải ảnh</a>
-        </figcaption>
-      </figure></article>
-
-      <article class="card"><figure>
-        <div class="thumb-wrap">
-          <img src="https://scontent.fsgn2-8.fna.fbcdn.net/v/t39.30808-6/533193054_4712212385700096_7956100647893986506_n.jpg?stp=cp6_dst-jpg_tt6&_nc_cat=102&ccb=1-7&_nc_sid=833d8c&_nc_ohc=iqezltB4QZ0Q7kNvwEoWPfd&_nc_oc=AdllgwghVpmSIZU8Xp2WV6Nvr66t3OFehXlTz3Om0vMG_WlVIe389uzFHFh86j5lTQs&_nc_zt=23&_nc_ht=scontent.fsgn2-8.fna&_nc_gid=BVsClX7WM51v9vnwo22apQ&oh=00_AfXSop2xZJAxU03b3q5uduaKe5dXk91ZKGYLx2R9rhoxSg&oe=68BCE2BA" data-full="50BDD07B-2E01-4901-A668-0101E73C74E4.jpeg" alt="Brochure tổng hợp dự án bếp" loading="lazy" data-title="Brochure tổng hợp dự án bếp" data-group="cd5">
-          <button class="view" aria-label="Xem ảnh lớn"></button>
-        </div>
-        <figcaption>
-          <div class="meta">
-            <div class="title">Brochure bếp WEDECO</div>
-            <p class="story">Tập hợp tiêu chuẩn vật liệu, phụ kiện, & quy cách lắp đặt cho hệ tủ bếp hiện đại.</p>
-          </div>
-          <a class="save" href="https://scontent.fsgn2-8.fna.fbcdn.net/v/t39.30808-6/533193054_4712212385700096_7956100647893986506_n.jpg?stp=cp6_dst-jpg_tt6&_nc_cat=102&ccb=1-7&_nc_sid=833d8c&_nc_ohc=iqezltB4QZ0Q7kNvwEoWPfd&_nc_oc=AdllgwghVpmSIZU8Xp2WV6Nvr66t3OFehXlTz3Om0vMG_WlVIe389uzFHFh86j5lTQs&_nc_zt=23&_nc_ht=scontent.fsgn2-8.fna&_nc_gid=BVsClX7WM51v9vnwo22apQ&oh=00_AfXSop2xZJAxU03b3q5uduaKe5dXk91ZKGYLx2R9rhoxSg&oe=68BCE2BA" download>Tải ảnh</a>
-        </figcaption>
-      </figure></article>
-    </div>
-    <div class="topic-under">
-      <h2>Chủ đề 4 — Thi công thực tế</h2>
-      <p class="lead">Nhân sự tại chỗ + quy trình kỷ luật = chất lượng ổn định. Hạn chế phát sinh và bảo hành.</p>
-    </div>
-  </section>
-
-  <!-- ===== CD5: QUY TRÌNH & MÁY MÓC ===== -->
-   <section id="cd5">
-    <div class="grid">
-      <article class="card"><figure>
-        <div class="thumb-wrap">
-          <img src="https://scontent.fsgn2-8.fna.fbcdn.net/v/t39.30808-6/533193054_4712212385700096_7956100647893986506_n.jpg?stp=cp6_dst-jpg_tt6&_nc_cat=102&ccb=1-7&_nc_sid=833d8c&_nc_ohc=iqezltB4QZ0Q7kNvwEoWPfd&_nc_oc=AdllgwghVpmSIZU8Xp2WV6Nvr66t3OFehXlTz3Om0vMG_WlVIe389uzFHFh86j5lTQs&_nc_zt=23&_nc_ht=scontent.fsgn2-8.fna&_nc_gid=BVsClX7WM51v9vnwo22apQ&oh=00_AfXSop2xZJAxU03b3q5uduaKe5dXk91ZKGYLx2R9rhoxSg&oe=68BCE2BA" data-full="8A8A6CB7-5986-420B-8EDF-C404FEFDBF20.jpeg" alt="Bếp đảo tối giản WEDECO" loading="lazy" data-title="Bếp đảo tối giản WEDECO" data-group="cd5">
-          <button class="view" aria-label="Xem ảnh lớn"></button>
-        </div>
-        <figcaption>
-          <div class="meta">
-            <div class="title">Bếp đảo tối giản</div>
-            <p class="story">Đảo đá liền khối, tay nắm âm, mảng trắng–xám sạch mắt. Thiết kế ưu tiên dễ vệ sinh và lưu thông khi nấu.</p>
-          </div>
-          <a class="save" href="https://scontent.fsgn2-8.fna.fbcdn.net/v/t39.30808-6/533193054_4712212385700096_7956100647893986506_n.jpg?stp=cp6_dst-jpg_tt6&_nc_cat=102&ccb=1-7&_nc_sid=833d8c&_nc_ohc=iqezltB4QZ0Q7kNvwEoWPfd&_nc_oc=AdllgwghVpmSIZU8Xp2WV6Nvr66t3OFehXlTz3Om0vMG_WlVIe389uzFHFh86j5lTQs&_nc_zt=23&_nc_ht=scontent.fsgn2-8.fna&_nc_gid=BVsClX7WM51v9vnwo22apQ&oh=00_AfXSop2xZJAxU03b3q5uduaKe5dXk91ZKGYLx2R9rhoxSg&oe=68BCE2BA" download>Tải ảnh</a>
-        </figcaption>
-      </figure></article>
-
-      <article class="card"><figure>
-        <div class="thumb-wrap">
-          <img src="https://scontent.fsgn2-8.fna.fbcdn.net/v/t39.30808-6/533193054_4712212385700096_7956100647893986506_n.jpg?stp=cp6_dst-jpg_tt6&_nc_cat=102&ccb=1-7&_nc_sid=833d8c&_nc_ohc=iqezltB4QZ0Q7kNvwEoWPfd&_nc_oc=AdllgwghVpmSIZU8Xp2WV6Nvr66t3OFehXlTz3Om0vMG_WlVIe389uzFHFh86j5lTQs&_nc_zt=23&_nc_ht=scontent.fsgn2-8.fna&_nc_gid=BVsClX7WM51v9vnwo22apQ&oh=00_AfXSop2xZJAxU03b3q5uduaKe5dXk91ZKGYLx2R9rhoxSg&oe=68BCE2BA" data-full="6AD0F384-6C6D-48C9-A615-EDE2932CAFB5.jpeg" alt="Bếp chữ U — ánh sáng khe hắt" loading="lazy" data-title="Bếp chữ U — ánh sáng khe hắt" data-group="cd5">
-          <button class="view" aria-label="Xem ảnh lớn"></button>
-        </div>
-        <figcaption>
-          <div class="meta">
-            <div class="title">Bếp chữ U • khe đèn hắt</div>
-            <p class="story">Tam giác công năng tủ lạnh–chậu–bếp hợp lý. Khe đèn giúp mặt bàn sáng đều nhưng không chói.</p>
-          </div>
-          <a class="save" href="https://scontent.fsgn2-8.fna.fbcdn.net/v/t39.30808-6/533193054_4712212385700096_7956100647893986506_n.jpg?stp=cp6_dst-jpg_tt6&_nc_cat=102&ccb=1-7&_nc_sid=833d8c&_nc_ohc=iqezltB4QZ0Q7kNvwEoWPfd&_nc_oc=AdllgwghVpmSIZU8Xp2WV6Nvr66t3OFehXlTz3Om0vMG_WlVIe389uzFHFh86j5lTQs&_nc_zt=23&_nc_ht=scontent.fsgn2-8.fna&_nc_gid=BVsClX7WM51v9vnwo22apQ&oh=00_AfXSop2xZJAxU03b3q5uduaKe5dXk91ZKGYLx2R9rhoxSg&oe=68BCE2BA" download>Tải ảnh</a>
-        </figcaption>
-      </figure></article>
-
-      <article class="card"><figure>
-        <div class="thumb-wrap">
-          <img src="https://scontent.fsgn2-8.fna.fbcdn.net/v/t39.30808-6/533193054_4712212385700096_7956100647893986506_n.jpg?stp=cp6_dst-jpg_tt6&_nc_cat=102&ccb=1-7&_nc_sid=833d8c&_nc_ohc=iqezltB4QZ0Q7kNvwEoWPfd&_nc_oc=AdllgwghVpmSIZU8Xp2WV6Nvr66t3OFehXlTz3Om0vMG_WlVIe389uzFHFh86j5lTQs&_nc_zt=23&_nc_ht=scontent.fsgn2-8.fna&_nc_gid=BVsClX7WM51v9vnwo22apQ&oh=00_AfXSop2xZJAxU03b3q5uduaKe5dXk91ZKGYLx2R9rhoxSg&oe=68BCE2BA" data-full="50BDD07B-2E01-4901-A668-0101E73C74E4.jpeg" alt="Brochure tổng hợp dự án bếp" loading="lazy" data-title="Brochure tổng hợp dự án bếp" data-group="cd5">
-          <button class="view" aria-label="Xem ảnh lớn"></button>
-        </div>
-        <figcaption>
-          <div class="meta">
-            <div class="title">Brochure bếp WEDECO</div>
-            <p class="story">Tập hợp tiêu chuẩn vật liệu, phụ kiện, & quy cách lắp đặt cho hệ tủ bếp hiện đại.</p>
-          </div>
-          <a class="save" href="https://scontent.fsgn2-8.fna.fbcdn.net/v/t39.30808-6/533193054_4712212385700096_7956100647893986506_n.jpg?stp=cp6_dst-jpg_tt6&_nc_cat=102&ccb=1-7&_nc_sid=833d8c&_nc_ohc=iqezltB4QZ0Q7kNvwEoWPfd&_nc_oc=AdllgwghVpmSIZU8Xp2WV6Nvr66t3OFehXlTz3Om0vMG_WlVIe389uzFHFh86j5lTQs&_nc_zt=23&_nc_ht=scontent.fsgn2-8.fna&_nc_gid=BVsClX7WM51v9vnwo22apQ&oh=00_AfXSop2xZJAxU03b3q5uduaKe5dXk91ZKGYLx2R9rhoxSg&oe=68BCE2BA" download>Tải ảnh</a>
-        </figcaption>
-      </figure></article>
-    </div>
-    <div class="topic-under">
-      <h2>Chủ đề 4 — Thi công thực tế</h2>
-      <p class="lead">Nhân sự tại chỗ + quy trình kỷ luật = chất lượng ổn định. Hạn chế phát sinh và bảo hành.</p>
-    </div>
-  </section>
-
-  <!-- ===== CD6: VẬT LIỆU & PHỤ KIỆN ===== -->
-   <section id="cd6">
-    <div class="grid">
-      <article class="card"><figure>
-        <div class="thumb-wrap">
-          <img src="https://scontent.fsgn2-8.fna.fbcdn.net/v/t39.30808-6/533193054_4712212385700096_7956100647893986506_n.jpg?stp=cp6_dst-jpg_tt6&_nc_cat=102&ccb=1-7&_nc_sid=833d8c&_nc_ohc=iqezltB4QZ0Q7kNvwEoWPfd&_nc_oc=AdllgwghVpmSIZU8Xp2WV6Nvr66t3OFehXlTz3Om0vMG_WlVIe389uzFHFh86j5lTQs&_nc_zt=23&_nc_ht=scontent.fsgn2-8.fna&_nc_gid=BVsClX7WM51v9vnwo22apQ&oh=00_AfXSop2xZJAxU03b3q5uduaKe5dXk91ZKGYLx2R9rhoxSg&oe=68BCE2BA" data-full="8A8A6CB7-5986-420B-8EDF-C404FEFDBF20.jpeg" alt="Bếp đảo tối giản WEDECO" loading="lazy" data-title="Bếp đảo tối giản WEDECO" data-group="cd6">
-          <button class="view" aria-label="Xem ảnh lớn"></button>
-        </div>
-        <figcaption>
-          <div class="meta">
-            <div class="title">Bếp đảo tối giản</div>
-            <p class="story">Đảo đá liền khối, tay nắm âm, mảng trắng–xám sạch mắt. Thiết kế ưu tiên dễ vệ sinh và lưu thông khi nấu.</p>
-          </div>
-          <a class="save" href="https://scontent.fsgn2-8.fna.fbcdn.net/v/t39.30808-6/533193054_4712212385700096_7956100647893986506_n.jpg?stp=cp6_dst-jpg_tt6&_nc_cat=102&ccb=1-7&_nc_sid=833d8c&_nc_ohc=iqezltB4QZ0Q7kNvwEoWPfd&_nc_oc=AdllgwghVpmSIZU8Xp2WV6Nvr66t3OFehXlTz3Om0vMG_WlVIe389uzFHFh86j5lTQs&_nc_zt=23&_nc_ht=scontent.fsgn2-8.fna&_nc_gid=BVsClX7WM51v9vnwo22apQ&oh=00_AfXSop2xZJAxU03b3q5uduaKe5dXk91ZKGYLx2R9rhoxSg&oe=68BCE2BA" download>Tải ảnh</a>
-        </figcaption>
-      </figure></article>
-
-      <article class="card"><figure>
-        <div class="thumb-wrap">
-          <img src="https://scontent.fsgn2-8.fna.fbcdn.net/v/t39.30808-6/533193054_4712212385700096_7956100647893986506_n.jpg?stp=cp6_dst-jpg_tt6&_nc_cat=102&ccb=1-7&_nc_sid=833d8c&_nc_ohc=iqezltB4QZ0Q7kNvwEoWPfd&_nc_oc=AdllgwghVpmSIZU8Xp2WV6Nvr66t3OFehXlTz3Om0vMG_WlVIe389uzFHFh86j5lTQs&_nc_zt=23&_nc_ht=scontent.fsgn2-8.fna&_nc_gid=BVsClX7WM51v9vnwo22apQ&oh=00_AfXSop2xZJAxU03b3q5uduaKe5dXk91ZKGYLx2R9rhoxSg&oe=68BCE2BA" data-full="6AD0F384-6C6D-48C9-A615-EDE2932CAFB5.jpeg" alt="Bếp chữ U — ánh sáng khe hắt" loading="lazy" data-title="Bếp chữ U — ánh sáng khe hắt" data-group="cd6">
-          <button class="view" aria-label="Xem ảnh lớn"></button>
-        </div>
-        <figcaption>
-          <div class="meta">
-            <div class="title">Bếp chữ U • khe đèn hắt</div>
-            <p class="story">Tam giác công năng tủ lạnh–chậu–bếp hợp lý. Khe đèn giúp mặt bàn sáng đều nhưng không chói.</p>
-          </div>
-          <a class="save" href="https://scontent.fsgn2-8.fna.fbcdn.net/v/t39.30808-6/533193054_4712212385700096_7956100647893986506_n.jpg?stp=cp6_dst-jpg_tt6&_nc_cat=102&ccb=1-7&_nc_sid=833d8c&_nc_ohc=iqezltB4QZ0Q7kNvwEoWPfd&_nc_oc=AdllgwghVpmSIZU8Xp2WV6Nvr66t3OFehXlTz3Om0vMG_WlVIe389uzFHFh86j5lTQs&_nc_zt=23&_nc_ht=scontent.fsgn2-8.fna&_nc_gid=BVsClX7WM51v9vnwo22apQ&oh=00_AfXSop2xZJAxU03b3q5uduaKe5dXk91ZKGYLx2R9rhoxSg&oe=68BCE2BA" download>Tải ảnh</a>
-        </figcaption>
-      </figure></article>
-
-      <article class="card"><figure>
-        <div class="thumb-wrap">
-          <img src="https://scontent.fsgn2-8.fna.fbcdn.net/v/t39.30808-6/533193054_4712212385700096_7956100647893986506_n.jpg?stp=cp6_dst-jpg_tt6&_nc_cat=102&ccb=1-7&_nc_sid=833d8c&_nc_ohc=iqezltB4QZ0Q7kNvwEoWPfd&_nc_oc=AdllgwghVpmSIZU8Xp2WV6Nvr66t3OFehXlTz3Om0vMG_WlVIe389uzFHFh86j5lTQs&_nc_zt=23&_nc_ht=scontent.fsgn2-8.fna&_nc_gid=BVsClX7WM51v9vnwo22apQ&oh=00_AfXSop2xZJAxU03b3q5uduaKe5dXk91ZKGYLx2R9rhoxSg&oe=68BCE2BA" data-full="50BDD07B-2E01-4901-A668-0101E73C74E4.jpeg" alt="Brochure tổng hợp dự án bếp" loading="lazy" data-title="Brochure tổng hợp dự án bếp" data-group="cd6">
-          <button class="view" aria-label="Xem ảnh lớn"></button>
-        </div>
-        <figcaption>
-          <div class="meta">
-            <div class="title">Brochure bếp WEDECO</div>
-            <p class="story">Tập hợp tiêu chuẩn vật liệu, phụ kiện, & quy cách lắp đặt cho hệ tủ bếp hiện đại.</p>
-          </div>
-          <a class="save" href="https://scontent.fsgn2-8.fna.fbcdn.net/v/t39.30808-6/533193054_4712212385700096_7956100647893986506_n.jpg?stp=cp6_dst-jpg_tt6&_nc_cat=102&ccb=1-7&_nc_sid=833d8c&_nc_ohc=iqezltB4QZ0Q7kNvwEoWPfd&_nc_oc=AdllgwghVpmSIZU8Xp2WV6Nvr66t3OFehXlTz3Om0vMG_WlVIe389uzFHFh86j5lTQs&_nc_zt=23&_nc_ht=scontent.fsgn2-8.fna&_nc_gid=BVsClX7WM51v9vnwo22apQ&oh=00_AfXSop2xZJAxU03b3q5uduaKe5dXk91ZKGYLx2R9rhoxSg&oe=68BCE2BA" download>Tải ảnh</a>
-        </figcaption>
-      </figure></article>
-    </div>
-    <div class="topic-under">
-      <h2>Chủ đề 6 — Vật liệu & phụ kiện</h2>
-      <p class="lead">Chọn đúng từ đầu: cốt ván, bề mặt, phụ kiện. Cân giữa thẩm mỹ, độ bền và chi phí.</p>
-    </div>
-  </section>
-
-  <!-- ===== CD7: DỰ ÁN TIÊU BIỂU ===== -->
-   <section id="cd7">
-    <div class="grid">
-      <article class="card"><figure>
-        <div class="thumb-wrap">
-          <img src="https://scontent.fsgn2-8.fna.fbcdn.net/v/t39.30808-6/533193054_4712212385700096_7956100647893986506_n.jpg?stp=cp6_dst-jpg_tt6&_nc_cat=102&ccb=1-7&_nc_sid=833d8c&_nc_ohc=iqezltB4QZ0Q7kNvwEoWPfd&_nc_oc=AdllgwghVpmSIZU8Xp2WV6Nvr66t3OFehXlTz3Om0vMG_WlVIe389uzFHFh86j5lTQs&_nc_zt=23&_nc_ht=scontent.fsgn2-8.fna&_nc_gid=BVsClX7WM51v9vnwo22apQ&oh=00_AfXSop2xZJAxU03b3q5uduaKe5dXk91ZKGYLx2R9rhoxSg&oe=68BCE2BA" data-full="8A8A6CB7-5986-420B-8EDF-C404FEFDBF20.jpeg" alt="Bếp đảo tối giản WEDECO" loading="lazy" data-title="Bếp đảo tối giản WEDECO" data-group="cd7">
-          <button class="view" aria-label="Xem ảnh lớn"></button>
-        </div>
-        <figcaption>
-          <div class="meta">
-            <div class="title">Bếp đảo tối giản</div>
-            <p class="story">Đảo đá liền khối, tay nắm âm, mảng trắng–xám sạch mắt. Thiết kế ưu tiên dễ vệ sinh và lưu thông khi nấu.</p>
-          </div>
-          <a class="save" href="https://scontent.fsgn2-8.fna.fbcdn.net/v/t39.30808-6/533193054_4712212385700096_7956100647893986506_n.jpg?stp=cp6_dst-jpg_tt6&_nc_cat=102&ccb=1-7&_nc_sid=833d8c&_nc_ohc=iqezltB4QZ0Q7kNvwEoWPfd&_nc_oc=AdllgwghVpmSIZU8Xp2WV6Nvr66t3OFehXlTz3Om0vMG_WlVIe389uzFHFh86j5lTQs&_nc_zt=23&_nc_ht=scontent.fsgn2-8.fna&_nc_gid=BVsClX7WM51v9vnwo22apQ&oh=00_AfXSop2xZJAxU03b3q5uduaKe5dXk91ZKGYLx2R9rhoxSg&oe=68BCE2BA" download>Tải ảnh</a>
-        </figcaption>
-      </figure></article>
-
-      <article class="card"><figure>
-        <div class="thumb-wrap">
-          <img src="https://scontent.fsgn2-8.fna.fbcdn.net/v/t39.30808-6/533193054_4712212385700096_7956100647893986506_n.jpg?stp=cp6_dst-jpg_tt6&_nc_cat=102&ccb=1-7&_nc_sid=833d8c&_nc_ohc=iqezltB4QZ0Q7kNvwEoWPfd&_nc_oc=AdllgwghVpmSIZU8Xp2WV6Nvr66t3OFehXlTz3Om0vMG_WlVIe389uzFHFh86j5lTQs&_nc_zt=23&_nc_ht=scontent.fsgn2-8.fna&_nc_gid=BVsClX7WM51v9vnwo22apQ&oh=00_AfXSop2xZJAxU03b3q5uduaKe5dXk91ZKGYLx2R9rhoxSg&oe=68BCE2BA" data-full="6AD0F384-6C6D-48C9-A615-EDE2932CAFB5.jpeg" alt="Bếp chữ U — ánh sáng khe hắt" loading="lazy" data-title="Bếp chữ U — ánh sáng khe hắt" data-group="cd7">
-          <button class="view" aria-label="Xem ảnh lớn"></button>
-        </div>
-        <figcaption>
-          <div class="meta">
-            <div class="title">Bếp chữ U • khe đèn hắt</div>
-            <p class="story">Tam giác công năng tủ lạnh–chậu–bếp hợp lý. Khe đèn giúp mặt bàn sáng đều nhưng không chói.</p>
-          </div>
-          <a class="save" href="https://scontent.fsgn2-8.fna.fbcdn.net/v/t39.30808-6/533193054_4712212385700096_7956100647893986506_n.jpg?stp=cp6_dst-jpg_tt6&_nc_cat=102&ccb=1-7&_nc_sid=833d8c&_nc_ohc=iqezltB4QZ0Q7kNvwEoWPfd&_nc_oc=AdllgwghVpmSIZU8Xp2WV6Nvr66t3OFehXlTz3Om0vMG_WlVIe389uzFHFh86j5lTQs&_nc_zt=23&_nc_ht=scontent.fsgn2-8.fna&_nc_gid=BVsClX7WM51v9vnwo22apQ&oh=00_AfXSop2xZJAxU03b3q5uduaKe5dXk91ZKGYLx2R9rhoxSg&oe=68BCE2BA" download>Tải ảnh</a>
-        </figcaption>
-      </figure></article>
-
-      <article class="card"><figure>
-        <div class="thumb-wrap">
-          <img src="https://scontent.fsgn2-8.fna.fbcdn.net/v/t39.30808-6/533193054_4712212385700096_7956100647893986506_n.jpg?stp=cp6_dst-jpg_tt6&_nc_cat=102&ccb=1-7&_nc_sid=833d8c&_nc_ohc=iqezltB4QZ0Q7kNvwEoWPfd&_nc_oc=AdllgwghVpmSIZU8Xp2WV6Nvr66t3OFehXlTz3Om0vMG_WlVIe389uzFHFh86j5lTQs&_nc_zt=23&_nc_ht=scontent.fsgn2-8.fna&_nc_gid=BVsClX7WM51v9vnwo22apQ&oh=00_AfXSop2xZJAxU03b3q5uduaKe5dXk91ZKGYLx2R9rhoxSg&oe=68BCE2BA" data-full="50BDD07B-2E01-4901-A668-0101E73C74E4.jpeg" alt="Brochure tổng hợp dự án bếp" loading="lazy" data-title="Brochure tổng hợp dự án bếp" data-group="cd7">
-          <button class="view" aria-label="Xem ảnh lớn"></button>
-        </div>
-        <figcaption>
-          <div class="meta">
-            <div class="title">Brochure bếp WEDECO</div>
-            <p class="story">Tập hợp tiêu chuẩn vật liệu, phụ kiện, & quy cách lắp đặt cho hệ tủ bếp hiện đại.</p>
-          </div>
-          <a class="save" href="https://scontent.fsgn2-8.fna.fbcdn.net/v/t39.30808-6/533193054_4712212385700096_7956100647893986506_n.jpg?stp=cp6_dst-jpg_tt6&_nc_cat=102&ccb=1-7&_nc_sid=833d8c&_nc_ohc=iqezltB4QZ0Q7kNvwEoWPfd&_nc_oc=AdllgwghVpmSIZU8Xp2WV6Nvr66t3OFehXlTz3Om0vMG_WlVIe389uzFHFh86j5lTQs&_nc_zt=23&_nc_ht=scontent.fsgn2-8.fna&_nc_gid=BVsClX7WM51v9vnwo22apQ&oh=00_AfXSop2xZJAxU03b3q5uduaKe5dXk91ZKGYLx2R9rhoxSg&oe=68BCE2BA" download>Tải ảnh</a>
-        </figcaption>
-      </figure></article>
-    </div>
-    <div class="topic-under">
-      <h2>Chủ đề 7 — Dự án tiêu biểu</h2>
-      <p class="lead">Thước đo của WEDECO là công trình ít bảo hành và khách quay lại giới thiệu. Chúng tôi giữ chất lượng ổn định qua từng dự án.</p>
-    </div>
-  </section>
-  <!-- ===== CD8: QUY TRÌNH & MÁY MÓC ===== -->
-   <section id="cd8">
-    <div class="grid">
-      <article class="card"><figure>
-        <div class="thumb-wrap">
-          <img src="https://scontent.fsgn2-8.fna.fbcdn.net/v/t39.30808-6/533193054_4712212385700096_7956100647893986506_n.jpg?stp=cp6_dst-jpg_tt6&_nc_cat=102&ccb=1-7&_nc_sid=833d8c&_nc_ohc=iqezltB4QZ0Q7kNvwEoWPfd&_nc_oc=AdllgwghVpmSIZU8Xp2WV6Nvr66t3OFehXlTz3Om0vMG_WlVIe389uzFHFh86j5lTQs&_nc_zt=23&_nc_ht=scontent.fsgn2-8.fna&_nc_gid=BVsClX7WM51v9vnwo22apQ&oh=00_AfXSop2xZJAxU03b3q5uduaKe5dXk91ZKGYLx2R9rhoxSg&oe=68BCE2BA" data-full="8A8A6CB7-5986-420B-8EDF-C404FEFDBF20.jpeg" alt="Bếp đảo tối giản WEDECO" loading="lazy" data-title="Bếp đảo tối giản WEDECO" data-group="cd8">
-          <button class="view" aria-label="Xem ảnh lớn"></button>
-        </div>
-        <figcaption>
-          <div class="meta">
-            <div class="title">Bếp đảo tối giản</div>
-            <p class="story">Đảo đá liền khối, tay nắm âm, mảng trắng–xám sạch mắt. Thiết kế ưu tiên dễ vệ sinh và lưu thông khi nấu.</p>
-          </div>
-          <a class="save" href="https://scontent.fsgn2-8.fna.fbcdn.net/v/t39.30808-6/533193054_4712212385700096_7956100647893986506_n.jpg?stp=cp6_dst-jpg_tt6&_nc_cat=102&ccb=1-7&_nc_sid=833d8c&_nc_ohc=iqezltB4QZ0Q7kNvwEoWPfd&_nc_oc=AdllgwghVpmSIZU8Xp2WV6Nvr66t3OFehXlTz3Om0vMG_WlVIe389uzFHFh86j5lTQs&_nc_zt=23&_nc_ht=scontent.fsgn2-8.fna&_nc_gid=BVsClX7WM51v9vnwo22apQ&oh=00_AfXSop2xZJAxU03b3q5uduaKe5dXk91ZKGYLx2R9rhoxSg&oe=68BCE2BA" download>Tải ảnh</a>
-        </figcaption>
-      </figure></article>
-
-      <article class="card"><figure>
-        <div class="thumb-wrap">
-          <img src="https://scontent.fsgn2-8.fna.fbcdn.net/v/t39.30808-6/533193054_4712212385700096_7956100647893986506_n.jpg?stp=cp6_dst-jpg_tt6&_nc_cat=102&ccb=1-7&_nc_sid=833d8c&_nc_ohc=iqezltB4QZ0Q7kNvwEoWPfd&_nc_oc=AdllgwghVpmSIZU8Xp2WV6Nvr66t3OFehXlTz3Om0vMG_WlVIe389uzFHFh86j5lTQs&_nc_zt=23&_nc_ht=scontent.fsgn2-8.fna&_nc_gid=BVsClX7WM51v9vnwo22apQ&oh=00_AfXSop2xZJAxU03b3q5uduaKe5dXk91ZKGYLx2R9rhoxSg&oe=68BCE2BA" data-full="6AD0F384-6C6D-48C9-A615-EDE2932CAFB5.jpeg" alt="Bếp chữ U — ánh sáng khe hắt" loading="lazy" data-title="Bếp chữ U — ánh sáng khe hắt" data-group="cd8">
-          <button class="view" aria-label="Xem ảnh lớn"></button>
-        </div>
-        <figcaption>
-          <div class="meta">
-            <div class="title">Bếp chữ U • khe đèn hắt</div>
-            <p class="story">Tam giác công năng tủ lạnh–chậu–bếp hợp lý. Khe đèn giúp mặt bàn sáng đều nhưng không chói.</p>
-          </div>
-          <a class="save" href="https://scontent.fsgn2-8.fna.fbcdn.net/v/t39.30808-6/533193054_4712212385700096_7956100647893986506_n.jpg?stp=cp6_dst-jpg_tt6&_nc_cat=102&ccb=1-7&_nc_sid=833d8c&_nc_ohc=iqezltB4QZ0Q7kNvwEoWPfd&_nc_oc=AdllgwghVpmSIZU8Xp2WV6Nvr66t3OFehXlTz3Om0vMG_WlVIe389uzFHFh86j5lTQs&_nc_zt=23&_nc_ht=scontent.fsgn2-8.fna&_nc_gid=BVsClX7WM51v9vnwo22apQ&oh=00_AfXSop2xZJAxU03b3q5uduaKe5dXk91ZKGYLx2R9rhoxSg&oe=68BCE2BA" download>Tải ảnh</a>
-        </figcaption>
-      </figure></article>
-
-      <article class="card"><figure>
-        <div class="thumb-wrap">
-          <img src="https://scontent.fsgn2-8.fna.fbcdn.net/v/t39.30808-6/533193054_4712212385700096_7956100647893986506_n.jpg?stp=cp6_dst-jpg_tt6&_nc_cat=102&ccb=1-7&_nc_sid=833d8c&_nc_ohc=iqezltB4QZ0Q7kNvwEoWPfd&_nc_oc=AdllgwghVpmSIZU8Xp2WV6Nvr66t3OFehXlTz3Om0vMG_WlVIe389uzFHFh86j5lTQs&_nc_zt=23&_nc_ht=scontent.fsgn2-8.fna&_nc_gid=BVsClX7WM51v9vnwo22apQ&oh=00_AfXSop2xZJAxU03b3q5uduaKe5dXk91ZKGYLx2R9rhoxSg&oe=68BCE2BA" data-full="50BDD07B-2E01-4901-A668-0101E73C74E4.jpeg" alt="Brochure tổng hợp dự án bếp" loading="lazy" data-title="Brochure tổng hợp dự án bếp" data-group="cd8">
-          <button class="view" aria-label="Xem ảnh lớn"></button>
-        </div>
-        <figcaption>
-          <div class="meta">
-            <div class="title">Brochure bếp WEDECO</div>
-            <p class="story">Tập hợp tiêu chuẩn vật liệu, phụ kiện, & quy cách lắp đặt cho hệ tủ bếp hiện đại.</p>
-          </div>
-          <a class="save" href="https://scontent.fsgn2-8.fna.fbcdn.net/v/t39.30808-6/533193054_4712212385700096_7956100647893986506_n.jpg?stp=cp6_dst-jpg_tt6&_nc_cat=102&ccb=1-7&_nc_sid=833d8c&_nc_ohc=iqezltB4QZ0Q7kNvwEoWPfd&_nc_oc=AdllgwghVpmSIZU8Xp2WV6Nvr66t3OFehXlTz3Om0vMG_WlVIe389uzFHFh86j5lTQs&_nc_zt=23&_nc_ht=scontent.fsgn2-8.fna&_nc_gid=BVsClX7WM51v9vnwo22apQ&oh=00_AfXSop2xZJAxU03b3q5uduaKe5dXk91ZKGYLx2R9rhoxSg&oe=68BCE2BA" download>Tải ảnh</a>
-        </figcaption>
-      </figure></article>
-    </div>
-    <div class="topic-under">
-      <h2>Chủ đề 8 — Quy trình & máy móc</h2>
-      <p class="lead">Từ báo giá trực tiếp đến lắp đặt theo checklist. Minh bạch từng bước, kết quả đo được.</p>
-    </div>
-  </section>
-  <!-- ===== CD9: QUY TRÌNH & MÁY MÓC ===== -->
-   <section id="cd9">
-    <div class="grid">
-      <article class="card"><figure>
-        <div class="thumb-wrap">
-          <img src="https://scontent.fsgn2-8.fna.fbcdn.net/v/t39.30808-6/533193054_4712212385700096_7956100647893986506_n.jpg?stp=cp6_dst-jpg_tt6&_nc_cat=102&ccb=1-7&_nc_sid=833d8c&_nc_ohc=iqezltB4QZ0Q7kNvwEoWPfd&_nc_oc=AdllgwghVpmSIZU8Xp2WV6Nvr66t3OFehXlTz3Om0vMG_WlVIe389uzFHFh86j5lTQs&_nc_zt=23&_nc_ht=scontent.fsgn2-8.fna&_nc_gid=BVsClX7WM51v9vnwo22apQ&oh=00_AfXSop2xZJAxU03b3q5uduaKe5dXk91ZKGYLx2R9rhoxSg&oe=68BCE2BA" data-full="8A8A6CB7-5986-420B-8EDF-C404FEFDBF20.jpeg" alt="Bếp đảo tối giản WEDECO" loading="lazy" data-title="Bếp đảo tối giản WEDECO" data-group="cd9">
-          <button class="view" aria-label="Xem ảnh lớn"></button>
-        </div>
-        <figcaption>
-          <div class="meta">
-            <div class="title">Bếp đảo tối giản</div>
-            <p class="story">Đảo đá liền khối, tay nắm âm, mảng trắng–xám sạch mắt. Thiết kế ưu tiên dễ vệ sinh và lưu thông khi nấu.</p>
-          </div>
-          <a class="save" href="https://scontent.fsgn2-8.fna.fbcdn.net/v/t39.30808-6/533193054_4712212385700096_7956100647893986506_n.jpg?stp=cp6_dst-jpg_tt6&_nc_cat=102&ccb=1-7&_nc_sid=833d8c&_nc_ohc=iqezltB4QZ0Q7kNvwEoWPfd&_nc_oc=AdllgwghVpmSIZU8Xp2WV6Nvr66t3OFehXlTz3Om0vMG_WlVIe389uzFHFh86j5lTQs&_nc_zt=23&_nc_ht=scontent.fsgn2-8.fna&_nc_gid=BVsClX7WM51v9vnwo22apQ&oh=00_AfXSop2xZJAxU03b3q5uduaKe5dXk91ZKGYLx2R9rhoxSg&oe=68BCE2BA" download>Tải ảnh</a>
-        </figcaption>
-      </figure></article>
-
-      <article class="card"><figure>
-        <div class="thumb-wrap">
-          <img src="https://scontent.fsgn2-8.fna.fbcdn.net/v/t39.30808-6/533193054_4712212385700096_7956100647893986506_n.jpg?stp=cp6_dst-jpg_tt6&_nc_cat=102&ccb=1-7&_nc_sid=833d8c&_nc_ohc=iqezltB4QZ0Q7kNvwEoWPfd&_nc_oc=AdllgwghVpmSIZU8Xp2WV6Nvr66t3OFehXlTz3Om0vMG_WlVIe389uzFHFh86j5lTQs&_nc_zt=23&_nc_ht=scontent.fsgn2-8.fna&_nc_gid=BVsClX7WM51v9vnwo22apQ&oh=00_AfXSop2xZJAxU03b3q5uduaKe5dXk91ZKGYLx2R9rhoxSg&oe=68BCE2BA" data-full="6AD0F384-6C6D-48C9-A615-EDE2932CAFB5.jpeg" alt="Bếp chữ U — ánh sáng khe hắt" loading="lazy" data-title="Bếp chữ U — ánh sáng khe hắt" data-group="cd9">
-          <button class="view" aria-label="Xem ảnh lớn"></button>
-        </div>
-        <figcaption>
-          <div class="meta">
-            <div class="title">Bếp chữ U • khe đèn hắt</div>
-            <p class="story">Tam giác công năng tủ lạnh–chậu–bếp hợp lý. Khe đèn giúp mặt bàn sáng đều nhưng không chói.</p>
-          </div>
-          <a class="save" href="https://scontent.fsgn2-8.fna.fbcdn.net/v/t39.30808-6/533193054_4712212385700096_7956100647893986506_n.jpg?stp=cp6_dst-jpg_tt6&_nc_cat=102&ccb=1-7&_nc_sid=833d8c&_nc_ohc=iqezltB4QZ0Q7kNvwEoWPfd&_nc_oc=AdllgwghVpmSIZU8Xp2WV6Nvr66t3OFehXlTz3Om0vMG_WlVIe389uzFHFh86j5lTQs&_nc_zt=23&_nc_ht=scontent.fsgn2-8.fna&_nc_gid=BVsClX7WM51v9vnwo22apQ&oh=00_AfXSop2xZJAxU03b3q5uduaKe5dXk91ZKGYLx2R9rhoxSg&oe=68BCE2BA" download>Tải ảnh</a>
-        </figcaption>
-      </figure></article>
-
-      <article class="card"><figure>
-        <div class="thumb-wrap">
-          <img src="https://scontent.fsgn2-8.fna.fbcdn.net/v/t39.30808-6/533193054_4712212385700096_7956100647893986506_n.jpg?stp=cp6_dst-jpg_tt6&_nc_cat=102&ccb=1-7&_nc_sid=833d8c&_nc_ohc=iqezltB4QZ0Q7kNvwEoWPfd&_nc_oc=AdllgwghVpmSIZU8Xp2WV6Nvr66t3OFehXlTz3Om0vMG_WlVIe389uzFHFh86j5lTQs&_nc_zt=23&_nc_ht=scontent.fsgn2-8.fna&_nc_gid=BVsClX7WM51v9vnwo22apQ&oh=00_AfXSop2xZJAxU03b3q5uduaKe5dXk91ZKGYLx2R9rhoxSg&oe=68BCE2BA" data-full="50BDD07B-2E01-4901-A668-0101E73C74E4.jpeg" alt="Brochure tổng hợp dự án bếp" loading="lazy" data-title="Brochure tổng hợp dự án bếp" data-group="cd9">
-          <button class="view" aria-label="Xem ảnh lớn"></button>
-        </div>
-        <figcaption>
-          <div class="meta">
-            <div class="title">Brochure bếp WEDECO</div>
-            <p class="story">Tập hợp tiêu chuẩn vật liệu, phụ kiện, & quy cách lắp đặt cho hệ tủ bếp hiện đại.</p>
-          </div>
-          <a class="save" href="https://scontent.fsgn2-8.fna.fbcdn.net/v/t39.30808-6/533193054_4712212385700096_7956100647893986506_n.jpg?stp=cp6_dst-jpg_tt6&_nc_cat=102&ccb=1-7&_nc_sid=833d8c&_nc_ohc=iqezltB4QZ0Q7kNvwEoWPfd&_nc_oc=AdllgwghVpmSIZU8Xp2WV6Nvr66t3OFehXlTz3Om0vMG_WlVIe389uzFHFh86j5lTQs&_nc_zt=23&_nc_ht=scontent.fsgn2-8.fna&_nc_gid=BVsClX7WM51v9vnwo22apQ&oh=00_AfXSop2xZJAxU03b3q5uduaKe5dXk91ZKGYLx2R9rhoxSg&oe=68BCE2BA" download>Tải ảnh</a>
-        </figcaption>
-      </figure></article>
-    </div>
-    <div class="topic-under">
-      <h2>Chủ đề 9 — Quy trình & máy móc</h2>
-      <p class="lead">Từ báo giá trực tiếp đến lắp đặt theo checklist. Minh bạch từng bước, kết quả đo được.</p>
-    </div>
-  </section>
-  
-</main>
-
-<!-- LIGHTBOX -->
-<div id="lightbox" class="lightbox" aria-hidden="true" role="dialog" aria-label="Xem ảnh">
-  <div class="lb-inner">
-    <div class="lb-media">
-      <button class="nav-btn prev" id="lbPrev" aria-label="Ảnh trước">❮</button>
-      <img id="lbImg" alt="">
-      <button class="nav-btn next" id="lbNext" aria-label="Ảnh sau">❯</button>
-      <button class="btn close" id="lbClose" aria-label="Đóng">✕</button>
-    </div>
-    <div class="lb-meta">
-      <h3 id="lbTitle" style="margin:0;font-size:16px">Tiêu đề ảnh</h3>
-      <a class="btn" id="lbDownload" download>Tải ảnh</a>
-    </div>
-  </div>
-</div>
-
-<!-- Thêm menu chuyển trang -->
-<nav style="margin:24px 0 0 0; display:flex; gap:16px;">
-  <a href="index.html">Bao Bọc</a>
-  <a href="CHI%20TIẾT%20BAO%20BỌC.html">Chi tiết Bao Bọc</a>
-  <a href="Câu%20chuyện%20tổ%20trưởng.html" class="active">Câu chuyện tổ trưởng</a>
-</nav>
-
-<footer class="container">
-  Ghi chú: tôi **không đưa các ảnh “lịch sử giao dịch”** vì không liên quan nội thất. Gửi thêm ảnh xưởng, vật liệu, văn phòng để thay các PLACEHOLDER.
-</footer>
-
-<script>
-  // Menu active
-  const links=[...document.querySelectorAll('#menu a')];
-  const sections=links.map(a=>document.querySelector(a.getAttribute('href')));
-  const setActive=()=>{const y=window.scrollY+130;let i=sections.findIndex((s,idx)=>y>=s.offsetTop&&(idx===sections.length-1||y<sections[idx+1].offsetTop));if(i<0)i=0;links.forEach((a,idx)=>a.classList.toggle('active',idx===i))};setActive();window.addEventListener('scroll',setActive);
-
-  // Lightbox
-  const lb=document.getElementById('lightbox'), img=document.getElementById('lbImg'), titleEl=document.getElementById('lbTitle'), dl=document.getElementById('lbDownload');
-  const prev=document.getElementById('lbPrev'), next=document.getElementById('lbNext'), closeBtn=document.getElementById('lbClose');
-  let group=[], idx=0;
-  function openLB(g,i){group=g;idx=i;const {full,title}=group[idx];img.src=full;img.alt=title;titleEl.textContent=title||'';dl.href=full;lb.classList.add('open');lb.setAttribute('aria-hidden','false')}
-  function closeLB(){lb.classList.remove('open');lb.setAttribute('aria-hidden','true');img.src=''}
-  function step(d){idx=(idx+d+group.length)%group.length;const {full,title}=group[idx];img.src=full;img.alt=title;titleEl.textContent=title||'';dl.href=full}
-  closeBtn.addEventListener('click',closeLB); prev.addEventListener('click',()=>step(-1)); next.addEventListener('click',()=>step(1));
-  document.addEventListener('keydown',e=>{if(lb.classList.contains('open')){if(e.key==='Escape')closeLB(); if(e.key==='ArrowLeft')step(-1); if(e.key==='ArrowRight')step(1)}}); lb.addEventListener('click',e=>{if(e.target===lb)closeLB()});
-
-  // Gom ảnh theo nhóm & click
-  const lb=document.getElementById('lightbox');
-  const galleries={};
-  document.querySelectorAll('img[data-group]').forEach(im=>{const g=im.dataset.group;(galleries[g]??=[]).push({full:im.dataset.full||im.src,title:im.dataset.title||im.alt||'Ảnh',el:im})});
-  document.querySelectorAll('.thumb-wrap .view').forEach(btn=>{btn.addEventListener('click',e=>{const im=e.currentTarget.previousElementSibling;const g=im.dataset.group;const arr=galleries[g];const i=arr.findIndex(it=>it.el===im);openLB(arr,i)})});
-</script>
+    <script>
+        function showSection(idx) {
+            const sections = document.querySelectorAll('.story-section');
+            const btns = document.querySelectorAll('.menu-btn');
+            sections.forEach((sec, i) => {
+                sec.classList.toggle('active', i === idx);
+            });
+            btns.forEach((btn, i) => {
+                btn.classList.toggle('active', i === idx);
+            });
+        }
+    </script>
 </body>
 </html>

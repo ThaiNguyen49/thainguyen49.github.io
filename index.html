@@ -1,673 +1,303 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="vi">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title> Bao Bọc Lin Fu Đẹp Trai</title>
-  <style>
-  :root {
-    --bg: #fff;
-    --text: #111;
-    --muted: #6b7280;
-    --brand: #e11d48;
-    --card: #f8fafc;
-  }
-  html { scroll-behavior: smooth; }
-  body {
-    margin:0;
-    font-family: system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji";
-    background: linear-gradient(135deg, #f8fafc 0%, #e0e7ff 100%);
-    color:var(--text);
-  }
-
-    /* Layout */
-    .container { max-width: 1200px; margin: 0 auto; padding: 24px; display:grid; gap:24px; grid-template-columns: 280px 1fr; }
-    @media (max-width: 960px){ .container{ grid-template-columns: 1fr; } }
-
-    /* TOC */
-    .toc {
-  position: fixed;
-  top: 24px;
-  right: 24px;
-  left: auto;
-  bottom: auto;
-  z-index: 9999; /* Đảm bảo nổi trên mọi nội dung */
-  max-width: 220px;
-  padding: 16px;
-  font-size: 15px;
-  background: #f8fafc;
-  border-radius: 16px;
-  box-shadow: 0 4px 24px rgba(0,0,0,0.12);
-  border: 1px solid #e5e7eb;
-}
-    .toc h2 {
-  font-size: 17px;
-  font-weight: bold;
-  margin-bottom: 8px;
-  color: #e11d48;
-}
-    .toc p {
-  font-size: 13px;
-  margin-bottom: 8px;
-  color: #6b7280;
-}
-    .toc a {
-  display: block;
-  padding: 8px 12px;
-  margin: 4px 0;
-  text-decoration: none;
-  color: #1f2937;
-  border-radius: 8px;
-  border: 1px dashed transparent;
-  font-size: 15px;
-  transition: background 0.2s, border-color 0.2s;
-}
-    .toc a:hover, .toc a.active {
-  background: #eef2ff;
-  border-color: #94a3b8;
-}
-
-    /* Article */
-    .article { background: var(--bg); }
-    .lead { font-size: 42px; line-height: 1.15; color: var(--brand); font-weight:800; margin: 0 0 16px 0; }
-    .kicker { color: var(--muted); font-size:14px; margin-bottom: 24px; }
-
-    section { padding: 16px 0 32px 0; border-bottom: 1px solid #e5e7eb; }
-    section:last-child{ border-bottom: none; }
-    section h2 { font-size: 32px; color: var(--brand); margin: 0 0 12px 0; }
-    section p { font-size: 18px; line-height: 1.8; margin: 10px 0; text-indent: 32px; /* Thụt vào đầu dòng đều hơn */ }
-
-    .backtop { display:inline-block; margin-top: 8px; font-size: 14px; color:#2563eb; text-decoration:none; }
-    .backtop:hover{ text-decoration: underline; }
-
-    /* Simple tabs for multiple chapters (optional) */
-    .chapters { display:flex; gap:10px; flex-wrap: wrap; margin: 8px 0 24px; }
-    .chapters a { padding: 8px 12px; border-radius: 999px; border:1px solid #e5e7eb; text-decoration:none; color:#111; }
-    .chapters a:hover { background:#f8fafc; }
-      /* hiệu ứng tuyết */
-  .snow {
-    position: fixed;
-    top: -10px;
-    color: white;
-    user-select: none;
-    font-size: 12px;
-    animation-name: fall;
-    animation-iteration-count: infinite;
-    animation-timing-function: linear;
-  }
-  @keyframes fall {
-    to { transform: translateY(110vh); }
-  }
-
-  /* container giữ rồng */
-  #orbit {
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    width: 500px;   /* đường bay rộng */
-    height: 300px;  /* đường bay cao */
-    margin-left: -250px;
-    margin-top: -150px;
-    border-radius: 50%;
-    animation: spin 20s linear infinite; /* rồng bay vòng vòng */
-  }
-  #dragon {
-    position: absolute;
-    top: -40px; /* đặt rồng ở trên quỹ đạo */
-    left: 50%;
-    transform: translateX(-50%);
-    font-size: 60px; /* to rõ */
-    filter: drop-shadow(0 0 10px lime);
-  }
-  @keyframes spin {
-    from { transform: rotate(0deg); }
-    to   { transform: rotate(360deg); }
-  }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Câu chuyện tổ trưởng</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Arial, sans-serif;
+            background: #111;
+            color: #222;
+            margin: 0;
+            padding: 0 10px;
+            line-height: 1.7;
+            overflow-x: hidden;
+        }
+        /* Hiệu ứng background động */
+        #bg-illusion {
+            position: fixed;
+            top: 0; left: 0; width: 100vw; height: 100vh;
+            z-index: 0;
+            pointer-events: none;
+        }
+        .container, .menu-btn {
+            position: relative;
+            z-index: 1;
+        }
+        .container {
+            max-width: 800px;
+            margin: 40px auto;
+            background: #fff;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.07);
+            padding: 32px 24px;
+        }
+        h1 {
+            text-align: center;
+            color: #d35400;
+            margin-bottom: 32px;
+        }
+        p {
+            margin: 16px 0;
+        }
+        .section-title {
+            color: #2980b9;
+            font-weight: bold;
+            margin-top: 32px;
+            margin-bottom: 12px;
+            font-size: 1.2em;
+        }
+        @media (max-width: 600px) {
+            .container { padding: 12px 4px; }
+        }
+    </style>
 </head>
 <body>
-  <!-- Đặt mục lục ở ngoài container -->
-  <aside class="toc">
-    <h2>Mục lục</h2>
-    <p>Bấm để nhảy tới mục</p>
-    <nav id="tocList" aria-label="Mục lục"></nav>
-  </aside>
-  <div class="container">
-     <!-- ======== NỘI DUNG BÀI VIẾT ======== -->
-    <main class="article">
-      <nav style="margin-bottom:16px;">
-  <a href="index.html">Bao Bọc</a> |
-  <a href="CHI%20TIẾT%20BAO%20BỌC.html">Chi tiết </a> |
-  <a href="Câu%20chuyện%20tổ%20trưởng.html">Câu chuyện tổ </a>
-
-   
-      
-  
-</nav>
-      
-      </div>
-      <h1 class="lead">BAO BỌC LIN FU</h1>
-<div style="text-align:center; margin-bottom:16px;">
-  <img src="img/profile-banner.jpg" alt="Logo Bao Bọc Lin Fu Đẹp Trai" style="max-width:160px; border-radius:16px;">
-</div>
-<div class="kicker">@NguoiTaiKhongDoanhThu</div>
-
-
-      <section id="hoi-uc">
-  <h2>Hồi ức</h2>
-  <p>Anh sinh ra trong một gia đình nông dân ở Bảo Lộc, xung quanh là những đồi chè, cà phê và làng nghề truyền thống</p>
-  <p>Cha mẹ lam lũ, dành dụm từng đồng để nuôi con ăn học</p>
-
-<p> Cơm khi đó thường độn khoai sắn gạo không đủ ăn, mẹ phải trộn thêm khoai lang, khoai mì hay bắp xay. Có bữa cơm chan canh, nhưng nhiều khi chỉ toàn lát khoai, củ sắn ăn xong vẫn còn đói cồn cào</p>
-<p>Thức ăn ít ỏi món mặn thường chỉ là cá khô kho mặn để ăn dần, hoặc vài quả trứng vịt chia cả nhà. Thỉnh thoảng mới có miếng thịt ba chỉ, thường để dành ngày giỗ hay Tết</p>
-  <p>Năm đó, gia đình vốn chỉ có 2 héc đất cà phê một héc đầu tiên, mẹ và họ hàng đành phải bán đi để giúp chú em trai của ba có tiền đi du học bên Mỹ</p>
-  <p>Chú học giỏi nhất nhà, lại giành được học bổng, cả đại gia đình đều đặt hy vọng vào chú sẽ đổi đời</p>
-  <p>Ngày bán đất, mẹ gạt nước mắt ký giấy, rồi nhìn chú xách chiếc vali cũ lên đường mà dặn đi dặn lại con đi học, phải ráng thành tài cái nghèo rồi sẽ qua, miễn là trong nhà có người vươn lên</p>
-  <p>Đó là quyết định đau nhưng cũng đầy tin tưởng cả gia đình chấp nhận bớt đi một phần tài sản để gieo hy vọng vào tương lai</p>
-  <p>Những năm đầu 1990, đời sống còn thiếu thốn, cơm thường độn khoai sắn, áo quần đi học thường được may lại từ vải cũ</p>
-  <p>Năm đó, gia đình có thêm một thành viên nhỏ em gái anh, Trần Thị Thanh Thảo, ra đời</p>
-  <p>Anh 6 tuổi, em gái mới tròn 1 tuổi, thì một biến cố lớn ập đến ba mất vì tai nạn lao động trong lúc đi làm thuê ngoài rẫy khi đó mẹ xoay sở bên ngoại bên nội không có tiền chạy chữa bán cả mảnh đất còn lại cả gia sản nhưng số phận nghiện ngã ba không qua khỏi mẹ phải tận mắt chứng kiến sự mất mát của ba anh</p>
-  <p>Sự ra đi quá đột ngột khiến cả nhà như sụp đổ tài sản không còn, cha mất, mẹ trở thành trụ cột duy nhất</p>
-  <p>Mẹ vừa làm cha, vừa làm mẹ, đi làm thuê khắp nơi, từ hái cà phê, làm cỏ đến gùi phân thuê cho người ta có hôm mẹ về muộn, mồ hôi đẫm áo, tay chai sần, nhưng vẫn cố gắng cười với hai con nhỏ</p>
-  <p>Từ đó, tuổi thơ anh và Thảo lớn lên trong cảnh vắng bóng cha, chỉ còn tình thương của mẹ</p>
-  <p>Mẹ vừa làm cha, vừa làm mẹ, sớm hôm lam lũ ngoài vườn cà phê, đồi chè để nuôi hai anh em</p>
-  <p>Anh hiểu mình là anh trai, là chỗ dựa của mẹ và em, nên dù chỉ mới 6 tuổi, trong lòng đã sớm nhen nhóm ý thức trách nhiệm</p>
-  <p>Anh nhớ hồi đó năm 1991, vừa tròn 6 tuổi, anh bắt đầu đi học lớp 1</p>
-  <p>Ngày khai giảng lớp 1 năm 1991, anh bước vào sân trường với cặp sách chỉ là chiếc túi vải mẹ khâu, bên trong vài quyển vở giấy vàng ố và cây bút máy bơm mực</p>
-  <p>Đường đi học phải băng qua những con dốc nhỏ, sáng sớm thường phủ sương</p>
-  <p>Mùa mưa chân đất lấm lem đỏ au quần xắn cao nhiều khi té ngã ướt hết sách vở hihi</p>
-  <p>Hồi đó anh thích nhất là những buổi trưa tan học được rủ bạn bè ra đồi che chơi trốn tìm hay lấy quả cà phê chín ném nhau</p>
-  <p>Trò chơi ngày xưa rất giản dị bắn bi thả diều bằng giấy báo chơi ô ăn quan trên nền đất</p>
-  <p>Môi lần được mẹ cho vài đồng mua kem đá ở cổng trường là niềm vui ngây ngất</p>
-  <p>Anh còn nhớ vào lúc lớp 3 trường phát động phong trào kế hoach nhỏ học sinh gom giấy vụn và lon bia cux để gây quỹ , anh khi ấy hí hửng chay quanh khắp trường xóm xin giấy mang đến trường được cô giáo khen hihi</p>
-  <p>Anh khi anh 11 tuổi là năm 1996 anh thi dỗ vào trường cấp 2 nằm trong thành phố Bảo Lộc trường lại khang trang hơn trường tiểu học có cổng sắt có sân bóng chuyền , bóng đá với lại thầy cô cũng gắt hơn nhiều</p>
-  <p>Khi ấy anh nhớ vào đầu vào lớp 6 cái cảm giác vừa háo hức vừa hồi hộp sách giáo khoa mới bạn bè mới nhưng còn vụng về trẻ con hi</p>
-  <p>Trong lớp anh nhanh chóng có nhóm bạn thân 3-4 người thường cùng nhau đi ăn quà vặt sau giờ tan trường banh trang nướng mia ghim ly trà đát 500 đồng</p>
-  <p>Chiều về cả nhóm rủ nhau đá banh ở sân đất đỏ hoặc bơi ở con suối nhỏ gần đồi chè hihi quần áo rách chân tay trầy xước nhưng đó là tuổi thơ sôi nổi và đáng nhớ haha</p>
-  <p>Anh học thì khá môn Toán nhưng anh lại thích môn Văn hihi mà anh thích nghe thầy kể chuyện Lý Thường Kiệt Và Trần Hưng Đạo</p>
-  <p>Anh nhớ vào khi năm 1999 anh thi đỗ vào trường cấp 3</p>
-  <p>Ngày đầu đi học sân trường có dãy lớp mái ngói cũ có hàng phượng đỏ rợp bóng </p>
-  <p>Khi đấy anh cảm thấy mình đã lớn hẳn không còn là một cậu trẻ con như ngày trước nữa rồi</p>
-  <a class="backtop" href="#top">⬆ Lên đầu trang</a>
-</section>
-
-      <section id="moi-tinh-dau">
-        <h2>Mối tình đầu</h2>
-        <p>Anh còn nhớ trong lớp có một cô bạn học giỏi Văn, dịu dàng, hay mặc áo dài trắng mỗi thứ hai
- 
-<p>Những buổi học nhóm, bạn ngồi bên cạnh, lén nhìn nét chữ nắn nót, và mỗi lần cô ấy cười là tim anh lại đập loạn nhịp cả</p>
- 
-<p>Một lần lớp đi dã ngoại, anh đã lén viết mẩu giấy nhỏ chúc cậu thi học kỳ tốt nhé đó là tình thư đầu tiên ngây ngô, vụng dại nhưng cả đời này anh sẽ không bao giờ quên</p>
- 
-<p>Dù chưa một lần đủ dũng khí thổ lộ thành lời, nhưng đó chính là mối tình đầu trong sáng, gắn với tiếng ve, sắc phượng đỏ và sân trường cấp ba mờ sương buổi sớm</p>
- 
-<p>Rồi khi tốt nghiệp, mỗi người lại chọn một con đường riêng cô ấy tiếp tục theo đuổi giảng đường, còn anh thì rẽ sang đời đi làm sớm</p>
- 
-<p>Những bận rộn, lo toan và khoảng cách dần kéo hai người xa nhau</p>
- 
-<p>Đến ngày chia tay cuối cùng ở sân trường, tiếng trống vang lên như lời tạm biệt cho một thời mơ mộng</p>
- 
-<p>Không phải vì hết thương, cũng chẳng vì điều gì khúc mắc, mà chỉ đơn giản là chúng ta không còn đi chung một lối</p>
- 
-<p>Mối tình đầu khép lại lặng lẽ, để lại trong anh một khoảng trời kỷ niệm vừa ngọt ngào, vừa day dứt như tiếng ve và sắc phượng mãi đỏ rực trong ký ức tuổi học trò</p>
- 
-</p>
-        <a class="backtop" href="#top">⬆ Lên đầu trang</a>
-      </section>
-
-      <section id="di-lam-lan-dau">
-        <h2>Đi làm lần đầu</h2>
-        <p>Cuối năm kỳ thi tốt nghiệp 2002 anh cùng bạn bè cắm đầu học ngày đêm có hôm học khuya dưới ánh đèn dầu vì điện chập chờn khi cầm tấm bằng tốt nghiệp cấp 3 niềm vui xen lẫn lo âu một chặng đường khép lại tương lai vẫn mờ mịt</p>
- 
-<p>Tốt nghiệp xong nhiều bạn bè cùng lớp khăn gói đi Đà Lạt Sài Gòn học đại học riêng anh chỉ có một mình mẹ không đủ tiền chu cấp nhà còn nợ mấy vụ mùa cà phê thất bát nên anh không được đi cùng các bạn</p>
- 
-<p>Đêm trước ngày bạn bè nhập học anh ngồi một mình bên hiên nhà nghe tiếng côn trùng rả rích mắt cay xè ước mơ đại học khép lại thay vào đó là trách nhiệm phụ giúp gia đình</p>
- 
-<p>Xong rồi anh xin vào phụ việc ở một quán ăn nhỏ trong vùng</p>
-
-<p>Công việc cũng chẳng nhẹ nhàng: dọn bàn, rửa chén, bưng bê, quét dọn… ca làm kéo dài từ sáng sớm đến tận khuya</p>
-
-<p>Người ta ăn xong mới được dọn, có khi nửa đêm mới xong việc</p>
- 
-<p>Có hôm quán đông khách, anh chạy tới chạy lui, mồ hôi nhễ nhại, tay chân mỏi rã rời</p>
-
-<p>Nhưng nhờ vậy mà anh quen dần với cường độ làm việc, học cách nhanh nhẹn, khéo léo hơn trong giao tiếp</p>
- 
-<p>Tiền công ban đầu chỉ có 25 nghìn đồng một ngày một tháng chỉ được 650 nghìn 1 tháng làm được 26 ngày còn những ngày nghỉ anh ở nhà đi phụ việc cùng mẹ, nhưng nhớ mãi ngày đầu tiên được nhận lương vài đồng trong tay</p>
- 
-<p>Anh vui mừng khôn tả</p>
-
-<p>Cầm những đồng tiền do chính mồ hôi công sức mình làm ra, anh chỉ muốn mang ngay về đưa cho mẹ</p>
- 
-<p>Cái tuổi 18–20, người khác tung tăng áo trắng giảng đường, thì anh đã thành lao động thực thụ</p>
-
-<p>Cuộc sống vất vả dạy anh biết quý trọng từng đồng tiền kiếm được, hiểu rằng chỉ có lao động, chỉ có làm thì mới có ăn</p>
- 
-<p>Tuy học không cao, nhưng anh vẫn giữ ước mơ</p>
-
-<p>Mỗi khi đi ngang qua trường, nhìn sinh viên áo trắng, anh lại tự nhủ mình không được đi học, nhưng mình sẽ học nghề, học đời, đến nơi đến chốn</p>
-
-<p>Một ngày nào đó, mình cũng sẽ có chỗ đứng</p>
-
-
-        <a class="backtop" href="#top">⬆ Lên đầu trang</a>
-      </section>
-
-      <section id="khoi-nghiep-lan-dau-that-bai">
-        <h2>Khởi nghiệp lần đầu thất bại</h2>
-        <p> khoảng năm 2006, sau vài năm đi làm, anh cũng tích lũy được chút kinh nghiệm và ít vốn liếng</p>
- 
-<p>Cộng thêm vay mượn từ người quen, anh cùng một người bạn quyết định hùn vốn mở một tiệm phở nhỏ rồi dần mở rộng ngay trong thị trấn</p>
- 
-<p>Ban đầu, khách chủ yếu là bà con trong vùng</p>
- 
-<p>Quán tuy đơn sơ nhưng món ăn ngon, giá cả phải chăng, khách đến cũng đông</p>
- 
-<p>Anh tin rằng chỉ cần chăm chỉ, quán sẽ ngày càng phát triển</p>
- 
-<p>Nhưng rồi sóng gió ập đến</p>
- 
-<p>Người bạn chung vốn của anh ham cờ bạc</p>
-
-<p>Trong lúc anh vắng mặt mấy ngày đi công việc xa, bạn ấy đã đem bán dần đồ đạc, lấy tiền chơi bài. Khi anh trở về thì quán gần như chẳng còn gì, nợ nần đã chất đống</p>
- 
-<p>Anh vừa lo gom góp tiền để trả nợ, vừa phải đối diện với sự thật cay đắng giấc mơ lập nghiệp đầu tiên tan vỡ</p>
- <p>Khi đó tính tổng số nợ tất cả chi phí là hơn 100 triệu khi đó 100 triệu thật là nhiều </p>
-<p>Cuối cùng, anh đành buông tay, trả lại mặt bằng cho chủ đất</p>
- 
-<p>Ngày dọn quán, nhìn bếp nướng còn sót lại, trong lòng anh nặng trĩu</p>
- 
-<p>Mới chỉ bắt đầu, ước mơ đã vỡ vụn</p>
- 
-<p>Ba mẹ an ủi thất bại không sao, miễn còn sức khỏe thì còn làm lại được</p>
- 
-<p>Nhưng trong lòng anh vẫn day dứt, thấy mình chưa làm tròn kỳ vọng</p>
- 
-<p>Em gái mới 19 tuổi khi ấy đã nắm tay anh anh hai, đừng buồn</p>
- 
-<p>Có thất bại thì mới trưởng thành sau này em sẽ phụ anh bán hàng em tin anh làm được</p>
-
-<p>Từ cú ngã ấy, anh nghiệm ra chỉ có đam mê và chăm chỉ thôi chưa đủ</p>
- 
-<p>Muốn làm ăn phải biết quản lý vốn, biết chọn bạn đồng hành, và phải tính toán kỹ từng đồng tiền</p>
- 
-
-        <a class="backtop" href="#top">⬆ Lên đầu trang</a>
-      </section>
-
-      <section id="bo-que-nha-tra-no">
-        <h2>Bỏ quê nhà đi làm trả nợ</h2>
-        <p>Thất bại ở Bảo Lộc, nợ nần đè nặng, vốn liếng mất sạch, năm 2009 anh quyết định rời quê</p>
- 
-<p>Hành trang chỉ vỏn vẹn vài bộ quần áo, chiếc ba lô cũ và ý chí phải đi làm trả nợ, rồi mới nghĩ đến tương lai</p>
- 
-<p>Anh lên chuyến xe khách đêm, một mình lầm lũi vào Sài Gòn</p>
- 
-<p>Khi xe dừng ở bến Miền Đông, anh bước xuống giữa dòng người xa lạ, trong túi chỉ còn ít tiền lẻ</p>
- 
-<p>Những ngày đầu, anh không nơi nương tựa, lang thang quanh bến xe, tìm ai thuê gì làm nấy</p>
- 
-<p>Có hôm anh bốc vác thuê cho những chiếc xe tải cần người, khiêng từng bao hàng nặng trĩu, vai bầm dập, tay rướm máu, mồ hôi ướt đẫm áo công việc nặng nhọc nhưng tiền công chỉ đủ ăn cơm bụi qua ngày đêm về, anh nằm co ro trên chiếc chiếu cũ trong phòng trọ tạm bợ, vừa mệt vừa lo, nhưng vẫn tự nhủ còn thở là còn gỡ</p>
- 
-<p>May mắn thay, một ngày nọ, có người chủ hàng thấy anh thật thà, chịu khó, đã giới thiệu anh vào làm ở một xưởng gỗ tại quận 12 công việc chính là khuân vác gỗ, cưa, bào, phun sơn… Khi vào xưởng anh gặp một người chủ tốt bụng vừa là chủ vừa như một người thầy </p>
- <p>Trong khi nhiều người chỉ làm công ăn lương thì ông lại tạo điều kiện cho anh vừa học vừa làm </p>
- <p>Ban ngày quần quật khuân gỗ bào phun sơn buổi tối ông kiên nhẫn chỉ cho anh cách chọn gỗ đo đồ đạc làm mộng chính từ đó anh dần bén duyên và gắn bó với nghề mộc</p>
-<p>Khó khăn là vậy, nhưng ngày nhận đồng lương đầu tiên, chỉ vỏn vẹn trăm nghìn ngót nghét 1 triệu 200 nghìn, anh xúc động đến rưng rưng lần đầu tiên ở đất Sài Gòn, anh tự tay làm ra đồng tiền mồ hôi nước mắt, cầm chắc trong tay mà vui đến khó tả</p>
- 
-<p>Sang ngày hôm sau nhân lương anh cầm tiền trong tay ra bưu điện gửi về quê mấy hôm sau mẹ gọi điện giọng nghèn nghẹn</p>
- 
-<p>Con à cực thì cực nhưng phải giữ sức khỏe mẹ cầm được tiền con gửi mà rơi nước mắt nợ thì rồi sẽ trả được nhưng sức khỏe mất thì không lấy lại được đâu con đừng nhin ăn nhịn mặc quá cũng phải lo cho bản thân</p>
- 
-<p>Em gái Thảo lúc đó cũng cầm máy giọng trong trẻo mà kiên quyết anh hai em biết anh rất vất vả nhưng đừng gồng quá anh là chỗ dựa của cả nhà em tin anh làm được sau này anh mở quán mở xưởng gì thì cho em phụ bán hàng em sẽ luôn bên anh</p>
- 
-<p>Nghe mẹ dặn nghe em động viên mắt anh cay xè tiền lương tuy ít ỏi nhưng nó là mồ hôi công sức là bước khởi đầu để anh gánh lại trách nhiệm</p>
- 
-<p>Ở trọ trong căn phòng nóng nực chật chội, đêm nào anh cũng mở sổ ghi chép lại những gì học được trong ngày cách lựa gỗ, cách sắp xếp công việc, cách quản lý xưởng</p>
- 
-<p>Anh tin rằng, dù không được học trường lớp, nhưng học từ thực tế thì cũng sẽ thành nghề</p>
- 
-<p>Suốt 5 năm, anh sống kham khổ, gần như không tiêu xài cho bản thân. Tết đến, anh vẫn về quê, dẫu chẳng có quà cáp gì, nhưng mang theo chút tiền dành dụm, trao tận tay cha mẹ để trả dần những món nợ còn chất chồng ở Bảo Lộc</p>
- 
-<p>Đó là quãng đời khắc nghiệt, nhưng cũng chính là khoảng thời gian hun đúc cho anh bản lĩnh</p>
- 
-<p>Từ một kẻ thất bại trắng tay, anh học được sự kiên nhẫn, quý trọng giá trị đồng tiền, và nuôi lại niềm tin rằng có làm thì mới có ăn, còn đứng dậy thì sẽ còn cơ hội</p>
- 
-
-        <a class="backtop" href="#top">⬆ Lên đầu trang</a>
-      </section>
-
-      <section id="gap-vo-gay-dung-su-nghiep">
-        <h2>Gặp vợ và gây dựng lại sự nghiệp</h2>
-        <p>Rồi vào chính khoảng thời gian này , năm 2013 anh quen một người bạn tên Mai một cô gái gốc Lâm Đồng, đồng hương với anh, làm kế toán cho cửa hàng vật liệu xây dựng. Mai hiền lành, hiểu chuyện, thương anh ở sự thật thà và nghị lực sau những thất bại</p>
- 
-<p>Những ngày đầu quen nhau, cả hai thường ngồi nói chuyện bên hiên quán nhỏ Mai lắng nghe anh kể về những lần vấp ngã, về món nợ còn chưa trả hết, rồi nhẹ nhàng đáp</p>
- 
-<p>Anh đừng lo, có em bên cạnh, chúng ta sẽ cùng nhau gánh vác một ngày nào đó, anh sẽ dựng lại được sự nghiệp của mình</p>
- 
-<p>Chính sự đồng cảm và tin tưởng ấy đã khiến hai người xích lại gần nhau</p>
- 
-<p>Tình yêu của anh và Mai không ồn ào, không hoa mỹ, mà là những lời hứa hẹn chân thành</p>
- 
-<p>Sau này mình sẽ về quê, cùng nhau mở lại xưởng anh lo sản xuất, em lo sổ sách, khách hàng hai vợ chồng cùng nhau dựng lại từ đầu, có khó cũng không sợ</p>
- 
-<p>Năm 2015, anh và Mai nên vợ chồng sau đám cưới giản dị nhưng ấm áp, hai người quyết định về Bảo Lộc bắt đầu lại</p>
- 
-
-
-<p>Vốn liếng không nhiều, nhưng lần này anh có kinh nghiệm quản lý từ Sài Gòn và có người vợ đồng hành lo toan sổ sách, khách hàng</p>
- 
-<p>Thảo em gái anh cũng rất thân thiết với chị dâu khi rảnh, Thảo phụ chị ghi chép sổ sách nên vợ anh cũng đỡ vất vả nhường nào</p>
- 
- 
-<p>ng mộc nhỏ dựng ngay sau nhà, chuyên làm bàn ghế, tủ bếp, giường ngủ cho bà con quanh vùng nhờ sản phẩm chắc chắn, giá cả hợp lý, uy tín dần được gây dựng, khách ngày một đông</p>
- 
-<p>Từ vài thợ ban đầu, chỉ trong vài năm 2016–2019, xưởng phát triển thành cả chục thợ</p>
- 
-<p>Cuộc sống gia đình cũng rạng rỡ giữa năm 2016 Mai có bầu, rồi năm sau hạ sinh một bé trai kháu khỉnh căn nhà ấm áp, buổi tối sau một ngày làm việc, hai vợ chồng ngồi uống trà nhìn con chơi đùa đó là khoảng thời gian hạnh phúc nhất trong đời anh</p>
- 
-<p>Khi đó cuộc sống khấm khá hơn vợ chồng anh có ngồi lại với nhau bàn tính chuyện tương lai</p>
- 
-<p>Vợ anh bảo mình phải lo xa tích góp rồi mua đất đất không sinh thêm giữ được đất là giữ được tương lai con cái</p>
- 
-<p>Rồi đồng vợ đồng chồng năm 2016 hai vợ chồng mua được mảnh đất đầu tiên ở ngoại ô Bảo Lộc rồi năm 2017 năm 2018 và đầu năm 2019 mỗi năm lại dành dụm mua thêm một mảnh</p>
-
-<p>Nhưng rồi tai họa ập đến sau này, Thảo chính là người thường xuyên ở cạnh cha mẹ, lo cho cháu trai, động viên anh</p>
-
-<p>Anh hai em biết chị đi rồi anh đau khổ lắm nhưng anh còn có con có em và cả nhà nữa nên anh không được bỏ cuộc </</p>
-
-        <a class="backtop" href="#top">⬆ Lên đầu trang</a>
-      </section>
-
-      <section id="su-co-vo-mat">
-        <h2>Sự cố vợ mất</h2>
-        <p>Ngày 22/06/2019, anh đang ngồi chờ ở sân bay Tân Sơn Nhất, chuẩn bị về Liên Khương</p>
-
-<p>Khi anh về tới sân bay Liên Khương </p>
-
-<p>Anh nhấc điện thoại lên thấy vợ anh gọi cho anh mấy cuộc liên tục trong lúc đó vợ anh cũng đang gọi cho anh nên anh nghe để báo cho vợ anh đã về tới sân bay Liên Khương </p>
-
-<p>Mai nói anh ơi em đang lái xe ra đón anh đây con ở nhà em đã gửi cho em Thảo rồi </p>
-
-<p><p>Anh thấy trong video thấy vợ anh vừa lái xe vừa cười nhìn điện thoại cho nên anh lo lắng anh đã nói vợ tắt video đi tập trung lái đường đông lắm nguy hiểm lắm </p>
-
-<p>Nhưng vợ anh nũng nĩu lâu rồi chưa được nhìn anh cho em nhìn một chút thôi sắp đến nơi rồi mà </p>
-
-<p>Anh cũng nhẹ lòng cho nên cũng không nói gì để tiếp tục nói chuyện nghĩ chỉ vài phút sẽ không sao </p>
-
-<p>Đột nhiên màn hình rung lắc dữ dội tiếng còi xe ngoài đường chói tai anh thấy khuôn mặt vợ hoảng loạn miệng hét thất thanh Aaa kéo dài </p>
-
-<p>Một tiếng rầm kinh hoàng vang lên như cả thế giới nổ tung điện thoại rơi xuống ống kinh xoay ngang rung lắc trong vài giây ngắn anh nhìn thấy gương mặt vợ anh máu từ trán chảy xuống đổ thẫm đôi mắt mở to nhưng vô hồn </p>
-
-<p>Góc máy lia xuống bàn tay vợ run rẩy máu tuôn từ cổ tay đỏ loang cả vô lăng </p>
-
-<p>Tiếng của xung quanh người la hét hỗn loạn ngoài đường </p>
-
-<p>Anh gào vào điện thoại Mai ơi em sao rồi trả lời anh đi đừng dọa anh như thế này...!</p>
-
-<p>Không có tiếng trả lời chỉ còn tiếng còi xe, tiếng người hô hoán, và tiếng tim anh đập loạn trong lồng ngực </p>
-
-<p>Sau cú điện thoại rơi vào im lặng, anh như phát điên</p>
-
-<p>Anh chạy vội ra ngoài, bắt đại một chiếc taxi, giọng lạc đi</p>
-
-<p>Anh ơi làm ơn chở tối tới quốc lộ đoạn Liên Khương ngay đó nhanh hết sức có thể vợ tôi đang bị tai nạn rất nghiêm trọng </p>
-
-<p>Trên đường đi tim anh đập loạn cả lên đầu óc ong ong tay run rẩy lẩy bẩy </p>
-
-<p>Anh gọi điện liên tục nhưng không ai nhấc máy mỗi lần màn hình không kết nối được lòng anh càng như thắt lại </p>
-
-<p>Khi đến hiện trường trước mắt anh là cảnh tưởng hỗn loạn </p>
-
-<p>Chiếc xe hơi của vợ anh méo mó biến dạng gần như không nhận ra </p>
-
-<p>Kính vỡ tung tóe khắp mặt đường mùi xăng và khói bốc lên khét lẹt </p>
-
-<p>Một số người dân đứng vòng quanh vài người đang cố kéo cửa xe ra </p>
-
-<p>Anh lao tới vừa gọi thất thanh Mai ơi em đâu rồi anh về với em rồi đây !</p>
-
-<p>Một chiến sỹ CSGT chặn lại nói gấp gáp anh bình tĩnh vợ anh đã được đưa lên xe cấp cứu chở vào bệnh viện rồi anh đi theo ngay đi </p>
-
-<p>Trong bệnh viện – Hy vọng mong manh</p>
-
-<p>Anh theo xe cấp cứu lao thẳng vào bệnh viên suốt quãng đường anh cố nhìn cửa kính nhưng chỉ thấy bóng dáng vợ nằm bất động máu thấm đẫm băng trắng quấn quanh đầu :(</p>
-
-<p>Đến nơi bác sĩ vội đưa vợ anh vào phòng cấp cứu cánh cửa đóng sập lại để anh đứng ngoài hai chân run rẩy </p>
-
-<p>Anh quỵ xuống ghế hai tay chắp vào nhau miệng lẩm nhẩm cầu nguyện trời ơi xin cho vợ con qua khỏi con sai rồi con không nên gọi video chỉ cần cô ấy sống con sẽ gánh hết con sẽ lo hết </p>
-
-<p>Mồ hôi lạnh chảy ướt áo tim đập thình thịch anh như mất cảm giác về thời gian</p>
-
-<p>Một lúc sau bác sĩ bước ra anh lao tới nắm chặt tay bác sĩ vợ tôi sao rồi bác sĩ </p>
-
-<p>Bác sĩ cúi mặt chúng tôi đã cố gắng hết sức xin chia buồn với anh </p>
-
-<p>Nghe câu nói ấy, cả thế giới trước mắt anh như sụp đổ anh choáng váng, ngã quỵ xuống sàn lạnh hai dòng nước mắt tuôn xối xả</p>
-
-<p>Khi y tá đẩy băng ca ra, trên đó là vợ anh phủ tấm vải trắng, anh lao đến, gạt phăng tấm vải, ôm chầm lấy thân thể lạnh ngắt mai ơi, dậy đi! Anh về rồi đây, em nhìn anh đi… Đừng bỏ anh mà…</p>
-
-<p>Tiếng gào xé lòng của anh vang khắp hành lang bệnh viện. Những người xung quanh không cầm được nước mắt</p>
-
-<p>Anh gục ngã ngoài hành lang hai tay và thân thể buông suôi tất cả một chú CSGT tới gần đặt tay lên vai anh </p>
-
-<p>Anh bình tĩnh lại tụi tôi có trích xuất camera hiện trường anh cần chuẩn bị tinh thần </p>
-
-<p>Anh gật đâu anh rưng rưng nước mắt anh không thể nào mà không để nước mắt ngừng rơi được </p>
-
-Trên màn hình nhỏ của chiêc máy tính bảng cảnh tượng hiện ra </p>
-
-<p>Chiếc xe của vợ anh lao nhanh tới ngã tư đèn đỏ đã bật dòng xe phía trước dừng lại nhưng xe của vợ anh vẫn chạy thẳng trong khoảnh khắc cuối cùng có thể thấy Mai nghiêng đầu mắt vẫn dán vào màn hình điện thoại nụ cười chưa kịp tắt </p>
-
-<p>Ngày giây sau một chiếc container từ hướng khác lao tới với tốc độ lớn cú và chạm khủng khiếp rầm xe vợ anh bị hất văng biến dạng toàn bộ phần đầu kính vỡ tung tóe khói bốc lên mù mịt </p>
-
-Anh như chết lặng, toàn thân tê dại</p>
-
-<p>Hình ảnh ấy như một nhát dao cứa sâu thêm vào tim chính anh đã gọi video chính anh đã khuyên dừng mà vợ vẫn cố để rồi tất cả kết thúc trong một giây </p>
-
-<p>Tại sao khi ấy anh không nghiêm khắc tại sao anh lại nhẹ lòng như vậy thế nên chính anh chính anh là người gián tiếp dẫn đến sự mất mát của vợ anh </p>
-
-Giá như hôm đó mình cứng rắn hơn, bắt cô ấy tắt máy… thì đã không có thảm kịch này</p>
-
-
-<p>Khoảnh khắc ấy, hình ảnh khuôn mặt vợ bê bết máu và tiếng hét thất thanh ghim chặt vào dây thần kinh của anh</p>
-
-Đêm nào nhắm mắt, cảnh tượng ấy cũng hiện về rõ mồn một</p>
-
-<p>Tai anh vẫn vang vọng tiếng va chạm khủng khiếp, tiếng khóc xé lòng </p>
-
-<p>Bàn tay run lên mỗi khi vô tình nhìn thấy một màn hình điện thoại tối sầm</p>
-
-<p>Gương mặt vợ rạng rỡ trên màn hình điện thoại, nụ cười hạnh phúc và khoảnh khắc chỉ vài giây sau, khuôn mặt ấy bê bết máu, thân thể bất động sau cú va chạm</p>
-
-<p>Giá như hôm đó anh kiên quyết hơn… giá như anh ép em tắt máy…</p>
-
-<p>Nhưng tất cả đã quá muộn</p>
-
-<p>Những ngày chìm trong men rượu</p>
-
-<p>Sau đám tang vợ, căn nhà vốn đầy ắp tiếng cười giờ chỉ còn khoảng trống lạnh lẽo anh gửi con trai về ở với ông bà nội để tiện chăm sóc, còn mình thì tự nhốt trong phòng</p>
-
-<p>Ngày nào anh cũng uống rượu, uống đến say mềm rồi gục xuống nền nhà</p>
-
-<p>CÓ hôm nửa đêm anh ôm chai rượu ra mộ vợ ngồi nói chuyện như thể cô vẫn còn bên cạnh Mai ơi em dậy đi anh về rồi đây đừng bỏ anh với con ở lại mà sao em không đưa anh đi  cùng</p>
-
-<p>Khi đấy người thân có khuyến như nào anh cũng không có nghe </p>
-
-<p>Ngày nối ngày, anh không còn quan tâm công việc, công ty giao hết cho phó giám đốc</p>
-
-<p>Đơn hàng thưa dần, uy tín tụt dốc, anh chẳng buồn ngó ngàng</p>
-
-<p>Mỗi khi chuông điện thoại reo, anh lại run lên, tim thắt nghẹn, mồ hôi vã ra như vừa bước vào cơn ác mộng</p>
-
-<p>Trong đầu lại hiện lên gương mặt vợ đầy máu và tiếng hét thất thanh</p>
-
-<p>Anh mất ngủ triền miên, ban ngày vật vờ, ban đêm chỉ mong rượu làm mình quên</p>
-
-<p>Bác sĩ sau này chẩn đoán anh bị rối loạn stress sau sang chấn nhưng thời điểm đó anh không buồn đi khám, chỉ mặc kệ bản thân rơi vào hố sâu tuyệt vọng</p>
-
-<p>Một buổi chiều, chú anh tìm đến thấy anh bơ phờ, tóc rối bù, mắt đỏ ngầu, trước bàn thờ vợ chất đầy vỏ chai rượu, chú tức giận lao tới, tát thẳng vào mặt anh một cái</p>
-
-<p>Cháu tỉnh lại đi người chết không sống lại được, còn cháu thì sao? </p>
-
-<p>Cháu còn con, còn cha mẹ, còn cả gia đình này nữa cháu định để tất cả họ chết theo cháu à?</p>
-
-<p>Nói rồi, chú bế thằng bé con trai anh, mới hơn hai tuổi, đặt ngay trước mặt</p>
-
-<p>Đứa bé ngơ ngác, đôi mắt to tròn nhìn ba, rồi gọi yếu ớt ba ơiii</p>
-
-<p>Tiếng gọi ấy như nhát dao cứa vào tim, nhưng cũng như bàn tay kéo anh từ vực thẳm</p>
-
-<p>Anh òa khóc rồi kéo ôm con trai anh vào lòng xin lỗi con từ nay ba không gục ngã nữa </p>
-
-<p>Từ hôm đó, anh bỏ dần rượu, tìm đến bác sĩ để trị liệu tâm lý</p>
-
-<p>Mỗi khi cơn ám ảnh ập tới, anh lại nghĩ đến con trai giọt máu còn lại của vợ, và là lý do để anh tiếp tục sống</p>
-
-<p>Anh bắt đầu quay lại công việc, dẫu còn chậm chạp</p>
-
-<p>Công ty vẫn ngổn ngang khó khăn, nhưng anh đã có một điểm tựa đó là trách nhiệm làm cha, làm trụ cột của gia đình</p>
-
-
-        <a class="backtop" href="#top">⬆ Lên đầu trang</a>
-      </section>
-
-      <section id="gap-nguoi-an-nhan-la-chu">
-        <h2>Gặp người ân nhân là chú</h2>
-        <p><p>Rồi anh bắt đầu với công việc sau khi ổn định công việc được một thời gian</p>
- 
-<p>Giữa năm 2020 dịch Covid-19 bùng phát mạnh chỉ thị giãn cách khiến mọi hoạt động công ty tê liệt, hàng hóa không thể xuất đi, tồn kho chất đống, chi phí thuê kho bãi và bồi thường hợp đồng ngày càng lớn</p>
- 
-<p>Tiền lãi ngân hàng dồn lên đầu, anh phải bán chiếc xe kỷ niệm hai vợ chồng mua năm 2016 và thế chấp cả nhà của bố mẹ để có tiền trả lương công nhân</p>
- 
-<p>Đến giữa năm 2021, anh gần như trắng tay, công ty không còn khả năng duy trì</p>
- 
- <p>Anh buộc phải tìm đến chú để vay 1,5 tỷ đồng chú là em trai của ba khi ấy cả đại gia đình bỏ gia sản để cho chú đi du học Mỹ lúc ấy chú khuyên</p>
- 
-<p>Kinh tế khó khăn thế này, sao cháu không thử đầu tư giống chú? Ngồi ôm công ty kiểu này chỉ thêm gánh nặng thôi</p>
- 
-<p>Vốn là người làm ăn truyền thống, anh thẳng thắn từ chối cháu chỉ tin vào mồ hôi công sức và tiền thật việc thật</p>
- 
- <p>Chuyện đầu tư trên internet, nhất là tiền ảo, cháu không tin và chưa bao giờ dám thử</p>
- 
-<p>Nhưng rồi dịch bệnh kéo dài mãi, sau Tết 2022, số tiền vay lần đầu đã cạn, công ty không thể trụ được nữa</p>
- 
-<p>Anh lại tìm đến chú, lần này vay 100.000 USD. Chú nghiêm giọng</p>
- 
-<p>Chú giúp thêm lần này nữa, nhưng cháu phải thay đổi suy nghĩ. Không thể cứ cố chấp mãi được nhìn chú đầu tư Bitcoin đi, chú mới có thể xoay sở mà hỗ trợ cháu đấy</p>
- 
-<p>Ban đầu, anh vẫn kiên quyết từ chối vì cho rằng đó chỉ là trò ảo</p>
- 
-<p>Nhưng càng nghĩ càng thấy nếu tiếp tục cố chấp, mọi thứ cũng sẽ sụp đổ, nợ thêm chồng chất</p>
- 
-<p>Anh quyết định dành 50.000 USD để trả lương nhân viên và chi phí mặt bằng, còn số tiền còn lại nghe theo lời chú, bắt đầu học cách đầu tư Bitcoin</p>
- 
-<p>Lần đầu thao tác, anh thấy mọi thứ khá đơn giản. Nhờ chú tận tình hướng dẫn, anh bắt đầu kiếm được chút lợi nhuận ngắn hạn</p>
- 
-<p>Điều này thắp lại trong anh một tia hy vọng</p>
- 
-<p>Đến tháng 5/2023, khi đại dịch Covid chính thức kết thúc, nhờ khoản lợi nhuận từ đầu tư Bitcoin, anh đã trả hết nợ nần, rồi tái lập công ty</p>
- 
-<p>Từ đó, công việc dần ổn định trở lại, đánh dấu bước ngoặt lớn trong cuộc đời anh</p>
- 
-<p>Nhờ những kinh nghiệm rút ra từ khủng hoảng, cùng sự hỗ trợ và kiến thức đầu tư mà chú đã truyền lại, công ty từng bước ổn định, khách hàng quay trở lại, đơn hàng tăng dần</p>
- 
-<p>Đến năm 2024, anh bắt đầu có dư một khoản tích lũy</p>
- 
-<p>Lần này, anh không tiêu xài phung phí, mà tiếp tục theo lời vợ khi xưa đất không sinh thêm, giữ đất là giữ tương lai</p>
- 
-<p>Chỉ trong một năm, anh đã mua lại được vài mảnh đất mới, không lớn như trước, nhưng đủ để anh cảm thấy an tâm</p>
- 
-<p>Với anh, đó không chỉ là tài sản, mà còn là cách để giữ trọn lời hứa với vợ tiếp tục xây dựng một nền tảng vững chắc cho con trai sau này</p>
- 
- 
-<p>Anh thường đứng lặng giữa mảnh đất mới mua, nhìn lên bầu trời mà khẽ nói Mai à anh đã giữ lời dù em không còn anh vẫn gánh vác vẫn sẽ dựng lại ước mơ của chúng ta</p>
-        <a class="backtop" href="#top">⬆ Lên đầu trang</a>
-      </section>
-      
-
-      <!-- Thêm nhiều section khác tùy ý -->
-    </main>
-  </div>
-
-  <!-- Menu 3 chấm nổi góc phải -->
-<div id="menuDropdown" style="position:fixed;top:24px;right:24px;z-index:10000;">
-  <button id="menuBtn" style="background:#fff;border-radius:50%;width:44px;height:44px;border:1px solid #e5e7eb;box-shadow:0 2px 8px rgba(0,0,0,0.08);font-size:28px;cursor:pointer;">⋮</button>
-  <div id="menuList" style="display:none;position:absolute;top:54px;right:0;background:#fff;border-radius:12px;box-shadow:0 4px 24px rgba(0,0,0,0.12);border:1px solid #e5e7eb;min-width:180px;">
-    <a href="#hoi-uc" style="display:block;padding:12px 20px;text-decoration:none;color:#111;">Hồi ức</a>
-    <a href="#moi-tinh-dau" style="display:block;padding:12px 20px;text-decoration:none;color:#111;">Mối tình đầu</a>
-    <a href="#di-lam-lan-dau" style="display:block;padding:12px 20px;text-decoration:none;color:#111;">Đi làm lần đầu</a>
-    <a href="#khoi-nghiep-lan-dau-that-bai" style="display:block;padding:12px 20px;text-decoration:none;color:#111;">Khởi nghiệp lần đầu thất bại</a>
-    <a href="#bo-que-nha-tra-no" style="display:block;padding:12px 20px;text-decoration:none;color:#111;">Bỏ quê nhà đi làm trả nợ</a>
-    <a href="#gap-vo-gay-dung-su-nghiep" style="display:block;padding:12px 20px;text-decoration:none;color:#111;">Gặp vợ và gây dựng lại sự nghiệp</a>
-    <a href="#su-co-vo-mat" style="display:block;padding:12px 20px;text-decoration:none;color:#111;">Sự cố vợ mất</a>
-    <a href="#gap-nguoi-an-nhan-la-chu" style="display:block;padding:12px 20px;text-decoration:none;color:#111;">Gặp người ân nhân là chú</a>
-  </div>
-</div>
-<script>
-  const btn = document.getElementById('menuBtn');
-  const list = document.getElementById('menuList');
-  btn.onclick = function() {
-    list.style.display = list.style.display === 'none' ? 'block' : 'none';
-  };
-  // Ẩn menu khi click ra ngoài
-  document.addEventListener('click', function(e){
-    if (!btn.contains(e.target) && !list.contains(e.target)) {
-      list.style.display = 'none';
-    }
-  });
-</script>
-  <script>
-    // --------- TỰ TẠO MỤC LỤC TỪ TẤT CẢ H2 TRONG <main> ---------
-    (function(){
-      const main = document.querySelector('main');
-      const headings = main.querySelectorAll('h2');
-      const toc = document.getElementById('tocList');
-      headings.forEach((h2, idx) => {
-        const sec = h2.closest('section');
-        // Nếu chưa có id thì sinh id tự động theo nội dung
-        if (!sec.id){
-          const slug = h2.textContent.toLowerCase().normalize('NFD').replace(/\p{Diacritic}/gu,'').replace(/[^a-z0-9\s-]/g,'').trim().replace(/\s+/g,'-');
-          sec.id = slug || `muc-${idx+1}`;
+    <canvas id="bg-illusion"></canvas>
+    <div class="container">
+        <h1>Câu chuyện tổ trưởng</h1>
+        <nav style="text-align:center;margin-bottom:30px;">
+            <button class="menu-btn" onclick="showSection('phan1')">Tuổi thơ & Gia đình</button>
+            <button class="menu-btn" onclick="showSection('phan2')">Sinh viên & Khởi nghiệp</button>
+            <button class="menu-btn" onclick="showSection('phan3')">Sun Group & Quản lý</button>
+            <button class="menu-btn" onclick="showSection('phan4')">Biến cố & Hồi sinh</button>
+        </nav>
+        <div id="phan1" class="story-section">
+            <p>Anh sinh ra trong một gia đình nông dân ở Bảo Lộc, xung quanh là những đồi chè, cà phê và làng nghề truyền thống.</p>
+            <p>Cha mẹ lam lũ, dành dụm từng đồng để nuôi con ăn học.</p>
+            <p>Cơm khi đó thường độn khoai sắn gạo không đủ ăn, mẹ phải trộn thêm khoai lang, khoai mì hay bắp xay. Có bữa cơm chan canh, nhưng nhiều khi chỉ toàn lát khoai, củ sắn ăn xong vẫn còn đói cồn cào.</p>
+            <p>Thức ăn ít ỏi, món mặn thường chỉ là cá khô kho mặn để ăn dần, hoặc vài quả trứng vịt chia cả nhà. Thỉnh thoảng mới có miếng thịt ba chỉ, thường để dành ngày giỗ hay Tết.</p>
+            <p>Năm đó, gia đình vốn chỉ có 2 héc đất cà phê một héc đầu tiên, mẹ và họ hàng đành phải bán đi để giúp chú em trai của ba có tiền đi du học bên Mỹ.</p>
+            <p>Chú học giỏi nhất nhà, lại giành được học bổng, cả đại gia đình đều đặt hy vọng vào chú sẽ đổi đời.</p>
+            <p>Ngày bán đất, mẹ gạt nước mắt ký giấy, rồi nhìn chú xách chiếc vali cũ lên đường mà dặn đi dặn lại con đi học, phải ráng thành tài cái nghèo rồi sẽ qua, miễn là trong nhà có người vươn lên.</p>
+            <p>Đó là quyết định đau nhưng cũng đầy tin tưởng cả gia đình chấp nhận bớt đi một phần tài sản để gieo hy vọng vào tương lai.</p>
+            <p>Những năm đầu 1990, đời sống còn thiếu thốn, cơm thường độn khoai sắn, áo quần đi học thường được may lại từ vải cũ.</p>
+            <p>Năm đó, gia đình có thêm một thành viên nhỏ em gái anh, Trần Thị Thanh Thảo, ra đời.</p>
+            <p>Anh 6 tuổi, em gái mới tròn 1 tuổi, thì một biến cố lớn ập đến: ba mất vì tai nạn lao động trong lúc đi làm thuê ngoài rẫy. Khi đó mẹ xoay sở bên ngoại bên nội không có tiền chạy chữa, bán cả mảnh đất còn lại, cả gia sản nhưng số phận nghiệt ngã ba không qua khỏi, mẹ phải tận mắt chứng kiến sự mất mát của ba anh.</p>
+            <p>Sự ra đi quá đột ngột khiến cả nhà như sụp đổ, tài sản không còn, cha mất, mẹ trở thành trụ cột duy nhất.</p>
+            <p>Mẹ vừa làm cha vừa làm mẹ, đi làm thuê khắp nơi, từ hái cà phê, làm cỏ đến gùi phân thuê cho người ta. Có hôm mẹ về muộn, mồ hôi đẫm áo tay chai sần, nhưng vẫn cố gắng cười với hai con nhỏ.</p>
+            <p>Từ đó, tuổi thơ anh và Thảo lớn lên trong cảnh vắng bóng cha, chỉ còn tình thương của mẹ.</p>
+            <p>Mẹ vừa làm cha, vừa làm mẹ, sớm hôm lam lũ ngoài vườn cà phê, đồi chè để nuôi hai anh em.</p>
+            <p>Anh hiểu mình là anh trai, là chỗ dựa của mẹ và em, nên dù chỉ mới 6 tuổi, trong lòng đã sớm nhen nhóm ý thức trách nhiệm.</p>
+            <p>Anh nhớ hồi đó năm 1991, vừa tròn 6 tuổi, anh bắt đầu đi học lớp 1.</p>
+            <p>Ngày khai giảng lớp 1 năm 1991, anh bước vào sân trường với cặp sách chỉ là chiếc túi vải mẹ khâu, bên trong vài quyển vở giấy vàng ố và cây bút máy bơm mực.</p>
+            <p>Đường đi học phải băng qua những con dốc nhỏ, sáng sớm thường phủ sương.</p>
+            <p>Mùa mưa chân đất lấm lem đỏ au, quần xắn cao, nhiều khi té ngã ướt hết sách vở hihi.</p>
+            <p>Hồi đó anh thích nhất là những buổi trưa tan học được rủ bạn bè ra đồi chè chơi trốn tìm hay lấy quả cà phê chín ném nhau.</p>
+            <p>Trò chơi ngày xưa rất giản dị: bắn bi, thả diều bằng giấy báo, chơi ô ăn quan trên nền đất.</p>
+            <p>Mỗi lần được mẹ cho vài đồng mua kem đá ở cổng trường là niềm vui ngây ngất.</p>
+            <p>Anh còn nhớ vào lúc lớp 3 trường phát động phong trào kế hoạch nhỏ, học sinh gom giấy vụn và lon bia cũ để gây quỹ, anh khi ấy hí hửng chạy quanh khắp trường xóm xin giấy mang đến trường được cô giáo khen hihi.</p>
+            <p>Khi anh 11 tuổi là năm 1996, anh thi đỗ vào trường cấp 2 nằm trong thành phố Bảo Lộc. Trường lại khang trang hơn trường tiểu học, có cổng sắt, có sân bóng chuyền, bóng đá, với lại thầy cô cũng gắt hơn nhiều.</p>
+            <p>Khi ấy anh nhớ vào đầu vào lớp 6, cái cảm giác vừa háo hức vừa hồi hộp, sách giáo khoa mới, bạn bè mới nhưng còn vụng về trẻ con hi.</p>
+            <p>Trong lớp anh nhanh chóng có nhóm bạn thân 3-4 người thường cùng nhau đi ăn quà vặt sau giờ tan trường: bánh tráng nướng, mía ghim, ly trà đá 500 đồng.</p>
+            <p>Chiều về cả nhóm rủ nhau đá banh ở sân đất đỏ hoặc bơi ở con suối nhỏ gần đồi chè hihi, quần áo rách, chân tay trầy xước nhưng đó là tuổi thơ sôi nổi và đáng nhớ haha.</p>
+            <p>Anh học thì khá môn Toán nhưng anh lại thích môn Văn hihi mà anh thích nghe thầy kể chuyện Lý Thường Kiệt và Trần Hưng Đạo.</p>
+            <p>Anh nhớ vào khi năm 1999 anh thi đỗ vào trường cấp 3.</p>
+            <p>Ngày đầu đi học, sân trường có dãy lớp mái ngói cũ, có hàng phượng đỏ rợp bóng.</p>
+            <p>Khi đấy anh cảm thấy mình đã lớn hẳn, không còn là một cậu trẻ con như ngày trước nữa rồi.</p>
+            <p>Tốt nghiệp cấp 3, anh bắt đầu hành trình vào năm nhất đại học.</p>
+        </div>
+        <div id="phan2" class="story-section" style="display:none">
+            <p>Mùa thu năm 2002, sau khi nhận giấy báo trúng tuyển Đại học Quản trị Kinh doanh, anh khăn gói rời quê để xuống Sài Gòn nhập học.</p>
+            <p>Đó là lần đầu tiên anh rời xa vòng tay gia đình lâu đến vậy.</p>
+            <p>Ngày lên xe, ba mẹ dặn dò đủ điều: Xuống đó cố gắng học hành, tiết kiệm, nhớ giữ gìn sức khỏe…</p>
+            <p>Cô em gái Thảo thì líu ríu chạy theo: Anh nhớ gọi điện về cho em nghe chưa!</p>
+            <p>Tiếng động cơ xe khách nổ vang, anh quay đầu nhìn lại mái nhà nhỏ, hàng chè xanh, con đường đất đỏ thân thuộc… tất cả như lùi dần trong tầm mắt.</p>
+            <p>Một nỗi bâng khuâng xen lẫn háo hức dâng lên trong lòng.</p>
+            <p>Đặt chân xuống Sài Gòn, anh choáng ngợp trước cảnh phố xá đông đúc, dòng người xe cộ chen chúc, ánh đèn rực rỡ.</p>
+            <p>Khác hẳn sự yên bình của quê nhà, nơi đây như một thế giới hoàn toàn mới, vừa rộng lớn vừa đầy thử thách.</p>
+            <p>Ngày đầu bước vào ký túc xá, căn phòng chật chội nhưng ồn ào tiếng nói cười, bạn bè bốn phương tụ về.</p>
+            <p>Đêm ấy, anh trằn trọc mãi, vừa nhớ nhà, vừa nghĩ đến chặng đường dài phía trước. Trong lòng thầm nhủ: “Từ nay mình phải sống tự lập, phải trưởng thành thật nhanh.”</p>
+            <p>Khi bước vào Đại học Quản trị Kinh doanh, anh như mở ra một chân trời mới: giảng đường rộng rãi, bạn bè khắp mọi miền tụ về, ai cũng mang theo những hoài bão tuổi trẻ. Anh vừa thấy háo hức, vừa thấy lo lắng vì phải sống tự lập, xa vòng tay gia đình.</p>
+            <p>Thời gian đầu, anh dành nhiều công sức làm quen với cách học mới: không còn thầy cô cầm tay chỉ việc như cấp 3, mà phải tự đọc, tự nghiên cứu, làm việc nhóm và thuyết trình. Những môn như Quản trị học, Marketing, Kinh tế vi mô… vừa lạ vừa khó, nhưng lại kích thích sự tò mò và ham học của anh.</p>
+            <div class="section-title">Cuộc sống sinh viên và việc làm thêm</div>
+            <p>Để trang trải chi phí và rèn luyện bản thân, anh bắt đầu đi làm thêm.</p>
+            <p>Ban đầu là bưng bê ở quán cà phê sinh viên gần ký túc xá. Vừa mệt, vừa lương thấp, nhưng giúp anh quen dần với cuộc sống mưu sinh.</p>
+            <p>Sau đó anh thử sức làm gia sư Toán cho học sinh cấp 2, vừa có thêm thu nhập, vừa được sống lại ký ức tuổi học trò.</p>
+            <p>Về sau, anh còn đi phát tờ rơi, phụ việc ở nhà hàng, thậm chí tham gia bán hàng online cùng nhóm bạn trong lớp.</p>
+            <p>Những công việc ấy tuy vất vả nhưng lại cho anh nhiều trải nghiệm: học cách giao tiếp, biết quý trọng đồng tiền, và quan trọng nhất là rèn cho mình tinh thần trách nhiệm.</p>
+            <p>Bốn năm đại học trôi qua nhanh chóng. Đến năm 2006, anh tốt nghiệp, mang trong mình không chỉ kiến thức quản trị kinh doanh mà còn cả những bài học trưởng thành từ cuộc sống sinh viên vừa học vừa làm.</p>
+            <div class="section-title">Khởi nghiệp</div>
+            <p>Trong những năm tháng đại học, ngoài giờ học trên giảng đường, anh còn tích lũy cho mình một chút kiến thức, kinh nghiệm và quan trọng nhất là ngọn lửa nhiệt huyết tuổi trẻ. Chính những trải nghiệm làm thêm, những buổi thảo luận với bạn bè đã gieo vào lòng anh một ước mơ: tự tạo ra con đường cho riêng mình.</p>
+            <p>Thay vì chọn công việc ổn định sau khi ra trường, anh quyết định thử sức với con đường khởi nghiệp. Đó không chỉ là để thỏa mãn khát khao của bản thân, mà còn là cách anh thử thách chính mình, xem liệu có đủ bản lĩnh biến ý tưởng thành hiện thực hay không.</p>
+            <div class="section-title">Hành trình gian nan nhưng thú vị</div>
+            <p>Khởi nghiệp chưa bao giờ là dễ dàng. Thiếu vốn, thiếu kinh nghiệm quản lý, đối mặt với vô vàn khó khăn: từ tìm khách hàng, xây dựng sản phẩm, đến việc giữ vững tinh thần khi thất bại. Có những ngày anh thức trắng, có những tháng lợi nhuận chẳng đủ chi phí. Nhưng chính những va vấp đó lại dạy anh bài học xương máu mà sách vở không thể mang lại.</p>
+            <div class="section-title">Niềm vui và giá trị</div>
+            <p>Mỗi một hợp đồng thành công, mỗi khi khách hàng tin tưởng lựa chọn, anh lại thấy rõ giá trị lao động của mình. Khởi nghiệp là chặng đường đầy thử thách, nhưng cũng vô cùng thú vị – bởi nó phù hợp với những ai đam mê học hỏi và sẵn sàng đối mặt với khó khăn.</p>
+            <p>Khởi nghiệp đã biến anh từ một chàng sinh viên còn non trẻ thành một người biết dấn thân, biết kiên trì và dám ước mơ lớn. Đó là hành trình mở ra cánh cửa để anh gắn bó với sự nghiệp sau này.</p>
+            <div class="section-title">Cái kết không trọn vẹn – năm 2009</div>
+            <p>Sau gần ba năm miệt mài với hành trình khởi nghiệp, đến năm 2009, anh buộc phải chấp nhận một sự thật khó khăn: thất bại.</p>
+            <p>Lý do lớn nhất là anh chưa thể tự chủ về tài chính, vốn liếng ít ỏi, kinh nghiệm quản lý tài chính còn non nớt khiến việc kinh doanh gặp nhiều trở ngại.</p>
+            <p>Có những lúc hợp đồng đến tay rồi lại vuột mất, có những tháng tiền lãi không đủ trả chi phí.</p>
+            <p>Càng cố gắng xoay xở, anh càng thấy áp lực đè nặng.</p>
+            <p>Và cuối cùng, anh phải gác lại giấc mơ khởi nghiệp đầu đời – một quyết định vừa đau đớn, vừa nuối tiếc.</p>
+            <div class="section-title">Bài học đắt giá</div>
+            <p>Dù thất bại nhưng đó không phải là dấu chấm hết, ngược lại giai đoạn khởi nghiệp ấy đã để lại cho anh vô vàn bài học quý giá.</p>
+            <p>Hiểu rõ hơn tầm quan trọng của quản lý tài chính.</p>
+            <p>Biết trân trọng sự kiên trì, dám nghĩ dám làm.</p>
+            <p>Và quan trọng nhất, anh nhận ra thất bại chỉ là một phần của hành trình trưởng thành.</p>
+        </div>
+        <div id="phan3" class="story-section" style="display:none">
+            <div class="section-title">Ý nghĩa</div>
+            <p>Thất bại năm 2009 không chỉ để lại những tiếc nuối mà còn kéo theo gánh nặng tài chính lớn.</p>
+            <p>Anh phải vay nợ hơn 100 triệu đồng để duy trì việc kinh doanh trước đó.</p>
+            <p>Khi dự án đổ vỡ, số nợ ấy trở thành áp lực nặng nề đè lên vai một chàng trai trẻ mới ngoài hai mươi.</p>
+            <p>Những ngày ấy, anh sống trong cảm giác căng thẳng và mệt mỏi.</p>
+            <p>Ban ngày đi làm, ban đêm trằn trọc nghĩ cách trả nợ.</p>
+            <p>Có lúc anh thấy như cả thế giới đổ sập xuống.</p>
+            <p>Nhưng mỗi sáng thức dậy, nhìn thấy mẹ vẫn âm thầm lo lắng, em gái Thảo vẫn động viên: "Anh cố lên, rồi sẽ vượt qua thôi".</p>
+            <p>Chính những lời động viên giản dị ấy giúp anh có thêm sức mạnh để gồng gánh và tìm đường trả nợ từng chút một.</p>
+            <div class="section-title">Cơ duyên bán ngành vào công ty Sun Group</div>
+            <p>Sau một thời gian chật vật xoay xở với khoản nợ 100 triệu, anh vẫn luôn tìm kiếm cho mình một lối đi mới.</p>
+            <p>Có một buổi chiều, khi ngồi uống cà phê với một người bạn cũ, anh nghe bạn kể về cơ hội làm việc trong một tập đoàn lớn Sun Group.</p>
+            <p>Người bạn ấy giới thiệu anh làm quen với một thành viên trong tập đoàn, và khuyên anh nên thử ứng tuyển.</p>
+            <p>Ban đầu, anh cũng còn e ngại vì thất bại trước đó vẫn để lại nỗi ám ảnh.</p>
+            <p>Nhưng rồi nghĩ đến gia đình, nghĩ đến em gái Thảo luôn tin tưởng và động viên, anh quyết định thử sức.</p>
+            <p>Sau quá trình phỏng vấn đầy hồi hộp, anh chính thức được nhận vào làm với vị trí nhân viên.</p>
+            <p>Bắt đầu lại từ con số 0.</p>
+            <p>Những ngày đầu ở Sun Group không hề dễ dàng.</p>
+            <p>Môi trường chuyên nghiệp, áp lực cao, anh phải học hỏi từng chút, từ cách xử lý công việc, giao tiếp với đồng nghiệp đến tác phong làm việc kỷ luật.</p>
+            <p>Nhưng bù lại, anh cảm thấy mình được rèn luyện và trưởng thành từng ngày.</p>
+            <p>Khoảng thời gian này, anh coi đó như một cơ hội quý giá để vừa ổn định cuộc sống, vừa dần dần trả bớt khoản nợ, vừa tích lũy thêm kinh nghiệm thực tế cho hành trình dài phía trước.</p>
+            <p>Giai đoạn 2009 – 2012: Anh miệt mài học hỏi, làm việc không quản ngày đêm. Từ một nhân viên mới toanh, anh dần khẳng định được năng lực và được tin tưởng giao nhiều việc quan trọng hơn. Cuối năm 2012, anh được thăng lên tổ trưởng nhóm – bước khởi đầu trong vai trò quản lý.</p>
+            <p>Giai đoạn 2013 – 2015: Đây là khoảng thời gian anh trưởng thành vượt bậc.</p>
+            <p>Từ tổ trưởng, anh trở thành quản lý bộ phận, bắt đầu quen với việc lập kế hoạch, quản trị nhân sự, chịu trách nhiệm doanh số.</p>
+            <p>Công việc áp lực, nhưng cũng giúp anh tích lũy kỹ năng lãnh đạo và khả năng xử lý tình huống.</p>
+        </div>
+        <div id="phan4" class="story-section" style="display:none">
+            <div class="section-title">Năm 2015 – gặp duyên lành</div>
+            <p>Đầu năm 2015, trong một lần quen biết qua bạn bè cùng quê, anh gặp người con gái sau này trở thành người vợ đồng hành cả đời.</p>
+            <p>Hai người cùng quê Bảo Lộc nên nhanh chóng tìm thấy sự đồng điệu, từ câu chuyện về quê hương đến những ước mơ giản dị trong tương lai.</p>
+            <p>Tình cảm lớn dần qua từng buổi trò chuyện, những lần hẹn hò bình dị giữa nhịp sống bận rộn nơi thành phố.</p>
+            <p>Cuối năm 2015, anh quyết định cầu hôn và làm đám cưới, chính thức xây dựng mái ấm riêng. Đó là một trong những cột mốc quan trọng nhất cuộc đời, khi anh không còn chỉ sống cho bản thân, mà còn mang trách nhiệm với gia đình nhỏ.</p>
+            <div class="section-title">Năm 2016 – niềm vui làm cha mẹ</div>
+            <p>Đầu năm 2016, vợ chồng anh hạnh phúc đón tin vui chuẩn bị chào đón thành viên mới. Cảm giác làm cha mẹ tương lai vừa hồi hộp, vừa tràn đầy niềm hạnh phúc. Đây cũng là động lực to lớn để anh làm việc chăm chỉ hơn, mong đem lại cuộc sống ổn định cho gia đình.</p>
+            <div class="section-title">Năm 2017 chào đón bé trai đầu lòng</div>
+            <p>Đến năm 2017, gia đình anh chính thức đón bé trai đầu lòng. Giây phút nhìn con chào đời, bao nhiêu khó khăn, vất vả, áp lực công việc như tan biến, chỉ còn lại niềm hạnh phúc vỡ òa.</p>
+            <p>Từ đây, anh càng thấm thía rằng gia đình chính là bến đỗ, là nguồn động lực lớn nhất để phấn đấu.</p>
+            <div class="section-title">Bi kịch ở Sài Gòn ngày 22/06/2019</div>
+            <p>Ngày 22/06/2019, anh đang ngồi chờ ở sân bay Nội Bài chuẩn bị bay về nhà. Sau chuyến bay đáp xuống, anh vừa mở điện thoại thì thấy hàng loạt cuộc gọi nhỡ từ vợ.</p>
+            <p>Đúng lúc đó, vợ anh cũng đang gọi đến, anh vội vàng bắt máy để báo tin mình đã về tới nơi.</p>
+            <p>Trong cuộc gọi video, vợ anh vừa lái xe vừa cười nói: Anh ơi, em đang trên đường ra đón anh đây, con em đã gửi cho em Thảo rồi.</p>
+            <p>Nhìn thấy vợ vừa lái xe vừa nhìn vào màn hình điện thoại, anh lo lắng dặn: Em tắt video đi, đường Sài Gòn đông lắm, nguy hiểm lắm.</p>
+            <p>Nhưng vợ lại nũng nịu: Lâu rồi chưa được nhìn anh, cho em nhìn một chút thôi, sắp đến nơi rồi mà.</p>
+            <p>Anh nhẹ lòng, không nói thêm, nghĩ chỉ vài phút sẽ không sao…</p>
+            <p>Bất ngờ, màn hình rung lắc dữ dội, tiếng còi xe inh ỏi, gương mặt vợ hoảng loạn hét thất thanh.</p>
+            <p>Aaaaa?!!</p>
+            <p>Một tiếng RẦM kinh hoàng vang lên. Điện thoại rơi xuống, xoay ngang, hình ảnh chập chờn.</p>
+            <p>Trong vài giây ngắn ngủi, anh thấy máu chảy từ trán vợ xuống, mắt mở to nhưng vô hồn. Bàn tay run rẩy, máu loang đỏ cả vô lăng.</p>
+            <p>Tiếng người hô hoán, tiếng còi xe chát chúa vọng lại.</p>
+            <p>Anh gào trong tuyệt vọng: Mai ơi! Em sao rồi? Trả lời anh đi… Đừng dọa anh như thế này…!</p>
+            <p>Không có tiếng trả lời. Chỉ còn sự im lặng và hỗn loạn ngoài đường.</p>
+            <p>Hiện trường ở Sài Gòn.</p>
+            <p>Anh như phát điên, lao vội ra ngoài bắt taxi, giọng run rẩy van nài: Anh ơi, làm ơn chở tôi tới quốc lộ đoạn gần Tân Sơn Nhất, vợ tôi vừa bị tai nạn… nhanh hết sức có thể.</p>
+            <p>Tim đập loạn, đầu óc ong ong, bàn tay run rẩy gọi liên tục mà không ai bắt máy.</p>
+            <p>Khi đến nơi, trước mắt anh là cảnh tượng hỗn loạn trên đường phố Sài Gòn: chiếc xe hơi của vợ biến dạng, kính vỡ tung tóe, mùi xăng khét lẹt.</p>
+            <p>Người dân vây quanh, một số đang cố gắng kéo cửa xe.</p>
+            <p>Anh lao tới gọi thất thanh: Mai ơi! Anh về rồi đây… Em đâu rồi…!</p>
+            <p>Một chiến sĩ CSGT giữ chặt lấy anh, nói gấp gáp: Anh bình tĩnh, vợ anh đã được đưa lên xe cấp cứu vào bệnh viện rồi, anh theo ngay đi.</p>
+            <p>Trong bệnh viện – hy vọng mong manh.</p>
+            <p>Anh theo xe cấp cứu, mắt dán vào cửa kính chỉ thấy dáng vợ nằm bất động, máu thấm đẫm băng trắng.</p>
+            <p>Đến nơi, bác sĩ vội vàng đưa vào phòng cấp cứu.</p>
+            <p>Anh quỵ xuống ghế, chắp tay cầu nguyện: Trời ơi, xin cứu vợ con, con sai rồi, chỉ cần cô ấy sống, con gánh hết, lo hết…</p>
+            <p>Nhưng sau nhiều giờ, cánh cửa bật mở, bác sĩ cúi mặt nói: Chúng tôi đã cố gắng hết sức… xin chia buồn cùng anh.</p>
+            <p>Anh sụp xuống, gào khóc thảm thiết khi tấm vải trắng phủ lên người vợ.</p>
+            <p>Tiếng gào của anh vang vọng cả hành lang bệnh viện, khiến ai nấy đều rơi nước mắt.</p>
+            <p>Khi CSGT cho anh xem lại camera hiện trường, trái tim anh tan nát lần nữa: vợ anh lao xe vào ngã tư khi đèn đỏ, mắt vẫn dán vào điện thoại, nụ cười chưa kịp tắt… thì ngay khoảnh khắc sau, một chiếc container lao tới đâm trực diện.</p>
+            <p>Tất cả chỉ gói gọn trong vài giây định mệnh.</p>
+            <p>Anh tự trách chính mình tại sao không kiên quyết bắt cô ấy tắt máy? Tại sao lại nhẹ lòng…?</p>
+            <p>Nỗi dằn vặt ấy theo anh từng đêm, từng giấc ngủ chập chờn, ám ảnh bởi hình ảnh vợ bê bết máu và tiếng hét thất thanh.</p>
+            <p>Anh chìm trong rượu, bỏ mặc công việc, gửi con cho ông bà chăm sóc.</p>
+            <p>Có hôm, anh ôm chai rượu ra mộ vợ, vừa khóc vừa nói: Mai ơi… anh sai rồi… sao em không đưa anh đi cùng?</p>
+            <p>Người thân khuyên can, anh chẳng nghe. Công ty lao dốc, đơn hàng thưa dần.</p>
+            <div class="section-title">Tiếng gọi lay tỉnh</div>
+            <p>Một chiều, chú anh tìm đến, thấy cảnh tượng tồi tệ: bàn thờ vợ đầy vỏ chai rượu, anh gầy rộc, mắt đỏ ngầu.</p>
+            <p>Chú tức giận tát mạnh: Cháu tỉnh lại đi! Người chết không sống lại được. Cháu còn con, còn cha mẹ, còn gia đình này… cháu định để tất cả chết theo cháu sao?</p>
+            <p>Rồi chú bế con trai anh khi ấy mới hơn 2 tuổi đặt ngay trước mặt. Đứa bé ngơ ngác, đôi mắt tròn xoe, gọi yếu ớt: Ba ơi…</p>
+            <p>Tiếng gọi ấy như lưỡi dao cứa vào tim, nhưng cũng như bàn tay kéo anh ra khỏi vực thẳm.</p>
+            <p>Anh òa khóc, ôm chặt con trai, thì thầm: Ba xin lỗi… từ nay ba sẽ không gục ngã nữa…</p>
+            <p>Từ hôm đó, anh quyết tâm bỏ dần rượu, tìm đến bác sĩ trị liệu.</p>
+            <p>Mỗi khi ám ảnh ập đến, anh nghĩ về con trai – giọt máu còn lại của vợ, và cũng là lý do để anh tiếp tục sống, làm lại cuộc đời.</p>
+            <div class="section-title">Nỗi ám ảnh sau biến cố</div>
+            <p>Sau biến cố kinh hoàng ấy, anh không chỉ chìm trong rượu, mà còn mang trong mình một ám ảnh sâu sắc.</p>
+            <p>Mỗi lần có ai đó gọi video call, tim anh lập tức thắt nghẹn, mồ hôi vã ra, bàn tay run lẩy bẩy.</p>
+            <p>Trong đầu anh lập tức hiện về khoảnh khắc định mệnh năm đó: gương mặt vợ tươi cười qua màn hình, và chỉ vài giây sau… biến thành khuôn mặt bê bết máu, ánh mắt vô hồn.</p>
+            <p>Âm thanh rung chuông video call cũng khiến anh giật bắn, như có nhát dao cứa vào tim.</p>
+            <p>Anh thường vội vàng tắt máy hoặc ném điện thoại sang một bên, không dám nhìn màn hình.</p>
+            <p>Với anh, một cuộc gọi video không còn là điều bình thường nữa, mà là cánh cửa mở ra địa ngục ký ức.</p>
+            <p>Ban đêm, anh mơ thấy hình ảnh vợ hét thất thanh, tiếng va chạm khủng khiếp vang dội, điện thoại rơi xoay ngang… Cứ thế, anh giật mình tỉnh giấc, tim đập loạn, mồ hôi lạnh ướt áo.</p>
+            <p>Bác sĩ sau này gọi đó là rối loạn stress sau sang chấn nhưng với anh, đơn giản chỉ là nỗi đau không bao giờ nguôi.</p>
+            <p>Mỗi lần ai nhắc đến video call anh lại nghẹn ngào, như vết thương chưa từng lành.</p>
+        </div>
+    </div>
+    <style>
+        .menu-btn {
+            background: #ffd54a;
+            color: #222;
+            border: none;
+            border-radius: 6px;
+            padding: 10px 18px;
+            margin: 0 6px 10px 6px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background 0.2s;
         }
-        const a = document.createElement('a');
-        a.href = `#${sec.id}`;
-        a.textContent = h2.textContent;
-        toc.appendChild(a);
-      });
-
-      // Highlight mục đang xem
-      const links = toc.querySelectorAll('a');
-      const observer = new IntersectionObserver((entries)=>{
-        entries.forEach(entry=>{
-          const id = entry.target.id;
-          const link = toc.querySelector(`a[href="#${id}"]`);
-          if (entry.isIntersecting){
-            links.forEach(l=>l.classList.remove('active'));
-            link && link.classList.add('active');
-            // cập nhật hash nhẹ nhàng
-            history.replaceState(null, '', `#${id}`);
-          }
-        });
-      }, {rootMargin: '0px 0px -70% 0px', threshold: 0.1});
-
-      document.querySelectorAll('main section').forEach(sec=>observer.observe(sec));
-
-      // Đánh dấu vị trí đầu trang để nút "Lên đầu" hoạt động tốt
-      const top = document.createElement('div');
-      top.id = 'top';
-      document.body.prepend(top);
-    })();
-
-    function toggleDetail(btn) {
-  const detail = btn.nextElementSibling;
-  if (detail.style.display === "none") {
-    detail.style.display = "block";
-    btn.textContent = "Ẩn chi tiết";
-  } else {
-    detail.style.display = "none";
-    btn.textContent = "Xem chi tiết";
-  }
-}
-  </script>
+        .menu-btn:hover, .menu-btn.active {
+            background: #d35400;
+            color: #fff;
+        }
+        .story-section {animation: fadeIn 0.5s;}
+        @keyframes fadeIn {from{opacity:0} to{opacity:1}}
+    </style>
+    <script>
+    // Hiệu ứng background ảo ảnh chuyển động sóng màu
+    const canvas = document.getElementById('bg-illusion');
+    if (canvas) {
+        const ctx = canvas.getContext('2d');
+        let w = window.innerWidth, h = window.innerHeight;
+        function resize() {
+            w = window.innerWidth; h = window.innerHeight;
+            canvas.width = w; canvas.height = h;
+        }
+        window.addEventListener('resize', resize);
+        resize();
+        let t = 0;
+        function draw() {
+            ctx.clearRect(0,0,w,h);
+            for(let i=0;i<3;i++){
+                ctx.save();
+                ctx.globalAlpha = 0.25 + 0.15*i;
+                let grad = ctx.createLinearGradient(0,0,w,h);
+                grad.addColorStop(0,`hsl(${180+60*i+t*10},80%,60%)`);
+                grad.addColorStop(1,`hsl(${240+60*i+t*10},80%,40%)`);
+                ctx.fillStyle = grad;
+                ctx.beginPath();
+                for(let x=0;x<=w;x+=10){
+                    let y = h/2 + Math.sin((x/180)+t*0.8+i)*60 + Math.cos((x/120)-t*0.7-i)*40;
+                    if(x===0) ctx.moveTo(x,y);
+                    else ctx.lineTo(x,y);
+                }
+                ctx.lineTo(w,h); ctx.lineTo(0,h); ctx.closePath();
+                ctx.fill();
+                ctx.restore();
+            }
+            t += 0.012;
+            requestAnimationFrame(draw);
+        }
+        draw();
+    }
+        function showSection(id) {
+            var sections = document.querySelectorAll('.story-section');
+            sections.forEach(function(sec){ sec.style.display = 'none'; });
+            document.getElementById(id).style.display = '';
+            var btns = document.querySelectorAll('.menu-btn');
+            btns.forEach(function(btn){ btn.classList.remove('active'); });
+            var idx = ['phan1','phan2','phan3','phan4'].indexOf(id);
+            if(idx>=0) btns[idx].classList.add('active');
+        }
+        // Hiện phần đầu tiên mặc định
+        showSection('phan1');
+    </script>
 </body>
 </html>
