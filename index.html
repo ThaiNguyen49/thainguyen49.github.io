@@ -55,6 +55,11 @@
 </head>
 <body>
     <canvas id="bg-illusion"></canvas>
+    <nav class="cross-nav" style="max-width:800px;margin:18px auto 0 auto;display:flex;justify-content:center;gap:12px;z-index:2;position:relative;">
+        <a href="index.html" class="cross-link" style="text-decoration:none;padding:8px 18px;border-radius:6px;font-weight:600;background:#ffd54a;color:#222;border:none;transition:background 0.2s;">Trang chủ</a>
+        <a href="Câu chuyện tổ trưởng.html" class="cross-link" style="text-decoration:none;padding:8px 18px;border-radius:6px;font-weight:600;background:#ffd54a;color:#222;border:none;transition:background 0.2s;">Câu chuyện tổ trưởng</a>
+        <a href="CHI TIẾT BAO BỌC.html" class="cross-link" style="text-decoration:none;padding:8px 18px;border-radius:6px;font-weight:600;background:#ffd54a;color:#222;border:none;transition:background 0.2s;">CHI TIẾT BAO BỌC</a>
+    </nav>
     <div class="container">
         <h1>Câu chuyện tổ trưởng</h1>
         <nav style="text-align:center;margin-bottom:30px;">
@@ -232,6 +237,10 @@
         </div>
     </div>
     <style>
+    .cross-link:hover, .cross-link.active {
+        background: #d35400 !important;
+        color: #fff !important;
+    }
         .menu-btn {
             background: #ffd54a;
             color: #222;
