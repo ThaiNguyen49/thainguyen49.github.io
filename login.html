@@ -1,86 +1,93 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="vi">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta charset="UTF-8">
   <title>Đăng nhập</title>
   <style>
-    body{font-family:Arial,Helvetica,sans-serif;background:#f3f4f6;display:flex;align-items:center;justify-content:center;height:100vh;margin:0}
-    .card{background:#fff;padding:28px;border-radius:10px;box-shadow:0 6px 20px rgba(0,0,0,.08);width:340px}
-    label{display:block;margin-top:10px;font-size:14px}
-    input{width:100%;padding:10px;margin-top:6px;border-radius:8px;border:1px solid #ddd;box-sizing:border-box}
-    button{width:100%;padding:10px;margin-top:14px;border-radius:8px;border:0;background:#2563eb;color:#fff;font-weight:600;cursor:pointer}
-    .msg{margin-top:10px;font-size:14px}
-    .error{color:#b91c1c}
-    .success{color:#065f46}
-    .small{font-size:13px;color:#666;margin-top:8px}
+    body {
+      background: #1e1e1e;
+      font-family: Arial, sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    }
+    .login-box {
+      background: #2a2a2a;
+      padding: 30px;
+      border-radius: 10px;
+      width: 320px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.6);
+      color: #fff;
+    }
+    .login-box h2 {
+      margin-bottom: 20px;
+      text-align: center;
+    }
+    .login-box input {
+      width: 100%;
+      padding: 10px;
+      margin: 10px 0;
+      border: none;
+      border-radius: 5px;
+      outline: none;
+    }
+    .login-box input[type="text"],
+    .login-box input[type="password"] {
+      background: #3a3a3a;
+      color: #fff;
+    }
+    .login-box button {
+      width: 100%;
+      padding: 10px;
+      background: #3b82f6;
+      border: none;
+      border-radius: 5px;
+      color: #fff;
+      font-size: 16px;
+      cursor: pointer;
+      margin-top: 10px;
+    }
+    .login-box button:hover {
+      background: #2563eb;
+    }
+    .error-msg {
+      color: #f87171;
+      margin-top: 15px;
+      text-align: center;
+      display: none;
+    }
   </style>
 </head>
 <body>
-  <main class="card">
+  <div class="login-box">
     <h2>Đăng nhập</h2>
-
-    <form id="loginForm" autocomplete="off" novalidate>
-      <label for="username">Tài khoản</label>
-      <input id="username" name="username" type="text" inputmode="numeric" placeholder="" required />
-
-      <label for="password">Mật khẩu</label>
-      <input id="password" name="password" type="password" placeholder="123" required />
-
+    <form id="loginForm">
+      <input type="text" id="username" placeholder="Tài khoản" autocomplete="off">
+      <input type="password" id="password" placeholder="Mật khẩu" autocomplete="off">
       <button type="submit">Đăng nhập</button>
-
-      <div id="message" class="msg" aria-live="polite"></div>
+      <div class="error-msg" id="errorMsg">Sai tài khoản hoặc mật khẩu!</div>
     </form>
-  </main>
+  </div>
 
   <script>
-    (function(){
-      const CORRECT_USER = '';
-      const CORRECT_PASS = '';
+    const form = document.getElementById('loginForm');
+    const errorMsg = document.getElementById('errorMsg');
 
-      const form = document.getElementById('loginForm');
-      const msg = document.getElementById('message');
+    form.addEventListener('submit', function(e) {
+      e.preventDefault();
+      const user = document.getElementById('username').value;
+      const pass = document.getElementById('password').value;
 
-      // Nếu user đã login, redirect về nơi yêu cầu (redirect param) hoặc về index
-      const params = new URLSearchParams(window.location.search);
-      const redirectTo = params.get('redirect') || 'welcome.html';
-
-      // Nếu đã logged in — tránh show form
-      if(localStorage.getItem('isLoggedIn') === '1') {
-        window.location.href = redirectTo;
+      // Kiểm tra tài khoản/mật khẩu (ví dụ: admin / 123456)
+      if (user === "admin" && pass === "123456") {
+        localStorage.setItem("loggedIn", "true"); // lưu trạng thái
+        window.location.href = "home.html"; // chuyển vào trang chính
+      } else {
+        errorMsg.style.display = "block";
       }
-
-      form.addEventListener('submit', function(e){
-        e.preventDefault();
-        msg.textContent = '';
-        msg.className = 'msg';
-
-        const user = document.getElementById('username').value.trim();
-        const pass = document.getElementById('password').value;
-
-        if(!user || !pass){
-          msg.textContent = 'Vui lòng nhập tài khoản và mật khẩu.';
-          msg.classList.add('error');
-          return;
-        }
-
-        if(user === CORRECT_USER && pass === CORRECT_PASS){
-          // Đánh dấu login (client-side)
-          localStorage.setItem('isLoggedIn','1');
-
-          msg.textContent = 'Đăng nhập thành công — chuyển hướng...';
-          msg.classList.add('success');
-
-          // Redirect tới nơi yêu cầu
-          location.href = redirectTo;
-        } else {
-          msg.textContent = 'Tài khoản hoặc mật khẩu không đúng.';
-          msg.classList.add('error');
-          document.getElementById('password').value = '';
-          document.getElementById('password').focus();
-        }
-      });
-    })();
+    });
   </script>
 </body>
 </html>
