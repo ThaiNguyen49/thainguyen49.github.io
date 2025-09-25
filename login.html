@@ -22,7 +22,7 @@
 
     <form id="loginForm" autocomplete="off" novalidate>
       <label for="username">Tài khoản</label>
-      <input id="username" name="username" type="text" inputmode="numeric" placeholder="123" required />
+      <input id="username" name="username" type="text" inputmode="numeric" placeholder="" required />
 
       <label for="password">Mật khẩu</label>
       <input id="password" name="password" type="password" placeholder="123" required />
@@ -35,8 +35,8 @@
 
   <script>
     (function(){
-      const CORRECT_USER = '123';
-      const CORRECT_PASS = '123';
+      const CORRECT_USER = '';
+      const CORRECT_PASS = '';
 
       const form = document.getElementById('loginForm');
       const msg = document.getElementById('message');
