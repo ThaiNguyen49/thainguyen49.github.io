@@ -5,6 +5,36 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Câu chuyện tổ trưởng - Trải nghiệm cuộc sống</title>
     <style>
+        <!-- Thêm vào đầu <body> của file cũ -->
+<script>
+  (function(){
+    // Nếu đã đăng nhập thì cho tiếp tục, còn không thì chuyển về login và giữ đường dẫn hiện tại để redirect về sau khi login
+    if(localStorage.getItem('isLoggedIn') !== '1'){
+      const current = location.pathname + location.search + location.hash;
+      const target = encodeURIComponent(current);
+      location.href = 'login.html?redirect=' + target;
+    }
+
+    // (Tùy chọn) tạo nút đăng xuất ở góc phải nếu muốn:
+    function createLogoutButton(){
+      const btn = document.createElement('button');
+      btn.textContent = 'Đăng xuất';
+      btn.style.position = 'fixed';
+      btn.style.right = '12px';
+      btn.style.top = '12px';
+      btn.style.zIndex = 9999;
+      btn.addEventListener('click', function(){
+        localStorage.removeItem('isLoggedIn');
+        location.href = 'login.html';
+      });
+      document.body.appendChild(btn);
+    }
+
+    // Gọi createLogoutButton() nếu bạn muốn nút đăng xuất hiển thị
+    // createLogoutButton();
+  })();
+</script>
+
         body {
             font-family: 'Segoe UI', Arial, sans-serif;
             background: #f8f9fa;
