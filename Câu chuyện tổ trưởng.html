@@ -5,35 +5,39 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Câu chuyện tổ trưởng - Trải nghiệm cuộc sống</title>
     <style>
-        <!-- Thêm vào đầu <body> của file cũ -->
-<script>
-  (function(){
-    // Nếu đã đăng nhập thì cho tiếp tục, còn không thì chuyển về login và giữ đường dẫn hiện tại để redirect về sau khi login
+      <!doctype html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Chào mừng</title>
+  <style>
+    body{font-family:Arial,Helvetica,sans-serif;background:#fff;padding:40px}
+    .wrap{max-width:720px;margin:0 auto}
+    button{padding:8px 12px;border-radius:6px;border:0;background:#ef4444;color:#fff;cursor:pointer}
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <h1>Chào mừng!</h1>
+    <p>Bạn đã đăng nhập (demo).</p>
+    <button id="logout">Đăng xuất</button>
+  </div>
+
+  <script>
+    // Nếu chưa login, redirect về login.html
     if(localStorage.getItem('isLoggedIn') !== '1'){
-      const current = location.pathname + location.search + location.hash;
-      const target = encodeURIComponent(current);
+      const target = encodeURIComponent(location.pathname + location.search);
       location.href = 'login.html?redirect=' + target;
     }
 
-    // (Tùy chọn) tạo nút đăng xuất ở góc phải nếu muốn:
-    function createLogoutButton(){
-      const btn = document.createElement('button');
-      btn.textContent = 'Đăng xuất';
-      btn.style.position = 'fixed';
-      btn.style.right = '12px';
-      btn.style.top = '12px';
-      btn.style.zIndex = 9999;
-      btn.addEventListener('click', function(){
-        localStorage.removeItem('isLoggedIn');
-        location.href = 'login.html';
-      });
-      document.body.appendChild(btn);
-    }
-
-    // Gọi createLogoutButton() nếu bạn muốn nút đăng xuất hiển thị
-    // createLogoutButton();
-  })();
-</script>
+    document.getElementById('logout').addEventListener('click', function(){
+      localStorage.removeItem('isLoggedIn');
+      location.href = 'login.html';
+    });
+  </script>
+</body>
+</html>
 
         body {
             font-family: 'Segoe UI', Arial, sans-serif;
