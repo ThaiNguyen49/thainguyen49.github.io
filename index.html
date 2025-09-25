@@ -68,6 +68,36 @@
     </style>
 </head>
 <body>
+    <!-- Thêm vào đầu <body> của file cũ -->
+<script>
+  (function(){
+    // Nếu đã đăng nhập thì cho tiếp tục, còn không thì chuyển về login và giữ đường dẫn hiện tại để redirect về sau khi login
+    if(localStorage.getItem('isLoggedIn') !== '1'){
+      const current = location.pathname + location.search + location.hash;
+      const target = encodeURIComponent(current);
+      location.href = 'login.html?redirect=' + target;
+    }
+
+    // (Tùy chọn) tạo nút đăng xuất ở góc phải nếu muốn:
+    function createLogoutButton(){
+      const btn = document.createElement('button');
+      btn.textContent = 'Đăng xuất';
+      btn.style.position = 'fixed';
+      btn.style.right = '12px';
+      btn.style.top = '12px';
+      btn.style.zIndex = 9999;
+      btn.addEventListener('click', function(){
+        localStorage.removeItem('isLoggedIn');
+        location.href = 'login.html';
+      });
+      document.body.appendChild(btn);
+    }
+
+    // Gọi createLogoutButton() nếu bạn muốn nút đăng xuất hiển thị
+    // createLogoutButton();
+  })();
+</script>
+
     <canvas id="bg-illusion"></canvas>
     <nav class="cross-nav" style="max-width:800px;margin:18px auto 0 auto;display:flex;justify-content:center;gap:12px;z-index:2;position:relative;">
         <a href="index.html" class="cross-link" style="text-decoration:none;padding:8px 18px;border-radius:6px;font-weight:600;background:#ffd54a;color:#222;border:none;transition:background 0.2s;">Trang chủ</a>
