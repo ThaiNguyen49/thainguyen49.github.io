@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Đăng nhập</title>
+  <style>
+    body{font-family:Arial,Helvetica,sans-serif;background:#f3f4f6;display:flex;align-items:center;justify-content:center;height:100vh;margin:0}
+    .card{background:#fff;padding:28px;border-radius:10px;box-shadow:0 6px 20px rgba(0,0,0,.08);width:340px}
+    label{display:block;margin-top:10px;font-size:14px}
+    input{width:100%;padding:10px;margin-top:6px;border-radius:8px;border:1px solid #ddd;box-sizing:border-box}
+    button{width:100%;padding:10px;margin-top:14px;border-radius:8px;border:0;background:#2563eb;color:#fff;font-weight:600;cursor:pointer}
+    .msg{margin-top:10px;font-size:14px}
+    .error{color:#b91c1c}
+    .success{color:#065f46}
+    .small{font-size:13px;color:#666;margin-top:8px}
+  </style>
+</head>
+<body>
+  <main class="card">
+    <h2>Đăng nhập</h2>
+
+    <form id="loginForm" autocomplete="off" novalidate>
+      <label for="username">Tài khoản</label>
+      <input id="username" name="username" type="text" inputmode="numeric" placeholder="123" required />
+
+      <label for="password">Mật khẩu</label>
+      <input id="password" name="password" type="password" placeholder="123" required />
+
+      <button type="submit">Đăng nhập</button>
+
+      <div id="message" class="msg" aria-live="polite"></div>
+      <div class="small">Demo: tài khoản <strong>123</strong> / mật khẩu <strong>123</strong></div>
+    </form>
+  </main>
+
+  <script>
+    (function(){
+      const CORRECT_USER = '123';
+      const CORRECT_PASS = '123';
+
+      const form = document.getElementById('loginForm');
+      const msg = document.getElementById('message');
+
+      // Nếu user đã login, redirect về nơi yêu cầu (redirect param) hoặc về index
+      const params = new URLSearchParams(window.location.search);
+      const redirectTo = params.get('redirect') || 'welcome.html';
+
+      // Nếu đã logged in — tránh show form
+      if(localStorage.getItem('isLoggedIn') === '1') {
+        window.location.href = redirectTo;
+      }
+
+      form.addEventListener('submit', function(e){
+        e.preventDefault();
+        msg.textContent = '';
+        msg.className = 'msg';
+
+        const user = document.getElementById('username').value.trim();
+        const pass = document.getElementById('password').value;
+
+        if(!user || !pass){
+          msg.textContent = 'Vui lòng nhập tài khoản và mật khẩu.';
+          msg.classList.add('error');
+          return;
+        }
+
+        if(user === CORRECT_USER && pass === CORRECT_PASS){
+          // Đánh dấu login (client-side)
+          localStorage.setItem('isLoggedIn','1');
+
+          msg.textContent = 'Đăng nhập thành công — chuyển hướng...';
+          msg.classList.add('success');
+
+          // Redirect tới nơi yêu cầu
+          location.href = redirectTo;
+        } else {
+          msg.textContent = 'Tài khoản hoặc mật khẩu không đúng.';
+          msg.classList.add('error');
+          document.getElementById('password').value = '';
+          document.getElementById('password').focus();
+        }
+      });
+    })();
+  </script>
+</body>
+</html>
