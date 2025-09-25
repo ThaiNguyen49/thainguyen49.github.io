@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Chào mừng</title>
+  <style>
+    body{font-family:Arial,Helvetica,sans-serif;background:#fff;padding:40px}
+    .wrap{max-width:720px;margin:0 auto}
+    button{padding:8px 12px;border-radius:6px;border:0;background:#ef4444;color:#fff;cursor:pointer}
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <h1>Chào mừng!</h1>
+    <p>Bạn đã đăng nhập (demo).</p>
+    <button id="logout">Đăng xuất</button>
+  </div>
+
+  <script>
+    // Nếu chưa login, redirect về login.html
+    if(localStorage.getItem('isLoggedIn') !== '1'){
+      const target = encodeURIComponent(location.pathname + location.search);
+      location.href = 'login.html?redirect=' + target;
+    }
+
+    document.getElementById('logout').addEventListener('click', function(){
+      localStorage.removeItem('isLoggedIn');
+      location.href = 'login.html';
+    });
+  </script>
+</body>
+</html>
