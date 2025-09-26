@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+<html lang="vi">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,50 +9,31 @@
     <meta property="og:description" content="Nỗ Lực Cũng Bằng Thừa Thôi." />
     <meta property="og:image" content="https://i.imgur.com/pBPVSX1.jpeg" />
     <meta property="og:type" content="website" />
-    <meta property="og:url" content="https://thainguyen49.com/index.html" />
+    <meta property="og:url" content="https://thainguyen49.com/" />
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content="Trả hết số nợ 10400$ về Việt Nam LinFu" />
     <meta name="twitter:description" content="Nỗ Lực Cũng Bằng Thừa Thôi." />
     <meta name="twitter:image" content="https://i.imgur.com/pBPVSX1.jpeg" />
     <style>
-        <script>
-  // kiểm tra trước khi vào trang
-  if (localStorage.getItem("loggedIn") !== "true") {
-    window.location.href = "login.html";
-  }
-</script>
-
-<h1>Chào mừng đến với trang chính!</h1>
-
-
-  <script>
-    // Nếu chưa login, redirect về login.html
-    if(localStorage.getItem('isLoggedIn') !== '1'){
-      const target = encodeURIComponent(location.pathname + location.search);
-      location.href = 'login.html?redirect=' + target;
-    }
-
-    document.getElementById('logout').addEventListener('click', function(){
-      localStorage.removeItem('isLoggedIn');
-      location.href = 'login.html';
-    });
-  </script>
-</body>
-</html>
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Câu chuyện tổ trưởng</title>
-    <style>
-        body {
-            font-family: 'Segoe UI', Arial, sans-serif;
-            background: #111;
-            color: #222;
-            margin: 0;
-            padding: 0 10px;
-            line-height: 1.7;
-            overflow-x: hidden;
+        :root{
+            --bg:#0a0e14;--panel:#fff;--ink:#222;--muted:#a9b4cf;--line:#243047;
+            --brand:#ffd54a;--brand2:#ffb300;--accent:#7dd3fc;
         }
+        *{box-sizing:border-box}
+        html,body{margin:0;background:linear-gradient(180deg,#0a0e14,#0c1220);color:var(--ink);font-family:Inter,system-ui,Segoe UI,Roboto,Arial,sans-serif;line-height:1.7}
+        a{color:var(--accent);text-decoration:none}
+        .container{max-width:800px;margin:40px auto;background:var(--panel);border-radius:8px;box-shadow:0 2px 8px rgba(0,0,0,0.07);padding:32px 24px;position:relative;z-index:1;}
+        h1{text-align:center;color:#d35400;margin-bottom:32px;}
+        p{margin:16px 0;}
+        .section-title{color:#2980b9;font-weight:bold;margin-top:32px;margin-bottom:12px;font-size:1.2em;}
+        .cross-nav{max-width:800px;margin:18px auto 0 auto;display:flex;justify-content:center;gap:12px;z-index:2;position:relative;}
+        .cross-link{ text-decoration:none;padding:8px 18px;border-radius:6px;font-weight:600;background:#ffd54a;color:#222;border:none;transition:background 0.2s;}
+        .cross-link:hover, .cross-link.active {background: #d35400 !important;color: #fff !important;}
+        .menu-btn {background: #ffd54a;color: #222;border: none;border-radius: 6px;padding: 10px 18px;margin: 0 6px 10px 6px;font-weight: 600;cursor: pointer;transition: background 0.2s;}
+        .menu-btn:hover, .menu-btn.active {background: #d35400;color: #fff;}
+        .story-section {animation: fadeIn 0.5s;}
+        @keyframes fadeIn {from{opacity:0} to{opacity:1}}
+        @media (max-width: 600px) {.container { padding: 12px 4px; }}
         /* Hiệu ứng background động */
         #bg-illusion {
             position: fixed;
@@ -59,46 +41,14 @@
             z-index: 0;
             pointer-events: none;
         }
-        .container, .menu-btn {
-            position: relative;
-            z-index: 1;
-        }
-        .container {
-            max-width: 800px;
-            margin: 40px auto;
-            background: #fff;
-            border-radius: 8px;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.07);
-            padding: 32px 24px;
-        }
-        h1 {
-            text-align: center;
-            color: #d35400;
-            margin-bottom: 32px;
-        }
-        p {
-            margin: 16px 0;
-        }
-        .section-title {
-            color: #2980b9;
-            font-weight: bold;
-            margin-top: 32px;
-            margin-bottom: 12px;
-            font-size: 1.2em;
-        }
-        @media (max-width: 600px) {
-            .container { padding: 12px 4px; }
-        }
     </style>
 </head>
 <body>
-  
-
     <canvas id="bg-illusion"></canvas>
-    <nav class="cross-nav" style="max-width:800px;margin:18px auto 0 auto;display:flex;justify-content:center;gap:12px;z-index:2;position:relative;">
-        <a href="index.html" class="cross-link" style="text-decoration:none;padding:8px 18px;border-radius:6px;font-weight:600;background:#ffd54a;color:#222;border:none;transition:background 0.2s;">Trang chủ</a>
-        <a href="Câu chuyện tổ trưởng.html" class="cross-link" style="text-decoration:none;padding:8px 18px;border-radius:6px;font-weight:600;background:#ffd54a;color:#222;border:none;transition:background 0.2s;">Câu chuyện tổ trưởng</a>
-        <a href="CHI TIẾT BAO BỌC.html" class="cross-link" style="text-decoration:none;padding:8px 18px;border-radius:6px;font-weight:600;background:#ffd54a;color:#222;border:none;transition:background 0.2s;">CHI TIẾT BAO BỌC</a>
+    <nav class="cross-nav">
+        <a href="index.html" class="cross-link">Trang chủ</a>
+        <a href="thongtinnhanvat.html" class="cross-link">Câu chuyện tổ trưởng</a>
+        <a href="cauchuyennho.html" class="cross-link">Câu chuyện nhỏ</a>
     </nav>
     <div class="container">
         <h1>Câu chuyện tổ trưởng</h1>
@@ -108,6 +58,12 @@
             <button class="menu-btn" onclick="showSection('phan3')">Sun Group & Quản lý</button>
             <button class="menu-btn" onclick="showSection('phan4')">Biến cố & Hồi sinh</button>
         </nav>
+        <button class="btn" onclick="(function(){
+            localStorage.removeItem('currentUser');
+            localStorage.removeItem('authExpiry');
+            location.replace('login.html');
+        })()">Đăng xuất</button>
+
         <div id="phan1" class="story-section">
             <p>Anh sinh ra trong một gia đình nông dân ở Bảo Lộc, xung quanh là những đồi chè, cà phê và làng nghề truyền thống.</p>
             <p>Cha mẹ lam lũ, dành dụm từng đồng để nuôi con ăn học.</p>
@@ -276,31 +232,8 @@
             <p>Mỗi lần ai nhắc đến video call anh lại nghẹn ngào, như vết thương chưa từng lành.</p>
         </div>
     </div>
-    <style>
-    .cross-link:hover, .cross-link.active {
-        background: #d35400 !important;
-        color: #fff !important;
-    }
-        .menu-btn {
-            background: #ffd54a;
-            color: #222;
-            border: none;
-            border-radius: 6px;
-            padding: 10px 18px;
-            margin: 0 6px 10px 6px;
-            font-weight: 600;
-            cursor: pointer;
-            transition: background 0.2s;
-        }
-        .menu-btn:hover, .menu-btn.active {
-            background: #d35400;
-            color: #fff;
-        }
-        .story-section {animation: fadeIn 0.5s;}
-        @keyframes fadeIn {from{opacity:0} to{opacity:1}}
-    </style>
     <script>
-    // Hiệu ứng background ảo ảnh chuyển động sóng màu
+    // Hiệu ứng background sóng 3D hiện đại cho index.html
     const canvas = document.getElementById('bg-illusion');
     if (canvas) {
         const ctx = canvas.getContext('2d');
@@ -312,22 +245,34 @@
         window.addEventListener('resize', resize);
         resize();
         let t = 0;
+        function waveY(x, z, t, i) {
+            // 3D sóng nổi khối
+            return (
+                Math.sin((x/120) + t*0.8 + i) * 30 +
+                Math.cos((z/80) - t*0.6 - i) * 18 +
+                Math.sin((x/200) + (z/100) + t*0.5) * 12
+            );
+        }
         function draw() {
             ctx.clearRect(0,0,w,h);
-            for(let i=0;i<3;i++){
+            let layers = 5;
+            for(let i=0;i<layers;i++){
                 ctx.save();
-                ctx.globalAlpha = 0.25 + 0.15*i;
+                ctx.globalAlpha = 0.18 + 0.13*i;
                 let grad = ctx.createLinearGradient(0,0,w,h);
-                grad.addColorStop(0,`hsl(${180+60*i+t*10},80%,60%)`);
-                grad.addColorStop(1,`hsl(${240+60*i+t*10},80%,40%)`);
+                grad.addColorStop(0,`#0ff`);
+                grad.addColorStop(1,`#0af`);
                 ctx.fillStyle = grad;
                 ctx.beginPath();
-                for(let x=0;x<=w;x+=10){
-                    let y = h/2 + Math.sin((x/180)+t*0.8+i)*60 + Math.cos((x/120)-t*0.7-i)*40;
+                for(let x=0;x<=w;x+=8){
+                    let z = i*40;
+                    let y = h*0.55 + waveY(x, z, t, i) + i*18;
                     if(x===0) ctx.moveTo(x,y);
                     else ctx.lineTo(x,y);
                 }
                 ctx.lineTo(w,h); ctx.lineTo(0,h); ctx.closePath();
+                ctx.shadowColor = '#0ff8';
+                ctx.shadowBlur = 16-i*2;
                 ctx.fill();
                 ctx.restore();
             }
@@ -336,17 +281,17 @@
         }
         draw();
     }
-        function showSection(id) {
-            var sections = document.querySelectorAll('.story-section');
-            sections.forEach(function(sec){ sec.style.display = 'none'; });
-            document.getElementById(id).style.display = '';
-            var btns = document.querySelectorAll('.menu-btn');
-            btns.forEach(function(btn){ btn.classList.remove('active'); });
-            var idx = ['phan1','phan2','phan3','phan4'].indexOf(id);
-            if(idx>=0) btns[idx].classList.add('active');
-        }
-        // Hiện phần đầu tiên mặc định
-        showSection('phan1');
+    function showSection(id) {
+        var sections = document.querySelectorAll('.story-section');
+        sections.forEach(function(sec){ sec.style.display = 'none'; });
+        document.getElementById(id).style.display = '';
+        var btns = document.querySelectorAll('.menu-btn');
+        btns.forEach(function(btn){ btn.classList.remove('active'); });
+        var idx = ['phan1','phan2','phan3','phan4'].indexOf(id);
+        if(idx>=0) btns[idx].classList.add('active');
+    }
+    // Hiện phần đầu tiên mặc định
+    showSection('phan1');
     </script>
 </body>
 </html>

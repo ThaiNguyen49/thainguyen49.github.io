@@ -1,0 +1,455 @@
+<!doctype html>
+<html lang="vi">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Câu Chuyện Nhỏ</title>
+<style>
+  :root{
+    --bg:#0a0e14;--panel:#121826;--ink:#e8eefc;--muted:#a9b4cf;--line:#243047;
+    --brand:#ffd54a;--brand2:#ffb300;--accent:#7dd3fc;
+  }
+  *{box-sizing:border-box}
+  html,body{margin:0;background:linear-gradient(180deg,#0a0e14,#0c1220);color:var(--ink);font-family:Inter,system-ui,Segoe UI,Roboto,Arial,sans-serif;line-height:1.6}
+  a{color:var(--accent);text-decoration:none}
+  header{position:sticky;top:0;z-index:30;background:rgba(10,14,20,.8);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+  .nav{max-width:1200px;margin:0 auto;padding:10px 14px;display:flex;gap:8px;flex-wrap:wrap;align-items:center}
+  .brand{display:flex;align-items:center;gap:10px;font-weight:800}
+  .logo{width:26px;height:26px;border-radius:6px;background:linear-gradient(135deg,var(--brand),var(--brand2));}
+  .btn{padding:8px 12px;border-radius:10px;border:1px solid var(--line);background:#0e1525;color:var(--ink);cursor:pointer}
+  .btn.primary{border-color:transparent;background:linear-gradient(135deg,var(--brand),var(--brand2));color:#111;font-weight:800}
+  .container{max-width:1100px;margin:0 auto;padding:20px 16px 64px;position:relative;z-index:1;}
+  .section{scroll-margin-top:84px;margin:20px 0}
+  h1{font-size:28px;margin:10px 0;color:var(--brand)}
+  h2{font-size:20px;margin:0 0 8px;color:#ffecb3}
+  h3{font-size:16px;margin:12px 0 4px;color:var(--ink)}
+  .card{background:var(--panel);border:1px solid var(--line);border-radius:16px;padding:16px;margin:14px 0;box-shadow:0 14px 30px -14px rgba(0,0,0,.6)}
+  .grid{display:grid;gap:12px}
+  .grid.cols-2{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .muted{color:var(--muted)}
+  .tag{display:inline-block;padding:2px 8px;border:1px solid var(--line);border-radius:999px;font-size:12px;color:var(--muted)}
+  .kpi{display:flex;gap:12px;flex-wrap:wrap}
+  .kpi .pill{background:#0e1525;border:1px solid var(--line);padding:8px 10px;border-radius:12px}
+  .list{margin:8px 0 0 18px}
+  .list li{margin:4px 0}
+  .toolbar{position:fixed;right:12px;bottom:12px;display:flex;flex-direction:column;gap:8px;z-index:2;}
+  .toolbar .btn{padding:10px 12px}
+  @media (max-width:780px){.grid.cols-2{grid-template-columns:1fr}}
+  @media print{header,.toolbar{display:none}}
+  /* Hiệu ứng nền hoa rơi */
+  #bg-effect {
+    position: fixed;
+    top: 0; left: 0;
+    width: 100vw; height: 100vh;
+    z-index: 0;
+    pointer-events: none;
+  }
+</style>
+</head>
+<body>
+<canvas id="bg-effect"></canvas>
+<nav class="cross-nav" style="max-width:800px;margin:18px auto 0 auto;display:flex;justify-content:center;gap:12px;z-index:2;position:relative;">
+        <a href="index.html" class="cross-link" style="text-decoration:none;padding:8px 18px;border-radius:6px;font-weight:600;background:#ffd54a;color:#222;border:none;transition:background 0.2s;">Trang chủ</a>
+                <a href="cauchuyennho.html" class="cross-link" style="text-decoration:none;padding:8px 18px;border-radius:6px;font-weight:600;background:#ffd54a;color:#222;border:none;transition:background 0.2s;">Câu chuyện nhỏ</a>
+
+        <a href="thongtinnhanvat.html" class="cross-link" style="text-decoration:none;padding:8px 18px;border-radius:6px;font-weight:600;background:#ffd54a;color:#222;border:none;transition:background 0.2s;">Câu chuyện nhỏ</a>
+    </nav>
+<style>
+.cross-link:hover, .cross-link.active {
+  background: #ffd54a !important;
+  color: #0a0e14 !important;
+}
+</style>
+<header>
+  <div class="nav">
+    <div class="brand"><span class="logo"></span><span>Câu Chuyện Nhỏ</span></div>
+    <button class="btn primary" onclick="go('#nhan-su-gia-dinh')">Gia đình</button>
+    <button class="btn" onclick="go('#nhan-vien')">Nhân viên</button>
+    <button class="btn" onclick="go('#ban-be')">Bạn bè</button>
+    <button class="btn" onclick="go('#nguoi-co')">Người cô vay tiền</button>
+    <button class="btn" onclick="go('#nguoi-chu')">Người chú</button>
+    <button class="btn" onclick="go('#sun-group')">Sun Group</button>
+    <button class="btn" onclick="go('#du-an')">Dự án tiêu biểu</button>
+    <button class="btn" onclick="go('#nha-go-vap')">Nhà Gò Vấp</button>
+    <button class="btn" onclick="go('#phuong-tien')">Phương tiện</button>
+    <button class="btn" onclick="window.print()">In / Lưu PDF</button>
+  </div>
+  <button class="btn" onclick="(function(){
+  localStorage.removeItem('currentUser');
+  localStorage.removeItem('authExpiry');
+  location.replace('login.html');
+})()">Đăng xuất</button>
+</header>
+
+<div class="container">
+
+  <!-- GIA ĐÌNH -->
+  <section id="nhan-su-gia-dinh" class="section">
+    <h1>Hồ sơ gia đình</h1>
+    <div class="grid cols-2">
+      <div class="card">
+        <h2>Nguyễn Văn Cường</h2>
+        <div class="muted">Sinh năm 1958 • Mậu Tuất • Bình Địa Mộc • Thiên Bình ♎ • Bảo Lộc, Lâm Đồng</div>
+        <ul class="list">
+          <li>Con giáp: Tuất 🐕 (Mậu Tuất)</li>
+          <li>Mệnh: Bình Địa Mộc (cây cỏ đồng bằng)</li>
+          <li>Cung hoàng đạo: Thiên Bình (10/10/1958)</li>
+          <li>Nơi ở: Bảo Lộc, Lâm Đồng</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h2>Trịnh Thị Hòa</h2>
+        <div class="muted">Sinh năm 1960 • Canh Tý • Bích Thượng Thổ • Song Ngư ♓ • Bảo Lộc</div>
+        <ul class="list">
+          <li>Con giáp: Tý 🐀 (Canh Tý)</li>
+          <li>Mệnh: Bích Thượng Thổ (đất trên vách)</li>
+          <li>Cung hoàng đạo: Song Ngư (20/3/1960)</li>
+          <li>Nơi ở: Bảo Lộc, Lâm Đồng</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h2>Nguyễn Trịnh Minh Khánh</h2>
+        <div class="muted">Sinh năm 1985 • Ất Sửu • Hải Trung Kim • Bạch Dương ♈ • Bảo Lộc</div>
+        <ul class="list">
+          <li>SĐT: 0354417758</li>
+          <li>CCCD: 068085791012</li>
+          <li>STK: <strong>0251002773631</strong> (Vietcombank)</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h2>Nguyễn Trịnh Gia Hân</h2>
+        <div class="muted">Sinh năm 1990 • Canh Ngọ • Lộ Bàng Thổ • Cự Giải ♋ • Bảo Lộc</div>
+        <ul class="list">
+          <li>Con giáp: Ngựa 🐎 (Canh Ngọ)</li>
+          <li>Mệnh: Lộ Bàng Thổ</li>
+          <li>Cung hoàng đạo: (ví dụ 15/7/1990) Cự Giải ♋</li>
+          <li>Nơi ở: Bảo Lộc, Lâm Đồng</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- NHÂN VIÊN -->
+  <section id="nhan-vien" class="section">
+    <h1>Nhân viên thân tín</h1>
+    <div class="grid cols-2">
+      <div class="card">
+        <h2>Lê Văn Nam</h2>
+        <div class="muted">Sinh 1995 • Ất Hợi • Sơn Đầu Hỏa • Sư Tử ♌ • Bảo Lộc</div>
+        <p>Tính cách: năng động, nhiệt tình, dễ gần; luôn sẵn sàng hỗ trợ đồng nghiệp.</p>
+        <p>Sở thích: bóng đá, nhạc trẻ, du lịch bụi.</p>
+        <p>Vai trò: Truyền thông – Marketing, hỗ trợ triển khai dự án.</p>
+      </div>
+      <div class="card">
+        <h2>Phạm Minh Tuấn</h2>
+        <div class="muted">Sinh 1992 • Nhâm Thân • Kiếm Phong Kim • Song Ngư ♓ • Bảo Lộc</div>
+        <p>Tính cách: chín chắn, cẩn thận, trách nhiệm cao.</p>
+        <p>Sở thích: đọc sách quản trị, chơi guitar, cà phê yên tĩnh.</p>
+        <p>Vai trò: Tài chính – Kế hoạch, hỗ trợ phân tích & báo cáo.</p>
+      </div>
+    </div>
+    <div class="card">
+      <h3 class="muted">Gợi ý câu chuyện</h3>
+      <p>Trong công ty, Minh Khánh có hai cậu nhân viên thân tín là Nam và Tuấn. Nam trẻ trung, giỏi truyền thông; Tuấn điềm đạm, chắc chắn.</p>
+    </div>
+  </section>
+
+  <!-- BẠN BÈ & NGƯỜI QUEN -->
+  <section id="ban-be" class="section">
+    <h1>Bạn bè</h1>
+    <div class="grid cols-2">
+      <div class="card">
+        <h2>Lâm Quốc Tuấn — Bạn thân</h2>
+        <p>Sinh 1986 • Bính Dần • Lư Trung Hỏa. Thẳng thắn, hào sảng, luôn bên cạnh lúc khó khăn. Sở thích thể thao (bóng đá, chạy bộ).</p>
+      </div>
+      <div class="card">
+        <h2>Phạm Thanh — Bạn cũ</h2>
+        <p>Sinh 1988 • Mậu Thìn • Đại Lâm Mộc. Dịu dàng, thân thiện, hay gợi lại kỷ niệm cũ. Thích văn học, du lịch nhẹ nhàng.</p>
+      </div>
+      <div class="card">
+        <h2>Nguyễn Hoàng Phúc — Một người bạn</h2>
+        <p>Sinh 1991 • Tân Mùi • Lộ Bàng Thổ. Vui vẻ, dễ gần, thích công nghệ, cà phê; gặp gỡ trao đổi công việc định kỳ.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- NGƯỜI CÔ VAY TIỀN -->
+  <section id="nguoi-co" class="section">
+    <h1>Người cô vay tiền</h1>
+    <div class="card">
+      <h2>Trịnh Thị Mai</h2>
+      <p>Sinh 1965 • Ất Tỵ • Phú Đăng Hỏa. Tình cảm, thương cháu; đôi lúc thiếu tính toán nên gặp khó khăn tài chính. Từng vay một khoản tiền xoay xở làm ăn, hứa trả dần.</p>
+    </div>
+  </section>
+
+  <!-- NGƯỜI CHÚ -->
+  <section id="nguoi-chu" class="section">
+    <h1>Hồ sơ nhân vật — Người chú</h1>
+    <div class="card">
+      <h2>Trịnh Văn Long (Nguyễn Văn Long)</h2>
+      <p>Sinh 1968 • Mậu Thân • Đại Trạch Thổ • Hiện sống tại Bảo Lộc, Lâm Đồng (sau nhiều năm học tập & làm việc ở nước ngoài).</p>
+      <h3>Học vấn & sự nghiệp</h3>
+      <ul class="list">
+        <li>Du học Pháp thập niên 1990.</li>
+        <li>Thạc sĩ Quản trị Kinh doanh (MBA), ĐH Paris-Dauphine.</li>
+        <li>Làm việc tại tập đoàn châu Âu (bất động sản & tài chính), sau đó về Việt Nam cố vấn doanh nghiệp vừa & nhỏ.</li>
+      </ul>
+      <h3>Tính cách & sở thích</h3>
+      <ul class="list">
+        <li>Điềm đạm, am hiểu rộng, chú trọng học tập thế hệ trẻ.</li>
+        <li>Thích đọc sách kinh tế – chính trị, thưởng trà, kể chuyện châu Âu.</li>
+      </ul>
+      <p class="muted">“Học để thay đổi vận mệnh, và để sau này giúp ích cho quê hương.”</p>
+    </div>
+  </section>
+
+  <!-- SUN GROUP -->
+  <section id="sun-group" class="section">
+    <h1>Tập đoàn Sun Group — Thông tin tổng quan</h1>
+    <div class="card">
+      <p>Năm 1998, nhóm trí thức & doanh nhân Việt tại Ukraina sáng lập Sun Group. Sau thời gian thành công ở Đông Âu, năm 2007 Sun Group chính thức về Việt Nam (trụ sở đầu tiên tại Đà Nẵng).</p>
+      <div class="kpi">
+        <div class="pill">>4.600 CBNV</div>
+        <div class="pill">51 công ty thành viên</div>
+        <div class="pill">113 dự án trên cả nước</div>
+      </div>
+    </div>
+    <div class="card">
+      <h2>Văn phòng đại diện</h2>
+      <ul class="list">
+        <li><strong>Đà Nẵng (Trụ sở):</strong> Tầng 9, tòa nhà ACB, 218 Mặt Bằng, Q. Hải Châu.</li>
+        <li><strong>Hà Nội:</strong> Tầng 9, Sun City, 13 Hai Bà Trưng, Hoàn Kiếm.</li>
+        <li><strong>TP.HCM:</strong> Tầng 19, Vincom Center, 12 Lê Thánh Tôn, Q.1.</li>
+        <li><strong>Phú Quốc:</strong> Tòa nhà P10, TT An Thới, Kiên Giang.</li>
+      </ul>
+    </div>
+    <div class="card">
+      <h2>Lãnh đạo chủ chốt</h2>
+      <ul class="list">
+        <li><strong>Ông Lê Viết Lam</strong> — Chủ tịch HĐ Sáng lập: Định hướng chiến lược & tầm nhìn dài hạn.</li>
+        <li><strong>Ông Đặng Minh Trường</strong> — Chủ tịch HĐQT: Quản trị & điều hành phát triển bền vững.</li>
+        <li><strong>Bà Bùi Thị Thanh Hương</strong> — Tổng Giám đốc: Triển khai chiến lược & vận hành.</li>
+      </ul>
+    </div>
+    <div class="card">
+      <h2>Thương hiệu & Lĩnh vực</h2>
+      <ul class="list">
+        <li><strong>Sun World</strong> — Vui chơi giải trí.</li>
+        <li><strong>Sun Hospitality Group</strong> — Du lịch nghỉ dưỡng.</li>
+        <li><strong>Sun Property</strong> — BĐS cao cấp.</li>
+        <li><strong>Sun PMC</strong> — Đầu tư & quản lý hạ tầng.</li>
+        <li><strong>Sun Air</strong> — Dịch vụ bay tư nhân & thuê chuyến.</li>
+      </ul>
+    </div>
+    <div class="card">
+      <h2>Khối & Phòng ban</h2>
+      <p class="muted">8 khối: Hành chính-Nhân sự • Tài chính-Kế toán • Pháp chế-Tuân thủ • Kinh doanh-Marketing • Dự án-PTDA • Thiết kế-Kiến trúc • CNTT • Vận hành.</p>
+      <p class="muted">11 phòng: Nhân sự • Hành chính • Tài chính • Kế toán • Pháp chế • Kinh doanh • Marketing • Quản lý dự án • Thiết kế-Kiến trúc • CNTT • Vận hành.</p>
+    </div>
+    <div class="card">
+      <h2>Đãi ngộ & Phúc lợi</h2>
+      <ul class="list">
+        <li>Lương thưởng hấp dẫn, tăng lương định kỳ.</li>
+        <li>BHXH & bảo hiểm sức khỏe cao cấp.</li>
+        <li>Đào tạo – phát triển – lộ trình thăng tiến.</li>
+        <li>Hỗ trợ nhà ở, xe đưa rước, trường học cho con.</li>
+        <li>Quỹ phúc lợi “Hoa Mặt Trời” (tiết kiệm nội bộ).</li>
+        <li>Hoạt động thể thao, giải trí – môi trường năng động.</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- Câu Chuyện Nhỏ -->
+  <section id="du-an" class="section">
+    <h1>Câu Chuyện Nhỏ </h1>
+    <div class="card">
+      <h2>Bà Nà Hills — “Đường lên tiên cảnh”</h2>
+      <p>Từ 2007, Sun Group chọn Đà Nẵng ra mắt: cáp treo kỷ lục Guinness, Làng Pháp, Fantasy Park, và Cầu Vàng (2018) khiến thế giới biết đến Bà Nà Hills.</p>
+    </div>
+    <div class="card">
+      <h2>Hải Phòng — Khu đô thị du lịch Cát Bà</h2>
+      <p>Ra mắt 16/8/2024. Quy mô gần 50ha, hơn 2.700 sản phẩm, hai bến du thuyền, trung tâm hội nghị quốc tế, 6 KS 5★ + 1 KS 4★, hướng tới điểm đến tầm cỡ quốc tế.</p>
+    </div>
+    <div class="card">
+      <h2>Thanh Hóa — The Pathway, Sun Grand Boulevard (05/2024)</h2>
+      <p>Tổ hợp căn hộ ven biển, đầy đủ tiện ích, sở hữu lâu dài hiếm có; cạnh công viên Sun World & quảng trường biển.</p>
+    </div>
+    <div class="card">
+      <h2>Hà Nội — Các dự án tiêu biểu</h2>
+      <ul class="list">
+        <li>Sun Grand City Thụy Khuê Residence (giữa Hồ Tây & Bách Thảo).</li>
+        <li>Sun Grand City Ancora Residence (bên sông Hồng).</li>
+        <li>Sun Ponte Residence; Sun Cosmo Residence (Đà Nẵng — trẻ trung, hiện đại).</li>
+      </ul>
+    </div>
+    <div class="card">
+      <h2>Bình Thuận — Mũi Né</h2>
+      <p>Định hướng khu đô thị thương mại – dịch vụ >200ha (Hàm Tiến) và nghỉ dưỡng cao cấp bán đảo Hòn Rơm, chuẩn 5–6 sao, nâng tầm du lịch địa phương.</p>
+    </div>
+  </section>
+
+  <!-- NHÀ GÒ VẤP -->
+  <section id="nha-go-vap" class="section">
+    <h1>Nhà tại Gò Vấp — 163/3 Bùi Quang Là, P.12</h1>
+    <div class="card">
+      <h2>Địa chỉ & Quy hoạch</h2>
+      <ul class="list">
+        <li>Số nhà: <strong>163/3 Bùi Quang Là</strong>, Phường 12, Quận Gò Vấp, TP.HCM.</li>
+        <li>Kết nối nhanh: Nguyễn Văn Khối • Quang Trung • Phạm Văn Chiêu • gần trục ra Tân Bình, trung tâm.</li>
+      </ul>
+      <p class="muted">Khu dân cư sầm uất; gần trường, chợ, cửa hàng tiện lợi; thuận tiện đi sân bay (10–15’).</p>
+    </div>
+    <div class="card">
+      <h2>Kích thước & Phương án bố trí</h2>
+      <ul class="list">
+        <li>Kích thước đất: <strong>4m x 11,25m</strong> (≈45 m²).</li>
+        <li>Phương án xây: 1 trệt + 2 lầu → diện tích sử dụng >130 m².</li>
+        <li>Gợi ý công năng:
+          <ul class="list">
+            <li>Tầng trệt: Phòng khách – Bếp – WC.</li>
+            <li>Lầu 1: 2 phòng ngủ – 1 WC.</li>
+            <li>Lầu 2: Phòng thờ/Phòng ngủ – Sân phơi.</li>
+          </ul>
+        </li>
+        <li>Hẻm ~3–4m, ba gác/xe máy thoải mái; ô tô con có thể áp sát.</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- PHƯƠNG TIỆN -->
+  <section id="phuong-tien" class="section">
+    <h1>Phương tiện đi lại</h1>
+    <div class="card">
+      <h2>Mercedes-Benz C 300 (mua năm 2020)</h2>
+      <div class="grid cols-2">
+        <div>
+          <h3>Tổng quan</h3>
+          <ul class="list">
+            <li>Phân khúc: Sedan hạng sang cỡ nhỏ (C-Class).</li>
+            <li>Lắp ráp CKD tại Việt Nam; bản AMG là cấu hình cao.</li>
+          </ul>
+          <h3>Động cơ & Vận hành</h3>
+          <ul class="list">
+            <li>I4 2.0L Turbo • ~258hp • 370Nm.</li>
+            <li>Hộp số 9G-TRONIC • RWD.</li>
+            <li>0–100 km/h ~5,9s • Vmax ~250 km/h.</li>
+          </ul>
+          <h3>Nội thất & Tiện nghi</h3>
+          <ul class="list">
+            <li>Da cao cấp, ghế AMG chỉnh điện nhớ 3 vị trí.</li>
+            <li>Màn hình 10,25" • Apple CarPlay/Android Auto.</li>
+            <li>Âm thanh Burmester 13 loa • Cửa sổ trời Panorama.</li>
+          </ul>
+        </div>
+        <div>
+          <h3>An toàn & Hỗ trợ lái</h3>
+          <ul class="list">
+            <li>ABS, BAS, ESP, ASR, Cruise Control.</li>
+            <li>Camera 360°, Hỗ trợ đỗ xe chủ động, Attention Assist.</li>
+            <li>7 túi khí, Phanh Adaptive.</li>
+          </ul>
+          <h3>Giá tham khảo (2020)</h3>
+          <ul class="list">
+            <li>~1,9 – 2,1 tỷ VND (tùy cấu hình & màu).</li>
+            <li>Bảo hành 3 năm (có thể gia hạn +2 năm).</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</div>
+
+<div class="toolbar">
+  <button class="btn" onclick="go('#nhan-su-gia-dinh')">Gia đình</button>
+  <button class="btn" onclick="go('#sun-group')">Sun Group</button>
+  <button class="btn" onclick="go('#du-an')">Dự án</button>
+  <button class="btn" onclick="go('#nha-go-vap')">Nhà</button>
+  <button class="btn" onclick="go('#phuong-tien')">Xe</button>
+</div>
+
+<script>
+  function go(sel){
+    const el=document.querySelector(sel); if(!el) return;
+    window.scrollTo({top:el.getBoundingClientRect().top + window.scrollY - 84, behavior:'smooth'});
+    history.replaceState(null,'',sel);
+  }
+
+  // Nếu chưa đăng nhập, chuyển về trang login.html
+  if (!localStorage.getItem('currentUser')) {
+    window.location.href = 'login.html';
+  }
+
+  // Hiệu ứng nền hoa rơi
+  const canvas = document.getElementById('bg-effect');
+  const ctx = canvas.getContext('2d');
+  let w = window.innerWidth, h = window.innerHeight;
+  canvas.width = w; canvas.height = h;
+  window.addEventListener('resize', () => {
+    w = window.innerWidth; h = window.innerHeight;
+    canvas.width = w; canvas.height = h;
+  });
+
+  // Hoa rơi
+  const flowers = [];
+  const colors = ['#ffd54a','#ffb3fa','#aeefff','#b388ff','#fff59d','#fff','#f8bbd0','#b2ebf2'];
+  for(let i=0;i<40;i++){
+    flowers.push({
+      x: Math.random()*w,
+      y: Math.random()*h,
+      r: 8+Math.random()*10,
+      speed: 0.7+Math.random()*1.2,
+      drift: (Math.random()-0.5)*1.2,
+      color: colors[Math.floor(Math.random()*colors.length)],
+      angle: Math.random()*Math.PI*2
+    });
+  }
+
+  function draw() {
+    ctx.clearRect(0,0,w,h);
+    // Gradient nền vũ trụ nhẹ
+    let grad = ctx.createRadialGradient(w/2,h/2,0,w/2,h/2,Math.max(w,h)*0.7);
+    grad.addColorStop(0,'#232526');
+    grad.addColorStop(1,'#0a0e14');
+    ctx.fillStyle = grad;
+    ctx.fillRect(0,0,w,h);
+
+    // Hoa rơi
+    for(let f of flowers){
+      ctx.save();
+      ctx.translate(f.x, f.y);
+      ctx.rotate(f.angle);
+      ctx.beginPath();
+      for(let j=0;j<5;j++){
+        let theta = j*2*Math.PI/5;
+        ctx.lineTo(Math.cos(theta)*f.r, Math.sin(theta)*f.r);
+        ctx.lineTo(Math.cos(theta+Math.PI/5)*f.r*0.5, Math.sin(theta+Math.PI/5)*f.r*0.5);
+      }
+      ctx.closePath();
+      ctx.fillStyle = f.color;
+      ctx.shadowColor = f.color;
+      ctx.shadowBlur = 8;
+      ctx.fill();
+      ctx.restore();
+    }
+  }
+
+  function animate() {
+    for(let f of flowers){
+      f.y += f.speed;
+      f.x += Math.sin(f.angle)*f.drift;
+      f.angle += 0.01 + Math.random()*0.01;
+      if(f.y > h+30){
+        f.y = -20;
+        f.x = Math.random()*w;
+      }
+      if(f.x < -30) f.x = w+20;
+      if(f.x > w+30) f.x = -20;
+    }
+    draw();
+    requestAnimationFrame(animate);
+  }
+  animate();
+</script>
+</body>
+</html>

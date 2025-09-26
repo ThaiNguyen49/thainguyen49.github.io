@@ -1,93 +1,234 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="vi">
 <head>
-  <meta charset="UTF-8">
-  <title>Đăng nhập</title>
-  <style>
-    body {
-      background: #1e1e1e;
-      font-family: Arial, sans-serif;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      height: 100vh;
-      margin: 0;
-    }
-    .login-box {
-      background: #2a2a2a;
-      padding: 30px;
-      border-radius: 10px;
-      width: 320px;
-      box-shadow: 0 0 10px rgba(0,0,0,0.6);
-      color: #fff;
-    }
-    .login-box h2 {
-      margin-bottom: 20px;
-      text-align: center;
-    }
-    .login-box input {
-      width: 100%;
-      padding: 10px;
-      margin: 10px 0;
-      border: none;
-      border-radius: 5px;
-      outline: none;
-    }
-    .login-box input[type="text"],
-    .login-box input[type="password"] {
-      background: #3a3a3a;
-      color: #fff;
-    }
-    .login-box button {
-      width: 100%;
-      padding: 10px;
-      background: #3b82f6;
-      border: none;
-      border-radius: 5px;
-      color: #fff;
-      font-size: 16px;
-      cursor: pointer;
-      margin-top: 10px;
-    }
-    .login-box button:hover {
-      background: #2563eb;
-    }
-    .error-msg {
-      color: #f87171;
-      margin-top: 15px;
-      text-align: center;
-      display: none;
-    }
-  </style>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Đăng nhập Admin</title>
+<style>
+  body {
+    margin: 0;
+    min-height: 100vh;
+    font-family: 'Segoe UI', Arial, sans-serif;
+    overflow: hidden;
+    position: relative;
+  }
+  .login-bg-canvas {
+    position: fixed;
+    z-index: 0;
+    top: 0; left: 0; width: 100vw; height: 100vh;
+    pointer-events: none;
+  }
+  .login-box {
+    position: relative;
+    z-index: 1;
+    background: rgba(24,28,36,0.92);
+    padding: 32px 28px 24px 28px;
+    border-radius: 16px;
+    box-shadow: 0 8px 32px rgba(0,0,0,0.25);
+    width: 340px;
+    color: #fff;
+    margin: auto;
+    top: 50vh;
+    transform: translateY(-50%);
+  }
+  .login-title-glow {
+    font-size: 2rem;
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 10px;
+    background: linear-gradient(90deg,#ffd54a,#ffb300,#00bfae,#ffd54a 80%);
+    background-size: 200% auto;
+    color: #fff;
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: shine 2.5s linear infinite;
+    letter-spacing: 1px;
+    text-shadow: 0 0 16px #ffd54a88, 0 0 8px #00bfae55;
+  }
+  @keyframes shine {
+    to { background-position: 200% center; }
+  }
+  .login-box h2 {
+    margin: 0 0 18px 0;
+    font-weight: 700;
+    font-size: 22px;
+    color: #ffd54a;
+    text-align: center;
+    letter-spacing: 1px;
+  }
+  .form-group {
+    margin-bottom: 18px;
+  }
+  label {
+    display: block;
+    margin-bottom: 6px;
+    color: #a9b4cf;
+    font-size: 15px;
+  }
+  input[type="text"], input[type="password"] {
+    width: 100%;
+    padding: 10px 12px;
+    border-radius: 8px;
+    border: 1px solid #243047;
+    background: #23293a;
+    color: #fff;
+    font-size: 15px;
+    outline: none;
+    box-sizing: border-box;
+    letter-spacing: 2px;
+  }
+  input[type="text"]:focus, input[type="password"]:focus {
+    border-color: #ffd54a;
+  }
+  .error {
+    color: #ff8a80;
+    font-size: 13px;
+    min-height: 16px;
+    margin-top: 4px;
+    text-align: center;
+  }
+  .login-btn {
+    width: 100%;
+    padding: 10px 0;
+    border-radius: 8px;
+    border: none;
+    background: linear-gradient(90deg, #ffd54a 0%, #ffb300 100%);
+    color: #222;
+    font-weight: 700;
+    font-size: 16px;
+    cursor: pointer;
+    margin-top: 8px;
+    transition: background 0.2s;
+  }
+  .login-btn:hover {
+    background: linear-gradient(90deg, #ffb300 0%, #ffd54a 100%);
+  }
+</style>
 </head>
 <body>
-  <div class="login-box">
+<canvas class="login-bg-canvas"></canvas>
+  <form class="login-box" id="loginForm" autocomplete="off">
+    <div class="login-title-glow">@LINFU49</div>
     <h2>Đăng nhập</h2>
-    <form id="loginForm">
-      <input type="text" id="username" placeholder="Tài khoản" autocomplete="off">
-      <input type="password" id="password" placeholder="Mật khẩu" autocomplete="off">
-      <button type="submit">Đăng nhập</button>
-      <div class="error-msg" id="errorMsg">Sai tài khoản hoặc mật khẩu!</div>
-    </form>
-  </div>
-
+    <div class="form-group">
+      <label for="username">Tài khoản</label>
+      <input type="text" id="username" placeholder="Nhập tài khoản" autocomplete="username" />
+    </div>
+    <div class="form-group">
+      <label for="password">Mật khẩu</label>
+      <input type="password" id="password" placeholder="••••" autocomplete="current-password" />
+    </div>
+    <div class="error" id="errorMsg"></div>
+    <button class="login-btn" type="submit">Đăng nhập</button>
+  </form>
   <script>
-    const form = document.getElementById('loginForm');
-    const errorMsg = document.getElementById('errorMsg');
-
-    form.addEventListener('submit', function(e) {
+    document.getElementById('loginForm').onsubmit = function(e) {
       e.preventDefault();
-      const user = document.getElementById('username').value;
-      const pass = document.getElementById('password').value;
-
-      // Kiểm tra tài khoản/mật khẩu (ví dụ: admin / 123456)
-      if (user === "admin" && pass === "123456") {
-        localStorage.setItem("loggedIn", "true"); // lưu trạng thái
-        window.location.href = "home.html"; // chuyển vào trang chính
-      } else {
-        errorMsg.style.display = "block";
+      var user = document.getElementById('username').value.trim();
+      var pass = document.getElementById('password').value;
+      var error = document.getElementById('errorMsg');
+      if (user !== 'admin' || pass !== '0440') {
+        error.textContent = 'Sai tài khoản hoặc mật khẩu!';
+        return;
       }
-    });
+      localStorage.setItem('currentUser', JSON.stringify({name:'admin'}));
+      window.location.href = 'index.html';
+    };
+
+    // Hiệu ứng hoa rơi vũ trụ
+    const canvas = document.querySelector('.login-bg-canvas');
+    const ctx = canvas.getContext('2d');
+    let w = window.innerWidth, h = window.innerHeight;
+    canvas.width = w; canvas.height = h;
+
+    function resize() {
+      w = window.innerWidth; h = window.innerHeight;
+      canvas.width = w; canvas.height = h;
+    }
+    window.addEventListener('resize', resize);
+
+    // Hoa rơi + vũ trụ
+    const flowers = [];
+    const colors = ['#ffb3fa','#ffd54a','#aeefff','#b388ff','#fff59d','#fff','#f8bbd0','#b2ebf2'];
+    for(let i=0;i<60;i++){
+      flowers.push({
+        x: Math.random()*w,
+        y: Math.random()*h,
+        r: 8+Math.random()*12,
+        speed: 0.7+Math.random()*1.2,
+        drift: (Math.random()-0.5)*1.2,
+        color: colors[Math.floor(Math.random()*colors.length)],
+        angle: Math.random()*Math.PI*2
+      });
+    }
+    // Sao vũ trụ
+    const stars = [];
+    for(let i=0;i<100;i++){
+      stars.push({
+        x: Math.random()*w,
+        y: Math.random()*h,
+        r: Math.random()*1.2+0.3,
+        alpha: Math.random()*0.7+0.3
+      });
+    }
+
+    function draw() {
+      ctx.clearRect(0,0,w,h);
+      // Gradient vũ trụ
+      let grad = ctx.createRadialGradient(w/2,h/2,0,w/2,h/2,Math.max(w,h)*0.7);
+      grad.addColorStop(0,'#1a237e');
+      grad.addColorStop(0.5,'#232526');
+      grad.addColorStop(1,'#000');
+      ctx.fillStyle = grad;
+      ctx.fillRect(0,0,w,h);
+
+      // Sao
+      for(let s of stars){
+        ctx.globalAlpha = s.alpha;
+        ctx.beginPath();
+        ctx.arc(s.x,s.y,s.r,0,2*Math.PI);
+        ctx.fillStyle = '#fff';
+        ctx.fill();
+      }
+      ctx.globalAlpha = 1;
+
+      // Hoa rơi
+      for(let f of flowers){
+        ctx.save();
+        ctx.translate(f.x, f.y);
+        ctx.rotate(f.angle);
+        ctx.beginPath();
+        for(let j=0;j<5;j++){
+          let theta = j*2*Math.PI/5;
+          ctx.lineTo(Math.cos(theta)*f.r, Math.sin(theta)*f.r);
+          ctx.lineTo(Math.cos(theta+Math.PI/5)*f.r*0.5, Math.sin(theta+Math.PI/5)*f.r*0.5);
+        }
+        ctx.closePath();
+        ctx.fillStyle = f.color;
+        ctx.shadowColor = f.color;
+        ctx.shadowBlur = 8;
+        ctx.fill();
+        ctx.restore();
+      }
+    }
+
+    function animate() {
+      for(let f of flowers){
+        f.y += f.speed;
+        f.x += Math.sin(f.angle)*f.drift;
+        f.angle += 0.01 + Math.random()*0.01;
+        if(f.y > h+30){
+          f.y = -20;
+          f.x = Math.random()*w;
+        }
+        if(f.x < -30) f.x = w+20;
+        if(f.x > w+30) f.x = -20;
+      }
+      draw();
+      requestAnimationFrame(animate);
+    }
+    animate();
   </script>
 </body>
 </html>
