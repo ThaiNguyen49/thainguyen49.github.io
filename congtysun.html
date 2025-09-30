@@ -1,0 +1,721 @@
+<!doctype html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Giới thiệu Sun Group – Trang tổng hợp</title>
+  <style>
+    :root{
+      --bg:#0b1220; --panel:#0f1733; --ink:#e6e8ee; --muted:#9aa3b2; --brand:#60a5fa; --ring:rgba(96,165,250,.35);
+      --ok:#22c55e; --warn:#f59e0b; --accent:#8b5cf6;
+    }
+    html,body{height:100%}
+    body{margin:0;font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,Helvetica,Arial,sans-serif;background:
+      radial-gradient(1200px 700px at 0% -10%,#1c2857,transparent),
+      linear-gradient(180deg,#0b1220,#0b1220 60%);color:var(--ink)}
+    a{color:var(--brand);text-decoration:none}
+    a:hover{text-decoration:underline}
+    .wrap{max-width:1100px;margin:0 auto;padding:16px}
+
+    /* Header */
+    header{position:sticky;top:0;z-index:30;background:linear-gradient(180deg,rgba(11,18,32,.95),rgba(11,18,32,.75));backdrop-filter:saturate(140%) blur(8px);border-bottom:1px solid rgba(255,255,255,.08)}
+    .head{display:flex;gap:14px;align-items:center;justify-content:space-between;padding:12px 16px}
+    .brand{display:flex;gap:10px;align-items:center}
+    .brand .logo{width:34px;height:34px;border-radius:9px;background:conic-gradient(from 160deg at 60% 60%,#fde047,#f59e0b,#ef4444,#22c55e,#60a5fa,#8b5cf6,#fde047);box-shadow:0 0 0 2px rgba(255,255,255,.08) inset}
+    h1{font-size:clamp(18px,2.4vw,26px);margin:0}
+    .tools{display:flex;gap:8px;flex-wrap:wrap}
+    .search{display:flex;align-items:center;gap:8px;background:var(--panel);border:1px solid rgba(148,163,184,.35);border-radius:12px;padding:8px 10px;min-width:240px}
+    .search input{flex:1;border:0;outline:0;background:transparent;color:var(--ink)}
+    .btn{border:1px solid rgba(148,163,184,.35);background:var(--panel);color:var(--ink);padding:9px 12px;border-radius:10px;cursor:pointer}
+    .btn.primary{background:linear-gradient(180deg,#2563eb,#1d4ed8);color:white;border:0}
+    .btn:hover{box-shadow:0 0 0 4px var(--ring)}
+
+    /* Layout */
+    .grid{display:grid;grid-template-columns:280px 1fr;gap:18px;margin-top:14px}
+    @media(max-width:980px){.grid{grid-template-columns:1fr}}
+
+    /* TOC */
+    .toc {
+  position: fixed; /* Đổi từ sticky sang fixed */
+  left: 18px;
+  top: 90px;
+  z-index: 20;
+  background: linear-gradient(180deg,rgba(255,255,255,.03),rgba(255,255,255,.02));
+  border: 1px solid rgba(255,255,255,.08);
+  border-radius: 14px;
+  padding: 12px;
+  max-height: calc(100vh - 110px);
+  overflow: auto;
+  transition: transform 0.3s, opacity 0.3s;
+  opacity: 0.15;
+  transform: translateX(-220px);
+  pointer-events: none;
+}
+.toc.toc-show {
+  opacity: 1;
+  transform: translateX(0);
+  pointer-events: auto;
+}
+.toc-toggle-btn {
+  position: fixed;
+  left: 12px;
+  top: 30px;
+  z-index: 30;
+  background: #2563eb;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  padding: 8px 16px;
+  font-weight: 700;
+  cursor: pointer;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.18);
+  transition: background 0.2s;
+}
+.toc-toggle-btn:hover {
+  background: #1d4ed8;
+}
+@media (max-width: 980px) {
+  .toc, .toc.toc-show {
+    left: 0;
+    top: 0;
+    max-height: 100vh;
+    border-radius: 0 0 14px 0;
+    width: 90vw;
+    min-width: 220px;
+    transform: translateY(-110%);
+  }
+  .toc.toc-show {
+    transform: translateY(0);
+  }
+  .toc-toggle-btn {
+    left: 10px;
+    top: 10px;
+    padding: 8px 14px;
+  }
+}
+
+    /* Content */
+    .card{background:linear-gradient(180deg,rgba(255,255,255,.04),rgba(255,255,255,.02));border:1px solid rgba(255,255,255,.08);border-radius:16px;padding:16px}
+    section{scroll-margin-top:76px}
+    section h2{display:flex;align-items:center;gap:8px;margin-top:0}
+    .copylink{font-size:12px;border:1px solid rgba(148,163,184,.35);padding:4px 8px;border-radius:8px;cursor:pointer;background:#0f1733;color:var(--ink)}
+    .copylink:hover{box-shadow:0 0 0 4px var(--ring)}
+
+    details{background:#0f1733;border:1px solid rgba(148,163,184,.35);border-radius:12px;padding:10px 12px;margin:10px 0}
+    details>summary{cursor:pointer;font-weight:700}
+    ul{margin:.4rem 0 .6rem 1.2rem}
+    .meta{color:var(--muted);font-size:.95rem;margin-top:-6px}
+    .badge{display:inline-block;font-size:.8rem;padding:.2rem .45rem;border-radius:999px;border:1px solid rgba(255,255,255,.2);background:rgba(255,255,255,.06)}
+
+    footer{color:var(--muted);text-align:center;padding:18px}
+    .hr{border:0;border-top:1px dashed rgba(148,163,184,.35);margin:10px 0}
+
+    /* Print */
+    @media print{
+      header,.toc,.copylink,.tools{display:none!important}
+      body{background:white;color:black}
+      .card{box-shadow:none;border:0}
+      a{color:black;text-decoration:none}
+    }
+
+    .cross-link {
+  text-decoration:none;
+  padding:8px 18px;
+  border-radius:6px;
+  font-weight:600;
+  background:#ffd54a;
+  color:#222;
+  border:none;
+  margin:0 4px;
+  transition:background 0.2s;
+  cursor:pointer;
+}
+.cross-link:hover, .cross-link.active {
+  background: #d35400 !important;
+  color: #fff !important;
+}
+  </style>
+</head>
+<body>
+<button class="toc-toggle-btn" id="tocToggleBtn">☰ Mục lục</button>
+<header>
+  <div class="head wrap">
+    <div class="brand">
+      <div class="logo" aria-hidden="true"></div>
+      <h1>Sun Group – Hồ sơ tổng hợp</h1>
+    </div>
+    <div class="tools">
+      <div class="search" title="Tìm nhanh theo từ khóa (không phân biệt dấu)">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="8"></circle><path d="m21 21-4.3-4.3"></path></svg>
+        <input id="q" type="text" placeholder="Tìm kiếm… (vd: Hòn Thơm, Onsen, phúc lợi)" />
+      </div>
+      <button class="btn" id="expand">Mở tất cả</button>
+      <button class="btn" id="collapse">Thu tất cả</button>
+      <button class="btn primary" id="printBtn">In</button>
+    </div>
+  </div>
+</header>
+
+<nav class="cross-nav" style="max-width:800px;margin:18px auto 0 auto;display:flex;justify-content:center;gap:12px;z-index:2;position:relative;">
+  <a href="index.html" class="cross-link">Trang chủ</a>
+  <a href="cauchuyennho.html" class="cross-link">Câu chuyện nhỏ</a>
+  <a href="thongtinnhanvat.html" class="cross-link">Thông tin nhân vật</a>
+  <a href="congtysun.html" class="cross-link">Công ty Sun</a>
+    <a href="trangtinhlai.html" class="cross-link">Tính Lãi</a>
+
+  <button class="cross-link" onclick="(function(){
+    localStorage.removeItem('currentUser');
+    location.replace('login.html');
+  })()">Đăng xuất</button>
+</nav>
+
+<div class="wrap grid">
+  <aside class="toc card" id="toc">
+    <h3>Mục lục</h3>
+    <nav>
+      <a href="#gioi-thieu">1. Giới thiệu & Thông tin DN</a>
+      <a href="#co-cau">2. Cơ cấu tổ chức</a>
+      <a href="#chuc-nang">3. Chức năng & Công việc</a>
+      <a href="#sun-world">4. Dự án Sun World</a>
+      <a href="#premier">5. Dự án Premier</a>
+      <a href="#sun-grand">6. Sun Grand City</a>
+      <a href="#intercontinental">7. InterContinental Đà Nẵng</a>
+      <a href="#onsen">8. Biệt thự khoáng nóng</a>
+      <a href="#ha-tang">9. Dự án hạ tầng</a>
+      <a href="#phuc-loi">10. Đãi ngộ & phúc lợi</a>
+      <a href="#vi-sao">11. Vì sao làm việc</a>
+      <a href="#tieu-su">12. Tiểu sử Lê Viết Lam</a>
+      <a href="#timeline">13. Dòng thời gian phát triển</a>
+    </nav>
+  </aside>
+
+  <main class="content">
+    <section id="gioi-thieu" class="card" data-tags="gioi thieu sun group thong tin doanh nghiep cong ty mat troi dang nang dang minh truong bui thi thanh huong">
+      <h2>Giới thiệu Tập đoàn Sun Group <button class="copylink" data-anchor="#gioi-thieu">Sao chép liên kết</button></h2>
+      <p>Sun Group là một trong những tập đoàn kinh tế tư nhân hàng đầu Việt Nam, nổi bật với hệ sinh thái đa lĩnh vực gồm: du lịch nghỉ dưỡng, giải trí, bất động sản cao cấp và hạ tầng giao thông. Với triết lý <em>“Chất lượng – Đẳng cấp – Sự khác biệt”</em>, Sun Group đã kiến tạo hàng loạt công trình biểu tượng như Bà Nà Hills, Cầu Vàng, InterContinental Danang, hay chuỗi công viên Sun World trải dài khắp cả nước. Khởi nguồn từ khát vọng của những người Việt trẻ trở về xây dựng quê hương, Sun Group không ngừng đổi mới và tiên phong, góp phần nâng tầm vị thế Việt Nam trên bản đồ du lịch – kiến trúc – đầu tư toàn cầu.</p>
+      <p class="meta"><span class="badge">Khẩu hiệu:</span> <strong>Sun Group – Kiến tạo những miền đất hạnh phúc.</strong></p>
+      <hr class="hr" />
+      <h3>Thông tin doanh nghiệp</h3>
+      <ul>
+        <li><strong>Tên tiếng Việt:</strong> Công ty Cổ phần Tập đoàn Mặt Trời</li>
+        <li><strong>Tên giao dịch quốc tế:</strong> Sun Group</li>
+        <li><strong>Trụ sở chính:</strong> Tầng 9, Tòa nhà ACB, số 218 Bạch Đằng, Quận Hải Châu, TP. Đà Nẵng, Việt Nam</li>
+        <li><strong>Chủ tịch HĐ sáng lập:</strong> Ông Lê Viết Lam</li>
+        <li><strong>Chủ tịch HĐQT:</strong> Ông Đặng Minh Trường</li>
+        <li><strong>Tổng Giám đốc:</strong> Bà Bùi Thị Thanh Hương</li>
+        <li><strong>Tổng vốn chủ sở hữu:</strong> 13.274 tỷ đồng</li>
+      </ul>
+    </section>
+
+    <section id="co-cau" class="card" data-tags="co cau to chuc khoi phong nhan su hanh chinh ke toan phap che kinh doanh marketing du an thiet ke it van hanh">
+      <h2>Cơ cấu tổ chức <button class="copylink" data-anchor="#co-cau">Sao chép liên kết</button></h2>
+      <details open>
+        <summary>1) Khối Hành chính – Nhân sự (HR &amp; Admin)</summary>
+        <ul>
+          <li>Phòng Tuyển dụng &amp; Đào tạo</li>
+          <li>Phòng Quản trị Nhân sự</li>
+          <li>Phòng Hành chính – Văn thư</li>
+        </ul>
+      </details>
+      <details>
+        <summary>2) Khối Tài chính – Kế toán</summary>
+        <ul>
+          <li>Phòng Tài chính</li>
+          <li>Phòng Kế toán</li>
+          <li>Phòng Kiểm toán nội bộ</li>
+        </ul>
+      </details>
+      <details>
+        <summary>3) Khối Pháp chế – Tuân thủ</summary>
+        <ul>
+          <li>Phòng Pháp chế</li>
+          <li>Phòng Quản lý rủi ro</li>
+          <li>Phòng Kiểm soát nội bộ</li>
+        </ul>
+      </details>
+      <details>
+        <summary>4) Khối Kinh doanh &amp; Marketing</summary>
+        <ul>
+          <li>Phòng Kinh doanh Dự án</li>
+          <li>Phòng Chăm sóc Khách hàng</li>
+          <li>Phòng Marketing – Thương hiệu</li>
+          <li>Phòng Digital Marketing</li>
+        </ul>
+      </details>
+      <details>
+        <summary>5) Khối Dự án – Phát triển dự án</summary>
+        <ul>
+          <li>Phòng Quản lý Dự án</li>
+          <li>Phòng Phát triển Dự án</li>
+          <li>Phòng Giám sát Thi công</li>
+        </ul>
+      </details>
+      <details>
+        <summary>6) Khối Thiết kế – Kiến trúc – Quy hoạch</summary>
+        <ul>
+          <li>Phòng Thiết kế Kiến trúc</li>
+          <li>Phòng Quy hoạch</li>
+          <li>Phòng Thiết kế Nội thất</li>
+        </ul>
+      </details>
+      <details>
+        <summary>7) Khối Công nghệ thông tin (IT)</summary>
+        <ul>
+          <li>Phòng Hạ tầng &amp; Vận hành</li>
+          <li>Phòng Phát triển phần mềm</li>
+          <li>Phòng An ninh mạng</li>
+        </ul>
+      </details>
+      <details>
+        <summary>8) Khối Vận hành (mảng du lịch nghỉ dưỡng – giải trí)</summary>
+        <ul>
+          <li>Ban Quản lý Vận hành khách sạn</li>
+          <li>Ban Quản lý Khu du lịch – công viên giải trí</li>
+          <li>Ban Quản lý Bất động sản</li>
+        </ul>
+      </details>
+    </section>
+
+    <section id="chuc-nang" class="card" data-tags="chuc nang cong viec phong nhan su hanh chinh tai chinh ke toan phap che kinh doanh marketing quan ly du an thiet ke it van hanh">
+      <h2>Chức năng &amp; Công việc từng phòng <button class="copylink" data-anchor="#chuc-nang">Sao chép liên kết</button></h2>
+      <details open><summary>1) Phòng Nhân sự</summary>
+        <p><strong>Chức năng:</strong> Tuyển dụng, đào tạo, quản lý nhân sự toàn Tập đoàn.</p>
+        <p><strong>Công việc:</strong></p>
+        <ul>
+          <li>Lập kế hoạch tuyển dụng và triển khai quy trình phỏng vấn</li>
+          <li>Quản lý hồ sơ nhân sự, hợp đồng lao động</li>
+          <li>Tổ chức đào tạo nội bộ &amp; nâng cao năng lực nhân viên</li>
+          <li>Xây dựng chính sách phúc lợi, đánh giá hiệu suất (KPIs)</li>
+        </ul>
+      </details>
+      <details><summary>2) Phòng Hành chính</summary>
+        <p><strong>Chức năng:</strong> Quản lý tài sản, văn thư, công tác hậu cần – hỗ trợ vận hành.</p>
+        <ul>
+          <li>Điều phối xe đưa đón, quản lý văn phòng phẩm, thiết bị</li>
+          <li>Quản lý công văn đi – đến, đóng dấu văn bản</li>
+          <li>Sắp xếp hội họp, đón tiếp khách</li>
+          <li>Quản lý tòa nhà (nếu có)</li>
+        </ul>
+      </details>
+      <details><summary>3) Phòng Tài chính</summary>
+        <p><strong>Chức năng:</strong> Quản lý dòng tiền, kế hoạch ngân sách và phương án tài chính cho dự án.</p>
+        <ul>
+          <li>Lập ngân sách theo quý/năm; dự báo dòng tiền, cân đối nguồn vốn</li>
+          <li>Phân tích hiệu quả tài chính dự án</li>
+          <li>Làm việc với ngân hàng, đối tác tài chính</li>
+        </ul>
+      </details>
+      <details><summary>4) Phòng Kế toán</summary>
+        <p><strong>Chức năng:</strong> Hạch toán chi phí, kiểm tra chứng từ và báo cáo thuế.</p>
+        <ul>
+          <li>Kiểm tra – xử lý hóa đơn, chứng từ</li>
+          <li>Ghi nhận doanh thu, chi phí đúng chuẩn mực</li>
+          <li>Lập báo cáo tài chính, báo cáo thuế định kỳ</li>
+          <li>Quyết toán, kiểm soát công nợ</li>
+        </ul>
+      </details>
+      <details><summary>5) Phòng Pháp chế</summary>
+        <p><strong>Chức năng:</strong> Tư vấn pháp lý, kiểm soát rủi ro và xử lý tranh chấp.</p>
+        <ul>
+          <li>Soạn thảo, rà soát hợp đồng với đối tác, nhà thầu</li>
+          <li>Đảm bảo pháp lý dự án đúng quy định</li>
+          <li>Tham gia xử lý tranh chấp, khiếu nại</li>
+          <li>Cập nhật luật liên quan bất động sản – đầu tư – xây dựng</li>
+        </ul>
+      </details>
+      <details><summary>6) Phòng Kinh doanh</summary>
+        <p><strong>Chức năng:</strong> Bán sản phẩm, đặc biệt là bất động sản du lịch nghỉ dưỡng.</p>
+        <ul>
+          <li>Thiết lập chiến lược bán hàng; chăm sóc khách hàng trước – sau bán</li>
+          <li>Quản lý đại lý, môi giới liên kết</li>
+          <li>Theo dõi doanh số, phân tích thị trường</li>
+        </ul>
+      </details>
+      <details><summary>7) Phòng Marketing</summary>
+        <p><strong>Chức năng:</strong> Quảng bá thương hiệu, sản phẩm – dịch vụ của Tập đoàn.</p>
+        <ul>
+          <li>Lên kế hoạch marketing (digital &amp; offline)</li>
+          <li>Thiết kế ấn phẩm truyền thông, video, brochure</li>
+          <li>Quản lý nội dung website, mạng xã hội</li>
+          <li>Phối hợp tổ chức sự kiện ra mắt dự án</li>
+        </ul>
+      </details>
+      <details><summary>8) Phòng Quản lý Dự án</summary>
+        <p><strong>Chức năng:</strong> Theo dõi, giám sát tiến độ và hiệu quả triển khai dự án xây dựng.</p>
+        <ul>
+          <li>Lập kế hoạch tiến độ tổng thể; điều phối các nhà thầu</li>
+          <li>Kiểm soát chi phí, chất lượng công trình</li>
+          <li>Báo cáo tiến độ lên lãnh đạo Tập đoàn</li>
+        </ul>
+      </details>
+      <details><summary>9) Phòng Thiết kế – Kiến trúc</summary>
+        <p><strong>Chức năng:</strong> Thiết kế tổng thể, quy hoạch, kiến trúc các dự án du lịch – bất động sản.</p>
+        <ul>
+          <li>Thiết kế bản vẽ sơ bộ, chi tiết kỹ thuật; phối cảnh 3D, moodboard nội thất</li>
+          <li>Phối hợp với đơn vị thiết kế quốc tế</li>
+          <li>Đảm bảo bản vẽ phù hợp thi công thực tế</li>
+        </ul>
+      </details>
+      <details><summary>10) Phòng Công nghệ Thông tin (IT)</summary>
+        <p><strong>Chức năng:</strong> Vận hành hạ tầng CNTT và phát triển phần mềm phục vụ vận hành.</p>
+        <ul>
+          <li>Quản lý hệ thống server, email, mạng LAN; bảo mật dữ liệu</li>
+          <li>Phát triển phần mềm CRM, ERP, HRM nội bộ</li>
+          <li>Hỗ trợ kỹ thuật cho toàn bộ khối văn phòng &amp; vận hành</li>
+        </ul>
+      </details>
+      <details><summary>11) Phòng Vận hành</summary>
+        <p><strong>Chức năng:</strong> Trực tiếp quản lý tài sản và dịch vụ tại các địa điểm Sun Group đầu tư.</p>
+        <ul>
+          <li>Quản lý khách sạn; vận hành công viên giải trí, cáp treo, bãi biển</li>
+          <li>Đào tạo nhân sự dịch vụ cao cấp; đảm bảo chất lượng trải nghiệm khách hàng</li>
+        </ul>
+      </details>
+    </section>
+
+    <section id="sun-world" class="card" data-tags="sun world ba na hills asia park fansipan legend ha long hon thom ba den cat ba">
+      <h2>Dự án thương hiệu <span class="badge">Sun World</span> <button class="copylink" data-anchor="#sun-world">Sao chép liên kết</button></h2>
+      <details open><summary>1) Sun World Bà Nà Hills – Đà Nẵng</summary>
+        <ul>
+          <li>Cầu Vàng; Làng Pháp; Hầm rượu Debay; Vườn hoa Le Jardin D'Amour</li>
+          <li>Bảo tàng tượng sáp; Lâu Đài Mặt Trăng; Thác Thần Mặt Trời</li>
+          <li>Fantasy Park; Cáp treo; Chùa Linh Ứng; Ẩm thực đa dạng</li>
+        </ul>
+      </details>
+      <details><summary>2) Asia Park – Công viên Châu Á – Đà Nẵng</summary>
+        <ul>
+          <li>Sun Wheel, Singapore Sling, Golden Sky Tower, Queen Cobra</li>
+          <li>Monorail, Angry Motors, Festival Carousel, Dino Island, Ninja Flyer…</li>
+          <li>Khu ẩm thực; Khu kiến trúc mô phỏng kỳ quan</li>
+        </ul>
+      </details>
+      <details><summary>3) Sun World Fansipan Legend – Lào Cai</summary>
+        <ul>
+          <li>Cáp treo 3 dây; Đỉnh Fansipan; Quần thể văn hóa tâm linh</li>
+          <li>Tàu hỏa leo núi Mường Hoa; Bản Mây; Thung lũng hoa hồng</li>
+          <li>Vọng Lĩnh Cao Đài; Nhà ga Sun Plaza; Ẩm thực &amp; check-in</li>
+        </ul>
+      </details>
+      <details><summary>4) Sun World Halong Complex – Quảng Ninh</summary>
+        <ul>
+          <li>Dragon Park, Typhoon Water Park; Cáp treo Nữ Hoàng – Đồi Huyền Bí</li>
+          <li>Sun Beach; Ẩm thực &amp; mua sắm; Bảo tàng sáp; Kidoland; Rạp 12D</li>
+          <li>Vườn Nhật; Vòng quay Mặt trời</li>
+        </ul>
+      </details>
+      <details><summary>5) Sun World Hòn Thơm Nature Park – Phú Quốc</summary>
+        <ul>
+          <li>Cáp treo vượt biển; Công viên nước Aquatopia; Thể thao biển (lặn, kayak, dù lượn…)</li>
+          <li>Khám phá Hòn Thơm: bãi biển, rừng nguyên sinh; Ẩm thực; Show nghệ thuật</li>
+        </ul>
+      </details>
+      <details><summary>6) Sun World BaDen Mountain – Tây Ninh</summary>
+        <ul>
+          <li>Hệ thống cáp treo; Quần thể tâm linh; Tượng Phật Bà Tây Bổ Đà Sơn</li>
+          <li>Check-in săn mây; Lễ hội; Ẩm thực; Hoạt động leo núi, trekking, cắm trại</li>
+          <li>Trụ NFC “Một Chạm Vạn May Mắn”</li>
+        </ul>
+      </details>
+      <details><summary>7) Sun World Cát Bà Cable Car – Hải Phòng</summary>
+        <ul>
+          <li>Ngắm vịnh Lan Hạ từ cáp treo; Nhà ga Cát Hải – Phù Long độc đáo</li>
+          <li>Show “Bản Giao Hưởng Đảo Xanh”; Điểm du lịch lân cận; Ẩm thực – hoạt động biển</li>
+        </ul>
+      </details>
+    </section>
+
+    <section id="premier" class="card" data-tags="premier village residence novotel kem beach primavera emerald bay">
+      <h2>Dự án thương hiệu <span class="badge">Premier</span> <button class="copylink" data-anchor="#premier">Sao chép liên kết</button></h2>
+      <details open><summary>1) Novotel Danang Premier Han River – Đà Nẵng</summary>
+        <ul>
+          <li>Hồ bơi vô cực &amp; ngoài trời; InBalance Spa; Gym &amp; Yoga; Kids Club</li>
+          <li>Vườn, Pool Bar, Nhà hàng – Bar; Phòng họp – sự kiện; Gần điểm tham quan</li>
+        </ul>
+      </details>
+      <details><summary>2) Premier Village Danang Resort – gần Mỹ Khê</summary>
+        <ul>
+          <li>Bãi biển riêng; nhiều hồ bơi; thể thao biển; spa – xông hơi; vui chơi trẻ em</li>
+          <li>Nhà hàng – bar; hoạt động ngoài trời; tham quan lân cận</li>
+        </ul>
+      </details>
+      <details><summary>3) Premier Village Phu Quoc Resort – Mũi Ông Đội</summary>
+        <ul>
+          <li>Hai mặt biển; hồ bơi; hoạt động biển; Kids Club; Plumeria Spa; Fitness</li>
+          <li>Tour tham quan; đi bộ dưới đáy biển Namaste</li>
+        </ul>
+      </details>
+      <details><summary>4) Sun Premier Village Kem Beach Resort – Bãi Kem, Phú Quốc</summary>
+        <ul>
+          <li>Nghỉ dưỡng biệt thự; bãi Kem; vui chơi trẻ em; câu lạc bộ biển; thể thao</li>
+          <li>Ẩm thực; Phố Melodia; Cáp treo Hòn Thơm; Safari; VQG Phú Quốc</li>
+        </ul>
+      </details>
+      <details><summary>5) Premier Residence Phu Quoc Emerald Bay – Bãi Kem</summary>
+        <ul>
+          <li>Thể thao nước; Gym; Hồ bơi nhiều tầng; Kids Club; Playground; Tiệc bọt</li>
+          <li>Clubhouse, Rooftop Bar, Pool Bar, Sport Bar; Đại tiệc hải sản</li>
+        </ul>
+      </details>
+      <details><summary>6) Shophouse Sun Premier Village Primavera – “Thị trấn Địa Trung Hải”</summary>
+        <ul>
+          <li>Tháp đồng hồ; Cầu Hôn; “Pompeii”; Quảng trường La Mã; Shophouse sắc màu</li>
+          <li>Bãi biển nhân tạo; Show Vortex; Khu vui chơi trong nhà; Đường dạo ghềnh đá; Chợ hải sản; F&amp;B trên ghềnh</li>
+        </ul>
+      </details>
+    </section>
+
+    <section id="sun-grand" class="card" data-tags="sun grand city ancora thuy khue new an thoi feria ha long nam hoa xuan hillside phu quoc">
+      <h2>Thương hiệu <span class="badge">Sun Grand City</span> <button class="copylink" data-anchor="#sun-grand">Sao chép liên kết</button></h2>
+      <details open><summary>1) Sun Grand City Ancora Residences – Hai Bà Trưng, Hà Nội</summary>
+        <ul>
+          <li>Tiện ích nội khu: bể bơi 4 mùa, công viên, gym, spa, TTTM, vui chơi trẻ em, vườn, phòng sinh hoạt cộng đồng, lounge, trường học</li>
+          <li>Tiện ích ngoại khu: gần trung tâm, gần sông Hồng; Điểm nhấn: lọc nước, kính Low‑E, khóa Häfele, an ninh 24/7</li>
+        </ul>
+      </details>
+      <details><summary>2) Sun Grand City Thụy Khuê Residences – Tây Hồ, Hà Nội</summary>
+        <ul>
+          <li>Sun Plaza Thụy Khuê; khuôn viên xanh; bể bơi; gym – spa; lounge; F&amp;B; an ninh 24/7</li>
+          <li>Ngoại khu: gần Hồ Tây – Bách Thảo; gần trường, BV, TTTM; giao thông thuận tiện</li>
+        </ul>
+      </details>
+      <details><summary>3) Sun Grand City New An Thới – Nam Phú Quốc</summary>
+        <ul>
+          <li>Vị trí trung tâm hệ sinh thái Nam đảo; kiến trúc Địa Trung Hải 5 tầng</li>
+          <li>Tiện ích: 4 công viên Seta, Limoni, Pino, Riva; mua sắm, giải trí, sức khỏe, hồ bơi, thể thao, an ninh</li>
+        </ul>
+      </details>
+      <details><summary>4) Sun Grand City Feria Hạ Long – Bãi Cháy</summary>
+        <ul>
+          <li>Nội khu: công viên – thể thao, hồ cảnh quan – dạo bộ, clubhouse 5*, bể bơi, gym, spa, an ninh</li>
+          <li>Ngoại khu: gần Sun World Hạ Long, Shophouse Europe – Phố Cổ, Cảng tàu khách quốc tế</li>
+        </ul>
+      </details>
+      <details><summary>5) Sun Grand City Nam Hòa Xuân – Đà Nẵng</summary>
+        <ul>
+          <li>Công viên chủ đề: Marina, Artwork, Sport, Kid, Lifestyle; trường học; bệnh viện; 5km dạo ven sông; shophouse</li>
+        </ul>
+      </details>
+      <details><summary>6) Sun Grand City Hillside – Phú Quốc</summary>
+        <ul>
+          <li>Kiến trúc Địa Trung Hải; tầm nhìn hướng biển, Cầu Hôn – Tháp Đồng Hồ – Show Vortex</li>
+          <li>Tiện ích: bể bơi vô cực, Sky Lounge, kids, gym, onsen, roof garden, chuỗi tiện ích Central Village</li>
+        </ul>
+      </details>
+    </section>
+
+    <section id="intercontinental" class="card" data-tags="intercontinental danang sun peninsula resort bill bensley son tra la maison 1888">
+      <h2>InterContinental Danang Sun Peninsula Resort <button class="copylink" data-anchor="#intercontinental">Sao chép liên kết</button></h2>
+      <ul>
+        <li>Kiến trúc Bill Bensley, chia 4 tầng: Heaven – Sky – Earth – Sea, phong cách Việt kết hợp hiện đại</li>
+        <li>Vị trí: Bán đảo Sơn Trà; tầm nhìn biển; rừng nguyên sinh</li>
+        <li>Loại phòng đa dạng; hồ bơi; bãi biển riêng; thể thao nước</li>
+        <li>Ẩm thực: nhiều nhà hàng; La Maison 1888 (đầu bếp 3* Michelin)</li>
+        <li>Giải trí – thư giãn: bar, spa, kids; dịch vụ chuyên nghiệp; tham quan Đà Nẵng – Hội An – Ngũ Hành Sơn…</li>
+      </ul>
+    </section>
+
+    <section id="onsen" class="card" data-tags="onsen quang hanh yoko sun beauty onsen quang xuong khoang nong wabi sabi">
+      <h2>Biệt thự khoáng nóng <button class="copylink" data-anchor="#onsen">Sao chép liên kết</button></h2>
+      <details open><summary>1) Sun Onsen Quang Hanh – Cẩm Phả, Quảng Ninh</summary>
+        <ul>
+          <li>Tắm khoáng: Public Onsen (bể khoáng, sục, phản lực, nóng/lạnh, bể hang); Private Onsen (Washitsu)</li>
+          <li>Xông hơi; Spa &amp; massage; Ẩm thực Nhật (Onsen Tamago)</li>
+          <li>Khu biệt thự phong cách Wabi Sabi, mỗi căn có bể khoáng &amp; xông hơi riêng</li>
+        </ul>
+      </details>
+      <details><summary>2) Sun Beauty Onsen Quảng Xương – Thanh Hóa</summary>
+        <ul>
+          <li>Nguồn khoáng H2SiO3; tắm onsen dẫn trực tiếp vào biệt thự hoặc Park Onsen</li>
+          <li>Spa – trị liệu; Công viên văn hóa Nhật; Khu vui chơi – thể thao; Ẩm thực</li>
+          <li>Lưu trú đa dạng: biệt thự, căn hộ, shophouse</li>
+        </ul>
+      </details>
+    </section>
+
+    <section id="ha-tang" class="card" data-tags="ha tang cang tau quoc te ha long san bay van don cao toc ha long van don mong cai">
+      <h2>Dự án hạ tầng <button class="copylink" data-anchor="#ha-tang">Sao chép liên kết</button></h2>
+      <ul>
+        <li>Cảng Tàu Khách Quốc Tế Hạ Long</li>
+        <li>Cảng Hàng Không Quốc Tế Vân Đồn</li>
+        <li>Cao tốc Hạ Long – Vân Đồn</li>
+        <li>Cao tốc Vân Đồn – Móng Cái</li>
+      </ul>
+    </section>
+
+    <section id="phuc-loi" class="card" data-tags="phuc loi luong thuong bao hiem dao tao phat trien nha o xe dua don sunkid uu dai moi truong lam viec">
+      <h2>Đãi ngộ &amp; phúc lợi Sun Group <button class="copylink" data-anchor="#phuc-loi">Sao chép liên kết</button></h2>
+      <details open><summary>1) Chế độ lương, thưởng</summary>
+        <ul>
+          <li>Thu nhập cạnh tranh, thưởng cuối năm/hiệu suất/đột xuất; tăng lương định kỳ; hỗ trợ thu nhập</li>
+        </ul>
+      </details>
+      <details><summary>2) Chế độ bảo hiểm</summary>
+        <ul>
+          <li>BHXH, BHYT, BHTN đầy đủ; bảo hiểm sức khỏe cao cấp</li>
+        </ul>
+      </details>
+      <details><summary>3) Đào tạo &amp; phát triển</summary>
+        <ul>
+          <li>Đào tạo chuyên sâu; cơ hội thăng tiến; mentoring/coaching</li>
+        </ul>
+      </details>
+      <details><summary>4) Phúc lợi khác</summary>
+        <ul>
+          <li>Hỗ trợ nhà ở tại Bà Nà, Phú Quốc, Fansipan; xe đưa đón; Trường mầm non Sunkid</li>
+          <li>Tiện ích: bể bơi, sân thể thao, hoạt động văn hóa – thể thao; Quỹ “Hoa Mặt Trời”, “Mái ấm mừng xuân”</li>
+          <li>Ưu đãi sử dụng dịch vụ Sun Group; môi trường chuyên nghiệp – năng động</li>
+        </ul>
+      </details>
+    </section>
+
+    <section id="vi-sao" class="card" data-tags="vi sao lam viec moi truong chuyen nghiep co hoi phat trien dai ngo van hoa dong gop dia diem hap dan">
+      <h2>Vì sao nên làm việc tại Sun Group <button class="copylink" data-anchor="#vi-sao">Sao chép liên kết</button></h2>
+      <ol>
+        <li>Môi trường làm việc chuyên nghiệp, hiện đại</li>
+        <li>Cơ hội phát triển bản thân</li>
+        <li>Chế độ đãi ngộ hấp dẫn</li>
+        <li>Văn hóa doanh nghiệp đặc sắc</li>
+        <li>Đóng góp cho sự phát triển đất nước</li>
+        <li>Cơ hội làm việc tại các địa điểm hấp dẫn</li>
+      </ol>
+      <p class="meta">Giá trị cốt lõi: Tâm – Tầm – Tài; Học tập – Cống hiến.</p>
+    </section>
+
+    <section id="tieu-su" class="card" data-tags="le viet lam tieu su sun group sang lap ukraine technocom vingroup">
+      <h2>Tiểu sử – Ông Lê Viết Lam <button class="copylink" data-anchor="#tieu-su">Sao chép liên kết</button></h2>
+      <ul>
+        <li><strong>Tên:</strong> Lê Viết Lam (1969), quê Hoằng Hóa, Thanh Hóa</li>
+        <li><strong>Học vấn:</strong> Thạc sĩ tại Moskva (1992)</li>
+        <li><strong>Chức vụ:</strong> Chủ tịch HĐ sáng lập Sun Group</li>
+      </ul>
+      <h4>Sự nghiệp</h4>
+      <ul>
+        <li>1986: Sinh viên ĐH Bách khoa Hà Nội (Cơ khí năng lượng dệt)</li>
+        <li>1987: Du học Nga</li>
+        <li>1992: Tốt nghiệp Thạc sĩ; kinh doanh tại DOM 5, sau chuyển Kharkov</li>
+        <li>1993: Kinh doanh chợ Barabarosha; 8/1993 đồng sáng lập Technocom (cùng Phạm Nhật Vượng và cộng sự); sau đầu tư BĐS Kharkov</li>
+        <li>1998: Rời Technocom, cùng cộng sự thành lập Sun Group tại Ukraine</li>
+        <li>2007: Trở về Việt Nam, chọn Đà Nẵng khởi đầu</li>
+        <li>2019: Rời vị trí lãnh đạo điều hành, làm Chủ tịch HĐ sáng lập; Chủ tịch HĐQT: Đặng Minh Trường</li>
+      </ul>
+    </section>
+
+    <section id="timeline" class="card" data-tags="dong thoi gian 1998 2007 2009 2012 2016 2017 2018 2022 ba na cang van don hon thom">
+      <h2>Dòng thời gian phát triển Sun Group <button class="copylink" data-anchor="#timeline">Sao chép liên kết</button></h2>
+      <ul>
+        <li>1998: Thành lập Sun Group tại Ukraine (Làng thời đại, Sun City, TTTM Barabasova…)</li>
+        <li>2007: Đưa công ty về Việt Nam, đầu tư tại Đà Nẵng; khởi động KDL Bà Nà Hills (cáp treo 5.801m; Làng Pháp; Fantasy Park)</li>
+        <li>2009–2012: Ra mắt Novotel Danang Premier Han River, Premier Village Danang Resort, InterContinental Danang Sun Peninsula Resort…</li>
+        <li>2016: Khai trương 3 hạ tầng phía Bắc: Cảng tàu khách quốc tế Hạ Long, Sân bay quốc tế Vân Đồn, Cao tốc Hạ Long – Vân Đồn</li>
+        <li>2017: Ra mắt thương hiệu Sun World (Halong Complex, Fansipan Legend, Ba Na Hills, Danang Wonder)</li>
+        <li>2018: Triển khai Công viên Đại Dương tại Quảng Ninh (~6.000 tỷ); giới thiệu Sun Premier Village The Eden Bay</li>
+        <li>2022: Ra mắt Hon Thom Paradise Island – Phú Quốc</li>
+      </ul>
+    </section>
+
+    <footer>
+      <p>© Sun Group – Trang tổng hợp trình bày bởi bạn. File tĩnh một trang – dễ in, chia sẻ, và tìm kiếm.</p>
+    </footer>
+  </main>
+</div>
+
+<script>
+(function(){
+  const $ = s => document.querySelector(s);
+  const $$ = s => Array.from(document.querySelectorAll(s));
+  const q = $('#q');
+  const toc = $('#toc');
+
+  // Accent-insensitive search
+  const norm = s => (s||'').toString().toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g,'');
+
+  function doSearch(){
+    const term = norm(q.value);
+    const sections = $$('main section');
+    let firstMatch = null;
+    sections.forEach(sec => {
+      const hay = norm(sec.innerText + ' ' + (sec.getAttribute('data-tags')||''));
+      const hit = !term || hay.includes(term);
+      sec.style.display = hit ? '' : 'none';
+      if(hit && !firstMatch) firstMatch = sec;
+    });
+    // Highlight TOC
+    $$('#toc nav a').forEach(a => {
+      const id = a.getAttribute('href');
+      const target = $(id);
+      a.classList.toggle('active', target && target.style.display !== 'none');
+    });
+    // Scroll to first match (optional)
+    if (term && firstMatch) firstMatch.scrollIntoView({behavior:'smooth', block:'start'});
+  }
+
+  q.addEventListener('input', doSearch);
+
+  // Copy link buttons
+  $$('.copylink').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const anchor = btn.getAttribute('data-anchor');
+      const url = location.origin + location.pathname + anchor;
+      navigator.clipboard.writeText(url).then(()=> toast('Đã sao chép liên kết mục!'))
+        .catch(()=> alert('Không thể sao chép.'));
+    });
+  });
+
+  // Expand/Collapse all details
+  $('#expand').addEventListener('click', () => $$('details').forEach(d => d.open = true));
+  $('#collapse').addEventListener('click', () => $$('details').forEach(d => d.open = false));
+
+  // Print
+  $('#printBtn').addEventListener('click', () => window.print());
+
+  // Active section tracking for TOC
+  const links = $$('#toc nav a');
+  const obs = new IntersectionObserver(entries => {
+    entries.forEach(e => {
+      if (e.isIntersecting){
+        links.forEach(a => a.classList.toggle('active', a.getAttribute('href') === '#' + e.target.id));
+      }
+    })
+  }, {rootMargin:'-40% 0px -55% 0px', threshold:0});
+  $$('main section').forEach(sec => obs.observe(sec));
+
+  function toast(msg){
+    const t = document.createElement('div');
+    t.textContent = msg;
+    t.style.cssText = 'position:fixed;left:50%;top:16px;transform:translateX(-50%);background:#16a34a;color:#fff;padding:10px 14px;border-radius:999px;box-shadow:0 10px 20px rgba(0,0,0,.35);z-index:9999;font-weight:700';
+    document.body.appendChild(t);
+    setTimeout(()=>t.remove(), 1400);
+  }
+
+  // TOC toggle
+  const tocEl = document.getElementById('toc');
+  const tocBtn = document.getElementById('tocToggleBtn');
+  function showToc() {
+    tocEl.classList.add('toc-show');
+  }
+  function hideToc() {
+    tocEl.classList.remove('toc-show');
+  }
+  tocBtn.addEventListener('click', function(){
+    if (tocEl.classList.contains('toc-show')) hideToc();
+    else showToc();
+  });
+  // Ẩn khi click ra ngoài mục lục
+  document.addEventListener('click', function(e){
+    if (!tocEl.contains(e.target) && e.target !== tocBtn) hideToc();
+  });
+  // Mặc định ẩn mục lục, chỉ hiện khi bấm nút
+  hideToc();
+  // Ẩn mục lục khi lướt chuột ra ngoài 2s, hiện lại khi rê chuột vào
+  let tocTimeout;
+  tocEl.addEventListener('mouseleave', () => {
+    tocTimeout = setTimeout(() => tocEl.classList.add('toc-fade'), 2000);
+  });
+  tocEl.addEventListener('mouseenter', () => {
+    clearTimeout(tocTimeout);
+    tocEl.classList.remove('toc-fade');
+  });
+})();
+</script>
+</body>
+</html>

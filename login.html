@@ -11,6 +11,7 @@
     font-family: 'Segoe UI', Arial, sans-serif;
     overflow: hidden;
     position: relative;
+    background: #181c24;
   }
   .login-bg-canvas {
     position: fixed;
@@ -21,7 +22,7 @@
   .login-box {
     position: relative;
     z-index: 1;
-    background: rgba(24,28,36,0.92);
+    background: rgba(24,28,36,0.95);
     padding: 32px 28px 24px 28px;
     border-radius: 16px;
     box-shadow: 0 8px 32px rgba(0,0,0,0.25);
@@ -36,18 +37,9 @@
     font-weight: bold;
     text-align: center;
     margin-bottom: 10px;
-    background: linear-gradient(90deg,#ffd54a,#ffb300,#00bfae,#ffd54a 80%);
-    background-size: 200% auto;
-    color: #fff;
-    background-clip: text;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    animation: shine 2.5s linear infinite;
+    color: #ffd54a;
     letter-spacing: 1px;
-    text-shadow: 0 0 16px #ffd54a88, 0 0 8px #00bfae55;
-  }
-  @keyframes shine {
-    to { background-position: 200% center; }
+    text-shadow: 0 0 12px #ffd54a55;
   }
   .login-box h2 {
     margin: 0 0 18px 0;
@@ -128,7 +120,7 @@
       var user = document.getElementById('username').value.trim();
       var pass = document.getElementById('password').value;
       var error = document.getElementById('errorMsg');
-      if (user !== 'admin' || pass !== '0440') {
+      if (user !== 'admin' || pass !== 'taoa32') {
         error.textContent = 'Sai tài khoản hoặc mật khẩu!';
         return;
       }
@@ -136,99 +128,43 @@
       window.location.href = 'index.html';
     };
 
-    // Hiệu ứng hoa rơi vũ trụ
+    // Hiệu ứng nền động đơn giản: sóng chuyển động
     const canvas = document.querySelector('.login-bg-canvas');
     const ctx = canvas.getContext('2d');
     let w = window.innerWidth, h = window.innerHeight;
-    canvas.width = w; canvas.height = h;
-
     function resize() {
       w = window.innerWidth; h = window.innerHeight;
       canvas.width = w; canvas.height = h;
     }
+    resize();
     window.addEventListener('resize', resize);
 
-    // Hoa rơi + vũ trụ
-    const flowers = [];
-    const colors = ['#ffb3fa','#ffd54a','#aeefff','#b388ff','#fff59d','#fff','#f8bbd0','#b2ebf2'];
-    for(let i=0;i<60;i++){
-      flowers.push({
-        x: Math.random()*w,
-        y: Math.random()*h,
-        r: 8+Math.random()*12,
-        speed: 0.7+Math.random()*1.2,
-        drift: (Math.random()-0.5)*1.2,
-        color: colors[Math.floor(Math.random()*colors.length)],
-        angle: Math.random()*Math.PI*2
-      });
-    }
-    // Sao vũ trụ
-    const stars = [];
-    for(let i=0;i<100;i++){
-      stars.push({
-        x: Math.random()*w,
-        y: Math.random()*h,
-        r: Math.random()*1.2+0.3,
-        alpha: Math.random()*0.7+0.3
-      });
-    }
-
+    let t = 0;
     function draw() {
       ctx.clearRect(0,0,w,h);
-      // Gradient vũ trụ
-      let grad = ctx.createRadialGradient(w/2,h/2,0,w/2,h/2,Math.max(w,h)*0.7);
-      grad.addColorStop(0,'#1a237e');
-      grad.addColorStop(0.5,'#232526');
-      grad.addColorStop(1,'#000');
-      ctx.fillStyle = grad;
-      ctx.fillRect(0,0,w,h);
-
-      // Sao
-      for(let s of stars){
-        ctx.globalAlpha = s.alpha;
-        ctx.beginPath();
-        ctx.arc(s.x,s.y,s.r,0,2*Math.PI);
-        ctx.fillStyle = '#fff';
-        ctx.fill();
-      }
-      ctx.globalAlpha = 1;
-
-      // Hoa rơi
-      for(let f of flowers){
+      for(let i=0;i<3;i++){
         ctx.save();
-        ctx.translate(f.x, f.y);
-        ctx.rotate(f.angle);
+        ctx.globalAlpha = 0.18 + 0.13*i;
+        let grad = ctx.createLinearGradient(0,0,w,h);
+        grad.addColorStop(0,`#ffd54a`);
+        grad.addColorStop(1,`#00bfae`);
+        ctx.fillStyle = grad;
         ctx.beginPath();
-        for(let j=0;j<5;j++){
-          let theta = j*2*Math.PI/5;
-          ctx.lineTo(Math.cos(theta)*f.r, Math.sin(theta)*f.r);
-          ctx.lineTo(Math.cos(theta+Math.PI/5)*f.r*0.5, Math.sin(theta+Math.PI/5)*f.r*0.5);
+        for(let x=0;x<=w;x+=8){
+          let y = h*0.7 + Math.sin((x/120) + t*0.8 + i)*30 + Math.cos((x/80) - t*0.6 - i)*18 + Math.sin((x/200) + t*0.5)*12 + i*22;
+          if(x===0) ctx.moveTo(x,y);
+          else ctx.lineTo(x,y);
         }
-        ctx.closePath();
-        ctx.fillStyle = f.color;
-        ctx.shadowColor = f.color;
-        ctx.shadowBlur = 8;
+        ctx.lineTo(w,h); ctx.lineTo(0,h); ctx.closePath();
+        ctx.shadowColor = '#ffd54a88';
+        ctx.shadowBlur = 12-i*2;
         ctx.fill();
         ctx.restore();
       }
+      t += 0.012;
+      requestAnimationFrame(draw);
     }
-
-    function animate() {
-      for(let f of flowers){
-        f.y += f.speed;
-        f.x += Math.sin(f.angle)*f.drift;
-        f.angle += 0.01 + Math.random()*0.01;
-        if(f.y > h+30){
-          f.y = -20;
-          f.x = Math.random()*w;
-        }
-        if(f.x < -30) f.x = w+20;
-        if(f.x > w+30) f.x = -20;
-      }
-      draw();
-      requestAnimationFrame(animate);
-    }
-    animate();
+    draw();
   </script>
 </body>
 </html>

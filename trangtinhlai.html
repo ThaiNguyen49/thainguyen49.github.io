@@ -1,0 +1,261 @@
+<!doctype html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Máy tính lãi 0.5%/ngày</title>
+  <style>
+    :root{
+      --bg:#0b1020; --card:#121935; --muted:#94a3b8; --text:#e5e7eb; --accent:#60a5fa; --ok:#22c55e; --warn:#f59e0b; --ring:rgba(96,165,250,.35)
+    }
+    html,body{height:100%}
+    body{margin:0;font-family:system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,Helvetica,Arial,sans-serif;background:radial-gradient(1200px 700px at 10% -10%,#1f2a55,transparent),linear-gradient(180deg,#0b1020,#0b1020 60%);color:var(--text);}
+    .wrap{max-width:980px;margin:32px auto;padding:0 16px}
+    .card{background:linear-gradient(180deg,rgba(255,255,255,.04),rgba(255,255,255,.02));border:1px solid rgba(255,255,255,.08);box-shadow:0 10px 30px rgba(2,6,23,.5);border-radius:18px;padding:22px}
+    h1{font-size:clamp(22px,3vw,30px);margin:0 0 10px}
+    p.sub{margin:.2rem 0 1rem;color:var(--muted)}
+    .grid{display:grid;gap:14px;grid-template-columns:repeat(12,1fr)}
+    .col-6{grid-column:span 6}
+    .col-4{grid-column:span 4}
+    .col-8{grid-column:span 8}
+    .col-12{grid-column:span 12}
+    @media(max-width:780px){.col-6,.col-4,.col-8{grid-column:span 12}}
+    label{display:block;font-weight:600;margin:4px 0 6px}
+    input[type="number"],input[type="text"],select{width:100%;box-sizing:border-box;border-radius:12px;border:1px solid rgba(148,163,184,.35);background:#0e1430;color:var(--text);padding:12px 14px;outline:none}
+    input:focus,select:focus{box-shadow:0 0 0 6px var(--ring);border-color:var(--accent)}
+    .row{display:flex;gap:10px;flex-wrap:wrap}
+    .seg{display:flex;gap:8px;background:#0f1633;border:1px solid rgba(148,163,184,.3);border-radius:12px;padding:6px}
+    .seg input{display:none}
+    .seg label{margin:0;padding:9px 12px;border-radius:8px;font-weight:600;color:var(--muted);cursor:pointer;user-select:none}
+    .seg input:checked + label{background:linear-gradient(180deg,#2563eb,#1d4ed8);color:white;box-shadow:0 10px 20px rgba(37,99,235,.35)}
+    .actions{display:flex;gap:10px;flex-wrap:wrap}
+    button{border:0;border-radius:12px;padding:12px 14px;font-weight:700;cursor:pointer;color:white;background:linear-gradient(180deg,#2563eb,#1d4ed8)}
+    button.secondary{background:#0f1633;color:var(--text);border:1px solid rgba(148,163,184,.35)}
+    .result-card{background:linear-gradient(180deg,rgba(59,130,246,.12),rgba(59,130,246,.06));border:1px solid rgba(59,130,246,.35);border-radius:16px;padding:16px}
+    .stat{display:grid;grid-template-columns:1fr auto;gap:8px;margin:6px 0}
+    .stat .lbl{color:var(--muted)}
+    .stat .val{font-weight:800}
+    .muted{color:var(--muted)}
+    details{background:#0f1633;border:1px solid rgba(148,163,184,.35);border-radius:14px;padding:10px 12px}
+    table{width:100%;border-collapse:collapse;margin-top:8px}
+    th,td{border-bottom:1px dashed rgba(148,163,184,.25);padding:8px;text-align:right}
+    th:first-child,td:first-child{text-align:left}
+    .badge{display:inline-block;font-size:.85rem;padding:.2rem .5rem;border-radius:999px;border:1px solid rgba(255,255,255,.2);background:rgba(255,255,255,.06)}
+    .foot{margin-top:14px;color:var(--muted);font-size:.9rem}
+    .cross-link {
+      text-decoration:none;
+      padding:8px 18px;
+      border-radius:6px;
+      font-weight:600;
+      background:#ffd54a;
+      color:#222;
+      border:none;
+      margin:0 4px;
+      transition:background 0.2s;
+      cursor:pointer;
+    }
+    .cross-link:hover, .cross-link.active {
+      background: #d35400 !important;
+      color: #fff !important;
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <div class="card">
+      <h1>Máy tính lãi suất <span class="badge">0,5% / ngày</span></h1>
+      <p class="sub">Tính nhanh tiền lãi và tổng phải trả theo <strong>lãi đơn</strong> hoặc <strong>lãi kép (ghép lãi mỗi ngày)</strong>. Bạn có thể sửa lãi suất nếu cần.</p>
+
+      <div class="grid">
+        <div class="col-6">
+          <label for="principal">Số tiền gốc (VND)</label>
+          <input id="principal" type="number" inputmode="decimal" min="0" step="1000" placeholder="VD: 50.000.000" />
+        </div>
+        <div class="col-3 col-6">
+          <label for="days">Số ngày</label>
+          <input id="days" type="number" inputmode="numeric" min="0" step="1" placeholder="VD: 30" />
+        </div>
+        <div class="col-3 col-6">
+          <label for="rate">Lãi suất (%/ngày)</label>
+          <input id="rate" type="number" inputmode="decimal" min="0" step="0.01" value="0.5" />
+        </div>
+
+        <div class="col-12">
+          <div class="row" role="group" aria-label="Chọn phương thức tính">
+            <div class="seg">
+              <input type="radio" name="method" id="simple" value="simple" checked>
+              <label for="simple">Lãi đơn</label>
+              <input type="radio" name="method" id="compound" value="compound">
+              <label for="compound">Lãi kép (ghép hàng ngày)</label>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-12 actions">
+          <button id="calc">Tính ngay</button>
+          <button id="reset" class="secondary">Xóa dữ liệu</button>
+          <button id="copy" class="secondary">Sao chép kết quả</button>
+          <button id="print" class="secondary">In</button>
+        </div>
+
+        <div class="col-12">
+          <div id="result" class="result-card" style="display:none"></div>
+        </div>
+
+        <div class="col-12">
+          <details id="scheduleBox">
+            <summary><strong>Bảng chi tiết theo ngày</strong> (hiện tối đa 365 ngày)</summary>
+            <div id="schedule"></div>
+          </details>
+        </div>
+      </div>
+
+      <div class="foot">Gợi ý: 30 ngày ≈ 1 tháng. Lãi tương đương theo tháng/năm chỉ mang tính tham khảo.</div>
+    </div>
+  </div>
+
+  <nav class="cross-nav" style="max-width:800px;margin:18px auto 0 auto;display:flex;justify-content:center;gap:12px;z-index:2;position:relative;">
+    <a href="index.html" class="cross-link">Trang chủ</a>
+    <a href="cauchuyennho.html" class="cross-link">Câu chuyện nhỏ</a>
+    <a href="thongtinnhanvat.html" class="cross-link">Thông tin nhân vật</a>
+    <a href="congtysun.html" class="cross-link">Công ty Sun</a>
+        <a href="trangtinhlai.html" class="cross-link">Tính Lãi</a>
+
+    <button class="cross-link" onclick="(function(){
+      localStorage.removeItem('currentUser');
+      location.replace('login.html');
+    })()">Đăng xuất</button>
+  </nav>
+
+<script>
+(function(){
+  const fmtMoney = new Intl.NumberFormat('vi-VN', { style: 'currency', currency: 'VND', maximumFractionDigits: 0 });
+  const fmtPct = new Intl.NumberFormat('vi-VN', { style: 'percent', maximumFractionDigits: 2 });
+
+  const $ = id => document.getElementById(id);
+  const principalEl = $('principal');
+  const daysEl = $('days');
+  const rateEl = $('rate');
+  const resultEl = $('result');
+  const scheduleBox = $('scheduleBox');
+  const scheduleEl = $('schedule');
+
+  function getMethod(){
+    return document.querySelector('input[name="method"]:checked').value;
+  }
+
+  function validate(){
+    const P = Number(principalEl.value || 0);
+    const n = Number(daysEl.value || 0);
+    const r_pct = Number(rateEl.value || 0);
+    if (P <= 0) throw new Error('Vui lòng nhập số tiền gốc (> 0).');
+    if (!Number.isFinite(n) || n < 0 || !Number.isInteger(n)) throw new Error('Số ngày phải là số nguyên không âm.');
+    if (r_pct < 0) throw new Error('Lãi suất không được âm.');
+    return { P, n, r_pct };
+  }
+
+  function calc(){
+    const { P, n, r_pct } = validate();
+    const r = r_pct / 100; // lãi theo ngày (đơn vị thập phân)
+    const method = getMethod();
+
+    let interest = 0, total = P;
+    if (method === 'simple'){
+      interest = P * r * n;
+      total = P + interest;
+    } else {
+      total = P * Math.pow(1 + r, n);
+      interest = total - P;
+    }
+
+    // Tương đương theo tháng/năm
+    const daysInMonth = 30, daysInYear = 365;
+    const simpleMonth = r * daysInMonth; // gần đúng
+    const simpleYear = r * daysInYear;   // gần đúng
+    const effMonth = Math.pow(1 + r, daysInMonth) - 1; // hiệu dụng (ghép ngày)
+    const effYear  = Math.pow(1 + r, daysInYear) - 1;  // hiệu dụng (ghép ngày)
+
+    // Render kết quả
+    const lines = [
+      row('Số tiền gốc', fmtMoney.format(P)),
+      row('Số ngày', n.toLocaleString('vi-VN')), 
+      row('Lãi suất theo ngày', (r_pct).toLocaleString('vi-VN', {maximumFractionDigits: 4}) + ' %'),
+      row('Phương thức', method === 'simple' ? 'Lãi đơn' : 'Lãi kép (ghép ngày)'),
+      '<hr style="border:0;border-top:1px dashed rgba(148,163,184,.4);margin:8px 0">',
+      row('Tiền lãi', '<span class="val">' + fmtMoney.format(interest) + '</span>'),
+      row('Tổng phải trả', '<span class="val">' + fmtMoney.format(total) + '</span>'),
+      '<hr style="border:0;border-top:1px dashed rgba(148,163,184,.4);margin:8px 0">',
+      row('Tương đương ~tháng (30 ngày) — gần đúng', fmtPct.format(simpleMonth)),
+      row('Tương đương ~năm (365 ngày) — gần đúng', fmtPct.format(simpleYear)),
+      row('Hiệu dụng tháng (ghép ngày)', '<span class="badge">' + fmtPct.format(effMonth) + '</span>'),
+      row('Hiệu dụng năm (ghép ngày)', '<span class="badge">' + fmtPct.format(effYear) + '</span>')
+    ].join('');
+
+    resultEl.style.display = 'block';
+    resultEl.innerHTML = lines;
+
+    // Bảng lịch (tối đa 365 ngày)
+    if (n > 0 && n <= 365){
+      const rows = ['<table><thead><tr><th>Ngày</th><th>Số dư đầu kỳ</th><th>Lãi trong ngày</th><th>Số dư cuối kỳ</th></tr></thead><tbody>'];
+      let bal = P;
+      for (let d = 1; d <= n; d++){
+        const interestDay = (getMethod()==='simple') ? (P * r) : (bal * r);
+        const endBal = (getMethod()==='simple') ? (P + P*r*d) : (bal + interestDay);
+        rows.push(`<tr><td>${d}</td><td>${fmtMoney.format(bal)}</td><td>${fmtMoney.format(interestDay)}</td><td>${fmtMoney.format(endBal)}</td></tr>`);
+        bal = endBal;
+      }
+      rows.push('</tbody></table>');
+      scheduleEl.innerHTML = rows.join('');
+    } else if (n > 365){
+      scheduleEl.innerHTML = '<p class="muted">Bảng chi tiết chỉ hiển thị tối đa 365 ngày để đảm bảo hiệu năng.</p>';
+    } else {
+      scheduleEl.innerHTML = '';
+    }
+  }
+
+  function row(lbl, val){
+    return `<div class="stat"><div class="lbl">${lbl}</div><div class="val">${val}</div></div>`;
+  }
+
+  function copyResult(){
+    if (resultEl.style.display === 'none'){ alert('Chưa có kết quả để sao chép. Hãy bấm "Tính ngay".'); return; }
+    const text = resultEl.innerText.replace(/\n{2,}/g,'\n');
+    navigator.clipboard.writeText(text).then(()=>{
+      toast('Đã sao chép kết quả.');
+    }).catch(()=>{
+      alert('Không thể sao chép. Vui lòng chọn và copy thủ công.');
+    });
+  }
+
+  function toast(msg){
+    const t = document.createElement('div');
+    t.textContent = msg;
+    t.style.cssText = 'position:fixed;left:50%;top:16px;transform:translateX(-50%);background:#16a34a;color:#fff;padding:10px 14px;border-radius:999px;box-shadow:0 10px 20px rgba(0,0,0,.35);z-index:9999;font-weight:700';
+    document.body.appendChild(t);
+    setTimeout(()=>t.remove(), 1600);
+  }
+
+  // Events
+  $('calc').addEventListener('click', () => {
+    try{ calc(); if (!scheduleBox.open) scheduleBox.open = true; }
+    catch(e){ resultEl.style.display='block'; resultEl.innerHTML = `<span style="color:#fda4af">${e.message}</span>`; }
+  });
+  $('reset').addEventListener('click', () => {
+    principalEl.value = '';
+    daysEl.value = '';
+    rateEl.value = '0.5';
+    resultEl.style.display='none';
+    scheduleEl.innerHTML='';
+    scheduleBox.open=false;
+  });
+  $('copy').addEventListener('click', copyResult);
+  $('print').addEventListener('click', () => window.print());
+
+  // Enter để tính nhanh
+  [principalEl, daysEl, rateEl].forEach(el => el.addEventListener('keydown', e => {
+    if (e.key === 'Enter') $('calc').click();
+  }));
+})();
+</script>
+</body>
+</html>

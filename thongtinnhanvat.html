@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Câu Chuyện Nhỏ</title>
+<title>Thông Tin Nhân Vật</title>
 <style>
   :root{
     --bg:#0a0e14;--panel:#121826;--ink:#e8eefc;--muted:#a9b4cf;--line:#243047;
@@ -18,7 +18,15 @@
   .logo{width:26px;height:26px;border-radius:6px;background:linear-gradient(135deg,var(--brand),var(--brand2));}
   .btn{padding:8px 12px;border-radius:10px;border:1px solid var(--line);background:#0e1525;color:var(--ink);cursor:pointer}
   .btn.primary{border-color:transparent;background:linear-gradient(135deg,var(--brand),var(--brand2));color:#111;font-weight:800}
-  .container{max-width:1100px;margin:0 auto;padding:20px 16px 64px;position:relative;z-index:1;}
+  .container{
+    max-width:1100px;
+    margin:0 auto;
+    padding:20px 16px 64px;
+    position:relative;
+    z-index:1;
+    background: transparent; /* Ẩn nền panel */
+    box-shadow: none;        /* Ẩn bóng panel */
+  }
   .section{scroll-margin-top:84px;margin:20px 0}
   h1{font-size:28px;margin:10px 0;color:var(--brand)}
   h2{font-size:20px;margin:0 0 8px;color:#ffecb3}
@@ -49,20 +57,38 @@
 <body>
 <canvas id="bg-effect"></canvas>
 <nav class="cross-nav" style="max-width:800px;margin:18px auto 0 auto;display:flex;justify-content:center;gap:12px;z-index:2;position:relative;">
-        <a href="index.html" class="cross-link" style="text-decoration:none;padding:8px 18px;border-radius:6px;font-weight:600;background:#ffd54a;color:#222;border:none;transition:background 0.2s;">Trang chủ</a>
-                <a href="cauchuyennho.html" class="cross-link" style="text-decoration:none;padding:8px 18px;border-radius:6px;font-weight:600;background:#ffd54a;color:#222;border:none;transition:background 0.2s;">Câu chuyện nhỏ</a>
+  <a href="index.html" class="cross-link">Trang chủ</a>
+  <a href="cauchuyennho.html" class="cross-link">Câu chuyện nhỏ</a>
+  <a href="thongtinnhanvat.html" class="cross-link">Thông tin nhân vật</a>
+  <a href="congtysun.html" class="cross-link">Công ty Sun</a>
+      <a href="trangtinhlai.html" class="cross-link">Tính Lãi</a>
 
-        <a href="thongtinnhanvat.html" class="cross-link" style="text-decoration:none;padding:8px 18px;border-radius:6px;font-weight:600;background:#ffd54a;color:#222;border:none;transition:background 0.2s;">Câu chuyện nhỏ</a>
-    </nav>
+  <button class="cross-link" onclick="(function(){
+    localStorage.removeItem('currentUser');
+    location.replace('login.html');
+  })()">Đăng xuất</button>
+</nav>
 <style>
+.cross-link {
+  text-decoration:none;
+  padding:8px 18px;
+  border-radius:6px;
+  font-weight:600;
+  background:#ffd54a;
+  color:#222;
+  border:none;
+  margin:0 4px;
+  transition:background 0.2s;
+  cursor:pointer;
+}
 .cross-link:hover, .cross-link.active {
-  background: #ffd54a !important;
-  color: #0a0e14 !important;
+  background: #d35400 !important;
+  color: #fff !important;
 }
 </style>
 <header>
   <div class="nav">
-    <div class="brand"><span class="logo"></span><span>Câu Chuyện Nhỏ</span></div>
+    <div class="brand"><span class="logo"></span><span>Thông Tin</span></div>
     <button class="btn primary" onclick="go('#nhan-su-gia-dinh')">Gia đình</button>
     <button class="btn" onclick="go('#nhan-vien')">Nhân viên</button>
     <button class="btn" onclick="go('#ban-be')">Bạn bè</button>
@@ -94,15 +120,7 @@
           <li>Con giáp: Tuất 🐕 (Mậu Tuất)</li>
           <li>Mệnh: Bình Địa Mộc (cây cỏ đồng bằng)</li>
           <li>Cung hoàng đạo: Thiên Bình (10/10/1958)</li>
-          <li>Nơi ở: Bảo Lộc, Lâm Đồng</li>
-        </ul>
-      </div>
-      <div class="card">
-        <h2>Trịnh Thị Hòa</h2>
-        <div class="muted">Sinh năm 1960 • Canh Tý • Bích Thượng Thổ • Song Ngư ♓ • Bảo Lộc</div>
-        <ul class="list">
-          <li>Con giáp: Tý 🐀 (Canh Tý)</li>
-          <li>Mệnh: Bích Thượng Thổ (đất trên vách)</li>
+         
           <li>Cung hoàng đạo: Song Ngư (20/3/1960)</li>
           <li>Nơi ở: Bảo Lộc, Lâm Đồng</li>
         </ul>
@@ -261,7 +279,7 @@
 
   <!-- Câu Chuyện Nhỏ -->
   <section id="du-an" class="section">
-    <h1>Câu Chuyện Nhỏ </h1>
+    <h1>Thông Tin</h1>
     <div class="card">
       <h2>Bà Nà Hills — “Đường lên tiên cảnh”</h2>
       <p>Từ 2007, Sun Group chọn Đà Nẵng ra mắt: cáp treo kỷ lục Guinness, Làng Pháp, Fantasy Park, và Cầu Vàng (2018) khiến thế giới biết đến Bà Nà Hills.</p>
