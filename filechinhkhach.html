@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Quản trị hồ sơ → Xuất trang khách (khachang.html)</title>
+<title>Quản trị hồ sơ → Xuất trang khách (khachhang.html)</title>
 <style>
   :root{--bg:#0b1225;--panel:#0f162d;--text:#e6eef8;--muted:#9fb0c6;--border:#1f2937;--accent:#22d3ee}
   *{box-sizing:border-box} body{margin:0;background:#0b1225;color:var(--text);font-family:ui-sans-serif,system-ui,-apple-system,Segoe UI,Roboto,Arial}
@@ -35,7 +35,7 @@
 </style>
 </head>
 <body>
-<header><h1>Quản trị hồ sơ → Xuất trang khách (khachahng.html)</h1></header>
+<header><h1>Quản trị hồ sơ → Xuất trang khách (khachhang.html)</h1></header>
 
 <div class="wrap">
   <!-- Tabs + actions -->
@@ -44,7 +44,7 @@
     <button class="btn primary" id="addTab">➕ Thêm tab</button>
     <button class="btn" id="dupTab">📄 Nhân bản tab</button>
     <button class="btn" id="delTab">🗑️ Xoá tab</button>
-<button class="btn" id="exportIndex">🌐 Xuất trang khách (khachhang.html)</button>
+    <button class="btn" id="exportIndex">🌐 Xuất trang khách (khachhang.html)</button>
     <span class="hint">Tên tab tự cập nhật theo <b>Tên</b>. Dữ liệu tự lưu cục bộ trên máy bạn.</span>
   </div>
 
@@ -113,7 +113,7 @@
           <button class="btn" id="resetForm">Xoá trắng form</button>
         </div>
         <div id="msg" class="msg" style="display:none;"></div>
-        <p class="hint">Gợi ý: Ảnh chọn từ máy sẽ được nhúng vào trang khách (data URL) ⇒ khách vào web vẫn thấy đủ ảnh.</p>
+        <p class="hint">Ảnh chọn từ máy sẽ được nhúng vào trang khách (data URL) ⇒ khách vào web vẫn thấy đủ ảnh.</p>
       </div>
     </div>
 
@@ -246,12 +246,13 @@ $("resetForm").addEventListener("click",()=>{
 });
 
 /* ========= Tab actions ========= */
+function uidGen(){ return 'P' + Math.random().toString(36).slice(2,9); }
 $("addTab").addEventListener("click",()=>{
-  profiles.push({id:uid(), name:`Khách ${profiles.length+1}`, data:{trangthai:"dang",nha:"Không rõ",xe:"Không rõ",dat:"Không rõ"}, image:""});
+  profiles.push({id:uidGen(), name:`Khách ${profiles.length+1}`, data:{trangthai:"dang",nha:"Không rõ",xe:"Không rõ",dat:"Không rõ"}, image:""});
   save(); current=profiles.length-1; renderTabs(); fillForm(active().data, active().image);
 });
 $("dupTab").addEventListener("click",()=>{
-  const a=active(); const c=JSON.parse(JSON.stringify(a)); c.id=uid(); c.name=(a.name||"Khách")+" (bản sao)";
+  const a=active(); const c=JSON.parse(JSON.stringify(a)); c.id=uidGen(); c.name=(a.name||"Khách")+" (bản sao)";
   profiles.splice(current+1,0,c); save(); current++; renderTabs(); fillForm(active().data, active().image);
 });
 $("delTab").addEventListener("click",()=>{
@@ -264,7 +265,7 @@ $("thumb").addEventListener("click",()=>{ const src=imageDataURL||active().image
 $("closeLb").addEventListener("click",()=>{ $("lightbox").style.display='none'; });
 $("lightbox").addEventListener("click",(e)=>{ if(e.target.id==='lightbox') $("lightbox").style.display='none'; });
 
-/* ========= Export: generate viewer index.html (read-only, all) ========= */
+/* ========= Export viewer: khachhang.html (read-only, all) ========= */
 $("exportIndex").addEventListener("click",()=>{
   autosave();
   const packed = profiles.map(p=>({name:p.name, data:p.data||{}, image:p.image||""}));
@@ -390,17 +391,19 @@ function applyFilter(){
 q.addEventListener('input', applyFilter);
 f.addEventListener('change', applyFilter);
 render(entries);
-</script>
+<\/script>
 </body></html>`;
 
   const blob = new Blob([html], {type:"text/html;charset=utf-8"});
   const url  = URL.createObjectURL(blob);
   const a    = document.createElement("a");
-a.download = "khachhang.html"; 
+  a.href = url;
+  a.download = "khachhang.html";   // ← tên file theo yêu cầu
+  a.click();
   URL.revokeObjectURL(url);
 
   $("msg").style.display="block";
-$("msg").innerHTML = "✅ Đã tạo <b>khachhang.html</b>. Hãy upload file này lên web...";
+  $("msg").innerHTML = "✅ Đã tạo <b>khachhang.html</b>. Hãy upload file này lên web. Khách vào đường link là thấy đầy đủ (chỉ đọc).";
 });
 
 /* ========= Init ========= */
@@ -408,4 +411,3 @@ load(); renderTabs(); fillForm(active().data, active().image);
 </script>
 </body>
 </html>
-
