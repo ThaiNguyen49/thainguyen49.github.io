@@ -308,14 +308,20 @@ editor.value = BOILERPLATE;
 updateLineNumbers();
 runCode();
 
-/* ======== Chatbot đơn giản (client-side) ======== */
+/* ======== Chatbot dùng API thật ======== */
 const botToggle = document.getElementById('chatbotToggle');
 const bot = document.getElementById('chatbot');
 const chatList = document.getElementById('chatMessages');
 const chatInput = document.getElementById('chatInput');
 const chatSend = document.getElementById('chatSend');
 
-botToggle.onclick = ()=>{ bot.style.display = bot.style.display==='flex' ? 'none' : 'flex'; chatInput.focus(); };
+const API_KEY = "sk-jOLCGXFQkd5IMXGWkA4cXY8nBIM1sxIAjH1K2zC2TDGsxZYC";
+const BASE_URL = "https://gpt2.shupremium.com/v1";
+
+botToggle.onclick = ()=>{ 
+  bot.style.display = bot.style.display === 'flex' ? 'none' : 'flex'; 
+  chatInput.focus(); 
+};
 
 function appendMsg(text, who='bot'){
   const div = document.createElement('div');
@@ -325,25 +331,47 @@ function appendMsg(text, who='bot'){
   chatList.scrollTop = chatList.scrollHeight;
 }
 
-function botReply(text){
-  const t = text.toLowerCase();
-  if(t.includes('xin chao') || t.includes('hello') || t.includes('hi')) return 'Chào bạn! Mình là trợ lý LIN FU. Mình có thể chèn mẫu HTML, chạy xem trước và tải xuống file.';
-  if(t.includes('mau') || t.includes('template')) return 'Gợi ý: dùng nút “Mẫu chuẩn” để chèn bộ khởi động, hoặc ấn chip “HTML5 + Head chuẩn”.';
-  if(t.includes('khong chay') || t.includes('không chạy')) return 'Hãy chắc nội dung có đầy đủ <!doctype html>… và bấm ▶ Chạy. Bạn cũng có thể bật “Tự chạy”.';
-  if(t.includes('tai xuong') || t.includes('tải xuống')) return 'Bấm “⬇ Tải xuống” để lưu nội dung hiện tại thành .html.';
-  return 'Mình chưa hiểu ý 😅 — thử hỏi về "mẫu", "không chạy", "tải xuống" hoặc chào mình xem nhé.';
+async function askBot(prompt) {
+  try {
+    const res = await fetch(`${BASE_URL}/chat/completions`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        "Authorization": `Bearer ${API_KEY}`
+      },
+      body: JSON.stringify({
+        model: "gpt-4o-mini",
+        messages: [
+          { role: "system", content: "Bạn là trợ lý LIN FU, nói chuyện thân thiện, giúp người dùng HTML Studio." },
+          { role: "user", content: prompt }
+        ]
+      })
+    });
+    const data = await res.json();
+    return data?.choices?.[0]?.message?.content || "Không có phản hồi.";
+  } catch (err) {
+    return "❌ Lỗi kết nối API: " + err.message;
+  }
 }
 
-function send(){
+async function send(){
   const text = chatInput.value.trim();
-  if(!text) return; appendMsg(text, 'me'); chatInput.value='';
-  setTimeout(()=>{ appendMsg(botReply(text), 'bot'); }, 150);
+  if(!text) return;
+  appendMsg(text, "me");
+  chatInput.value = "";
+  appendMsg("Đang trả lời...", "bot");
+
+  const reply = await askBot(text);
+  document.querySelector(".msg.bot:last-child").textContent = reply;
 }
 
 chatSend.onclick = send;
-chatInput.addEventListener('keydown', e=>{ if(e.key==='Enter' && !e.shiftKey){ e.preventDefault(); send(); } });
+chatInput.addEventListener("keydown", e=>{
+  if(e.key === "Enter" && !e.shiftKey){ e.preventDefault(); send(); }
+});
 
-appendMsg('Xin chào! 👋 Mình là trợ lý của Studio. Hỏi mình nếu bạn cần giúp.');
+appendMsg("Xin chào! 👋 Mình là trợ lý LIN FU – đã kết nối API thành công!");
+
 </script>
 </body>
 </html>
