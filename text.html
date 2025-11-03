@@ -1,0 +1,184 @@
+<!doctype html>
+<html lang="vi">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>TOOL TEXT LIN FU</title>
+<style>
+  :root{
+    --bg:#ffe1a8; --panel:#ffd89a; --input:#fff6e2; --text:#3b2f2f;
+    --edge:#f1c36a; --title:#5a3f15; --btn:#6b4f1d; --mut:#7b5f23;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--bg);color:var(--text);font-family:Inter,system-ui,Segoe UI,Roboto,Arial,sans-serif}
+  header{position:sticky;top:0;background:#ffd186;padding:12px 16px;border-bottom:1px solid #f0be5a}
+  h1{margin:0;font-size:18px;text-align:center}
+  .wrap{max-width:1200px;margin:18px auto;padding:0 14px}
+  .toolbar{display:flex;gap:8px;flex-wrap:wrap;margin:10px 0;justify-content:center}
+  button{border:none;border-radius:10px;padding:8px 12px;font-weight:600;cursor:pointer}
+  .primary{background:var(--btn);color:#fff}
+  .secondary{background:#8b6b31;color:#fff}
+  .ghost{background:transparent;border:1px dashed var(--edge);color:#5a3f15}
+  .pill{display:inline-block;padding:4px 10px;border:1px solid var(--edge);border-radius:999px;background:#fff3d6;font-size:12px;color:#6a4b1a}
+
+  .blocks{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:12px}
+  .card{background:var(--panel);border:1px solid var(--edge);border-radius:14px;box-shadow:0 6px 14px rgba(0,0,0,.06);overflow:hidden}
+  .card h3{margin:0;padding:8px 10px;font-size:14px;background:#ffd186;color:var(--title);display:flex;align-items:center;justify-content:space-between}
+  .del{background:transparent;border:1px dashed #c59a43;color:#5a3f15;padding:4px 8px;border-radius:999px;cursor:pointer}
+  .content{padding:10px}
+  label{display:block;font-size:12px;color:var(--mut);margin:6px 0 4px}
+  textarea,input{width:100%;border:1px solid var(--edge);background:var(--input);color:var(--text);border-radius:8px;outline:none}
+  textarea{min-height:84px;resize:vertical;font-family:ui-monospace,Menlo,Consolas,monospace;padding:8px}
+  input[type="text"],input[type="number"]{padding:7px 8px}
+  .row{display:grid;grid-template-columns:repeat(4,1fr);gap:6px}
+  .joiner{display:grid;grid-template-columns:1fr auto auto auto;gap:8px;align-items:center}
+  .result{min-height:150px}
+  .foot{margin-top:6px;font-size:11px;color:#6d5320}
+</style>
+</head>
+<body>
+  <header><h1>🧩 TOOL TEXT LIN FU</h1></header>
+  <div class="wrap">
+
+    <div class="toolbar">
+      <button class="ghost" id="add">➕ Thêm nội dung</button>
+      <button class="ghost" id="removeLast">➖ Xóa nội dung cuối</button>
+      <span class="pill" id="blockCount">Số khối: 0</span>
+    </div>
+
+    <div id="blocks" class="blocks"></div>
+
+    <div class="card" style="margin-top:12px">
+      <h3>Ghép kết quả</h3>
+      <div class="content">
+        <div class="joiner">
+          <div>
+            <label>Text chèn giữa mỗi phần (mặc định: |)</label>
+            <input id="joiner" type="text" value="|" placeholder="vd: | hoặc khoảng trắng">
+          </div>
+          <button class="primary" id="run">🔗 Thực hiện</button>
+          <button class="secondary" id="copy">📋 Copy</button>
+          <button class="ghost" id="clear">🧹 Xóa tất cả</button>
+        </div>
+
+        <label style="margin-top:10px">Kết quả</label>
+        <textarea id="output" class="result" readonly placeholder="Kết quả sẽ nằm ở đây..."></textarea>
+        <div class="foot">
+          <span class="pill" id="count">Kết quả: 0</span>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+<script>
+let blockIdx = 0;
+const $ = sel => document.querySelector(sel);
+
+function parseSkipList(s){
+  if(!s) return new Set();
+  return new Set(s.split(/[\s,;]+/).map(x=>x.trim()).filter(Boolean)
+    .map(n=>Number(n)).filter(n=>Number.isInteger(n)&&n>=1));
+}
+
+function cutLine(line, sep, start, end, skipSet){
+  const _sep = sep && sep.length ? sep : '|';
+  let parts = line.split(_sep);
+  if(skipSet.size){
+    parts = parts.filter((_,i)=>!skipSet.has(i+1));
+  }
+  if(start<1) start=1;
+  if(end<start) return "";
+  return parts.slice(start-1, Math.min(end,parts.length)).join(_sep);
+}
+
+function padTo(lines, n){while(lines.length<n)lines.push("");return lines;}
+
+function makeBlock(){
+  blockIdx++;
+  const card=document.createElement('section');
+  card.className='card';
+  card.dataset.blockId=blockIdx;
+  card.innerHTML=`
+    <h3>Nội dung ${blockIdx} <button class="del" onclick="removeBlock(${blockIdx})">🗑</button></h3>
+    <div class="content">
+      <label>Nội dung (mỗi dòng một mục)</label>
+      <textarea class="b-input" placeholder="Dán dữ liệu..."></textarea>
+      <div class="row">
+        <div><label>Ký tự ngăn cách</label><input class="b-sep" type="text" value="|" /></div>
+        <div><label>Bỏ qua vị trí</label><input class="b-skip" type="text" placeholder="vd: 2,3" /></div>
+        <div><label>Bắt đầu</label><input class="b-start" type="number" value="1" min="1" /></div>
+        <div><label>Đến</label><input class="b-end" type="number" value="1" min="1" /></div>
+      </div>
+    </div>`;
+  $('#blocks').appendChild(card);
+  updateBlockCount();
+}
+
+function removeBlock(id){
+  const el=document.querySelector(`.card[data-block-id="${id}"]`);
+  if(el) el.remove();
+  updateBlockCount();
+}
+
+function removeLast(){
+  const all=document.querySelectorAll('#blocks .card');
+  if(all.length) all[all.length-1].remove();
+  updateBlockCount();
+}
+
+function updateBlockCount(){
+  $('#blockCount').textContent='Số khối: '+document.querySelectorAll('#blocks .card').length;
+}
+
+function run(){
+  const cards=document.querySelectorAll('#blocks .card');
+  if(!cards.length){alert('Hãy thêm ít nhất 1 khối nội dung.');return;}
+
+  const allLines=[];
+  cards.forEach(c=>{
+    const txt=c.querySelector('.b-input').value.replace(/\r\n/g,"\n");
+    allLines.push(txt?txt.split('\n'):[]);
+  });
+  const max=allLines.reduce((m,a)=>Math.max(m,a.length),0);
+  const joiner=$('#joiner').value||'|';
+
+  const outputs=[];
+  for(let i=0;i<max;i++){
+    const parts=[];
+    cards.forEach((c,idx)=>{
+      const lines=padTo(allLines[idx],max);
+      const ln=lines[i]||'';
+      const sep=c.querySelector('.b-sep').value||'|';
+      const skip=parseSkipList(c.querySelector('.b-skip').value);
+      const s=+c.querySelector('.b-start').value||1;
+      const e=+c.querySelector('.b-end').value||1;
+      parts.push(ln?cutLine(ln,sep,s,e,skip):'');
+    });
+    outputs.push(parts.join(joiner));
+  }
+
+  $('#output').value=outputs.join('\n');
+  $('#count').textContent='Kết quả: '+outputs.length;
+}
+
+function copyResult(){navigator.clipboard.writeText($('#output').value||'');}
+function clearAll(){
+  $('#joiner').value='|';
+  $('#output').value='';
+  document.querySelectorAll('#blocks .card').forEach(c=>c.remove());
+  updateBlockCount();
+  makeBlock();makeBlock();
+}
+
+/* Sự kiện */
+$('#add').onclick=makeBlock;
+$('#removeLast').onclick=removeLast;
+$('#run').onclick=run;
+$('#copy').onclick=copyResult;
+$('#clear').onclick=clearAll;
+window.addEventListener('keydown',e=>{if((e.ctrlKey||e.metaKey)&&e.key==='Enter'){e.preventDefault();run();}});
+makeBlock();makeBlock();
+</script>
+</body>
+</html>
