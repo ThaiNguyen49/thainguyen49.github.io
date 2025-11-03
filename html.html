@@ -168,6 +168,65 @@
   </main>
 
 <script>
+  // --- Chức năng chính ---
+const editor = document.getElementById("editor");
+const preview = document.getElementById("preview");
+const runBtn = document.getElementById("runBtn");
+const autoBtn = document.getElementById("autoBtn");
+const resetBtn = document.getElementById("resetBtn");
+const downloadBtn = document.getElementById("downloadBtn");
+const lintMsg = document.getElementById("lintMsg");
+const lintDot = document.getElementById("lintDot");
+const linenos = document.getElementById("linenos");
+
+// Tạo số dòng
+function updateLineNumbers() {
+  const lines = editor.value.split("\n").length;
+  linenos.innerHTML = Array.from({length: lines}, (_, i) => i + 1).join("<br>");
+}
+editor.addEventListener("input", updateLineNumbers);
+
+// Hàm chạy code
+function runCode() {
+  const doc = preview.contentDocument || preview.contentWindow.document;
+  doc.open();
+  doc.write(editor.value);
+  doc.close();
+  lintMsg.textContent = "✅ Đã chạy thành công";
+  lintDot.classList.add("ok");
+  lintDot.classList.remove("err");
+}
+runBtn.onclick = runCode;
+
+// Tự động chạy khi bật
+let autoRun = false;
+autoBtn.onclick = () => {
+  autoRun = !autoRun;
+  autoBtn.textContent = autoRun ? "⚡ Tự chạy: BẬT" : "⚡ Tự chạy: TẮT";
+};
+editor.addEventListener("input", () => autoRun && runCode());
+
+// Nút mẫu chuẩn
+resetBtn.onclick = () => {
+  editor.value = BOILERPLATE;
+  updateLineNumbers();
+  runCode();
+};
+
+// Nút tải xuống
+downloadBtn.onclick = () => {
+  const blob = new Blob([editor.value], { type: "text/html" });
+  const a = document.createElement("a");
+  a.href = URL.createObjectURL(blob);
+  a.download = "linfu-demo.html";
+  a.click();
+};
+
+// Khởi tạo
+editor.value = BOILERPLATE;
+updateLineNumbers();
+runCode();
+
 /* ---------- Mẫu khởi động ---------- */
 const BOILERPLATE = `<!doctype html>
 <html lang="vi">
