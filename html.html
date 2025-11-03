@@ -1,0 +1,227 @@
+<!doctype html>
+<html lang="vi">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>LIN FU — HTML Studio</title>
+<meta name="description" content="Studio viết HTML: soạn thảo, xem trước trực tiếp, chèn mẫu, kiểm tra lỗi và hướng dẫn chuẩn chuyên nghiệp."/>
+<style>
+  :root{
+    --bg:#0f1221; --panel:#14182a; --soft:#1b2140; --ink:#e9eefc; --muted:#a7b1d6;
+    --brand:#7c9bff; --brand2:#a1e3ff; --accent:#17d3b0; --warn:#ffb86b; --danger:#ff6b6b;
+    --line:#263055; --ok:#2dd4bf;
+  }
+  *{box-sizing:border-box}
+  html,body{height:100%}
+  body{margin:0;font-family:Inter,system-ui,Segoe UI,Roboto,Arial,sans-serif;background:linear-gradient(180deg,#0b0f1d,#121634);color:var(--ink)}
+  a{color:var(--brand)}
+  .app{max-width:1200px;margin:auto;padding:16px}
+  header{
+    position:sticky;top:0;z-index:10;
+    background:linear-gradient(180deg,rgba(18,22,52,.95),rgba(18,22,52,.75));
+    backdrop-filter:saturate(160%) blur(8px);
+    border-bottom:1px solid #1f2550;
+  }
+  .head{max-width:1200px;margin:auto;padding:12px 16px;display:flex;gap:14px;align-items:center;justify-content:space-between}
+  .brand{
+    display:flex;align-items:center;gap:12px;font-weight:800;letter-spacing:.2px
+  }
+  .logo{
+    width:34px;height:34px;border-radius:10px;
+    background:conic-gradient(from 210deg at 50% 50%, var(--brand), var(--brand2), var(--accent), var(--brand));
+    box-shadow:0 0 0 2px rgba(124,155,255,.25), 0 12px 24px rgba(0,0,0,.3);
+  }
+  .tag{font-size:12px;color:var(--muted)}
+  .toolbar{display:flex;gap:8px;flex-wrap:wrap;align-items:center}
+  button{
+    border:1px solid #2a3161;background:linear-gradient(180deg,#1b2247,#141a36);color:#e8eeff;
+    padding:8px 12px;border-radius:10px;cursor:pointer;font-weight:700;letter-spacing:.3px
+  }
+  button:hover{box-shadow:0 6px 18px rgba(0,0,0,.25);transform:translateY(-1px)}
+  .primary{border-color:#3d58ff;background:linear-gradient(180deg,#2a44c9,#1e2c8f)}
+  .ghost{background:transparent}
+  .success{border-color:#1e7b6e;background:linear-gradient(180deg,#1c3f3a,#152b27)}
+  .warn{border-color:#8b5a18;background:linear-gradient(180deg,#2a1f11,#1c140b)}
+  .grid{display:grid;grid-template-columns:1.1fr 1fr;gap:14px;margin-top:16px}
+  @media (max-width:900px){.grid{grid-template-columns:1fr}}
+  .card{background:linear-gradient(180deg,#161b35,#0f142d);border:1px solid #212a5a;border-radius:16px;padding:12px;box-shadow:0 18px 40px rgba(4,7,19,.45)}
+  .card h2{margin:6px 8px 12px;font-size:16px;color:#cfe2ff}
+  /* Editor */
+  .editor-wrap{position:relative;border-radius:12px;overflow:hidden}
+  .editor{
+    width:100%; height:460px; resize:vertical;
+    background:#0b0f26; color:#e7ecff; font-family:ui-monospace, SFMono-Regular, Menlo, Consolas, "Liberation Mono", monospace;
+    border:1px solid #1f274f; border-radius:12px; padding:14px 16px 14px 48px; line-height:1.55;
+    caret-color:#7c9bff; tab-size:2;
+  }
+  .linenos{
+    position:absolute; inset:1px auto 1px 1px; width:42px; padding:14px 8px; text-align:right;
+    color:#7f8ac2; background:linear-gradient(180deg,#0d1130,#0c0f27); border-right:1px solid #1f274f;
+    font:600 12px/1.55 ui-monospace,Menlo,Consolas,monospace; user-select:none; overflow:hidden;
+  }
+  .status{
+    margin-top:8px; display:flex; gap:10px; flex-wrap:wrap; align-items:center; color:#b8c1f0; font-size:12px
+  }
+  .dot{display:inline-block; width:8px; height:8px; border-radius:50%}
+  .dot.ok{background:var(--ok)} .dot.err{background:var(--danger)}
+  /* Preview */
+  .preview{
+    width:100%; height:460px; border-radius:12px; border:1px solid #213066; overflow:hidden;
+    background:linear-gradient(180deg,#0e1231,#0a0d24);
+  }
+  iframe{width:100%;height:100%;border:0;background:white}
+  .chips{display:flex; gap:8px; flex-wrap:wrap}
+  .chip{
+    font-size:12px; padding:6px 10px; border-radius:999px; border:1px solid #2a3161; color:#d8e2ff;
+    background:linear-gradient(180deg,#1a1f45,#10153a); cursor:pointer
+  }
+  .chip:hover{border-color:#445cf7; box-shadow:0 10px 20px rgba(20,32,120,.25)}
+  .kbd{padding:2px 6px;border:1px solid #2c386e;border-radius:6px;background:#0c1130;color:#b8c1f0}
+  /* Guide */
+  details{border:1px solid #212a5a;border-radius:12px;padding:10px 12px;background:linear-gradient(180deg,#151a37,#0f142d)}
+  details+details{margin-top:10px}
+  summary{cursor:pointer; font-weight:800; color:#dbe6ff}
+  ul{margin:8px 0 4px 18px}
+  code{background:#0b1033;border:1px solid #24306a; padding:2px 6px; border-radius:6px}
+  .footer{opacity:.8;margin:14px 0 6px;text-align:center;color:#8ea7ff;font-size:12px}
+</style>
+</head>
+<body>
+  <header>
+    <div class="head">
+      <div class="brand">
+        <div class="logo" aria-hidden="true"></div>
+        <div>
+          <div>TOOL TEXT LIN FU — HTML Studio</div>
+          <div class="tag">Soạn thảo HTML • Xem trước trực tiếp • Hướng dẫn chuyên nghiệp</div>
+        </div>
+      </div>
+      <div class="toolbar">
+        <button class="primary" id="runBtn">▶ Chạy (Ctrl/⌘+Enter)</button>
+        <button class="ghost" id="autoBtn">⚡ Tự chạy: TẮT</button>
+        <button class="success" id="downloadBtn">⬇ Tải xuống</button>
+        <button class="ghost" id="resetBtn">⟲ Mẫu chuẩn</button>
+      </div>
+    </div>
+  </header>
+
+  <main class="app">
+    <div class="grid">
+      <!-- Editor -->
+      <section class="card">
+        <h2>Trình soạn thảo</h2>
+        <div class="chips" id="snippets"></div>
+        <div class="editor-wrap">
+          <div class="linenos" id="linenos"></div>
+          <textarea id="editor" class="editor" spellcheck="false"></textarea>
+        </div>
+        <div class="status">
+          <span><span class="dot ok" id="lintDot"></span> <strong id="lintMsg">Đang chờ…</strong></span>
+          <span>• Lưu nhanh: <span class="kbd">Ctrl/⌘+S</span> &nbsp; • Thụt dòng: <span class="kbd">Tab/Shift+Tab</span></span>
+        </div>
+      </section>
+
+      <!-- Preview -->
+      <section class="card">
+        <h2>Xem trước</h2>
+        <div class="preview"><iframe id="preview" title="Xem trước HTML"></iframe></div>
+      </section>
+    </div>
+
+    <!-- Guides -->
+    <section class="card" style="margin-top:16px">
+      <h2>📘 Hướng dẫn nhanh (Best Practices)</h2>
+      <details open>
+        <summary>1) Khung HTML chuẩn & SEO cơ bản</summary>
+        <ul>
+          <li>Dùng <code>&lt;!doctype html&gt;</code>, đặt <code>lang</code>, <code>meta charset</code>, <code>viewport</code>.</li>
+          <li>Tiêu đề trang ngắn gọn trong <code>&lt;title&gt;</code> và mô tả trong <code>&lt;meta name="description"&gt;</code>.</li>
+          <li>Luôn có một <code>h1</code> duy nhất mô tả nội dung chính.</li>
+        </ul>
+      </details>
+      <details>
+        <summary>2) Semantics & Accessibility (A11y)</summary>
+        <ul>
+          <li>Dùng thẻ ngữ nghĩa: <code>header</code>, <code>nav</code>, <code>main</code>, <code>section</code>, <code>article</code>, <code>footer</code>.</li>
+          <li>Hình ảnh cần <code>alt</code> rõ nghĩa; nút bấm có nhãn dễ hiểu.</li>
+          <li>Kiểm tra tab order & contrast; tránh chỉ dựa vào màu sắc để truyền tải thông tin.</li>
+        </ul>
+      </details>
+      <details>
+        <summary>3) Responsive & Hiệu năng</summary>
+        <ul>
+          <li>Dùng layout linh hoạt (Flex/Grid), kích thước bằng %, <code>max-width</code>, <code>clamp()</code>.</li>
+          <li>Tối ưu ảnh (kích thước, dạng <code>webp</code>), nén CSS/JS khi lên production.</li>
+          <li>Dùng <code>loading="lazy"</code> cho ảnh/iframe không nằm trong viewport ban đầu.</li>
+        </ul>
+      </details>
+      <details>
+        <summary>4) Checklist ra sản phẩm</summary>
+        <ul>
+          <li>Không lỗi console; HTML hợp lệ; tiêu đề/description chuẩn; favicon; bảo mật form cơ bản.</li>
+          <li>Test trên mobile/desktop; kiểm tra focus và bàn phím; kiểm tra độ tương phản.</li>
+        </ul>
+      </details>
+    </section>
+
+    <div class="footer">© TOOL TEXT LIN FU — HTML Studio. Dùng tự do cho học tập & công việc.</div>
+  </main>
+
+<script>
+/* ---------- Mẫu khởi động ---------- */
+const BOILERPLATE = `<!doctype html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Trang demo LIN FU</title>
+  <meta name="description" content="Mẫu HTML chuẩn do LIN FU tạo." />
+  <style>
+    :root{ --bg:#0f172a; --fg:#e2e8f0; --mut:#94a3b8; --pri:#22d3ee; }
+    *{box-sizing:border-box} body{margin:0;background:var(--bg);color:var(--fg);font:16px/1.6 system-ui,Segoe UI,Roboto,Arial}
+    .wrap{max-width:920px;margin:40px auto;padding:0 16px}
+    header{display:flex;justify-content:space-between;align-items:center;padding:16px;border-radius:14px;background:#0b1220;border:1px solid #0b1b2d}
+    .badge{padding:6px 10px;border:1px solid #11314b;border-radius:999px;background:#0a1323;color:#86eaf6}
+    .hero{padding:42px 16px}
+    .cta{display:inline-block;margin-top:12px;padding:10px 14px;border-radius:10px;border:1px solid #1e2c4d;background:#0a1323;color:#d9f3ff}
+    .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:12px;margin-top:18px}
+    .card{padding:14px;border:1px solid #13223b;background:#0a1323;border-radius:12px}
+    img{max-width:100%;border-radius:12px}
+    footer{margin:36px 0 8px;color:var(--mut);text-align:center}
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <h1>Xin chào, đây là <em>LIN FU</em> ✨</h1>
+      <span class="badge">HTML chuẩn • Responsive • A11y</span>
+    </header>
+
+    <section class="hero">
+      <p>Đây là phần mở đầu. Hãy thay nội dung bằng sản phẩm của bạn.</p>
+      <a class="cta" href="#">Bắt đầu</a>
+    </section>
+
+    <section>
+      <h2>Tính năng mẫu</h2>
+      <div class="grid">
+        <article class="card"><h3>Thẻ ngữ nghĩa</h3><p>Dùng <code>header</code>, <code>main</code>, <code>section</code>, <code>article</code>, <code>footer</code>.</p></article>
+        <article class="card"><h3>Ảnh lazy</h3><p><img src="https://picsum.photos/560/320" alt="Ảnh ví dụ" loading="lazy"></p></article>
+        <article class="card"><h3>Biểu mẫu</h3>
+          <form onsubmit="event.preventDefault(); alert('Gửi demo!');">
+            <label> Email <input type="email" required placeholder="ban@vidu.com" /></label>
+            <button type="submit" class="cta">Gửi</button>
+          </form>
+        </article>
+      </div>
+    </section>
+
+    <footer>© LIN FU — Demo</footer>
+  </div>
+</body>
+</html>`;
+
+/* ---------- Snippets chèn nhanh ---------- */
+const SNIPPETS = [
+  {name:"HTML5 + Head chuẩn", code:`<!doctype html>
+<html
