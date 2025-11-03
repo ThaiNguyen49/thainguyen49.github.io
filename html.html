@@ -4,7 +4,7 @@
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width,initial-scale=1" />
 <title>LIN FU — HTML Studio</title>
-<meta name="description" content="Studio viết HTML: soạn thảo, xem trước trực tiếp, chèn mẫu, kiểm tra lỗi và hướng dẫn chuẩn chuyên nghiệp."/>
+<meta name="description" content="Studio viết HTML: soạn thảo, xem trước trực tiếp, chèn mẫu, kiểm tra lỗi và hướng dẫn chuyên nghiệp."/>
 <style>
   :root{
     --bg:#0f1221; --panel:#14182a; --soft:#1b2140; --ink:#e9eefc; --muted:#a7b1d6;
@@ -23,20 +23,11 @@
     border-bottom:1px solid #1f2550;
   }
   .head{max-width:1200px;margin:auto;padding:12px 16px;display:flex;gap:14px;align-items:center;justify-content:space-between}
-  .brand{
-    display:flex;align-items:center;gap:12px;font-weight:800;letter-spacing:.2px
-  }
-  .logo{
-    width:34px;height:34px;border-radius:10px;
-    background:conic-gradient(from 210deg at 50% 50%, var(--brand), var(--brand2), var(--accent), var(--brand));
-    box-shadow:0 0 0 2px rgba(124,155,255,.25), 0 12px 24px rgba(0,0,0,.3);
-  }
+  .brand{display:flex;align-items:center;gap:12px;font-weight:800;letter-spacing:.2px}
+  .logo{width:34px;height:34px;border-radius:10px;background:conic-gradient(from 210deg at 50% 50%, var(--brand), var(--brand2), var(--accent), var(--brand));box-shadow:0 0 0 2px rgba(124,155,255,.25), 0 12px 24px rgba(0,0,0,.3)}
   .tag{font-size:12px;color:var(--muted)}
   .toolbar{display:flex;gap:8px;flex-wrap:wrap;align-items:center}
-  button{
-    border:1px solid #2a3161;background:linear-gradient(180deg,#1b2247,#141a36);color:#e8eeff;
-    padding:8px 12px;border-radius:10px;cursor:pointer;font-weight:700;letter-spacing:.3px
-  }
+  button{border:1px solid #2a3161;background:linear-gradient(180deg,#1b2247,#141a36);color:#e8eeff;padding:8px 12px;border-radius:10px;cursor:pointer;font-weight:700;letter-spacing:.3px;transition:transform .15s ease, box-shadow .15s ease}
   button:hover{box-shadow:0 6px 18px rgba(0,0,0,.25);transform:translateY(-1px)}
   .primary{border-color:#3d58ff;background:linear-gradient(180deg,#2a44c9,#1e2c8f)}
   .ghost{background:transparent}
@@ -48,33 +39,16 @@
   .card h2{margin:6px 8px 12px;font-size:16px;color:#cfe2ff}
   /* Editor */
   .editor-wrap{position:relative;border-radius:12px;overflow:hidden}
-  .editor{
-    width:100%; height:460px; resize:vertical;
-    background:#0b0f26; color:#e7ecff; font-family:ui-monospace, SFMono-Regular, Menlo, Consolas, "Liberation Mono", monospace;
-    border:1px solid #1f274f; border-radius:12px; padding:14px 16px 14px 48px; line-height:1.55;
-    caret-color:#7c9bff; tab-size:2;
-  }
-  .linenos{
-    position:absolute; inset:1px auto 1px 1px; width:42px; padding:14px 8px; text-align:right;
-    color:#7f8ac2; background:linear-gradient(180deg,#0d1130,#0c0f27); border-right:1px solid #1f274f;
-    font:600 12px/1.55 ui-monospace,Menlo,Consolas,monospace; user-select:none; overflow:hidden;
-  }
-  .status{
-    margin-top:8px; display:flex; gap:10px; flex-wrap:wrap; align-items:center; color:#b8c1f0; font-size:12px
-  }
+  .editor{width:100%; height:460px; resize:vertical;background:#0b0f26; color:#e7ecff; font-family:ui-monospace, SFMono-Regular, Menlo, Consolas, "Liberation Mono", monospace;border:1px solid #1f274f; border-radius:12px; padding:14px 16px 14px 48px; line-height:1.55;caret-color:#7c9bff; tab-size:2}
+  .linenos{position:absolute; inset:1px auto 1px 1px; width:42px; padding:14px 8px; text-align:right;color:#7f8ac2; background:linear-gradient(180deg,#0d1130,#0c0f27); border-right:1px solid #1f274f;font:600 12px/1.55 ui-monospace,Menlo,Consolas,monospace; user-select:none; overflow:hidden}
+  .status{margin-top:8px; display:flex; gap:10px; flex-wrap:wrap; align-items:center; color:#b8c1f0; font-size:12px}
   .dot{display:inline-block; width:8px; height:8px; border-radius:50%}
   .dot.ok{background:var(--ok)} .dot.err{background:var(--danger)}
   /* Preview */
-  .preview{
-    width:100%; height:460px; border-radius:12px; border:1px solid #213066; overflow:hidden;
-    background:linear-gradient(180deg,#0e1231,#0a0d24);
-  }
+  .preview{width:100%; height:460px; border-radius:12px; border:1px solid #213066; overflow:hidden;background:linear-gradient(180deg,#0e1231,#0a0d24)}
   iframe{width:100%;height:100%;border:0;background:white}
   .chips{display:flex; gap:8px; flex-wrap:wrap}
-  .chip{
-    font-size:12px; padding:6px 10px; border-radius:999px; border:1px solid #2a3161; color:#d8e2ff;
-    background:linear-gradient(180deg,#1a1f45,#10153a); cursor:pointer
-  }
+  .chip{font-size:12px; padding:6px 10px; border-radius:999px; border:1px solid #2a3161; color:#d8e2ff;background:linear-gradient(180deg,#1a1f45,#10153a); cursor:pointer}
   .chip:hover{border-color:#445cf7; box-shadow:0 10px 20px rgba(20,32,120,.25)}
   .kbd{padding:2px 6px;border:1px solid #2c386e;border-radius:6px;background:#0c1130;color:#b8c1f0}
   /* Guide */
@@ -84,6 +58,19 @@
   ul{margin:8px 0 4px 18px}
   code{background:#0b1033;border:1px solid #24306a; padding:2px 6px; border-radius:6px}
   .footer{opacity:.8;margin:14px 0 6px;text-align:center;color:#8ea7ff;font-size:12px}
+
+  /* Chatbot */
+  .chatbot-toggle{position:fixed;right:16px;bottom:16px;z-index:30;display:flex;align-items:center;gap:8px;padding:10px 12px;border-radius:999px;background:linear-gradient(180deg,#2a44c9,#1e2c8f);border:1px solid #3d58ff;color:#fff;cursor:pointer;box-shadow:0 12px 30px rgba(0,0,0,.35)}
+  .chatbot{position:fixed;right:16px;bottom:76px;width:340px;max-height:520px;display:none;flex-direction:column;background:#0c1130;border:1px solid #1f2a55;border-radius:16px;box-shadow:0 20px 50px rgba(0,0,0,.5);overflow:hidden;z-index:40}
+  .chatbot header{position:relative;background:linear-gradient(180deg,#1a224a,#0f1636);border:0}
+  .chatbot .title{padding:10px 12px;font-weight:800;color:#e8eeff}
+  .chatbot .messages{padding:12px;height:320px;overflow:auto;display:flex;flex-direction:column;gap:8px;background:linear-gradient(180deg,#0b102b,#0a0f24)}
+  .msg{max-width:80%;padding:8px 10px;border-radius:12px;border:1px solid #1f2a55}
+  .msg.bot{background:#0f1734;color:#d8e2ff}
+  .msg.me{background:#162447;color:#e9eefc;margin-left:auto}
+  .chatbot .input{display:flex;gap:8px;padding:8px;border-top:1px solid #1f2a55;background:#0b1028}
+  .chatbot input{flex:1;padding:10px;border-radius:10px;border:1px solid #263166;background:#0a1330;color:#e8eeff}
+  .chatbot button{border-color:#2a3161}
 </style>
 </head>
 <body>
@@ -167,67 +154,19 @@
     <div class="footer">© TOOL TEXT LIN FU — HTML Studio. Dùng tự do cho học tập & công việc.</div>
   </main>
 
+  <!-- Chatbot floating -->
+  <button class="chatbot-toggle" id="chatbotToggle">💬 Chat trợ lý</button>
+  <div class="chatbot" id="chatbot">
+    <header><div class="title">🤖 Trợ lý LIN FU</div></header>
+    <div class="messages" id="chatMessages"></div>
+    <div class="input">
+      <input id="chatInput" placeholder="Nhập câu hỏi… (Shift+Enter để xuống dòng)" />
+      <button id="chatSend">Gửi</button>
+    </div>
+  </div>
+
 <script>
-  // --- Chức năng chính ---
-const editor = document.getElementById("editor");
-const preview = document.getElementById("preview");
-const runBtn = document.getElementById("runBtn");
-const autoBtn = document.getElementById("autoBtn");
-const resetBtn = document.getElementById("resetBtn");
-const downloadBtn = document.getElementById("downloadBtn");
-const lintMsg = document.getElementById("lintMsg");
-const lintDot = document.getElementById("lintDot");
-const linenos = document.getElementById("linenos");
-
-// Tạo số dòng
-function updateLineNumbers() {
-  const lines = editor.value.split("\n").length;
-  linenos.innerHTML = Array.from({length: lines}, (_, i) => i + 1).join("<br>");
-}
-editor.addEventListener("input", updateLineNumbers);
-
-// Hàm chạy code
-function runCode() {
-  const doc = preview.contentDocument || preview.contentWindow.document;
-  doc.open();
-  doc.write(editor.value);
-  doc.close();
-  lintMsg.textContent = "✅ Đã chạy thành công";
-  lintDot.classList.add("ok");
-  lintDot.classList.remove("err");
-}
-runBtn.onclick = runCode;
-
-// Tự động chạy khi bật
-let autoRun = false;
-autoBtn.onclick = () => {
-  autoRun = !autoRun;
-  autoBtn.textContent = autoRun ? "⚡ Tự chạy: BẬT" : "⚡ Tự chạy: TẮT";
-};
-editor.addEventListener("input", () => autoRun && runCode());
-
-// Nút mẫu chuẩn
-resetBtn.onclick = () => {
-  editor.value = BOILERPLATE;
-  updateLineNumbers();
-  runCode();
-};
-
-// Nút tải xuống
-downloadBtn.onclick = () => {
-  const blob = new Blob([editor.value], { type: "text/html" });
-  const a = document.createElement("a");
-  a.href = URL.createObjectURL(blob);
-  a.download = "linfu-demo.html";
-  a.click();
-};
-
-// Khởi tạo
-editor.value = BOILERPLATE;
-updateLineNumbers();
-runCode();
-
-/* ---------- Mẫu khởi động ---------- */
+/* ========= BOILERPLATE cần đặt TRƯỚC khi dùng ========= */
 const BOILERPLATE = `<!doctype html>
 <html lang="vi">
 <head>
@@ -282,5 +221,129 @@ const BOILERPLATE = `<!doctype html>
 
 /* ---------- Snippets chèn nhanh ---------- */
 const SNIPPETS = [
-  {name:"HTML5 + Head chuẩn", code:`<!doctype html>
-<html
+  {name:"HTML5 + Head chuẩn", code:`<!doctype html>\n<html lang="vi">\n<head>\n<meta charset="utf-8" />\n<meta name="viewport" content="width=device-width,initial-scale=1" />\n<title>Trang mới</title>\n</head>\n<body>\n<h1>Xin chào</h1>\n<p>Nội dung ở đây.</p>\n</body>\n</html>`},
+  {name:"Thẻ card", code:`<article class="card"><h3>Tiêu đề</h3><p>Mô tả ngắn…</p></article>`},
+  {name:"Nút CTA", code:`<a class="cta" href="#">Bấm vào đây</a>`}
+];
+
+// --- Tham chiếu phần tử ---
+const editor = document.getElementById("editor");
+const preview = document.getElementById("preview");
+const runBtn = document.getElementById("runBtn");
+const autoBtn = document.getElementById("autoBtn");
+const resetBtn = document.getElementById("resetBtn");
+const downloadBtn = document.getElementById("downloadBtn");
+const lintMsg = document.getElementById("lintMsg");
+const lintDot = document.getElementById("lintDot");
+const linenos = document.getElementById("linenos");
+const chips = document.getElementById("snippets");
+
+// Tạo chips snippet
+for(const s of SNIPPETS){
+  const el = document.createElement('button');
+  el.className = 'chip';
+  el.textContent = s.name;
+  el.onclick = () => insertAtCursor(editor, s.code);
+  chips.appendChild(el);
+}
+
+// Chèn đoạn tại vị trí con trỏ
+function insertAtCursor(field, text){
+  const start = field.selectionStart, end = field.selectionEnd;
+  const before = field.value.substring(0, start);
+  const after = field.value.substring(end);
+  field.value = before + text + after;
+  field.selectionStart = field.selectionEnd = start + text.length;
+  field.focus();
+  updateLineNumbers();
+}
+
+// Số dòng
+function updateLineNumbers(){
+  const lines = editor.value.split("\n").length;
+  linenos.innerHTML = Array.from({length: lines}, (_, i) => i + 1).join("<br>");
+}
+editor.addEventListener("input", updateLineNumbers);
+
+// Chạy code vào iframe
+function runCode(){
+  const doc = preview.contentDocument || preview.contentWindow.document;
+  doc.open();
+  doc.write(editor.value);
+  doc.close();
+  lintMsg.textContent = "✅ Đã chạy thành công";
+  lintDot.classList.add("ok");
+  lintDot.classList.remove("err");
+}
+runBtn.onclick = runCode;
+
+// Tự động chạy
+let autoRun = false;
+autoBtn.onclick = () => {
+  autoRun = !autoRun;
+  autoBtn.textContent = autoRun ? "⚡ Tự chạy: BẬT" : "⚡ Tự chạy: TẮT";
+};
+editor.addEventListener("input", () => autoRun && runCode());
+
+// Mẫu chuẩn
+resetBtn.onclick = () => { editor.value = BOILERPLATE; updateLineNumbers(); runCode(); };
+
+// Tải xuống
+downloadBtn.onclick = () => {
+  const blob = new Blob([editor.value], { type: "text/html" });
+  const a = document.createElement("a");
+  a.href = URL.createObjectURL(blob);
+  a.download = "linfu-demo.html";
+  a.click();
+};
+
+// Phím tắt
+window.addEventListener('keydown', (e)=>{
+  if((e.ctrlKey||e.metaKey) && e.key.toLowerCase()==='enter'){ e.preventDefault(); runCode(); }
+  if((e.ctrlKey||e.metaKey) && e.key.toLowerCase()==='s'){ e.preventDefault(); downloadBtn.click(); }
+});
+
+// Khởi tạo
+editor.value = BOILERPLATE;
+updateLineNumbers();
+runCode();
+
+/* ======== Chatbot đơn giản (client-side) ======== */
+const botToggle = document.getElementById('chatbotToggle');
+const bot = document.getElementById('chatbot');
+const chatList = document.getElementById('chatMessages');
+const chatInput = document.getElementById('chatInput');
+const chatSend = document.getElementById('chatSend');
+
+botToggle.onclick = ()=>{ bot.style.display = bot.style.display==='flex' ? 'none' : 'flex'; chatInput.focus(); };
+
+function appendMsg(text, who='bot'){
+  const div = document.createElement('div');
+  div.className = `msg ${who}`;
+  div.textContent = text;
+  chatList.appendChild(div);
+  chatList.scrollTop = chatList.scrollHeight;
+}
+
+function botReply(text){
+  const t = text.toLowerCase();
+  if(t.includes('xin chao') || t.includes('hello') || t.includes('hi')) return 'Chào bạn! Mình là trợ lý LIN FU. Mình có thể chèn mẫu HTML, chạy xem trước và tải xuống file.';
+  if(t.includes('mau') || t.includes('template')) return 'Gợi ý: dùng nút “Mẫu chuẩn” để chèn bộ khởi động, hoặc ấn chip “HTML5 + Head chuẩn”.';
+  if(t.includes('khong chay') || t.includes('không chạy')) return 'Hãy chắc nội dung có đầy đủ <!doctype html>… và bấm ▶ Chạy. Bạn cũng có thể bật “Tự chạy”.';
+  if(t.includes('tai xuong') || t.includes('tải xuống')) return 'Bấm “⬇ Tải xuống” để lưu nội dung hiện tại thành .html.';
+  return 'Mình chưa hiểu ý 😅 — thử hỏi về "mẫu", "không chạy", "tải xuống" hoặc chào mình xem nhé.';
+}
+
+function send(){
+  const text = chatInput.value.trim();
+  if(!text) return; appendMsg(text, 'me'); chatInput.value='';
+  setTimeout(()=>{ appendMsg(botReply(text), 'bot'); }, 150);
+}
+
+chatSend.onclick = send;
+chatInput.addEventListener('keydown', e=>{ if(e.key==='Enter' && !e.shiftKey){ e.preventDefault(); send(); } });
+
+appendMsg('Xin chào! 👋 Mình là trợ lý của Studio. Hỏi mình nếu bạn cần giúp.');
+</script>
+</body>
+</html>
